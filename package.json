@@ -1,0 +1,64 @@
+{
+  "name": "next-starter-template",
+  "version": "0.1.0",
+  "author": {
+    "name": "Gobind Singh",
+    "email": "thesinghgobind@gmail.com",
+    "url": "https://github.com/theGobindSingh/"
+  },
+  "private": true,
+  "scripts": {
+    "prebuild": "npm run lint:fix",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "prettier --config .prettierrc \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --write && eslint \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\"",
+    "lint:fix": "prettier --config .prettierrc \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --write && eslint \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --fix"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@kami-ui/next-theme": "^0.0.22",
+    "@kami-ui/react-components": "^0.0.3",
+    "@kami-ui/theme-shop": "^0.0.2",
+    "@types/node": "^25.0.10",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@kami-ui/eslint-config": "^0.0.4",
+    "@kami-ui/types": "^0.0.3",
+    "@tsconfig/next": "^2.0.5",
+    "@tsconfig/strictest": "^2.0.8",
+    "eslint": "^9.39.2",
+    "glob": "^13.0.0",
+    "globals": "^17.2.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "rimraf": "^6.1.2",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "rimraf": "^6.1.2",
+    "glob": "^13.0.0"
+  },
+  "resolutions": {
+    "rimraf": "^6.1.2",
+    "glob": "^13.0.0"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "packageManager": "pnpm@10.28.2",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "unrs-resolver"
+    ]
+  }
+}
