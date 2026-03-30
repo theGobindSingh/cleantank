@@ -1,12 +1,11 @@
 /* eslint-disable camelcase -- fonts */
-import { defaultLightTheme } from "@kami-ui/theme-shop";
 import { ThemeObject } from "@kami-ui/types";
 import { breakpoints } from "@styles/global";
 import {
   DM_Mono,
   Inter,
   Nothing_You_Could_Do,
-  Poppins,
+  Plus_Jakarta_Sans,
 } from "next/font/google";
 
 const fontSansSerif = Inter({
@@ -19,9 +18,10 @@ const fontMono = DM_Mono({
   subsets: ["latin", "latin-ext"],
 });
 
-const fontSans = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin", "latin-ext"],
+const fontSans = Plus_Jakarta_Sans({
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  subsets: ["latin", "latin-ext", "cyrillic-ext", "vietnamese"],
+  preload: true,
 });
 
 const fontCursive = Nothing_You_Could_Do({
@@ -30,7 +30,56 @@ const fontCursive = Nothing_You_Could_Do({
 });
 
 const theme: ThemeObject = {
-  ...defaultLightTheme,
+  colors: {
+    primary: [
+      "#001B3C",
+      "#05305E",
+      "#254776",
+      "#3E5F90",
+      "#5878AA",
+      "#7292C6",
+      "#8CACE2",
+      "#A7C8FF",
+      "#D5E3FF",
+      "#ECF1FF",
+    ],
+    secondary: [
+      "#00201C",
+      "#003731",
+      "#005047",
+      "#006B5F",
+      "#008677",
+      "#00A391",
+      "#36BEAC",
+      "#59DBC7",
+      "#79F7E3",
+      "#B5FFF0",
+    ],
+    accent: [
+      "#0E1E1E",
+      "#233333",
+      "#3A4A49",
+      "#516161",
+      "#697A7A",
+      "#839493",
+      "#9DAFAE",
+      "#B8CAC9",
+      "#D4E6E5",
+      "#E2F4F3",
+    ],
+    neutral: [
+      "#191C1D",
+      "#2E3132",
+      "#444748",
+      "#5C5F60",
+      "#747779",
+      "#8E9192",
+      "#A9ACAD",
+      "#C4C7C8",
+      "#E1E3E4",
+      "#EFF1F2",
+    ],
+  },
   typography: {
     fontSizes: [
       {

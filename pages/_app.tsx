@@ -2,6 +2,7 @@ import { Global } from "@emotion/react";
 import { ThemeProvider } from "@kami-ui/next-theme";
 import { globalStyles } from "@styles/global";
 import theme from "@styles/theme";
+import "material-symbols/outlined.css";
 import type { AppProps } from "next/app";
 
 const App = ({ Component, pageProps }: AppProps) => (

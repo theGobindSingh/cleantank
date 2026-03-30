@@ -3,6 +3,7 @@ import {
   containerStyles,
   wrapperStyles,
 } from "@components/common-full-width-wrapper/styles";
+import { Interpolation, Theme } from "@emotion/react";
 import {
   FullWidthWrapper,
   FullWidthWrapperProps,
@@ -12,8 +13,8 @@ import { forwardRef, PropsWithChildren, Ref } from "react";
 interface CommonFullWidthWrapperProps {
   className?: string;
   element?: FullWidthWrapperProps["element"];
-  wrapperCss?: FullWidthWrapperProps["wrapperCss"];
-  wrapperClassName?: FullWidthWrapperProps["wrapperClassName"];
+  wrapperCss?: Interpolation<Theme>;
+  wrapperProps?: FullWidthWrapperProps["wrapperProps"];
   bg?: string;
 }
 
@@ -23,13 +24,13 @@ const CommonFullWidthWrapperWithoutRef = (
     children,
     element = "section",
     wrapperCss,
-    wrapperClassName,
+    wrapperProps,
     bg,
   }: PropsWithChildren<CommonFullWidthWrapperProps>,
   ref: Ref<HTMLElement>,
 ) => (
   <FullWidthWrapper
-    wrapperClassName={wrapperClassName!}
+    wrapperProps={wrapperProps!}
     className={className}
     css={containerStyles}
     wrapperCss={[wrapperStyles(bg), wrapperCss] as any}

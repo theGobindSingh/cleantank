@@ -26,14 +26,23 @@ export const globalStyles = css`
     --some-variable: #000;
   }
   body {
-    color: var(--color-gray-800);
+    color: var(--color-accent-100);
     font-size: var(--fs-2xs);
     font-family: var(--font-sans);
     padding: 0;
     margin: 0;
+    background-color: var(--color-accent-1000);
   }
   * {
     box-sizing: border-box;
+  }
+  .material-symbols-outlined {
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    ::selection {
+      background-color: transparent;
+    }
   }
 `;
 
