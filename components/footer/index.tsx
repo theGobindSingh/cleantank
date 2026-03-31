@@ -5,6 +5,7 @@ import {
   FooterMidSection,
   FooterOuterWrapper,
 } from "@components/footer/styles";
+import { Interpolation, Theme } from "@emotion/react";
 import { useEffect, useState } from "react";
 
 const quickLinks = [
@@ -21,6 +22,13 @@ const contacts = [
   },
 ];
 
+const css: Interpolation<Theme> = {
+  color: "var(--color-accent-1000)",
+  textAlign: "center",
+  fontSize: "var(--fs-2xs)",
+  padding: "1rem 0",
+  fontWeight: "500",
+};
 const FooterCopyrightSection = () => {
   const [currentYear, setCurrentYear] = useState("2027");
   useEffect(() => {
@@ -32,13 +40,7 @@ const FooterCopyrightSection = () => {
     <CommonFullWidthWrapper
       element="div"
       bg="var(--color-primary-100)"
-      css={{
-        color: "var(--color-accent-1000)",
-        textAlign: "center",
-        fontSize: "var(--fs-2xs)",
-        padding: "1rem 0",
-        fontWeight: "500",
-      }}
+      css={css}
     >
       {`© ${currentYear} Clean Tank Services. Industrial-Grade Hygiene Certified.`}
     </CommonFullWidthWrapper>
@@ -70,6 +72,11 @@ const contactsMapper = ({ href, label, icon }: (typeof contacts)[number]) => (
   </a>
 );
 
+const wrapperCss = {
+  borderTop: "1px solid var(--color-primary-300)",
+  borderBottom: "1px solid var(--color-primary-300)",
+};
+
 const Footer = () => (
   <FooterOuterWrapper>
     <FooterContentSection element="div" bg="var(--color-primary-100)">
@@ -93,10 +100,7 @@ const Footer = () => (
     <FooterMidSection
       bg="var(--color-primary-100)"
       element="div"
-      wrapperCss={{
-        borderTop: "1px solid var(--color-primary-300)",
-        borderBottom: "1px solid var(--color-primary-300)",
-      }}
+      wrapperCss={wrapperCss}
     >
       <div className="footer-section long">
         <span className="title">Clean Tank Services</span>

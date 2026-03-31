@@ -8,7 +8,7 @@ import {
   FullWidthWrapper,
   FullWidthWrapperProps,
 } from "@kami-ui/react-components";
-import { forwardRef, PropsWithChildren, Ref } from "react";
+import { forwardRef, PropsWithChildren, Ref, useMemo } from "react";
 
 interface CommonFullWidthWrapperProps {
   className?: string;
@@ -28,19 +28,25 @@ const CommonFullWidthWrapperWithoutRef = (
     bg,
   }: PropsWithChildren<CommonFullWidthWrapperProps>,
   ref: Ref<HTMLElement>,
-) => (
-  <FullWidthWrapper
-    wrapperProps={wrapperProps!}
-    className={className}
-    css={containerStyles}
-    wrapperCss={[wrapperStyles(bg), wrapperCss] as any}
-    containerSize={containerSize}
-    element={element}
-    ref={ref}
-  >
-    {children}
-  </FullWidthWrapper>
-);
+) => {
+  const mergedWrapperCss = useMemo(
+    () => [wrapperStyles(bg), wrapperCss] as any,
+    [bg, wrapperCss],
+  );
+  return (
+    <FullWidthWrapper
+      wrapperProps={wrapperProps!}
+      className={className}
+      css={containerStyles}
+      wrapperCss={mergedWrapperCss}
+      containerSize={containerSize}
+      element={element}
+      ref={ref}
+    >
+      {children}
+    </FullWidthWrapper>
+  );
+};
 
 const CommonFullWidthWrapper = forwardRef(CommonFullWidthWrapperWithoutRef);
 export default CommonFullWidthWrapper;

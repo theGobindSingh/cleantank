@@ -2,6 +2,8 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import { ButtonBaseProps } from "./types";
+// Filter out all props starting with $ (Emotion global prop filter)
+const shouldForwardProp = (prop: string) => !prop.startsWith("$");
 
 type VariantFnProps = Omit<ButtonBaseProps, "$variant">;
 
@@ -122,7 +124,7 @@ const mainStyles = css`
   }
 `;
 
-export const ButtonWrapper = styled.button<ButtonBaseProps>`
+export const ButtonWrapper = styled("button", { shouldForwardProp })`
   ${mainStyles}
   padding: ${({ $padding = "0.5em 1em" }) => $padding};
   font-weight: ${({ $fontWeight = "500" }) => $fontWeight};
@@ -131,7 +133,7 @@ export const ButtonWrapper = styled.button<ButtonBaseProps>`
   ${variantStyles};
 `;
 
-export const LinkButtonWrapper = styled(Link)<ButtonBaseProps>`
+export const LinkButtonWrapper = styled(Link, { shouldForwardProp })`
   ${mainStyles}
   padding: ${({ $padding = "0.5em 1em" }) => $padding};
   font-weight: ${({ $fontWeight = "500" }) => $fontWeight};
