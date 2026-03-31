@@ -1,5 +1,6 @@
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import styled from "@emotion/styled";
+import { mediaQuery } from "@styles/global";
 
 export const FooterOuterWrapper = styled.footer`
   width: 100%;
@@ -29,6 +30,11 @@ export const FooterContentSection = styled(CommonFullWidthWrapper)`
     letter-spacing: 0.01em;
     color: rgb(var(--color-accent-1000-base), 0.75);
     font-weight: 500;
+  }
+  ${mediaQuery.nonDesktop} {
+    .sub-title {
+      max-width: 85%;
+    }
   }
 `;
 
@@ -93,6 +99,22 @@ export const FooterMidSection = styled(CommonFullWidthWrapper)`
             font-size: var(--fs-2xs);
           }
         }
+      }
+    }
+  }
+  ${mediaQuery.nonDesktop} {
+    flex-direction: column;
+    .footer-section {
+      &.long {
+        flex: unset;
+        .sub-title {
+          max-width: 85%;
+          margin: 0 0 0.75rem 0;
+        }
+      }
+      &.short {
+        flex: unset;
+        margin-top: 1.5rem;
       }
     }
   }

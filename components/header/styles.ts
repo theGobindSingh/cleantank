@@ -9,9 +9,9 @@ export const headerWrapperStyles = css`
     0 1px 2px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
+  left: 0;
   z-index: 99;
   background-color: var(--color-white);
-  position: relative;
 `;
 
 export const HeaderLogo = styled(Link)`

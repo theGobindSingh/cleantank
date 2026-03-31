@@ -40,6 +40,9 @@ export const globalStyles = css`
   #__next {
     width: 100%;
     overflow-x: hidden;
+    position: relative;
+    height: 100dvh;
+    overflow-y: auto;
   }
   .material-symbols-outlined {
     pointer-events: none;
