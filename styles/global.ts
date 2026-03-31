@@ -19,6 +19,7 @@ export const mediaQuery = {
   phone: `@media (min-width: ${breakpoints.phone.min}px) and (max-width: ${breakpoints.phone.max}px)`,
   tablet: `@media (min-width: ${breakpoints.tablet.min}px) and (max-width: ${breakpoints.tablet.max}px)`,
   desktop: `@media (min-width: ${breakpoints.desktop.min}px)`,
+  nonDesktop: `@media (max-width: ${breakpoints.desktop.min}px)`,
 };
 
 export const globalStyles = css`
@@ -35,6 +36,10 @@ export const globalStyles = css`
   }
   * {
     box-sizing: border-box;
+  }
+  #__next {
+    width: 100%;
+    overflow-x: hidden;
   }
   .material-symbols-outlined {
     pointer-events: none;
