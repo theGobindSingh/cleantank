@@ -47,7 +47,7 @@ export const globalStyles = css`
     height: 100dvh;
     overflow-y: auto;
   }
-  .material-symbols-outlined {
+  .icon {
     pointer-events: none;
     -webkit-tap-highlight-color: transparent;
     user-select: none;

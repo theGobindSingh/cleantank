@@ -201,40 +201,6 @@ Each page MUST include:
 
 ---
 
-## 🧩 Icons (Material Symbols ONLY)
-
-Use ONLY this format:
-
-```html
-<span class="material-symbols-outlined">face</span>
-```
-
-### Variants:
-
-- `material-symbols-outlined`
-- `material-symbols-rounded`
-- `material-symbols-sharp`
-
-### Font Settings:
-
-```css
-.material-symbols-outlined {
-  font-variation-settings:
-    "FILL" 0,
-    "wght" 400,
-    "GRAD" 0,
-    "opsz" 48;
-}
-```
-
-❌ Do NOT:
-
-- Use SVG icons
-- Use icon libraries
-- Use images for icons
-
----
-
 ## 🧠 Design Philosophy
 
 - Clean, minimal, structured

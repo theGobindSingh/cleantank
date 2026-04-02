@@ -6,6 +6,14 @@ import {
   FooterOuterWrapper,
 } from "@components/footer/styles";
 import { Interpolation, Theme } from "@emotion/react";
+import {
+  EmailRounded,
+  PhoneRounded,
+  ShieldRounded,
+  SvgIconComponent,
+  VerifiedRounded,
+  WorkspacePremiumRounded,
+} from "@mui/icons-material";
 import { useEffect, useState } from "react";
 
 const quickLinks = [
@@ -13,12 +21,16 @@ const quickLinks = [
   { label: "Terms of Service", href: "/terms-of-service" },
   { label: "Sitemap", href: "/sitemap" },
 ];
-const contacts = [
-  { label: "+91 12345 67890", href: "tel:+911234567890", icon: "phone" },
+const contacts: {
+  label: string;
+  href: string;
+  icon?: SvgIconComponent;
+}[] = [
+  { label: "+91 12345 67890", href: "tel:+911234567890", icon: PhoneRounded },
   {
     label: "cleantankservices@gmail.com",
     href: "mailto:cleantankservices@gmail.com",
-    icon: "email",
+    icon: EmailRounded,
   },
 ];
 
@@ -59,7 +71,11 @@ const quickLinksMapper = ({ href, label }: (typeof quickLinks)[number]) => (
   </a>
 );
 
-const contactsMapper = ({ href, label, icon }: (typeof contacts)[number]) => (
+const contactsMapper = ({
+  href,
+  label,
+  icon: Icon,
+}: (typeof contacts)[number]) => (
   <a
     key={href}
     href={href}
@@ -67,7 +83,7 @@ const contactsMapper = ({ href, label, icon }: (typeof contacts)[number]) => (
     target="_blank"
     rel="noopener noreferrer"
   >
-    <span className="material-symbols-outlined icon">{icon}</span>
+    {Icon && <Icon className="icon" />}
     {label}
   </a>
 );
@@ -110,9 +126,9 @@ const Footer = () => (
           Certified ISO 9001:2015.
         </span>
         <div className="icons-container">
-          <span className="material-symbols-outlined">verified</span>
-          <span className="material-symbols-outlined">workspace_premium</span>
-          <span className="material-symbols-outlined">shield</span>
+          <VerifiedRounded />
+          <WorkspacePremiumRounded />
+          <ShieldRounded />
         </div>
       </div>
       <nav className="footer-section short nav">

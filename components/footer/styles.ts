@@ -75,7 +75,7 @@ export const FooterMidSection = styled(CommonFullWidthWrapper)`
           aspect-ratio: 1 / 1;
           border: 1px solid var(--color-primary-300);
           padding: 0.5rem;
-          font-size: var(--fs-s);
+          font-size: var(--fs-1xl);
         }
       }
     }
