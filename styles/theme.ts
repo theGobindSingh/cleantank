@@ -1,4 +1,5 @@
 /* eslint-disable camelcase -- fonts */
+import { defaultLightTheme } from "@kami-ui/theme-shop";
 import { ThemeObject } from "@kami-ui/types";
 import { breakpoints } from "@styles/global";
 import {
@@ -35,6 +36,7 @@ const fontCursive = Nothing_You_Could_Do({
 
 const theme: ThemeObject = {
   colors: {
+    ...defaultLightTheme.colors,
     primary: [
       "#001B3C",
       "#05305E",

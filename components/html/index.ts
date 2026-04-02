@@ -3,13 +3,12 @@ import styled from "@emotion/styled";
 type ColorType =
   | "primary"
   | "secondary"
-  | "tertiary"
   | "accent"
+  | "neutral"
   | "success"
-  | "caution"
+  | "warning"
   | "info"
   | "error"
-  | "gray"
   | "black"
   | "white";
 type Weight = `${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}00` | "1000";

@@ -1,7 +1,14 @@
 import GlobalLayout from "@/layouts/global";
 import HeroSection from "@components/hero-section";
 import { HeroSectionProps } from "@components/hero-section/types";
-import { HomeProps } from "@modules/home/types";
+import HeroStrip from "@modules/home/hero-strip";
+import { HeroStripProps, HomeProps } from "@modules/home/types";
+import {
+  GavelRounded,
+  SecurityRounded,
+  TaskAltRounded,
+  VerifiedRounded,
+} from "@mui/icons-material";
 
 const CTAs: HeroSectionProps["CTAs"] = [
   {
@@ -27,6 +34,29 @@ const CTAs: HeroSectionProps["CTAs"] = [
   },
 ];
 
+const heroStripItems: HeroStripProps["items"] = [
+  {
+    icon: VerifiedRounded,
+    title: "ISO 9001:2015",
+    subTitle: "Quality Certified",
+  },
+  {
+    icon: TaskAltRounded,
+    title: "5000+",
+    subTitle: "Projects Completed",
+  },
+  {
+    icon: GavelRounded,
+    title: "Government Grade",
+    subTitle: "Compliance Standard",
+  },
+  {
+    icon: SecurityRounded,
+    title: "100%",
+    subTitle: "Satisfaction Guaranteed",
+  },
+];
+
 const Home = (_: HomeProps) => (
   <GlobalLayout>
     <HeroSection
@@ -36,6 +66,7 @@ const Home = (_: HomeProps) => (
       subtitle="Sterile hygiene protocols, government-grade compliance, and advanced robotic technology for high-capacity liquid storage systems."
       CTAs={CTAs}
     />
+    <HeroStrip items={heroStripItems} />
   </GlobalLayout>
 );
 
