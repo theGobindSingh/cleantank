@@ -11,22 +11,26 @@ import {
 const fontSansSerif = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 const fontMono = DM_Mono({
   weight: ["400", "500"],
   subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 const fontSans = Plus_Jakarta_Sans({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
   subsets: ["latin", "latin-ext", "cyrillic-ext", "vietnamese"],
   preload: true,
+  display: "swap",
 });
 
 const fontCursive = Nothing_You_Could_Do({
   weight: ["400"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 const theme: ThemeObject = {

@@ -16,6 +16,7 @@ interface CommonFullWidthWrapperProps {
   wrapperCss?: Interpolation<Theme>;
   wrapperProps?: FullWidthWrapperProps["wrapperProps"];
   bg?: string;
+  secondContainer?: FullWidthWrapperProps["secondContainer"];
 }
 
 const CommonFullWidthWrapperWithoutRef = (
@@ -26,11 +27,12 @@ const CommonFullWidthWrapperWithoutRef = (
     wrapperCss,
     wrapperProps,
     bg,
+    secondContainer,
   }: PropsWithChildren<CommonFullWidthWrapperProps>,
   ref: Ref<HTMLElement>,
 ) => {
   const mergedWrapperCss = useMemo(
-    () => [wrapperStyles(bg), wrapperCss] as any,
+    (): any => [wrapperStyles(bg), wrapperCss],
     [bg, wrapperCss],
   );
   return (
@@ -42,6 +44,7 @@ const CommonFullWidthWrapperWithoutRef = (
       containerSize={containerSize}
       element={element}
       ref={ref}
+      secondContainer={secondContainer}
     >
       {children}
     </FullWidthWrapper>

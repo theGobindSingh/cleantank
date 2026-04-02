@@ -99,7 +99,7 @@ export const HeaderLinksWrapper = styled.div`
     top: 0;
     right: 0;
     background-color: var(--color-accent-1000);
-    transform: translateX(100%);
+    transform: translateX(101%);
     transition: all 0.3s ease;
     font-size: var(--fs-1xs);
     padding: 0 1.5rem;

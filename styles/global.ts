@@ -1,5 +1,8 @@
 import { css } from "@emotion/react";
 
+export const shouldForwardProp = (prop: string) => !prop.startsWith("$");
+export { shouldForwardProp as sfp };
+
 export const breakpoints = {
   phone: {
     min: 0,

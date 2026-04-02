@@ -7,7 +7,7 @@ import {
   RefAttributes,
 } from "react";
 
-export type ButtonVariant = "filled" | "outlined" | "text";
+export type ButtonVariant = "filled" | "outlined" | "glass" | "text";
 
 export type ButtonColors = keyof Omit<
   ColorsObject,
@@ -56,4 +56,6 @@ export interface ButtonBaseProps<ColorWeight = Weight, FontWeight = Weight> {
   $fontWeight?: FontWeight;
   $textColor?: TextColors;
   $textColorWeight?: ColorWeight;
+  /** To be used only for glass variant */
+  $withBorder?: boolean;
 }

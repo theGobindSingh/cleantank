@@ -1,9 +1,8 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { shouldForwardProp } from "@styles/global";
 import Link from "next/link";
 import { ButtonBaseProps } from "./types";
-// Filter out all props starting with $ (Emotion global prop filter)
-const shouldForwardProp = (prop: string) => !prop.startsWith("$");
 
 type VariantFnProps = Omit<ButtonBaseProps, "$variant">;
 
@@ -21,14 +20,33 @@ const filledStyles = ({
 const outlinedStyles = ({
   $color = "primary",
   $colorWeight = "300",
-  $textColor = "accent",
-  $textColorWeight = "100",
+  $textColor,
+  $textColorWeight,
 }: VariantFnProps) => css`
   background-color: transparent;
   color: var(
     --color-${$textColor ?? $color}-${$textColorWeight ?? $colorWeight}
   );
   border: 2px solid var(--color-${$color}-${$colorWeight});
+`;
+
+const glassStyles = ({
+  $color = "primary",
+  $colorWeight = "300",
+  $textColor = "accent",
+  $textColorWeight = "100",
+  $withBorder = false,
+}: VariantFnProps) => css`
+  background-color: rgba(var(--color-${$color}-${$colorWeight}), 0.15);
+  color: var(
+    --color-${$textColor ?? $color}-${$textColorWeight ?? $colorWeight}
+  );
+  border: 2px solid rgba(var(--color-${$color}-${$colorWeight}), 0.3);
+  backdrop-filter: blur(10px);
+  ${$withBorder &&
+  css`
+    border: 2px solid var(--color-${$color}-${$colorWeight});
+  `}
 `;
 
 const textStyles = (_: VariantFnProps) => css`
@@ -61,6 +79,8 @@ const sizeStyles = ({ $size = "md" }: ButtonBaseProps) => {
 
 const variantStyles = ({ $variant = "filled", ...props }: ButtonBaseProps) => {
   switch ($variant) {
+    case "glass":
+      return glassStyles(props);
     case "filled":
       return filledStyles(props);
     case "outlined":

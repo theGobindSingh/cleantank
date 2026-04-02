@@ -5,6 +5,10 @@ const HomePage = () => (
   <>
     <Head>
       <title>Clean Tank Services | Home</title>
+      <meta
+        name="description"
+        content="Clean Tank Services provides top-notch cleaning solutions for residential and commercial spaces."
+      />
     </Head>
     <HomeModule />
   </>

@@ -12,7 +12,7 @@ type ColorType =
   | "gray"
   | "black"
   | "white";
-type Weight = `${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8}00`;
+type Weight = `${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}00` | "1000";
 
 const fontSizes = {
   "4xs": "var(--fs-4xs)",
@@ -34,6 +34,7 @@ export interface CommonTextProps {
   $weight?: Weight;
   $lineHeight?: string;
   $color?: ColorType;
+  $colorAlpha?: number;
   $colorWeight?: Weight;
   $letterSpacing?: string;
 }
@@ -41,10 +42,14 @@ export interface CommonTextProps {
 const getColor = ({
   $color,
   $colorWeight,
-}: Pick<CommonTextProps, "$color" | "$colorWeight">) => {
+  $colorAlpha,
+}: Pick<CommonTextProps, "$color" | "$colorWeight" | "$colorAlpha">) => {
   if (!$color) return "inherit";
   if ($color === "black" || $color === "white") {
     return `var(--color-${$color})`;
+  }
+  if ($colorAlpha) {
+    return `rgba(var(--color-${$color}-${$colorWeight ?? "400"}-base), ${$colorAlpha})`;
   }
   return `var(--color-${$color}-${$colorWeight ?? "400"})`;
 };
