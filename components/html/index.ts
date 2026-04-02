@@ -73,7 +73,7 @@ export const H1 = styled.h1<CommonTextProps>`
 `;
 
 export const H2 = styled.h2<CommonTextProps>`
-  font-size: ${({ $size }) => fontSizes[$size ?? "2xl"]};
+  font-size: ${({ $size }) => fontSizes[$size ?? "1xl"]};
   margin: ${({ $margin }) => $margin ?? "0 0 0.5em 0"};
   font-weight: ${({ $weight }) => $weight ?? "700"};
   line-height: ${lineHeightFn};

@@ -30,7 +30,7 @@ const HeroStrip = ({ items }: HeroStripProps) => {
     </HeroStripItemWrapper>
   );
   return (
-    <HeroStripWrapper bg={"var(--color-neutral-1000)"}>
+    <HeroStripWrapper bg={"var(--color-neutral-900)"}>
       {items.map(itemMapper)}
     </HeroStripWrapper>
   );

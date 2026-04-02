@@ -13,3 +13,13 @@ interface HeroStripItem {
 export interface HeroStripProps {
   items: HeroStripItem[];
 }
+
+export interface HomeProcessSectionProps {
+  title: string;
+  description?: string;
+  items?: {
+    icon: SvgIconComponent;
+    title: string;
+    description: string;
+  }[];
+}

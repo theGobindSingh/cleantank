@@ -30,12 +30,12 @@ export const globalStyles = css`
     --some-variable: #000;
   }
   body {
-    color: var(--color-accent-100);
+    color: var(--color-primary-100);
     font-size: var(--fs-2xs);
     font-family: var(--font-sans);
     padding: 0;
     margin: 0;
-    background-color: var(--color-accent-1000);
+    background-color: var(--color-neutral-1000);
   }
   * {
     box-sizing: border-box;
