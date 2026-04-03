@@ -1,8 +1,9 @@
-import { H2, H3, P } from "@components/html";
+import { H3, P } from "@components/html";
+import HomeSectionLayout from "@layouts/home-section";
 import {
   HomeProcessSectionItem,
   HomeProcessSectionItemWrapper,
-  HomeProcessSectionWrapper,
+  processExtraCss,
 } from "@modules/home/styles";
 import { HomeProcessSectionProps } from "@modules/home/types";
 
@@ -34,27 +35,17 @@ const HomeProcessSection = ({
   description,
   items = [],
 }: HomeProcessSectionProps) => (
-  <HomeProcessSectionWrapper>
-    <H2 $margin="0" className="title">
-      {title}
-    </H2>
-    {description && (
-      <P
-        className="desc"
-        $margin="1rem 0 3rem 0"
-        $size="1xs"
-        $color="neutral"
-        $colorWeight="400"
-      >
-        {description}
-      </P>
-    )}
+  <HomeSectionLayout
+    title={title}
+    description={description}
+    css={processExtraCss}
+  >
     {items.length > 0 && (
       <HomeProcessSectionItemWrapper>
         {items.map(itemsMapper)}
       </HomeProcessSectionItemWrapper>
     )}
-  </HomeProcessSectionWrapper>
+  </HomeSectionLayout>
 );
 
 export default HomeProcessSection;

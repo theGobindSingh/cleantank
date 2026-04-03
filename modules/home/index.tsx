@@ -2,11 +2,20 @@ import GlobalLayout from "@/layouts/global";
 import HeroSection from "@components/hero-section";
 import {
   HeroCTAs,
+  franchisePoints,
+  franchiseSectionMeta,
   heroStripItems,
+  industriesSectionMeta,
+  industryItems,
   processItems,
+  testimonialItems,
+  testimonialsSectionMeta,
 } from "@modules/home/constants";
+import FranchiseSection from "@modules/home/franchise";
 import HeroStrip from "@modules/home/hero-strip";
+import IndustriesSection from "@modules/home/industries";
 import HomeProcessSection from "@modules/home/process";
+import TestimonialsSection from "@modules/home/testimonials";
 import { HomeProps } from "@modules/home/types";
 
 const Home = (_: HomeProps) => (
@@ -23,6 +32,12 @@ const Home = (_: HomeProps) => (
       title="The Precision Protocol"
       description="Our clinical cleaning process ensures every cubic meter of your storage infrastructure exceeds international safety benchmarks."
       items={processItems}
+    />
+    <IndustriesSection {...industriesSectionMeta} items={industryItems} />
+    <FranchiseSection {...franchiseSectionMeta} points={franchisePoints} />
+    <TestimonialsSection
+      {...testimonialsSectionMeta}
+      items={testimonialItems}
     />
   </GlobalLayout>
 );
