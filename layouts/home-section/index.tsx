@@ -12,11 +12,7 @@ const HomeSectionLayout = ({
   element,
   className,
 }: HomeSectionLayoutProps) => (
-  <HomeSectionWrapper
-    {...(bg ? { bg } : {})}
-    {...(element ? { element } : {})}
-    {...(className ? { className } : {})}
-  >
+  <HomeSectionWrapper bg={bg!} element={element} className={className!}>
     {chip && (
       <Chip
         $backgroundColor="secondary"

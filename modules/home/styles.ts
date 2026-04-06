@@ -199,7 +199,7 @@ export const IndustryCardImage = styled(Image)`
 `;
 
 export const IndustryCard = styled.article`
-  --_card-height: 28rem;
+  --_card-height: 25rem;
 
   position: relative;
   border-radius: 0.375rem;
@@ -269,7 +269,7 @@ export const FranchiseTwoCol = styled.div`
   align-items: center;
   width: 100%;
 
-  ${mediaQuery.tablet} {
+  ${mediaQuery.nonDesktop} {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
