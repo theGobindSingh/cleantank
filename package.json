@@ -12,8 +12,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "prettier --config .prettierrc \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --write && eslint \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\"",
-    "lint:fix": "prettier --config .prettierrc \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --write && eslint \"{components,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --fix"
+    "lint": "prettier --config .prettierrc \"{components,vectors,layouts,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --write && eslint \"{components,vectors,layouts,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\"",
+    "lint:fix": "prettier --config .prettierrc \"{components,vectors,layouts,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --write && eslint \"{components,vectors,layouts,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --fix"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

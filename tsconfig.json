@@ -18,6 +18,7 @@
       "@hooks/*": ["./hooks/*"],
       "@layouts/*": ["./layouts/*"],
       "@styles/*": ["./styles/*"],
+      "@vectors/*": ["./vectors/*"],
       "@/*": ["./*"]
     },
     "noPropertyAccessFromIndexSignature": false,
