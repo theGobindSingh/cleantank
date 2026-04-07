@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
 
-export const shouldForwardProp = (prop: string) => !prop.startsWith("$");
+export const shouldForwardProp = (prop: string) => {
+  return !prop.startsWith("$");
+};
 export { shouldForwardProp as sfp };
 
 export const breakpoints = {
@@ -22,7 +24,7 @@ export const mediaQuery = {
   phone: `@media (min-width: ${breakpoints.phone.min}px) and (max-width: ${breakpoints.phone.max}px)`,
   tablet: `@media (min-width: ${breakpoints.tablet.min}px) and (max-width: ${breakpoints.tablet.max}px)`,
   desktop: `@media (min-width: ${breakpoints.desktop.min}px)`,
-  nonDesktop: `@media (max-width: ${breakpoints.desktop.min}px)`,
+  nonDesktop: `@media (max-width: ${breakpoints.tablet.max}px)`,
 };
 
 export const globalStyles = css`

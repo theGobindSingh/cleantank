@@ -36,8 +36,8 @@ const HeroSection = ({
   imgAlt,
   subtitle,
 }: HeroSectionProps) => {
-  const secondContainer = useMemo(
-    () => (
+  const secondContainer = useMemo(() => {
+    return (
       <HeroSectionImage
         src={imgSrc}
         alt={imgAlt ?? (typeof title === "string" ? title : title?.text)}
@@ -49,18 +49,19 @@ const HeroSection = ({
         quality={100}
         fetchPriority="high"
       />
-    ),
-    [imgSrc, imgAlt, title],
-  );
+    );
+  }, [imgSrc, imgAlt, title]);
   const ctaMapper = useCallback(
     (
       { text, ...props }: NonNullable<HeroSectionProps["CTAs"]>[number],
       index: number,
-    ) => (
-      <Button key={`hero-section-cta-${index}`} {...(props as any)}>
-        {text}
-      </Button>
-    ),
+    ) => {
+      return (
+        <Button key={`hero-section-cta-${index}`} {...(props as any)}>
+          {text}
+        </Button>
+      );
+    },
     [],
   );
   return (

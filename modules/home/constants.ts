@@ -104,7 +104,6 @@ export const industriesSectionMeta: Pick<
   IndustriesSectionProps,
   "chip" | "title" | "description"
 > = {
-  chip: "CLIENT VERTICALS",
   title: "Industries We Serve",
   description:
     "Purpose-built tank hygiene protocols for every sector — from critical healthcare to large-scale civic infrastructure.",

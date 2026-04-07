@@ -11,24 +11,28 @@ const filledStyles = ({
   $colorWeight = "300",
   $textColor = "accent",
   $textColorWeight = "1000",
-}: VariantFnProps) => css`
-  background-color: var(--color-${$color}-${$colorWeight});
-  color: var(--color-${$textColor}-${$textColorWeight});
-  border: 2px solid var(--color-${$color}-${$colorWeight});
-`;
+}: VariantFnProps) => {
+  return css`
+    background-color: var(--color-${$color}-${$colorWeight});
+    color: var(--color-${$textColor}-${$textColorWeight});
+    border: 2px solid var(--color-${$color}-${$colorWeight});
+  `;
+};
 
 const outlinedStyles = ({
   $color = "primary",
   $colorWeight = "300",
   $textColor,
   $textColorWeight,
-}: VariantFnProps) => css`
-  background-color: transparent;
-  color: var(
-    --color-${$textColor ?? $color}-${$textColorWeight ?? $colorWeight}
-  );
-  border: 2px solid var(--color-${$color}-${$colorWeight});
-`;
+}: VariantFnProps) => {
+  return css`
+    background-color: transparent;
+    color: var(
+      --color-${$textColor ?? $color}-${$textColorWeight ?? $colorWeight}
+    );
+    border: 2px solid var(--color-${$color}-${$colorWeight});
+  `;
+};
 
 const glassStyles = ({
   $color = "primary",
@@ -36,26 +40,30 @@ const glassStyles = ({
   $textColor = "accent",
   $textColorWeight = "100",
   $withBorder = false,
-}: VariantFnProps) => css`
-  background-color: rgba(var(--color-${$color}-${$colorWeight}), 0.15);
-  color: var(
-    --color-${$textColor ?? $color}-${$textColorWeight ?? $colorWeight}
-  );
-  border: 2px solid rgba(var(--color-${$color}-${$colorWeight}), 0.3);
-  backdrop-filter: blur(10px);
-  ${$withBorder &&
-  css`
-    border: 2px solid var(--color-${$color}-${$colorWeight});
-  `}
-`;
+}: VariantFnProps) => {
+  return css`
+    background-color: rgba(var(--color-${$color}-${$colorWeight}), 0.15);
+    color: var(
+      --color-${$textColor ?? $color}-${$textColorWeight ?? $colorWeight}
+    );
+    border: 2px solid rgba(var(--color-${$color}-${$colorWeight}), 0.3);
+    backdrop-filter: blur(10px);
+    ${$withBorder &&
+    css`
+      border: 2px solid var(--color-${$color}-${$colorWeight});
+    `}
+  `;
+};
 
-const textStyles = (_: VariantFnProps) => css`
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  display: inline;
-  color: var(--color-text-900, inherit);
-`;
+const textStyles = (_: VariantFnProps) => {
+  return css`
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: inline;
+    color: var(--color-text-900, inherit);
+  `;
+};
 
 const sizeStyles = ({ $size = "md" }: ButtonBaseProps) => {
   switch ($size) {
@@ -146,8 +154,12 @@ const mainStyles = css`
 
 export const ButtonWrapper = styled("button", { shouldForwardProp })`
   ${mainStyles}
-  padding: ${({ $padding = "0.5em 1em" }) => $padding};
-  font-weight: ${({ $fontWeight = "500" }) => $fontWeight};
+  padding: ${({ $padding = "0.5em 1em" }) => {
+    return $padding;
+  }};
+  font-weight: ${({ $fontWeight = "500" }) => {
+    return $fontWeight;
+  }};
   ${borderRadiusStyles}
   ${sizeStyles}
   ${variantStyles};
@@ -155,8 +167,12 @@ export const ButtonWrapper = styled("button", { shouldForwardProp })`
 
 export const LinkButtonWrapper = styled(Link, { shouldForwardProp })`
   ${mainStyles}
-  padding: ${({ $padding = "0.5em 1em" }) => $padding};
-  font-weight: ${({ $fontWeight = "500" }) => $fontWeight};
+  padding: ${({ $padding = "0.5em 1em" }) => {
+    return $padding;
+  }};
+  font-weight: ${({ $fontWeight = "500" }) => {
+    return $fontWeight;
+  }};
   ${borderRadiusStyles}
   ${sizeStyles}
   ${variantStyles};

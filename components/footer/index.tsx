@@ -45,7 +45,7 @@ const FooterCopyrightSection = () => {
   const [currentYear, setCurrentYear] = useState("2027");
   useEffect(() => {
     const year = new Date().getFullYear();
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- ignore
+
     setCurrentYear(year.toString());
   }, []);
   return (
@@ -59,89 +59,95 @@ const FooterCopyrightSection = () => {
   );
 };
 
-const quickLinksMapper = ({ href, label }: (typeof quickLinks)[number]) => (
-  <a
-    key={href}
-    href={href}
-    className="footer-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {label}
-  </a>
-);
+const quickLinksMapper = ({ href, label }: (typeof quickLinks)[number]) => {
+  return (
+    <a
+      key={href}
+      href={href}
+      className="footer-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {label}
+    </a>
+  );
+};
 
 const contactsMapper = ({
   href,
   label,
   icon: Icon,
-}: (typeof contacts)[number]) => (
-  <a
-    key={href}
-    href={href}
-    className="footer-link"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    {Icon && <Icon className="icon" />}
-    {label}
-  </a>
-);
+}: (typeof contacts)[number]) => {
+  return (
+    <a
+      key={href}
+      href={href}
+      className="footer-link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {Icon && <Icon className="icon" />}
+      {label}
+    </a>
+  );
+};
 
 const wrapperCss = {
   borderTop: "1px solid var(--color-primary-300)",
   borderBottom: "1px solid var(--color-primary-300)",
 };
 
-const Footer = () => (
-  <FooterOuterWrapper>
-    <FooterContentSection element="div" bg="var(--color-primary-100)">
-      <span className="title">
-        Ready to ensure your assets are truly pristine?
-      </span>
-      <span className="sub-title">
-        Our engineers are ready to perform a comprehensive audit of your
-        sanitation protocols and equipment status.
-      </span>
-      <Button
-        $color="secondary"
-        $colorWeight="800"
-        $textColor="primary"
-        $textColorWeight="100"
-        $fontWeight="700"
-      >
-        Consult with our experts
-      </Button>
-    </FooterContentSection>
-    <FooterMidSection
-      bg="var(--color-primary-100)"
-      element="div"
-      wrapperCss={wrapperCss}
-    >
-      <div className="footer-section long">
-        <span className="title">Clean Tank Services</span>
-        <span className="sub-title">
-          Providing government-grade hygiene solutions for heavy-scale
-          industrial and commercial water storage systems across India.
-          Certified ISO 9001:2015.
+const Footer = () => {
+  return (
+    <FooterOuterWrapper>
+      <FooterContentSection element="div" bg="var(--color-primary-100)">
+        <span className="title">
+          Ready to ensure your assets are truly pristine?
         </span>
-        <div className="icons-container">
-          <VerifiedRounded />
-          <WorkspacePremiumRounded />
-          <ShieldRounded />
+        <span className="sub-title">
+          Our engineers are ready to perform a comprehensive audit of your
+          sanitation protocols and equipment status.
+        </span>
+        <Button
+          $color="secondary"
+          $colorWeight="800"
+          $textColor="primary"
+          $textColorWeight="100"
+          $fontWeight="700"
+        >
+          Consult with our experts
+        </Button>
+      </FooterContentSection>
+      <FooterMidSection
+        bg="var(--color-primary-100)"
+        element="div"
+        wrapperCss={wrapperCss}
+      >
+        <div className="footer-section long">
+          <span className="title">Clean Tank Services</span>
+          <span className="sub-title">
+            Providing government-grade hygiene solutions for heavy-scale
+            industrial and commercial water storage systems across India.
+            Certified ISO 9001:2015.
+          </span>
+          <div className="icons-container">
+            <VerifiedRounded />
+            <WorkspacePremiumRounded />
+            <ShieldRounded />
+          </div>
         </div>
-      </div>
-      <nav className="footer-section short nav">
-        <span className="title">Quick Links</span>
-        {quickLinks.map(quickLinksMapper)}
-      </nav>
-      <nav className="footer-section short nav">
-        <span className="title">Contact</span>
-        {contacts.map(contactsMapper)}
-      </nav>
-    </FooterMidSection>
-    <FooterCopyrightSection />
-  </FooterOuterWrapper>
-);
+        <nav className="footer-section short nav">
+          <span className="title">Quick Links</span>
+          {quickLinks.map(quickLinksMapper)}
+        </nav>
+        <nav className="footer-section short nav">
+          <span className="title">Contact</span>
+          {contacts.map(contactsMapper)}
+        </nav>
+      </FooterMidSection>
+      <FooterCopyrightSection />
+    </FooterOuterWrapper>
+  );
+};
 
 export default Footer;

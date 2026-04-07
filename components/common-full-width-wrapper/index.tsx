@@ -31,10 +31,9 @@ const CommonFullWidthWrapperWithoutRef = (
   }: PropsWithChildren<CommonFullWidthWrapperProps>,
   ref: Ref<HTMLElement>,
 ) => {
-  const mergedWrapperCss = useMemo(
-    (): any => [wrapperStyles(bg), wrapperCss],
-    [bg, wrapperCss],
-  );
+  const mergedWrapperCss = useMemo((): any => {
+    return [wrapperStyles(bg), wrapperCss];
+  }, [bg, wrapperCss]);
   return (
     <FullWidthWrapper
       wrapperProps={wrapperProps!}

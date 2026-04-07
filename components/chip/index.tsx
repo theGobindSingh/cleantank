@@ -19,15 +19,18 @@ const ChipWrapper = styled("div", { shouldForwardProp })<ChipWrapperProps>`
   background-color: ${({
     $backgroundColor = "primary",
     $backgroundColorWeight = "300",
-  }) => `var(--color-${$backgroundColor}-${$backgroundColorWeight})`};
-  color: ${({ $textColor = "accent", $textColorWeight = "1000" }) =>
-    `var(--color-${$textColor}-${$textColorWeight})`};
+  }) => {
+    return `var(--color-${$backgroundColor}-${$backgroundColorWeight})`;
+  }};
+  color: ${({ $textColor = "accent", $textColorWeight = "1000" }) => {
+    return `var(--color-${$textColor}-${$textColorWeight})`;
+  }};
   font-weight: 500;
   font-family: var(--font-mono);
 `;
 
-const Chip = ({ children, ...props }: PropsWithChildren<ChipProps>) => (
-  <ChipWrapper {...props}>{children}</ChipWrapper>
-);
+const Chip = ({ children, ...props }: PropsWithChildren<ChipProps>) => {
+  return <ChipWrapper {...props}>{children}</ChipWrapper>;
+};
 
 export default Chip;

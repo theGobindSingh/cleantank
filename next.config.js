@@ -4,6 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     qualities: [100, 75, 50, 25],
+    deviceSizes: [640, 1024, 1920],
     remotePatterns: [
       {
         hostname: "images.pexels.com",

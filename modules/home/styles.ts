@@ -8,6 +8,17 @@ export const HeroStripWrapper = styled(CommonFullWidthWrapper)`
   display: flex;
   justify-content: center;
   align-items: center;
+  ${mediaQuery.nonDesktop} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    padding: 2.5rem 0;
+  }
 `;
 
 export const HeroStripItemWrapper = styled.div`
@@ -33,6 +44,13 @@ export const HeroStripItemWrapper = styled.div`
   .sub-title {
     font-family: var(--font-mono);
     letter-spacing: 0.1em;
+  }
+
+  ${mediaQuery.nonDesktop} {
+    padding: 0 0;
+  }
+  @media (max-width: 400px) {
+    padding: 0 0;
   }
 `;
 
@@ -65,7 +83,12 @@ export const HomeProcessSectionItemWrapper = styled.ol`
     grid-template-columns: repeat(3, 1fr);
   }
   ${mediaQuery.phone} {
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
   }
 `;
 
@@ -162,6 +185,12 @@ export const HomeProcessSectionItem = styled.li`
       ${itemHoverStyles}
     }
   }
+  ${mediaQuery.phone} {
+    flex-shrink: 0;
+    width: 75vw;
+    padding: 2.5rem 2rem;
+    scroll-snap-align: center;
+  }
 `;
 
 // ─── Industries We Serve ──────────────────────────────────────────────────────
@@ -179,7 +208,12 @@ export const IndustriesGrid = styled.div`
   }
 
   ${mediaQuery.phone} {
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
   }
 `;
 
@@ -245,6 +279,9 @@ export const IndustryCard = styled.article`
 
   ${mediaQuery.phone} {
     --_card-height: 18rem;
+    flex-shrink: 0;
+    width: 75vw;
+    scroll-snap-align: center;
   }
 `;
 
@@ -252,6 +289,10 @@ export const IndustryCard = styled.article`
 
 export const FranchiseSectionWrapper = styled(CommonFullWidthWrapper)`
   padding: 5rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 
   ${mediaQuery.tablet} {
     padding: 3.5rem 0;
@@ -260,14 +301,6 @@ export const FranchiseSectionWrapper = styled(CommonFullWidthWrapper)`
   ${mediaQuery.phone} {
     padding: 2.5rem 0;
   }
-`;
-
-export const FranchiseTwoCol = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  width: 100%;
 
   ${mediaQuery.nonDesktop} {
     grid-template-columns: 1fr;

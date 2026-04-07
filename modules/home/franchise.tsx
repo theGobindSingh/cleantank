@@ -10,39 +10,46 @@ import {
   FranchisePointItem,
   FranchisePointList,
   FranchiseSectionWrapper,
-  FranchiseTwoCol,
 } from "@modules/home/styles";
 import { FranchiseSectionProps } from "@modules/home/types";
+import {
+  useEasyGoogleForm,
+  UseEasyGoogleFormParams,
+} from "@webadeva/use-easy-google-form";
+import { useMemo, useRef } from "react";
+import { toast } from "react-toastify";
 
 const franchisePointMapper = ({
   icon: Icon,
   title,
   description,
-}: NonNullable<FranchiseSectionProps["points"]>[number]) => (
-  <FranchisePointItem key={title}>
-    <Icon className="point-icon" />
-    <div className="point-content">
-      <H3
-        $size="1xs"
-        $weight="700"
-        $color="neutral"
-        $colorWeight="1000"
-        $margin="0"
-      >
-        {title}
-      </H3>
-      <P
-        $size="3xs"
-        $color="neutral"
-        $colorWeight="700"
-        $margin="0"
-        $lineHeight="1.6"
-      >
-        {description}
-      </P>
-    </div>
-  </FranchisePointItem>
-);
+}: NonNullable<FranchiseSectionProps["points"]>[number]) => {
+  return (
+    <FranchisePointItem key={title}>
+      <Icon className="point-icon" />
+      <div className="point-content">
+        <H3
+          $size="1xs"
+          $weight="700"
+          $color="neutral"
+          $colorWeight="1000"
+          $margin="0"
+        >
+          {title}
+        </H3>
+        <P
+          $size="3xs"
+          $color="neutral"
+          $colorWeight="700"
+          $margin="0"
+          $lineHeight="1.6"
+        >
+          {description}
+        </P>
+      </div>
+    </FranchisePointItem>
+  );
+};
 
 const FranchiseSection = ({
   chip,
@@ -50,9 +57,38 @@ const FranchiseSection = ({
   points = [],
   ctaText,
   ctaHref,
-}: FranchiseSectionProps) => (
-  <FranchiseSectionWrapper bg="var(--color-primary-100)">
-    <FranchiseTwoCol>
+}: FranchiseSectionProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const easyParams = useMemo<UseEasyGoogleFormParams>(() => {
+    return {
+      formRef,
+      gFormId: "10_RNU0U5WCSnjPnWOyFzAvuULvgIsQsHNvB874olga0",
+      links: [
+        {
+          type: "text",
+          entryId: "entry.1259236425",
+          formId: "f-name",
+        },
+        {
+          type: "text",
+          entryId: "entry.2064195984",
+          formId: "f-phone",
+        },
+        {
+          type: "text",
+          entryId: "entry.1131631286",
+          formId: "f-city",
+        },
+      ],
+      onSubmitExtra: () => {
+        formRef.current?.reset();
+        toast.success("Your inquiry has been sent successfully!");
+      },
+    };
+  }, []);
+  const submitHandler = useEasyGoogleForm(easyParams);
+  return (
+    <FranchiseSectionWrapper bg="var(--color-primary-100)">
       <FranchiseLeft>
         {chip && (
           <Chip
@@ -71,7 +107,7 @@ const FranchiseSection = ({
             {points.map(franchisePointMapper)}
           </FranchisePointList>
         )}
-        {ctaText && ctaHref && (
+        {ctaText && (
           <Button
             href={ctaHref}
             $variant="filled"
@@ -85,7 +121,7 @@ const FranchiseSection = ({
           </Button>
         )}
       </FranchiseLeft>
-      <FranchiseFormCard>
+      <FranchiseFormCard onSubmit={submitHandler} ref={formRef}>
         <H3
           $size="s"
           $weight="600"
@@ -100,7 +136,7 @@ const FranchiseSection = ({
           <FranchiseFormInput
             id="f-name"
             type="text"
-            placeholder="Rajesh Kumar"
+            placeholder="Your Full Name"
             autoComplete="name"
           />
         </FranchiseFormField>
@@ -135,8 +171,8 @@ const FranchiseSection = ({
           Send Inquiry
         </Button>
       </FranchiseFormCard>
-    </FranchiseTwoCol>
-  </FranchiseSectionWrapper>
-);
+    </FranchiseSectionWrapper>
+  );
+};
 
 export default FranchiseSection;
