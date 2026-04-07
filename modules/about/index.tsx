@@ -1,8 +1,53 @@
-import { HomeWrapper } from "@modules/home/styles";
-import { HomeProps } from "@modules/home/types";
+import GlobalLayout from "@/layouts/global";
+import HeroSection from "@layouts/hero-section";
+import IconInfoStripSection from "@layouts/icon-info-strip-section";
+import {
+  aboutHeroProps,
+  credentialItems,
+  pillarItems,
+  pillarsSectionMeta,
+  technologyImages,
+  technologyPoints,
+  technologySectionMeta,
+  timelineEvents,
+  timelineSectionMeta,
+  valuesBannerProps,
+} from "@modules/about/constants";
+import PillarsSection from "@modules/about/pillars";
+import TechnologySection from "@modules/about/technology";
+import TimelineSection from "@modules/about/timeline";
+import { AboutProps } from "@modules/about/types";
+import ValuesBanner from "@modules/about/values-banner";
+import {
+  testimonialItems,
+  testimonialsSectionMeta,
+} from "@modules/home/constants";
+import TestimonialsSection from "@modules/home/testimonials";
 
-const Home = ({ className }: HomeProps) => {
-  return <HomeWrapper className={className}>Hello Home</HomeWrapper>;
+const About = (_: AboutProps) => {
+  return (
+    <GlobalLayout>
+      <HeroSection
+        imgSrc={aboutHeroProps.imgSrc}
+        chip={aboutHeroProps.chip}
+        title={aboutHeroProps.title}
+        subtitle={aboutHeroProps.subtitle}
+      />
+      <PillarsSection {...pillarsSectionMeta} items={pillarItems} />
+      <IconInfoStripSection items={credentialItems} />
+      <TechnologySection
+        {...technologySectionMeta}
+        points={technologyPoints}
+        images={technologyImages}
+      />
+      <TimelineSection {...timelineSectionMeta} events={timelineEvents} />
+      <ValuesBanner {...valuesBannerProps} />
+      <TestimonialsSection
+        {...testimonialsSectionMeta}
+        items={testimonialItems}
+      />
+    </GlobalLayout>
+  );
 };
 
-export default Home;
+export default About;

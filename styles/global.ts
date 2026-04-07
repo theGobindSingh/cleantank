@@ -31,6 +31,9 @@ export const globalStyles = css`
   :root {
     --some-variable: #000;
   }
+  * {
+    box-sizing: border-box;
+  }
   body {
     color: var(--color-primary-100);
     font-size: var(--fs-2xs);
@@ -38,16 +41,15 @@ export const globalStyles = css`
     padding: 0;
     margin: 0;
     background-color: var(--color-neutral-1000);
-  }
-  * {
-    box-sizing: border-box;
-  }
-  #__next {
-    width: 100%;
-    overflow-x: hidden;
     position: relative;
-    height: 100dvh;
-    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    /* width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden; */
   }
   .icon {
     pointer-events: none;

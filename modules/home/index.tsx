@@ -1,5 +1,6 @@
 import GlobalLayout from "@/layouts/global";
-import HeroSection from "@components/hero-section";
+import HeroSection from "@layouts/hero-section";
+import IconInfoStripSection from "@layouts/icon-info-strip-section";
 import {
   HeroCTAs,
   franchisePoints,
@@ -12,7 +13,6 @@ import {
   testimonialsSectionMeta,
 } from "@modules/home/constants";
 import FranchiseSection from "@modules/home/franchise";
-import HeroStrip from "@modules/home/hero-strip";
 import IndustriesSection from "@modules/home/industries";
 import HomeProcessSection from "@modules/home/process";
 import TestimonialsSection from "@modules/home/testimonials";
@@ -28,7 +28,7 @@ const Home = (_: HomeProps) => {
         subtitle="Sterile hygiene protocols, government-grade compliance, and advanced robotic technology for high-capacity liquid storage systems."
         CTAs={HeroCTAs}
       />
-      <HeroStrip items={heroStripItems} />
+      <IconInfoStripSection items={heroStripItems} />
       <HomeProcessSection
         title="The Precision Protocol"
         description="Our clinical cleaning process ensures every cubic meter of your storage infrastructure exceeds international safety benchmarks."

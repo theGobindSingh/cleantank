@@ -86,10 +86,10 @@ Notes:
 
 ## `HeroSection` — Full-Bleed Page Hero
 
-The shared `HeroSection` component (from `@components/hero-section`) is placed at the top of each page module.
+The shared `HeroSection` layout (from `@layouts/hero-section`) is placed at the top of each page module.
 
 ```ts
-import HeroSection from "@components/hero-section";
+import HeroSection from "@layouts/hero-section";
 
 <HeroSection
   imgSrc="https://..."

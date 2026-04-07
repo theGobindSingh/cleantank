@@ -19,6 +19,7 @@ const StandardSectionLayout = ({
           $backgroundColor="secondary"
           $backgroundColorWeight="800"
           $textColorWeight="100"
+          className="chip"
         >
           {String(chip).toUpperCase()}
         </Chip>

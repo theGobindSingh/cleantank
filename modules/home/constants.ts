@@ -1,4 +1,4 @@
-import { HeroSectionProps } from "@components/hero-section/types";
+import { HeroSectionProps } from "@layouts/hero-section/types";
 import {
   FranchiseSectionProps,
   HeroStripProps,

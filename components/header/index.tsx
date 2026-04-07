@@ -9,7 +9,12 @@ import {
   headerWrapperStyles,
 } from "@components/header/styles";
 import { useRouter } from "next/router";
-import { ChangeEventHandler, useCallback } from "react";
+import {
+  ChangeEventHandler,
+  MouseEventHandler,
+  useCallback,
+  useRef,
+} from "react";
 
 const headerLinks = [
   { name: "Home", path: "/" },
@@ -21,23 +26,8 @@ const headerLinks = [
 ];
 
 const Header = () => {
-  const { pathname } = useRouter();
-
-  const linkMapper = useCallback(
-    ({ name, path }: (typeof headerLinks)[number]) => {
-      const linkPath = name === "Home" ? "/" : path;
-      return (
-        <HeaderLink
-          key={name}
-          href={linkPath}
-          className={pathname === linkPath ? "active" : undefined}
-        >
-          {name}
-        </HeaderLink>
-      );
-    },
-    [pathname],
-  );
+  const { pathname, push } = useRouter();
+  const toggleInputRef = useRef<HTMLInputElement>(null);
 
   const toggleBodyScroll = useCallback(
     ({ isScrollEnabled }: { isScrollEnabled: boolean }) => {
@@ -48,6 +38,35 @@ const Header = () => {
       }
     },
     [],
+  );
+
+  const linkMapper = useCallback(
+    ({ name, path }: (typeof headerLinks)[number]) => {
+      const linkPath = name === "Home" ? "/" : path;
+      const clickHandler: MouseEventHandler<HTMLAnchorElement> = (e) => {
+        e.preventDefault();
+        const toggleInput = toggleInputRef.current;
+        if (toggleInput) {
+          toggleInput.checked = false;
+          toggleBodyScroll({ isScrollEnabled: true });
+        }
+        setTimeout(() => {
+          void push(linkPath);
+        }, 75);
+      };
+      return (
+        <HeaderLink
+          key={name}
+          href={linkPath}
+          className={pathname === linkPath ? "active" : undefined}
+          scroll={false}
+          onClick={clickHandler}
+        >
+          {name}
+        </HeaderLink>
+      );
+    },
+    [pathname, push, toggleBodyScroll],
   );
 
   const inputChangeHandler: ChangeEventHandler<HTMLInputElement> = useCallback(
@@ -61,6 +80,7 @@ const Header = () => {
     },
     [toggleBodyScroll],
   );
+
   return (
     <CommonFullWidthWrapper element="header" wrapperCss={headerWrapperStyles}>
       <HeaderNav>
@@ -79,6 +99,7 @@ const Header = () => {
             id="nav-toggle"
             type="checkbox"
             onChange={inputChangeHandler}
+            ref={toggleInputRef}
           />
           <svg viewBox="35 35 30 30" xmlns="http://www.w3.org/2000/svg">
             <path

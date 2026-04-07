@@ -27,6 +27,7 @@ const ChipWrapper = styled("div", { shouldForwardProp })<ChipWrapperProps>`
   }};
   font-weight: 500;
   font-family: var(--font-mono);
+  width: fit-content;
 `;
 
 const Chip = ({ children, ...props }: PropsWithChildren<ChipProps>) => {

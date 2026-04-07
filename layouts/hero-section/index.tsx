@@ -1,13 +1,14 @@
 import Button from "@components/button";
 import Chip from "@components/chip";
+import { H1, P, Span } from "@components/html";
 import {
   HeroSectionImage,
   HeroSectionWrapper,
   heroSectionWrapperStyles,
-} from "@components/hero-section/styles";
-import { HeroSectionProps } from "@components/hero-section/types";
-import { H1, P, Span } from "@components/html";
-import { useCallback, useMemo } from "react";
+} from "@layouts/hero-section/styles";
+import { HeroSectionProps } from "@layouts/hero-section/types";
+import { useLenis } from "lenis/react";
+import { useCallback, useMemo, useRef } from "react";
 
 const getTitle = (title: HeroSectionProps["title"]) => {
   if (typeof title === "string") {
@@ -36,9 +37,16 @@ const HeroSection = ({
   imgAlt,
   subtitle,
 }: HeroSectionProps) => {
+  const ref = useRef<HTMLImageElement>(null);
+  useLenis(() => {
+    const img = ref.current;
+    if (!img) return;
+    img.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+  }, []);
   const secondContainer = useMemo(() => {
     return (
       <HeroSectionImage
+        ref={ref}
         src={imgSrc}
         alt={imgAlt ?? (typeof title === "string" ? title : title?.text)}
         width={5173}

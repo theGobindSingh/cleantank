@@ -5,6 +5,9 @@ import { mediaQuery } from "@styles/global";
 import Image from "next/image";
 
 export const heroSectionWrapperStyles = css`
+  overflow: hidden;
+  height: 100svh;
+  position: relative;
   &::after {
     content: "";
     z-index: 1;
@@ -24,16 +27,16 @@ export const heroSectionWrapperStyles = css`
 export const HeroSectionWrapper = styled(CommonFullWidthWrapper)`
   display: flex;
   flex-direction: column;
-  position: relative;
-  --_height-var: 2.25rem;
-  height: calc(100svh - var(--_height-var) - (2 * 1rem));
-  ${mediaQuery.nonDesktop} {
-    --_height-var: 1.5rem;
-  }
   z-index: 2;
   color: var(--color-accent-1000);
   justify-content: center;
   align-items: flex-start;
+  height: 100%;
+  --_height-var: 2.25rem;
+  padding-top: calc(var(--_height-var) + (2 * 1rem));
+  ${mediaQuery.nonDesktop} {
+    --_height-var: 1.5rem;
+  }
 
   .content-wrapper {
     max-width: 600px;
@@ -63,7 +66,7 @@ export const HeroSectionWrapper = styled(CommonFullWidthWrapper)`
 
 export const HeroSectionImage = styled(Image)`
   width: 100%;
-  height: 100%;
+  height: 110%;
   object-fit: cover;
   position: absolute;
   z-index: 0;

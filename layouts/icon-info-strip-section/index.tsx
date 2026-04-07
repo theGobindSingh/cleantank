@@ -1,8 +1,11 @@
 import { Span } from "@components/html";
-import { HeroStripItemWrapper, HeroStripWrapper } from "@modules/home/styles";
-import { HeroStripProps } from "@modules/home/types";
+import {
+  HeroStripItemWrapper,
+  HeroStripWrapper,
+} from "@layouts/icon-info-strip-section/styles";
+import { HeroStripProps } from "@layouts/icon-info-strip-section/types";
 
-const HeroStrip = ({ items }: HeroStripProps) => {
+const IconInfoStripSection = ({ items }: HeroStripProps) => {
   const itemMapper = (
     { icon: Icon, subTitle, title }: HeroStripProps["items"][number],
     index: number,
@@ -38,4 +41,4 @@ const HeroStrip = ({ items }: HeroStripProps) => {
   );
 };
 
-export default HeroStrip;
+export default IconInfoStripSection;
