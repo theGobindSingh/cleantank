@@ -1,7 +1,7 @@
 import { HeroSectionProps } from "@layouts/hero-section/types";
+import { HeroStripProps } from "@layouts/icon-info-strip-section/types";
 import {
   FranchiseSectionProps,
-  HeroStripProps,
   HomeProcessSectionProps,
   IndustriesSectionProps,
   TestimonialsSectionProps,

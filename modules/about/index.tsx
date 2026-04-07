@@ -1,5 +1,6 @@
 import GlobalLayout from "@/layouts/global";
 import HeroSection from "@layouts/hero-section";
+import IconCardSectionLayout from "@layouts/icon-card-section";
 import IconInfoStripSection from "@layouts/icon-info-strip-section";
 import {
   aboutHeroProps,
@@ -13,7 +14,6 @@ import {
   timelineSectionMeta,
   valuesBannerProps,
 } from "@modules/about/constants";
-import PillarsSection from "@modules/about/pillars";
 import TechnologySection from "@modules/about/technology";
 import TimelineSection from "@modules/about/timeline";
 import { AboutProps } from "@modules/about/types";
@@ -33,7 +33,11 @@ const About = (_: AboutProps) => {
         title={aboutHeroProps.title}
         subtitle={aboutHeroProps.subtitle}
       />
-      <PillarsSection {...pillarsSectionMeta} items={pillarItems} />
+      <IconCardSectionLayout
+        {...pillarsSectionMeta}
+        items={pillarItems}
+        areNumbersVisible={false}
+      />
       <IconInfoStripSection items={credentialItems} />
       <TechnologySection
         {...technologySectionMeta}

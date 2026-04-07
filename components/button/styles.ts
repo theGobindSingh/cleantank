@@ -55,13 +55,16 @@ const glassStyles = ({
   `;
 };
 
-const textStyles = (_: VariantFnProps) => {
+const textStyles = ({
+  $textColor = "text",
+  $textColorWeight = "900",
+}: VariantFnProps) => {
   return css`
     background-color: transparent;
     border: none;
     padding: 0;
     display: inline;
-    color: var(--color-text-900, inherit);
+    color: var(--color-${$textColor}-${$textColorWeight}, inherit);
   `;
 };
 

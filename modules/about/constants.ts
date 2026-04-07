@@ -63,6 +63,12 @@ export const pillarItems: PillarItem[] = [
     description:
       "We use food-grade, biodegradable agents and follow regulated wastewater disposal protocols on every site.",
   },
+  {
+    icon: BuildOutlined,
+    title: "Continuous Innovation",
+    description:
+      "We invest in R&D to integrate the latest cleaning technologies and refine our processes — ensuring we set the industry standard, not follow it.",
+  },
 ];
 
 // ─── Credentials Strip ────────────────────────────────────────────────────────
