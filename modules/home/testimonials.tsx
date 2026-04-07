@@ -1,5 +1,5 @@
 import { P, Span } from "@components/html";
-import HomeSectionLayout from "@layouts/home-section";
+import StandardSectionLayout from "@layouts/standard-section";
 import {
   TestimonialAttribution,
   TestimonialCard,
@@ -52,7 +52,7 @@ const TestimonialsSection = ({
   items = [],
 }: TestimonialsSectionProps) => {
   return (
-    <HomeSectionLayout
+    <StandardSectionLayout
       chip={chip}
       title={title ?? ""}
       description={description}
@@ -61,7 +61,7 @@ const TestimonialsSection = ({
       {items.length > 0 && (
         <TestimonialsGrid>{items.map(testimonialMapper)}</TestimonialsGrid>
       )}
-    </HomeSectionLayout>
+    </StandardSectionLayout>
   );
 };
 

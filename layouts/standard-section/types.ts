@@ -1,7 +1,7 @@
 import { FullWidthWrapperProps } from "@kami-ui/react-components";
 import { PropsWithChildren } from "react";
 
-export interface HomeSectionLayoutProps extends PropsWithChildren {
+export interface StandardSectionLayoutProps extends PropsWithChildren {
   chip?: string | undefined;
   title: string;
   description?: string | undefined;

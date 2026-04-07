@@ -85,6 +85,22 @@ ${mediaQuery.phone} {
 
 Also available: `mediaQuery.nonDesktop` for tablet + phone together.
 
+**Custom breakpoints** beyond the three presets use the `breakpoints` object with named `.max` values:
+
+```ts
+// Between custom width and tablet max
+@media (max-width: 1300px) and (min-width: ${breakpoints.tablet.max}px) {
+  /* mid-range adjustments */
+}
+
+// Extra small phones
+@media (max-width: 400px) {
+  grid-template-columns: 1fr;
+}
+```
+
+Available values: `breakpoints.phone.max`, `breakpoints.tablet.max`, `breakpoints.desktop.min`, etc. (check `@styles/global` for the full list).
+
 ---
 
 ## Local CSS Custom Properties
@@ -151,6 +167,31 @@ const cardHoverStyles = css`
   }
 `;
 ```
+
+### Hover on Phone — Use `.active` Class Instead
+
+On phone, CSS `:hover` is unreliable. For card interactions on phone, apply hover styles via an `active` class toggled by an `IntersectionObserver` in the component:
+
+```ts
+// styles.ts — apply the same hover block to both :hover and .active
+const Card = styled.li`
+  ${mediaQuery.desktop} {
+    &:hover {
+      ${cardHoverStyles}
+    }
+  }
+  ${mediaQuery.tablet} {
+    &:hover {
+      ${cardHoverStyles}
+    }
+  }
+  &.active {
+    ${cardHoverStyles}
+  }
+`;
+```
+
+The component handles toggling via IntersectionObserver (see component-patterns for the `Item` extraction pattern).
 
 ---
 
@@ -229,3 +270,127 @@ export const ProcessSectionWrapper = styled(CommonFullWidthWrapper)`
   }
 `;
 ```
+
+---
+
+## Section Separator Comments
+
+In `styles.ts`, use Unicode box-drawing separators between distinct section groups. This keeps large files readable:
+
+```ts
+// ─── Industries We Serve ────────────────────────────────────────────────────────────────
+export const IndustriesGrid = styled.div` ... `;
+export const IndustryCard = styled.article` ... `;
+
+// ─── Franchise Section ──────────────────────────────────────────────────────────────
+export const FranchiseSectionWrapper = styled(CommonFullWidthWrapper)` ... `;
+```
+
+---
+
+## Mobile Horizontal Scroll (Carousel) Pattern
+
+When a grid becomes too cramped on phone, convert it to a horizontal scroll carousel:
+
+```ts
+export const ItemsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+
+  ${mediaQuery.phone} {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+  }
+`;
+
+export const ItemCard = styled.article`
+  /* desktop styles... */
+
+  ${mediaQuery.phone} {
+    flex-shrink: 0;
+    width: 75vw;
+    scroll-snap-align: center;
+  }
+`;
+```
+
+- `75vw` width shows a peek of the next card to signal scrollability
+- `scroll-snap-align: center` gives smooth snapping
+- Apply to the wrapper: `scroll-snap-type: x mandatory`
+
+---
+
+## Semantic HTML in Styled Components
+
+Choose the semantically correct base element when creating styled components:
+
+| Use case        | Base element | Example                                    |
+| --------------- | ------------ | ------------------------------------------ |
+| Content card    | `article`    | `styled.article` for IndustryCard          |
+| Testimonial     | `blockquote` | `styled.blockquote` for TestimonialCard    |
+| Attribution row | `footer`     | `styled.footer` for TestimonialAttribution |
+| List item card  | `li`         | `styled.li` for ProcessItem                |
+| List container  | `ol` / `ul`  | `styled.ol` for numbered process list      |
+
+Never use `div` when a semantic alternative is appropriate.
+
+---
+
+## Next.js `Image` in Styled Components
+
+For background or fill images inside a positioned container:
+
+```ts
+import Image from "next/image";
+import styled from "@emotion/styled";
+
+export const CardImage = styled(Image)`
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+`;
+```
+
+The parent container must be `position: relative; overflow: hidden`.
+
+---
+
+## Gradient Overlay with `::after`
+
+For image cards with text on top, use a `::after` pseudo-element as the gradient overlay and `z-index` layering:
+
+```ts
+export const Card = styled.article`
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to top,
+      rgba(var(--color-primary-100-base), 0.97) 0%,
+      rgba(var(--color-primary-100-base), 0.6) 40%,
+      transparent 100%
+    );
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2; /* above the overlay */
+  }
+`;
+```
+
+- Always use `-base` CSS variables with `rgba()` inside `linear-gradient()` — never hardcode values
+- Content must be `z-index: 2`, overlay at `z-index: 1`, image at `z-index: 0` (default)

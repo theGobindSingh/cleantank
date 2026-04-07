@@ -79,6 +79,36 @@ export const processItems: NonNullable<HomeProcessSectionProps["items"]> = [
 ];
 ```
 
+### Section Meta Pattern
+
+For sections where heading/description data is separate from the list data, use `Pick` or `Omit` to type the meta object:
+
+```ts
+import { IndustriesSectionProps } from "@modules/home/types";
+
+// Meta object — heading fields only
+export const industriesSectionMeta: Pick<
+  IndustriesSectionProps,
+  "chip" | "title" | "description"
+> = {
+  chip: "INDUSTRIES WE SERVE",
+  title: "Industries We Serve",
+  description: "Purpose-built protocols for every sector.",
+};
+
+// Items array — full typed array
+export const industryItems: NonNullable<IndustriesSectionProps["items"]> = [ ... ];
+```
+
+In `index.tsx`, spread the meta and pass items separately:
+
+```ts
+<IndustriesSection {...industriesSectionMeta} items={industryItems} />
+```
+
+- Use `Omit<Props, "items">` when the section has only one optional list prop
+- Store chip labels as SCREAMING_CASE strings in constants — `StandardSectionLayout` uppercases internally
+
 ---
 
 ## Module Guidelines
@@ -87,6 +117,24 @@ export const processItems: NonNullable<HomeProcessSectionProps["items"]> = [
 - Sub-section components (e.g., `process.tsx`) receive data as props, never define static data themselves
 - No duplicated layouts across modules
 - Sections accept props; do not hardcode content inside components
+
+### Using `StandardSectionLayout`
+
+Every non-hero section in a module uses `StandardSectionLayout` as its outer wrapper:
+
+```ts
+import StandardSectionLayout from "@layouts/standard-section";
+
+const IndustriesSection = ({ chip, title, description, items = [] }: IndustriesSectionProps) => (
+  <StandardSectionLayout chip={chip} title={title ?? ""} description={description} element="section">
+    {items.length > 0 && <IndustriesGrid>{items.map(industryCardMapper)}</IndustriesGrid>}
+  </StandardSectionLayout>
+);
+```
+
+- Pass `css={extraCss}` to override padding or layout for a specific section
+- Guard list rendering with `items.length > 0` before mapping
+- Use `title ?? ""` when `title` is optional in the prop type
 
 ---
 
@@ -104,10 +152,41 @@ const GlobalLayout = ({ children }: Props) => (
 );
 ```
 
-- Layouts combine modules/sections into full page structures
-- Handle spacing, flow, and page-level HTML semantics
+- The module's `index.tsx` is responsible for wrapping with `GlobalLayout` (not the page file)
+- Layouts handle spacing, flow, and page-level HTML semantics
 - No UI duplication across layouts
-- Pages import layouts only — no direct module or component imports in `pages/`
+- Pages import the module's root component only — no direct layout, component, or business logic imports in `pages/`
+
+### Form Handling
+
+Use `@webadeva/use-easy-google-form` for Google Form submissions and `react-toastify` for feedback:
+
+```ts
+import {
+  useEasyGoogleForm,
+  UseEasyGoogleFormParams,
+} from "@webadeva/use-easy-google-form";
+import { toast } from "react-toastify";
+import { useMemo, useRef } from "react";
+
+const formRef = useRef<HTMLFormElement>(null);
+const easyParams = useMemo<UseEasyGoogleFormParams>(
+  () => ({
+    formRef,
+    gFormId: "YOUR_FORM_ID",
+    links: [{ type: "text", entryId: "entry.XXXXXXX", formId: "f-name" }],
+    onSubmitExtra: () => {
+      formRef.current?.reset();
+      toast.success("Your inquiry has been sent successfully!");
+    },
+  }),
+  [],
+);
+const submitHandler = useEasyGoogleForm(easyParams);
+```
+
+- Always wrap `easyParams` in `useMemo` to prevent re-creation on every render
+- Use `formRef.current?.reset()` inside `onSubmitExtra` to clear the form after submission
 
 ---
 

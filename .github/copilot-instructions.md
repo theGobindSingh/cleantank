@@ -19,12 +19,15 @@ The cleaning process: water removal → jet cleaning → vacuum → UV steriliza
 ## Tech Stack
 
 - Next.js (Pages Router), TypeScript
+- `next/image` — all images use the `Image` component; never use raw `<img>`
 - `@emotion/styled` + `@emotion/react`
 - `@mui/icons-material` (icons as `SvgIconComponent` React components)
 - `@kami-ui/react-components` (`FullWidthWrapper` via `CommonFullWidthWrapper`)
 - `@kami-ui/types` (`ColorsObject`, `ThemeObject`), `@kami-ui/theme-shop` (`defaultLightTheme`)
 - CSS Variables from kami-ui (`theme.ts`)
 - Google Fonts via `next/font/google`: Plus Jakarta Sans (`--font-sans`), Inter (`--font-serif`), DM Mono (`--font-mono`), Nothing You Could Do (`--font-cursive`)
+- `react-toastify` — toast notifications (e.g., form submission success)
+- `@webadeva/use-easy-google-form` — Google Form submission hook used in contact/franchise forms
 
 ---
 
@@ -35,9 +38,11 @@ components → layouts → modules → pages
 ```
 
 - `components/` — small reusable UI units
-- `layouts/` — page-level compositions
-- `modules/` — feature sections composed of components
-- `pages/` — Next.js pages; use layouts only, no direct component imports, no business logic
+- `layouts/` — page-level and section-level compositions (e.g., `GlobalLayout`, `StandardSectionLayout`)
+- `modules/` — feature sections composed of components; each module has sub-section files
+- `pages/` — Next.js pages; use the module's root component only, no direct component imports, no business logic
+
+`StandardSectionLayout` (from `@layouts/standard-section`) is the standard wrapper for every non-hero section. It renders a `Chip`, `H2` title, and optional `P` description inside a `CommonFullWidthWrapper`, then renders `children` below. Unless a section has unique layout needs, it should use `StandardSectionLayout` for consistency.
 
 ---
 

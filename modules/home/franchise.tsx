@@ -138,6 +138,7 @@ const FranchiseSection = ({
             type="text"
             placeholder="Your Full Name"
             autoComplete="name"
+            required
           />
         </FranchiseFormField>
         <FranchiseFormField>
@@ -149,6 +150,7 @@ const FranchiseSection = ({
             type="tel"
             placeholder="+91 98765 43210"
             autoComplete="tel"
+            required
           />
         </FranchiseFormField>
         <FranchiseFormField>
@@ -157,6 +159,7 @@ const FranchiseSection = ({
             id="f-city"
             type="text"
             placeholder="Mumbai, Maharashtra"
+            required
           />
         </FranchiseFormField>
         <Button

@@ -46,6 +46,64 @@ Container width: **85% on desktop, 90% on tablet and phone**.
 
 ---
 
+## `StandardSectionLayout` — Standard Section Wrapper
+
+Every non-hero section uses `StandardSectionLayout` (from `@layouts/standard-section`) as its outer wrapper. It handles the `Chip`, `H2` title, `P` description, and `CommonFullWidthWrapper` automatically. Unless a section has unique layout needs, it should use `StandardSectionLayout` for consistency.
+
+```ts
+import StandardSectionLayout from "@layouts/standard-section";
+
+<StandardSectionLayout
+  chip={chip}
+  title={title ?? ""}
+  description={description}
+  element="section"
+  css={extraCss}
+>
+  {/* section content */}
+</StandardSectionLayout>
+```
+
+Props:
+
+| Prop          | Type               | Description                                                    |
+| ------------- | ------------------ | -------------------------------------------------------------- |
+| `chip`        | `string`           | Label rendered as `<Chip>` above the title                     |
+| `title`       | `string`           | Section heading rendered as `<H2>`                             |
+| `description` | `string`           | Optional subheading rendered as `<P>`                          |
+| `bg`          | `string`           | Background color CSS variable (default: transparent)           |
+| `element`     | `string`           | Semantic HTML tag for the outer wrapper (default: `"section"`) |
+| `css`         | `SerializedStyles` | Extra Emotion `css` interpolation for overrides                |
+| `children`    | `ReactNode`        | Section body rendered below the heading block                  |
+
+Notes:
+
+- `StandardSectionLayout` calls `.toUpperCase()` on `chip` internally — pass the raw label from `constants.ts`
+- Pass `css={someExtraCss}` to override padding or positioning for specific sections
+- Do **not** create a custom `CommonFullWidthWrapper` for sections that are covered by `StandardSectionLayout`
+
+---
+
+## `HeroSection` — Full-Bleed Page Hero
+
+The shared `HeroSection` component (from `@components/hero-section`) is placed at the top of each page module.
+
+```ts
+import HeroSection from "@components/hero-section";
+
+<HeroSection
+  imgSrc="https://..."
+  chip="Industrial Grade Excellence"
+  title="India's Most Trusted Water Tank Cleaning Service"
+  subtitle="Sterile hygiene protocols..."
+  CTAs={HeroCTAs}
+/>
+```
+
+The `title` prop accepts either a plain `string` or `{ text: string; highlight: string }` for inline highlighted words. CTAs come from `constants.ts` typed as `NonNullable<HeroSectionProps["CTAs"]>`.
+
+---
+
 ## HTML Typography Components
 
 Never use raw `<h1>`, `<h2>`, `<h3>`, `<p>`, or `<span>`. Import from `@components/html`:
@@ -165,6 +223,7 @@ import Button from "@components/button";
 Variants: `filled` | `outlined` | `glass` | `text`
 Sizes: `sm` | `md` | `lg`
 Color props: `$color`, `$colorWeight`, `$textColor`, `$textColorWeight`
+Extra props: `$fontWeight`, `$padding` (custom padding string), `$borderRadius` (`"full"` | `"lg"` | `"md"` | `"sm"` | `"none"` | arbitrary string)
 
 Press state uses a `data-down` attribute, not CSS `:active`, for consistent touch/mouse behavior.
 
@@ -186,7 +245,8 @@ import Chip from "@components/chip";
 </Chip>
 ```
 
-- Always `.toUpperCase()` at the call site
+- Call `.toUpperCase()` when using `Chip` directly; `StandardSectionLayout` and `HeroSection` handle casing internally
+- Store chip labels as SCREAMING_CASE in `constants.ts` (e.g., `"CLIENT VOICES"`, `"OUR PROCESS"`) — no need to transform at import
 - Font is `var(--font-mono)` internally — gives a technical, monospaced aesthetic
 
 ---
@@ -252,6 +312,39 @@ const bgImage = useMemo(
 
 return <HeroWrapper secondContainer={bgImage}>{children}</HeroWrapper>;
 ```
+
+### Stateful Item Extraction
+
+When a list item needs its own `ref`, `useEffect`, or local state (e.g., IntersectionObserver for scroll-based activation), extract it as a named `Item` component **in the same file**:
+
+```ts
+// process.tsx
+const Item = ({ icon: Icon, title, description }: ItemType) => {
+  const ref = useRef<HTMLLIElement>(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        ref.current?.classList.toggle("active", !!entry?.isIntersecting);
+      },
+      { threshold: 0.95 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return (
+    <ProcessItem ref={ref}>
+      <Icon className="icon" />
+      <H3>{title}</H3>
+      <P>{description}</P>
+    </ProcessItem>
+  );
+};
+
+const itemMapper = (props: ItemType) => <Item key={props.title} {...props} />;
+```
+
+- The outer `itemMapper` stays simple and pure; the `Item` component handles complexity
+- The `active` class is toggled by JavaScript on scroll; styles define both `&:hover` (desktop/tablet) and `&.active` (phone)
 
 ---
 

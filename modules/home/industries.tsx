@@ -1,5 +1,5 @@
 import { H3, P } from "@components/html";
-import HomeSectionLayout from "@layouts/home-section";
+import StandardSectionLayout from "@layouts/standard-section";
 import {
   IndustriesGrid,
   IndustryCard,
@@ -48,7 +48,7 @@ const IndustriesSection = ({
   items = [],
 }: IndustriesSectionProps) => {
   return (
-    <HomeSectionLayout
+    <StandardSectionLayout
       chip={chip}
       title={title ?? ""}
       description={description}
@@ -57,7 +57,7 @@ const IndustriesSection = ({
       {items.length > 0 && (
         <IndustriesGrid>{items.map(industryCardMapper)}</IndustriesGrid>
       )}
-    </HomeSectionLayout>
+    </StandardSectionLayout>
   );
 };
 

@@ -1,5 +1,5 @@
 import { H3, P } from "@components/html";
-import HomeSectionLayout from "@layouts/home-section";
+import StandardSectionLayout from "@layouts/standard-section";
 import {
   HomeProcessSectionItem,
   HomeProcessSectionItemWrapper,
@@ -72,7 +72,7 @@ const HomeProcessSection = ({
   items = [],
 }: HomeProcessSectionProps) => {
   return (
-    <HomeSectionLayout
+    <StandardSectionLayout
       title={title}
       description={description}
       css={processExtraCss}
@@ -82,7 +82,7 @@ const HomeProcessSection = ({
           {items.map(itemsMapper)}
         </HomeProcessSectionItemWrapper>
       )}
-    </HomeSectionLayout>
+    </StandardSectionLayout>
   );
 };
 
