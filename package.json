@@ -8,9 +8,10 @@
   },
   "private": true,
   "scripts": {
-    "prebuild": "pnpm run lint:fix",
-    "dev:next": "next dev",
-    "dev": "concurrently 'pnpm run dev:next' 'pnpm run gql:codegen:watch'",
+    "prebuild": "pnpm run lint:fix && pnpm run gql:codegen",
+    "predev": "pnpm run gql:codegen",
+    "dev": "next dev",
+    "dev:all": "concurrently 'pnpm run dev' 'pnpm run gql:codegen:watch'",
     "build": "next build",
     "start": "next start",
     "lint": "prettier --config .prettierrc \"src/**/*.{ts,js,tsx,jsx}\" --write && eslint \"src/**/*.{ts,js,tsx,jsx}\"",

@@ -12,7 +12,11 @@ import { Bounce, ToastContainer } from "react-toastify";
 
 import "lenis/dist/lenis.css";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {},
+  },
+});
 
 const App = ({ Component, pageProps }: AppProps) => {
   const lenisRef = useRef<LenisRef>(null);
