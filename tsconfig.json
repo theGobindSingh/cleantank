@@ -9,23 +9,30 @@
     "forceConsistentCasingInFileNames": true,
     "jsxImportSource": "@emotion/react",
     "paths": {
-      "@assets/*": ["./public/assets/*"],
-      "@images/*": ["./public/assets/images/*"],
-      "@public/*": ["./public/*"],
-      "@components/*": ["./components/*"],
-      "@modules/*": ["./modules/*"],
-      "@pages/*": ["./pages/*"],
-      "@hooks/*": ["./hooks/*"],
-      "@layouts/*": ["./layouts/*"],
-      "@styles/*": ["./styles/*"],
-      "@vectors/*": ["./vectors/*"],
-      "@/*": ["./*"]
+      "@assets/*": ["./src/public/assets/*"],
+      "@images/*": ["./src/public/assets/images/*"],
+      "@public/*": ["./src/public/*"],
+      "@components/*": ["./src/components/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@vectors/*": ["./src/vectors/*"],
+      "@gql/*": ["./src/gql/*"],
+      "@/*": ["./src/*"]
     },
     "noPropertyAccessFromIndexSignature": false,
     "ignoreDeprecations": "5.0",
     "verbatimModuleSyntax": false,
     "allowUnusedLabels": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "plugins": [
+      {
+        "name": "@0no-co/graphqlsp",
+        "schema": "./src/gql/schema.graphql"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",

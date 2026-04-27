@@ -1,7 +1,7 @@
-import Chip from "@components/chip";
-import { H2, P } from "@components/html";
-import { HomeSectionWrapper } from "@layouts/standard-section/styles";
-import { StandardSectionLayoutProps } from "@layouts/standard-section/types";
+import Chip from "@/src/components/chip";
+import { H2, P } from "@/src/components/html";
+import { HomeSectionWrapper } from "@/src/layouts/standard-section/styles";
+import { StandardSectionLayoutProps } from "@/src/layouts/standard-section/types";
 
 const StandardSectionLayout = ({
   chip,

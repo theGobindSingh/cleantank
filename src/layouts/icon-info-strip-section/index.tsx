@@ -1,9 +1,9 @@
-import { Span } from "@components/html";
+import { Span } from "@/src/components/html";
 import {
   HeroStripItemWrapper,
   HeroStripWrapper,
-} from "@layouts/icon-info-strip-section/styles";
-import { HeroStripProps } from "@layouts/icon-info-strip-section/types";
+} from "@/src/layouts/icon-info-strip-section/styles";
+import { HeroStripProps } from "@/src/layouts/icon-info-strip-section/types";
 
 const IconInfoStripSection = ({ items }: HeroStripProps) => {
   const itemMapper = (

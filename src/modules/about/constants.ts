@@ -1,11 +1,11 @@
-import { HeroSectionProps } from "@layouts/hero-section/types";
+import { HeroSectionProps } from "@/src/layouts/hero-section/types";
 import {
   CredentialItem,
   PillarItem,
   TechnologyPoint,
   TimelineEvent,
   ValuesBannerProps,
-} from "@modules/about/types";
+} from "@/src/modules/about/types";
 import {
   BuildOutlined,
   EngineeringOutlined,

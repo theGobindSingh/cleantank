@@ -1,5 +1,5 @@
-import IconCardSectionLayout from "@layouts/icon-card-section";
-import { HomeProcessSectionProps } from "@modules/home/types";
+import IconCardSectionLayout from "@/src/layouts/icon-card-section";
+import { HomeProcessSectionProps } from "@/src/modules/home/types";
 
 const HomeProcessSection = ({
   title,

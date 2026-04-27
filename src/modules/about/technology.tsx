@@ -1,5 +1,5 @@
-import Chip from "@components/chip";
-import { H2, H3, P } from "@components/html";
+import Chip from "@/src/components/chip";
+import { H2, H3, P } from "@/src/components/html";
 import {
   TechnologyImage,
   TechnologyImageWrapper,
@@ -9,8 +9,8 @@ import {
   TechnologyRight,
   TechnologyTitleBlock,
   TechnologyWrapper,
-} from "@modules/about/styles";
-import { TechnologySectionProps } from "@modules/about/types";
+} from "@/src/modules/about/styles";
+import { TechnologySectionProps } from "@/src/modules/about/types";
 
 const pointMapper = ({
   icon: Icon,

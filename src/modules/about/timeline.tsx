@@ -1,12 +1,12 @@
-import Chip from "@components/chip";
-import { H2, H3, P, Span } from "@components/html";
+import Chip from "@/src/components/chip";
+import { H2, H3, P, Span } from "@/src/components/html";
 import {
   TimelineEventItem,
   TimelineHeaderBlock,
   TimelineTrack,
   TimelineWrapper,
-} from "@modules/about/styles";
-import { TimelineSectionProps } from "@modules/about/types";
+} from "@/src/modules/about/styles";
+import { TimelineSectionProps } from "@/src/modules/about/types";
 
 const eventMapper = (
   {

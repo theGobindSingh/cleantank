@@ -1,6 +1,6 @@
-import Button from "@components/button";
-import Chip from "@components/chip";
-import { H2, H3, P } from "@components/html";
+import Button from "@/src/components/button";
+import Chip from "@/src/components/chip";
+import { H2, H3, P } from "@/src/components/html";
 import {
   FranchiseFormCard,
   FranchiseFormField,
@@ -10,8 +10,8 @@ import {
   FranchisePointItem,
   FranchisePointList,
   FranchiseSectionWrapper,
-} from "@modules/home/styles";
-import { FranchiseSectionProps } from "@modules/home/types";
+} from "@/src/modules/home/styles";
+import { FranchiseSectionProps } from "@/src/modules/home/types";
 import {
   useEasyGoogleForm,
   UseEasyGoogleFormParams,

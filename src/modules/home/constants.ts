@@ -1,11 +1,11 @@
-import { HeroSectionProps } from "@layouts/hero-section/types";
-import { HeroStripProps } from "@layouts/icon-info-strip-section/types";
+import { HeroSectionProps } from "@/src/layouts/hero-section/types";
+import { HeroStripProps } from "@/src/layouts/icon-info-strip-section/types";
 import {
   FranchiseSectionProps,
   HomeProcessSectionProps,
   IndustriesSectionProps,
   TestimonialsSectionProps,
-} from "@modules/home/types";
+} from "@/src/modules/home/types";
 import {
   CleaningServicesOutlined,
   DeleteSweepOutlined,
