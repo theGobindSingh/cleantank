@@ -16,6 +16,8 @@
     "lint:fix": "prettier --config .prettierrc \"{components,vectors,layouts,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --write && eslint \"{components,vectors,layouts,hooks,modules,pages,public,styles}/**/*.{ts,js,tsx,jsx}\" --fix"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^16.2.1",
+    "@contentful/rich-text-types": "^17.2.7",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@kami-ui/next-theme": "^0.0.22",
@@ -28,6 +30,8 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@webadeva/use-easy-google-form": "^3.0.2",
+    "graphql": "^16.13.2",
+    "graphql-request": "^7.4.0",
     "lenis": "^1.3.21",
     "next": "^16.2.1",
     "react": "^19.2.4",
@@ -36,6 +40,7 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^6.3.1",
     "@kami-ui/eslint-config": "^0.0.6",
     "@kami-ui/types": "^0.0.3",
     "@tanstack/react-devtools": "^0.10.1",

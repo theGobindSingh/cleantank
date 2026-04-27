@@ -1,8 +1,9 @@
 import Button from "@components/button";
 import Chip from "@components/chip";
-import { H1, P, Span } from "@components/html";
+import { P } from "@components/html";
 import {
   HeroSectionImage,
+  HeroSectionTitle,
   HeroSectionWrapper,
   heroSectionWrapperStyles,
 } from "@layouts/hero-section/styles";
@@ -12,20 +13,16 @@ import { useCallback, useMemo, useRef } from "react";
 
 const getTitle = (title: HeroSectionProps["title"]) => {
   if (typeof title === "string") {
-    return (
-      <H1 $margin="0" className="title">
-        {title}
-      </H1>
-    );
+    return <HeroSectionTitle>{title}</HeroSectionTitle>;
   }
   const { text, highlight } = title;
   const parts = text.split(highlight);
   return (
-    <H1 $margin="0" className="title">
+    <HeroSectionTitle>
       {parts[0]}
-      <Span style={{ color: "var(--color-primary-300)" }}>{highlight}</Span>
+      <span>{highlight}</span>
       {parts[1]}
-    </H1>
+    </HeroSectionTitle>
   );
 };
 

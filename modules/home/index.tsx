@@ -1,4 +1,4 @@
-import GlobalLayout from "@/layouts/global";
+import img from "@assets/images/water_gun.png";
 import HeroSection from "@layouts/hero-section";
 import IconInfoStripSection from "@layouts/icon-info-strip-section";
 import {
@@ -17,12 +17,13 @@ import IndustriesSection from "@modules/home/industries";
 import HomeProcessSection from "@modules/home/process";
 import TestimonialsSection from "@modules/home/testimonials";
 import { HomeProps } from "@modules/home/types";
+import { Fragment } from "react";
 
 const Home = (_: HomeProps) => {
   return (
-    <GlobalLayout>
+    <Fragment>
       <HeroSection
-        imgSrc="https://images.pexels.com/photos/5115943/pexels-photo-5115943.jpeg"
+        imgSrc={img}
         chip="Industrial Grade Excellence"
         title="India's Most Trusted Water Tank Cleaning Service"
         subtitle="Sterile hygiene protocols, government-grade compliance, and advanced robotic technology for high-capacity liquid storage systems."
@@ -40,7 +41,7 @@ const Home = (_: HomeProps) => {
         {...testimonialsSectionMeta}
         items={testimonialItems}
       />
-    </GlobalLayout>
+    </Fragment>
   );
 };
 

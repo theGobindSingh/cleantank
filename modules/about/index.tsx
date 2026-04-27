@@ -1,4 +1,3 @@
-import GlobalLayout from "@/layouts/global";
 import HeroSection from "@layouts/hero-section";
 import IconCardSectionLayout from "@layouts/icon-card-section";
 import IconInfoStripSection from "@layouts/icon-info-strip-section";
@@ -23,16 +22,12 @@ import {
   testimonialsSectionMeta,
 } from "@modules/home/constants";
 import TestimonialsSection from "@modules/home/testimonials";
+import { Fragment } from "react";
 
 const About = (_: AboutProps) => {
   return (
-    <GlobalLayout>
-      <HeroSection
-        imgSrc={aboutHeroProps.imgSrc}
-        chip={aboutHeroProps.chip}
-        title={aboutHeroProps.title}
-        subtitle={aboutHeroProps.subtitle}
-      />
+    <Fragment>
+      <HeroSection {...aboutHeroProps} />
       <IconCardSectionLayout
         {...pillarsSectionMeta}
         items={pillarItems}
@@ -50,7 +45,7 @@ const About = (_: AboutProps) => {
         {...testimonialsSectionMeta}
         items={testimonialItems}
       />
-    </GlobalLayout>
+    </Fragment>
   );
 };
 

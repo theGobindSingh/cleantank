@@ -42,3 +42,5 @@ package-lock.json
 *.map
 
 pnpm-lock.yaml
+*.env*
+!*.env.example

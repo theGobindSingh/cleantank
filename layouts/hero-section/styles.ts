@@ -1,4 +1,5 @@
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
+import { H1 } from "@components/html";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { mediaQuery } from "@styles/global";
@@ -73,4 +74,12 @@ export const HeroSectionImage = styled(Image)`
   top: 0;
   left: 0;
   user-select: none;
+`;
+
+export const HeroSectionTitle = styled(H1)`
+  width: 100%;
+  margin: 0;
+  * {
+    color: var(--color-secondary-800);
+  }
 `;

@@ -1,3 +1,4 @@
+import { HeroSectionProps } from "@layouts/hero-section/types";
 import {
   CredentialItem,
   PillarItem,
@@ -20,13 +21,16 @@ import {
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
-export const aboutHeroProps = {
+export const aboutHeroProps: HeroSectionProps = {
   chip: "About Clean Tank Services",
-  title: "Defining the Standard of Tank Purity.",
+  title: {
+    text: "Defining the Standard of Tank Purity",
+    highlight: "Standard of Tank Purity",
+  },
   subtitle:
     "A decade of precision engineering, government-grade compliance, and zero-compromise water hygiene — delivered across India's most critical institutions.",
   imgSrc:
-    "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&w=1600",
+    "https://images.pexels.com/photos/5115943/pexels-photo-5115943.jpeg?auto=compress&w=1600",
 };
 
 // ─── Core Operation Pillars ───────────────────────────────────────────────────

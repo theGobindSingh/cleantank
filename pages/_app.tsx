@@ -1,5 +1,6 @@
 import { Global } from "@emotion/react";
 import { ThemeProvider } from "@kami-ui/next-theme";
+import GlobalLayout from "@layouts/global";
 import { globalStyles } from "@styles/global";
 import theme from "@styles/theme";
 import "lenis/dist/lenis.css";
@@ -29,7 +30,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globalStyles} />
-      <Component {...pageProps} />
+      <GlobalLayout>
+        <Component {...pageProps} />
+      </GlobalLayout>
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
