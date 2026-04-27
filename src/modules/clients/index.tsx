@@ -1,12 +1,12 @@
-import HeroSection from "@/src/layouts/hero-section";
-import StandardSectionLayout from "@/src/layouts/standard-section";
-import { clientsHeroProps } from "@/src/modules/clients/constants";
+import HeroSection from "@layouts/hero-section";
+import StandardSectionLayout from "@layouts/standard-section";
+import { clientsHeroProps } from "@modules/clients/constants";
 import {
   ClientCard,
   ClientCardsWrapper,
   ClientCardTitle,
-} from "@/src/modules/clients/styles";
-import { ClientsProps } from "@/src/modules/clients/types";
+} from "@modules/clients/styles";
+import { ClientsProps } from "@modules/clients/types";
 import Image from "next/image";
 import { Fragment } from "react";
 

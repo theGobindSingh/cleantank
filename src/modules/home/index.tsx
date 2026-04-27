@@ -1,5 +1,6 @@
-import HeroSection from "@/src/layouts/hero-section";
-import IconInfoStripSection from "@/src/layouts/icon-info-strip-section";
+import img from "@assets/images/water_gun.png";
+import HeroSection from "@layouts/hero-section";
+import IconInfoStripSection from "@layouts/icon-info-strip-section";
 import {
   HeroCTAs,
   franchisePoints,
@@ -10,13 +11,12 @@ import {
   processItems,
   testimonialItems,
   testimonialsSectionMeta,
-} from "@/src/modules/home/constants";
-import FranchiseSection from "@/src/modules/home/franchise";
-import IndustriesSection from "@/src/modules/home/industries";
-import HomeProcessSection from "@/src/modules/home/process";
-import TestimonialsSection from "@/src/modules/home/testimonials";
-import { HomeProps } from "@/src/modules/home/types";
-import img from "@assets/images/water_gun.png";
+} from "@modules/home/constants";
+import FranchiseSection from "@modules/home/franchise";
+import IndustriesSection from "@modules/home/industries";
+import HomeProcessSection from "@modules/home/process";
+import TestimonialsSection from "@modules/home/testimonials";
+import { HomeProps } from "@modules/home/types";
 import { Fragment } from "react";
 
 const Home = (_: HomeProps) => {

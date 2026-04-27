@@ -1,6 +1,6 @@
-import HeroSection from "@/src/layouts/hero-section";
-import IconCardSectionLayout from "@/src/layouts/icon-card-section";
-import IconInfoStripSection from "@/src/layouts/icon-info-strip-section";
+import HeroSection from "@layouts/hero-section";
+import IconCardSectionLayout from "@layouts/icon-card-section";
+import IconInfoStripSection from "@layouts/icon-info-strip-section";
 import {
   aboutHeroProps,
   credentialItems,
@@ -12,16 +12,16 @@ import {
   timelineEvents,
   timelineSectionMeta,
   valuesBannerProps,
-} from "@/src/modules/about/constants";
-import TechnologySection from "@/src/modules/about/technology";
-import TimelineSection from "@/src/modules/about/timeline";
-import { AboutProps } from "@/src/modules/about/types";
-import ValuesBanner from "@/src/modules/about/values-banner";
+} from "@modules/about/constants";
+import TechnologySection from "@modules/about/technology";
+import TimelineSection from "@modules/about/timeline";
+import { AboutProps } from "@modules/about/types";
+import ValuesBanner from "@modules/about/values-banner";
 import {
   testimonialItems,
   testimonialsSectionMeta,
-} from "@/src/modules/home/constants";
-import TestimonialsSection from "@/src/modules/home/testimonials";
+} from "@modules/home/constants";
+import TestimonialsSection from "@modules/home/testimonials";
 import { Fragment } from "react";
 
 const About = (_: AboutProps) => {

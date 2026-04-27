@@ -1,6 +1,6 @@
-import { P, Span } from "@/src/components/html";
-import { ValuesBannerWrapper } from "@/src/modules/about/styles";
-import { ValuesBannerProps } from "@/src/modules/about/types";
+import { P, Span } from "@components/html";
+import { ValuesBannerWrapper } from "@modules/about/styles";
+import { ValuesBannerProps } from "@modules/about/types";
 
 const ValuesBanner = ({ statement, attribution }: ValuesBannerProps) => (
   <ValuesBannerWrapper element="section" bg="var(--color-primary-100)">
