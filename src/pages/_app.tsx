@@ -3,20 +3,15 @@ import { ThemeProvider } from "@kami-ui/next-theme";
 import GlobalLayout from "@layouts/global";
 import { globalStyles } from "@styles/global";
 import theme from "@styles/theme";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import ReactLenis, { LenisRef } from "lenis/react";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
 
+import queryClient from "@/clients/query";
 import "lenis/dist/lenis.css";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {},
-  },
-});
 
 const App = ({ Component, pageProps }: AppProps) => {
   const lenisRef = useRef<LenisRef>(null);

@@ -3,7 +3,6 @@ import { ImageProps } from "next/image";
 
 export interface HeroSectionProps {
   imgSrc: ImageProps["src"];
-  imgAlt?: ImageProps["alt"];
   chip?: string;
   title:
     | string

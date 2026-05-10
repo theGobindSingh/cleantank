@@ -31,7 +31,6 @@ const HeroSection = ({
   title,
   CTAs = [],
   chip,
-  imgAlt,
   subtitle,
 }: HeroSectionProps) => {
   const ref = useRef<HTMLImageElement>(null);
@@ -45,7 +44,7 @@ const HeroSection = ({
       <HeroSectionImage
         ref={ref}
         src={imgSrc}
-        alt={imgAlt ?? (typeof title === "string" ? title : title?.text)}
+        alt={""}
         width={5173}
         height={3510}
         sizes="100vw"
@@ -55,7 +54,7 @@ const HeroSection = ({
         fetchPriority="high"
       />
     );
-  }, [imgSrc, imgAlt, title]);
+  }, [imgSrc]);
   const ctaMapper = useCallback(
     (
       { text, ...props }: NonNullable<HeroSectionProps["CTAs"]>[number],

@@ -17,12 +17,19 @@ export const ClientCard = styled.div`
   align-items: flex-start;
   gap: 0.5rem;
   .img-wrapper {
-    width: 100%;
+    padding: 0.25rem;
     aspect-ratio: 1;
-    border: 1px solid #000;
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 
 export const ClientCardTitle = styled(Span)`
-  font-weight: 500;
+  font-weight: 600;
+  font-size: var(--fs-2xs);
+  text-align: center;
+  width: 100%;
 `;

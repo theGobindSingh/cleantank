@@ -10,6 +10,7 @@
     "jsxImportSource": "@emotion/react",
     "paths": {
       "@assets/*": ["./src/public/assets/*"],
+      "@server-assets/*": ["./src/assets/*"],
       "@images/*": ["./src/public/assets/images/*"],
       "@public/*": ["./src/public/*"],
       "@components/*": ["./src/components/*"],

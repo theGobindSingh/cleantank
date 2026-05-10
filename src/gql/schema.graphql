@@ -118,6 +118,8 @@ input AssetFilter {
 type AssetLinkingCollections {
   entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): EntryCollection
   entryCursorCollection(limit: Int = 100, locale: String, pageNext: String, pagePrev: String, preview: Boolean, useFallbackLocale: Boolean): EntryCursorCollection
+  pageDataCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): PageDataCollection
+  pageDataCursorCollection(limit: Int = 100, locale: String, pageNext: String, pagePrev: String, preview: Boolean, useFallbackLocale: Boolean): PageDataCursorCollection
 }
 
 enum AssetOrder {
@@ -348,6 +350,124 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 scalar JSON
 
 """
+[See type definition](https://app.contentful.com/spaces/qiszmbrks3i6/content_types/pageData)
+"""
+type PageData implements Entry & _Node {
+  _id: ID!
+  contentfulMetadata: ContentfulMetadata!
+  heroChip(locale: String, useFallbackLocale: Boolean): String
+  heroCtAs(locale: String, useFallbackLocale: Boolean): JSON
+  heroImage(locale: String, preview: Boolean, useFallbackLocale: Boolean): Asset
+  heroSubtitle(locale: String, useFallbackLocale: Boolean): String
+  heroTitle(locale: String, useFallbackLocale: Boolean): String
+  heroTitleHighlight(locale: String, useFallbackLocale: Boolean): String
+  linkedFrom(allowedLocales: [String]): PageDataLinkingCollections
+  metaDescription(locale: String, useFallbackLocale: Boolean): String
+  metaTitle(locale: String, useFallbackLocale: Boolean): String
+  route(locale: String, useFallbackLocale: Boolean): String
+  sys: Sys!
+}
+
+type PageDataCollection {
+  items: [PageData]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+type PageDataCursorCollection {
+  items: [PageData]!
+  limit: Int!
+  pages: CursorPages!
+}
+
+input PageDataFilter {
+  AND: [PageDataFilter]
+  OR: [PageDataFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  heroCTAs_exists: Boolean
+  heroChip: String
+  heroChip_contains: String
+  heroChip_exists: Boolean
+  heroChip_in: [String]
+  heroChip_not: String
+  heroChip_not_contains: String
+  heroChip_not_in: [String]
+  heroImage_exists: Boolean
+  heroSubtitle: String
+  heroSubtitle_contains: String
+  heroSubtitle_exists: Boolean
+  heroSubtitle_in: [String]
+  heroSubtitle_not: String
+  heroSubtitle_not_contains: String
+  heroSubtitle_not_in: [String]
+  heroTitle: String
+  heroTitleHighlight: String
+  heroTitleHighlight_contains: String
+  heroTitleHighlight_exists: Boolean
+  heroTitleHighlight_in: [String]
+  heroTitleHighlight_not: String
+  heroTitleHighlight_not_contains: String
+  heroTitleHighlight_not_in: [String]
+  heroTitle_contains: String
+  heroTitle_exists: Boolean
+  heroTitle_in: [String]
+  heroTitle_not: String
+  heroTitle_not_contains: String
+  heroTitle_not_in: [String]
+  metaDescription: String
+  metaDescription_contains: String
+  metaDescription_exists: Boolean
+  metaDescription_in: [String]
+  metaDescription_not: String
+  metaDescription_not_contains: String
+  metaDescription_not_in: [String]
+  metaTitle: String
+  metaTitle_contains: String
+  metaTitle_exists: Boolean
+  metaTitle_in: [String]
+  metaTitle_not: String
+  metaTitle_not_contains: String
+  metaTitle_not_in: [String]
+  route: String
+  route_contains: String
+  route_exists: Boolean
+  route_in: [String]
+  route_not: String
+  route_not_contains: String
+  route_not_in: [String]
+  sys: SysFilter
+}
+
+type PageDataLinkingCollections {
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): EntryCollection
+  entryCursorCollection(limit: Int = 100, locale: String, pageNext: String, pagePrev: String, preview: Boolean, useFallbackLocale: Boolean): EntryCursorCollection
+}
+
+enum PageDataOrder {
+  heroChip_ASC
+  heroChip_DESC
+  heroTitleHighlight_ASC
+  heroTitleHighlight_DESC
+  heroTitle_ASC
+  heroTitle_DESC
+  metaDescription_ASC
+  metaDescription_DESC
+  metaTitle_ASC
+  metaTitle_DESC
+  route_ASC
+  route_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+}
+
+"""
 The 'Quality' type represents quality as whole numeric values between `1` and `100`.
 """
 scalar Quality
@@ -360,6 +480,9 @@ type Query {
   assetCursorCollection(limit: Int = 100, locale: String, order: [AssetOrder], pageNext: String, pagePrev: String, preview: Boolean, useFallbackLocale: Boolean, where: AssetFilter): AssetCursorCollection
   entryCollection(limit: Int = 100, locale: String, order: [EntryOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: EntryFilter): EntryCollection
   entryCursorCollection(limit: Int = 100, locale: String, order: [EntryOrder], pageNext: String, pagePrev: String, preview: Boolean, useFallbackLocale: Boolean, where: EntryFilter): EntryCursorCollection
+  pageData(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): PageData
+  pageDataCollection(limit: Int = 100, locale: String, order: [PageDataOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: PageDataFilter): PageDataCollection
+  pageDataCursorCollection(limit: Int = 100, locale: String, order: [PageDataOrder], pageNext: String, pagePrev: String, preview: Boolean, useFallbackLocale: Boolean, where: PageDataFilter): PageDataCursorCollection
 }
 
 type Sys {

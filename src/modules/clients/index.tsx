@@ -1,6 +1,9 @@
 import HeroSection from "@layouts/hero-section";
 import StandardSectionLayout from "@layouts/standard-section";
-import { clientsHeroProps } from "@modules/clients/constants";
+import {
+  clientsCategoryData,
+  clientsHeroProps,
+} from "@modules/clients/constants";
 import {
   ClientCard,
   ClientCardsWrapper,
@@ -8,32 +11,52 @@ import {
 } from "@modules/clients/styles";
 import { ClientsProps } from "@modules/clients/types";
 import Image from "next/image";
-import { Fragment } from "react";
+import { Fragment, useCallback } from "react";
 
-const Clients = (_: ClientsProps) => {
+const clientsMapper = (
+  client: NonNullable<
+    ClientsProps["clients"][keyof ClientsProps["clients"]]
+  >[number],
+) => {
+  return (
+    <ClientCard key={client.name}>
+      <div className="img-wrapper">
+        <Image src={client.src} alt={client.name} width={150} height={150} />
+      </div>
+      <ClientCardTitle className="title">{client.name}</ClientCardTitle>
+    </ClientCard>
+  );
+};
+
+const Clients = ({ clients = {} }: ClientsProps) => {
+  const clientsCategoryMapper = useCallback(
+    (category: string) => {
+      const clientCategoryData =
+        clientsCategoryData[category as keyof typeof clientsCategoryData];
+      if (!clientCategoryData) return null;
+
+      const client = clients[category as keyof typeof clients];
+      if (!client || client?.length === 0) return null;
+
+      const { title, description, chip } = clientCategoryData;
+
+      return (
+        <StandardSectionLayout
+          key={category}
+          title={title}
+          description={description}
+          chip={chip}
+        >
+          <ClientCardsWrapper>{client.map(clientsMapper)}</ClientCardsWrapper>
+        </StandardSectionLayout>
+      );
+    },
+    [clients],
+  );
   return (
     <Fragment>
       <HeroSection {...clientsHeroProps} />
-      <StandardSectionLayout
-        title="Institutional Partnerships"
-        description="Empowering academic and research hubs with sterile water systems."
-        chip="Academic Leaders"
-      >
-        <ClientCardsWrapper>
-          <ClientCard>
-            <div className="img-wrapper">
-              <Image src="" alt="" width={200} height={200} />
-            </div>
-            <ClientCardTitle className="title">IIT Bombay</ClientCardTitle>
-          </ClientCard>
-          <ClientCard>
-            <div className="img-wrapper">
-              <Image src="" alt="" width={200} height={200} />
-            </div>
-            <ClientCardTitle className="title">IIT Delhi</ClientCardTitle>
-          </ClientCard>
-        </ClientCardsWrapper>
-      </StandardSectionLayout>
+      {Object.keys(clients).map(clientsCategoryMapper)}
     </Fragment>
   );
 };
