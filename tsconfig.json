@@ -21,6 +21,8 @@
       "@styles/*": ["./src/styles/*"],
       "@vectors/*": ["./src/vectors/*"],
       "@gql/*": ["./src/gql/*"],
+      "@constants": ["./src/constants/index.ts"],
+      "@constants/*": ["./src/constants/*"],
       "@/*": ["./src/*"]
     },
     "noPropertyAccessFromIndexSignature": false,

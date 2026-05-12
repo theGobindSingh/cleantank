@@ -8,6 +8,7 @@ import {
   HeaderNav,
   headerWrapperStyles,
 } from "@components/header/styles";
+import { siteLinks } from "@constants";
 import { useRouter } from "next/router";
 import {
   ChangeEventHandler,
@@ -15,15 +16,6 @@ import {
   useCallback,
   useRef,
 } from "react";
-
-const headerLinks = [
-  { name: "Home", path: "/" },
-  { name: "Clients", path: "/clients" },
-  { name: "Services", path: "/services" },
-  { name: "About Us", path: "/about-us" },
-  { name: "Franchise", path: "/franchise" },
-  { name: "Contact", path: "/contact" },
-];
 
 const Header = () => {
   const { pathname, push } = useRouter();
@@ -41,7 +33,7 @@ const Header = () => {
   );
 
   const linkMapper = useCallback(
-    ({ name, path }: (typeof headerLinks)[number]) => {
+    ({ name, path }: (typeof siteLinks)[number]) => {
       const linkPath = name === "Home" ? "/" : path;
       const clickHandler: MouseEventHandler<HTMLAnchorElement> = (e) => {
         e.preventDefault();
@@ -86,7 +78,7 @@ const Header = () => {
       <HeaderNav>
         <HeaderLogo href="/">CLEANTANK SERVICES</HeaderLogo>
         <HeaderLinksWrapper>
-          {headerLinks.map(linkMapper)}{" "}
+          {siteLinks.map(linkMapper)}{" "}
           <Button $size="sm" href={"/contact"} className="contact-btn">
             Get a Quote
           </Button>
