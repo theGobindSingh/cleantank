@@ -1,8 +1,5 @@
-import { HomeWrapper } from "@modules/home/styles";
-import { HomeProps } from "@modules/home/types";
-
-const Home = ({ className }: HomeProps) => {
-  return <HomeWrapper className={className}>Hello Home</HomeWrapper>;
+const Services = () => {
+  return <div>Services</div>;
 };
 
-export default Home;
+export default Services;

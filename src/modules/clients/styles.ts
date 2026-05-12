@@ -19,6 +19,8 @@ export const ClientCard = styled.div`
   .img-wrapper {
     padding: 0.25rem;
     aspect-ratio: 1;
+    width: 100%;
+    height: auto;
     img {
       object-fit: contain;
       width: 100%;

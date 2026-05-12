@@ -1,4 +1,4 @@
-import img from "@assets/images/water_gun.png";
+import img from "@images/water_gun.png";
 import HeroSection from "@layouts/hero-section";
 import IconInfoStripSection from "@layouts/icon-info-strip-section";
 import {

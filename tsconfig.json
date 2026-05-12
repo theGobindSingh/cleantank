@@ -9,10 +9,10 @@
     "forceConsistentCasingInFileNames": true,
     "jsxImportSource": "@emotion/react",
     "paths": {
-      "@assets/*": ["./src/public/assets/*"],
+      "@assets/*": ["./public/assets/*"],
       "@server-assets/*": ["./src/assets/*"],
-      "@images/*": ["./src/public/assets/images/*"],
-      "@public/*": ["./src/public/*"],
+      "@images/*": ["./public/assets/images/*"],
+      "@public/*": ["./public/*"],
       "@components/*": ["./src/components/*"],
       "@modules/*": ["./src/modules/*"],
       "@pages/*": ["./src/pages/*"],
@@ -42,5 +42,5 @@
     "eslint.config.mjs",
     "next.config.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/gql"]
 }

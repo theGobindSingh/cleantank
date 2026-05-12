@@ -11,21 +11,60 @@ import {
 } from "@modules/clients/styles";
 import { ClientsProps } from "@modules/clients/types";
 import Image from "next/image";
-import { Fragment, useCallback } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
+
+// Module-level Set to persist revealed client names for the session
+const revealedClients = new Set<string>();
+
+const ClientCardComponent = ({
+  client,
+}: {
+  client: NonNullable<
+    ClientsProps["clients"][keyof ClientsProps["clients"]]
+  >[number];
+}) => {
+  const [visible, setVisible] = useState(() => {
+    return revealedClients.has(client.name);
+  });
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (visible) return; // Already revealed, skip observer
+    const callback: IntersectionObserverCallback = (entries, observer) => {
+      const { isIntersecting = false } = entries?.[0] ?? ({} as never);
+      if (isIntersecting) {
+        setVisible(true);
+        revealedClients.add(client.name);
+        observer.disconnect();
+      }
+    };
+    const observer = new IntersectionObserver(callback, { threshold: 0.1 });
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, [visible, client.name]);
+
+  return (
+    <ClientCard key={client.name}>
+      <div className="img-wrapper" ref={ref}>
+        {visible && (
+          <Image src={client.src} alt={client.name} width={150} height={150} />
+        )}
+      </div>
+      <ClientCardTitle className="title">{client.name}</ClientCardTitle>
+    </ClientCard>
+  );
+};
 
 const clientsMapper = (
   client: NonNullable<
     ClientsProps["clients"][keyof ClientsProps["clients"]]
   >[number],
 ) => {
-  return (
-    <ClientCard key={client.name}>
-      <div className="img-wrapper">
-        <Image src={client.src} alt={client.name} width={150} height={150} />
-      </div>
-      <ClientCardTitle className="title">{client.name}</ClientCardTitle>
-    </ClientCard>
-  );
+  return <ClientCardComponent key={client.name} client={client} />;
 };
 
 const Clients = ({ clients = {} }: ClientsProps) => {

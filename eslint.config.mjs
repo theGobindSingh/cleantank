@@ -5,6 +5,9 @@ export default [
   ...config,
   ...pluginQuery.configs["flat/recommended-strict"],
   {
+    ignores: ["src/gql/**"],
+  },
+  {
     files: ["**/api/**/*.ts"],
     rules: {
       "@typescript-eslint/require-await": "off",
