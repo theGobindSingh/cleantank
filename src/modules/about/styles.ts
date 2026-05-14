@@ -136,16 +136,12 @@ export const TechnologyImageWrapper = styled("div", { shouldForwardProp })<{
     return $tall ? "22rem" : "14rem";
   }};
   overflow: hidden;
-  border-radius: 0.375rem;
+  border-radius: 4px;
 
   img {
     object-fit: cover;
-    filter: grayscale(100%);
+    object-position: center 65%;
     transition: filter 0.4s ease;
-  }
-
-  &:hover img {
-    filter: grayscale(30%);
   }
 
   ${mediaQuery.phone} {

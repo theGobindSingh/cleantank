@@ -1,4 +1,5 @@
 import { SvgIconComponent } from "@mui/icons-material";
+import { StaticImageData } from "next/image";
 
 export interface AboutProps {
   className?: string;
@@ -53,7 +54,7 @@ export interface TechnologySectionProps {
   title?: string;
   points?: TechnologyPoint[];
   images?: {
-    src: string;
+    src: string | StaticImageData;
     alt: string;
   }[];
 }

@@ -1,3 +1,5 @@
+import techImgTwo from "@images/tank.png";
+import techImgOne from "@images/water_gun.png";
 import { HeroSectionProps } from "@layouts/hero-section/types";
 import {
   CredentialItem,
@@ -130,11 +132,11 @@ export const technologyPoints: TechnologyPoint[] = [
 
 export const technologyImages = [
   {
-    src: "https://images.pexels.com/photos/8961091/pexels-photo-8961091.jpeg?auto=compress&w=900",
+    src: techImgOne,
     alt: "Technician operating industrial tank cleaning equipment",
   },
   {
-    src: "https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&w=900",
+    src: techImgTwo,
     alt: "Industrial-grade hydro-jetting machine on site",
   },
 ];

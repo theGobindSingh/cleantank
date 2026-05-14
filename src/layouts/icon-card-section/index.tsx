@@ -40,7 +40,15 @@ const Card = ({ icon: Icon, title, description }: IconCardItem) => {
         $margin="1.75em 0 1.25em 0"
         className="card-title"
       >
-        {title}
+        {title.split("\n").map((line, index) => {
+          const key = `icon-card-title-line-${index}-line`;
+          return (
+            <span key={key}>
+              {line}
+              <br />
+            </span>
+          );
+        })}
       </H3>
       <P $color="neutral" $size="3xs" $weight="500" className="card-desc">
         {description}

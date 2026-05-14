@@ -1,23 +1,19 @@
+import { cleaningProcessSteps } from "@constants";
 import { HeroSectionProps } from "@layouts/hero-section/types";
 import { HeroStripProps } from "@layouts/icon-info-strip-section/types";
 import {
   FranchiseSectionProps,
-  HomeProcessSectionProps,
   IndustriesSectionProps,
   TestimonialsSectionProps,
 } from "@modules/home/types";
 import {
-  CleaningServicesOutlined,
-  DeleteSweepOutlined,
-  FlareOutlined,
   GavelRounded,
   MonetizationOnOutlined,
   PrecisionManufacturingOutlined,
   SecurityRounded,
+  SvgIconComponent,
   TaskAltRounded,
-  VerifiedOutlined,
   VerifiedRounded,
-  WaterDropOutlined,
 } from "@mui/icons-material";
 
 export const HeroCTAs: NonNullable<HeroSectionProps["CTAs"]> = [
@@ -67,38 +63,15 @@ export const heroStripItems: HeroStripProps["items"] = [
   },
 ];
 
-export const processItems: NonNullable<HomeProcessSectionProps["items"]> = [
-  {
-    icon: WaterDropOutlined,
-    title: "Water Removal",
-    description:
-      "Full evacuation using high-capacity industrial pumps to eliminate all liquid residues.",
+export const processItems = cleaningProcessSteps.map(
+  ({ mainIcon, title, smallDescription }) => {
+    return {
+      icon: mainIcon as SvgIconComponent,
+      title,
+      description: smallDescription,
+    };
   },
-  {
-    icon: CleaningServicesOutlined,
-    title: "Jetting",
-    description:
-      "High-pressure hydro- jetting to strip biofilm and mineral deposits without abrasive damage.",
-  },
-  {
-    icon: DeleteSweepOutlined,
-    title: "Sludge Removal",
-    description:
-      "Specialized filtration and removal of heavy sediment and organic particulates.",
-  },
-  {
-    icon: FlareOutlined,
-    title: "UV Sterilization",
-    description:
-      "Deployment of UVC spectrum technology to neutralize 99.9% of bacterial pathogens.",
-  },
-  {
-    icon: VerifiedOutlined,
-    title: "Final Polish",
-    description:
-      "Visual inspection and certification of tank surfaces to clinical grade standards.",
-  },
-];
+);
 
 export const industriesSectionMeta: Pick<
   IndustriesSectionProps,

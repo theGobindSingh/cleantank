@@ -71,7 +71,7 @@ modules/home/
 
 ## Pages (6 Total)
 
-Home, Services, About, Clients, Franchise, Contact.
+Home, Process, About, Clients, Franchise, Contact.
 
 Each page requires: unique `<title>`, meta description, Open Graph tags, `h1→h2→h3` hierarchy, semantic HTML.
 

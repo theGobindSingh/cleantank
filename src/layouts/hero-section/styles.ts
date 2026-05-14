@@ -20,7 +20,8 @@ export const heroSectionWrapperStyles = css`
     background: linear-gradient(
       to right,
       rgba(var(--color-primary-100-base), 0.9),
-      rgba(var(--color-primary-200-base), 0.6)
+      rgba(var(--color-primary-100-base), 0.65),
+      rgba(var(--color-primary-200-base), 0.25)
     );
   }
 `;

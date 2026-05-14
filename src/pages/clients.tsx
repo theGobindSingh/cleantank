@@ -3,7 +3,11 @@ import { ClientsProps } from "@modules/clients/types";
 import { GetStaticProps } from "next";
 
 const ClientsPage = ({ clients }: ClientsProps) => {
-  return <Clients clients={clients} />;
+  return (
+    <>
+      <Clients clients={clients} />;
+    </>
+  );
 };
 
 // eslint-disable-next-line react-refresh/only-export-components -- gsp
