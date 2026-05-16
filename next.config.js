@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   allowedDevOrigins: ["*", "192.168.1.6"],
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     qualities: [100, 75, 50, 25],
     deviceSizes: [640, 1024, 1920],
     remotePatterns: [
