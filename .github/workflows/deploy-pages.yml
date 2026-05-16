@@ -48,6 +48,7 @@ jobs:
       CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
       CONTENTFUL_PREVIEW_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}
       BASE_URL: ${{ secrets.BASE_URL }}
+      IS_GITHUB_ACTIONS: ${{ secrets.IS_GITHUB_ACTIONS }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

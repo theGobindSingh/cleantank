@@ -1,10 +1,14 @@
+const isGithubActions = !!process.env.IS_GITHUB_ACTIONS;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  ...(isGithubActions
+    ? { output: "export", basePath: "/cleantank", assetPrefix: "/cleantank/" }
+    : {}),
   allowedDevOrigins: ["*", "192.168.1.6"],
   reactStrictMode: true,
   images: {
-    unoptimized: true,
+    unoptimized: isGithubActions,
     qualities: [100, 75, 50, 25],
     deviceSizes: [640, 1024, 1920],
     remotePatterns: [
