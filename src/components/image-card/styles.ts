@@ -9,6 +9,7 @@ export const ImageCardWrapper = styled.div<Pick<ImageCardProps, "$isReversed">>`
     return $isReversed ? "row-reverse" : "row";
   }};
   gap: 2rem;
+  position: relative;
 
   .img-container {
     position: relative;
@@ -26,6 +27,24 @@ export const ImageCardWrapper = styled.div<Pick<ImageCardProps, "$isReversed">>`
 
   ${mediaQuery.nonDesktop} {
     flex-direction: column;
+    .content {
+      align-items: ${({ $isReversed = false }) => {
+        return $isReversed ? "flex-end" : "flex-start";
+      }};
+      text-align: ${({ $isReversed = false }) => {
+        return $isReversed ? "right" : "left";
+      }};
+      .number {
+        ${({ $isReversed = false }) => {
+          return $isReversed ? "left: 0;" : "right: 0;";
+        }}
+      }
+    }
+
+    .img-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
   }
 `;
 
@@ -61,6 +80,20 @@ export const ImageCardContentWrapper = styled.div`
       font-size: var(--fs-s);
       margin: auto 0;
       color: inherit;
+    }
+  }
+
+  ${mediaQuery.nonDesktop} {
+    .number {
+      position: absolute;
+      top: 0;
+      transform: translateY(-25%);
+      z-index: -1;
+      font-size: clamp(var(--fs-l), 20vw, calc(var(--fs-4xl) + var(--fs-l)));
+    }
+    .title {
+      display: flex;
+      flex-direction: column;
     }
   }
 `;

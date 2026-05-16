@@ -36,7 +36,10 @@ const ImageCard = ({
           $margin="0 0 0.25em 0"
           $size="l"
         >
-          {title}
+          {title.split("\n").map((line, index) => {
+            const key = `img-card-title-line-${index}`;
+            return <span key={key}>{line + " "}</span>;
+          })}
         </H3>
         <P
           className="description"
