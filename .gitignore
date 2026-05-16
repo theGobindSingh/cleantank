@@ -40,7 +40,5 @@ package-lock.json
 *.log
 *.css
 *.map
-
-pnpm-lock.yaml
 *.env*
 !*.env.example

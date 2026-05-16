@@ -43,6 +43,11 @@ jobs:
   deploy:
     needs: lint
     runs-on: ubuntu-latest
+    env:
+      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      CONTENTFUL_PREVIEW_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PREVIEW_ACCESS_TOKEN }}
+      BASE_URL: ${{ secrets.BASE_URL }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
