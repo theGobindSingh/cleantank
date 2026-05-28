@@ -10,13 +10,13 @@ import {
   visualProofSectionMeta,
 } from "@modules/contact/constants";
 import ReachOutSection from "@modules/contact/reach-out";
+import { ContactPageWrapper } from "@modules/contact/styles";
 import { ContactModuleProps } from "@modules/contact/types";
 import VisualProofSection from "@modules/contact/visual-proof";
-import { Fragment } from "react";
 
 const Contact = (_: ContactModuleProps) => {
   return (
-    <Fragment>
+    <ContactPageWrapper>
       <ReachOutSection
         {...reachOutSectionMeta}
         fields={contactFormFields}
@@ -30,7 +30,7 @@ const Contact = (_: ContactModuleProps) => {
         imageAlt={visualProofImageAlt}
         proofItems={visualProofItems}
       />
-    </Fragment>
+    </ContactPageWrapper>
   );
 };
 

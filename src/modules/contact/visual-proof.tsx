@@ -44,6 +44,9 @@ const VisualProofSection = ({
       description={description}
       element="section"
       bg="var(--color-primary-1000)"
+      css={{
+        paddingTop: "0",
+      }}
     >
       <VisualProofBody>
         <VisualProofImageFrame>
@@ -53,7 +56,9 @@ const VisualProofSection = ({
             sizes="(max-width: 1024px) 90vw, 55vw"
           />
         </VisualProofImageFrame>
-        <ProofStrip>{proofItems.map(proofItemMapper)}</ProofStrip>
+        <ProofStrip style={{ marginTop: "0.7em" }}>
+          {proofItems.map(proofItemMapper)}
+        </ProofStrip>
       </VisualProofBody>
     </StandardSectionLayout>
   );

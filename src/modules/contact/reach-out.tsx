@@ -23,8 +23,8 @@ const contactMethodMapper = ({
         <Span
           $size="4xs"
           $weight="700"
-          $color="secondary"
-          $colorWeight="800"
+          $color="primary"
+          $colorWeight="1000"
           $letterSpacing="0.08em"
         >
           {title.toUpperCase()}
@@ -33,10 +33,11 @@ const contactMethodMapper = ({
           <a className="method-link" href={href}>
             <P
               $size="3xs"
-              $weight="600"
-              $color="accent"
+              $weight="700"
+              $color="primary"
               $colorWeight="1000"
               $lineHeight="1.55"
+              style={{ wordBreak: "break-word" }}
             >
               {value}
             </P>
@@ -58,7 +59,7 @@ const contactMethodMapper = ({
 };
 
 const ReachOutSection = ({
-  chip,
+  // chip,
   title,
   description,
   fields,
@@ -68,7 +69,7 @@ const ReachOutSection = ({
 }: ReachOutSectionProps) => {
   return (
     <StandardSectionLayout
-      chip={chip}
+      // chip={chip}
       title={title}
       description={description}
       element="section"
@@ -84,10 +85,11 @@ const ReachOutSection = ({
         <ContactDetailsPanel>
           <H3
             $size="s"
-            $weight="700"
-            $color="accent"
+            $weight="800"
+            $color="primary"
             $colorWeight="1000"
-            $margin="0"
+            $margin="0 0 0.45em 0"
+            style={{ letterSpacing: ".02em" }}
           >
             Direct Contact
           </H3>

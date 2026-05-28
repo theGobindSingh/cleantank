@@ -117,28 +117,29 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
 
   return (
     <ContactFormCard onSubmit={guardedSubmitHandler} ref={formRef}>
-      <div className="form-intro">
+      <div className="form-intro" style={{ paddingBottom: "0.8em" }}>
         <H3
           $size="s"
-          $weight="700"
+          $weight="800"
           $color="primary"
-          $colorWeight="200"
+          $colorWeight="300"
           $margin="0"
+          style={{ letterSpacing: "0.01em" }}
         >
           Business Inquiry
         </H3>
         <P
-          $size="3xs"
+          $size="4xs"
           $color="neutral"
-          $colorWeight="300"
-          $margin="0.5rem 0 0"
-          $lineHeight="1.6"
+          $colorWeight="400"
+          $margin="0.4rem 0 0"
+          $lineHeight="1.62"
         >
-          Share the basics and our team will respond with the right audit path.
+          Share the basics and our team will respond with the best audit path.
         </P>
       </div>
       {fields.map(fieldMapper)}
-      <div className="form-actions">
+      <div className="form-actions" style={{ marginTop: "0.35em" }}>
         <Button
           type="submit"
           $variant="filled"
@@ -147,8 +148,12 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
           $colorWeight="700"
           $textColor="primary"
           $textColorWeight="100"
-          $fontWeight="700"
-          $borderRadius="0.375rem"
+          $fontWeight="800"
+          $borderRadius="0.57rem"
+          style={{
+            paddingInline: "2.4em",
+            boxShadow: "0 2.5px 10px 0 rgba(80,80,90,0.01)",
+          }}
         >
           {submitText}
         </Button>

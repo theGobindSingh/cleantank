@@ -1,6 +1,11 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { mediaQuery } from "@styles/global";
 import Image from "next/image";
+
+export const ContactPageWrapper = styled.div`
+  padding-top: 2rem;
+`;
 
 export const ContactGrid = styled.div`
   display: grid;
@@ -25,19 +30,23 @@ export const ContactFormCard = styled.form`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.15rem;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  background-color: rgba(var(--color-primary-1000-base), 0.88);
-  border: 1px solid rgba(var(--color-primary-700-base), 0.55);
+  padding: 0;
+  border-radius: 0.25rem;
+  background: none;
+  border: none;
 
   .form-intro,
   .form-actions {
     grid-column: 1 / -1;
+    padding-bottom: 2rem;
   }
 
   ${mediaQuery.phone} {
     grid-template-columns: 1fr;
-    padding: 1.25rem;
+    .form-intro,
+    .form-actions {
+      padding-bottom: 1.25rem;
+    }
   }
 `;
 
@@ -59,26 +68,29 @@ export const ContactFormLabel = styled.label`
   text-transform: uppercase;
 `;
 
-export const contactControlStyles = `
+export const contactControlStyles = css`
   width: 100%;
-  min-height: 3rem;
-  border: 1px solid rgba(var(--color-primary-500-base), 0.35);
-  border-radius: 0.375rem;
-  background-color: var(--color-neutral-1000);
+  min-height: 2.7rem;
+  border: 1px solid rgba(var(--color-primary-400-base), 0.28);
+  border-radius: 0.25rem;
+  background-color: var(--color-neutral-1100, #fff);
   color: var(--color-neutral-100);
   font-family: var(--font-sans);
   font-size: var(--fs-2xs);
   outline: none;
-  padding: 0.85rem 1rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.78rem 0.9rem;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.17s ease;
 
   &::placeholder {
-    color: rgba(var(--color-neutral-500-base), 0.75);
+    color: rgba(var(--color-neutral-500-base), 0.55);
+    font-weight: 400;
   }
 
   &:focus {
-    border-color: var(--color-secondary-600);
-    box-shadow: 0 0 0 3px rgba(var(--color-secondary-700-base), 0.18);
+    border-color: var(--color-secondary-500);
+    box-shadow: 0 0 0 2.5px rgba(var(--color-secondary-700-base), 0.08);
   }
 `;
 
@@ -100,50 +112,49 @@ export const ContactFormTextarea = styled.textarea`
 export const ContactDetailsPanel = styled.aside`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  background-color: var(--color-primary-100);
-  color: var(--color-accent-1000);
-
-  ${mediaQuery.phone} {
-    padding: 1.25rem;
-  }
+  gap: 1.45rem;
+  padding: 1.55rem 1.25rem 1.6rem 1.25rem;
+  border-radius: 0.65rem;
+  background: var(--color-primary-100);
+  color: var(--color-primary-1000);
+  box-shadow: 0 0.5px 20px 0 rgba(30, 34, 54, 0.1);
+  min-width: 0;
 `;
 
 export const ContactMethodRow = styled.div`
   display: grid;
-  grid-template-columns: 2.75rem 1fr;
-  gap: 0.85rem;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1.1rem;
   align-items: start;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(var(--color-primary-400-base), 0.55);
-
-  &:last-child {
-    padding-bottom: 0;
-    border-bottom: 0;
-  }
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.5rem;
+  border: none;
 
   .method-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 0.375rem;
-    background-color: rgba(var(--color-secondary-700-base), 0.16);
-    color: var(--color-secondary-800);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: rgba(83, 116, 235, 0.09);
+    color: var(--color-primary-1000);
+    opacity: 1;
   }
 
   .method-icon svg {
-    font-size: var(--fs-m);
+    font-size: 1.18rem;
+  }
+
+  .method-icon svg {
+    font-size: 1.18rem;
   }
 
   .method-content {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.18rem;
   }
 
   .method-link {
@@ -159,19 +170,20 @@ export const ContactMethodRow = styled.div`
 `;
 
 export const VisualProofBody = styled.div`
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr);
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2.4rem;
   width: 100%;
   margin-top: 2.75rem;
-  align-items: stretch;
 
-  ${mediaQuery.nonDesktop} {
-    grid-template-columns: 1fr;
+  @media (min-width: 900px) {
+    flex-direction: row;
+    gap: 2.25rem;
   }
 
   ${mediaQuery.phone} {
-    gap: 1.25rem;
+    gap: 1.15rem;
     margin-top: 2rem;
   }
 `;
@@ -179,10 +191,11 @@ export const VisualProofBody = styled.div`
 export const VisualProofImageFrame = styled.div`
   position: relative;
   width: 100%;
-  min-height: 25rem;
+  min-height: 21rem;
   overflow: hidden;
-  border-radius: 0.5rem;
-  background-color: var(--color-primary-100);
+  border-radius: 0.7rem;
+  background: none;
+  box-shadow: 0 2.5px 18px 0 rgba(var(--color-neutral-900-base), 0.045);
 
   ${mediaQuery.nonDesktop} {
     min-height: auto;
@@ -214,18 +227,15 @@ export const ProofStrip = styled.ul`
 
 export const ProofItem = styled.li`
   display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 0.85rem;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.7rem;
   align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(var(--color-neutral-700-base), 0.45);
-
-  &:last-child {
-    border-bottom: 0;
-  }
+  padding: 0.65rem 0;
+  border: none;
 
   .proof-icon {
     color: var(--color-secondary-600);
-    font-size: var(--fs-m);
+    font-size: 1.18rem;
+    opacity: 0.82;
   }
 `;

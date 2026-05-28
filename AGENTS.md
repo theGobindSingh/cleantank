@@ -7,6 +7,27 @@
 
 ---
 
+## Agent Skills
+
+Agents can load capabilities known as **skills**—modular, auto-discoverable packages providing expert workflows for specific domains (AI SDKs, Next.js, design, skill discovery, etc).
+
+- **Skills live at:** `.agents/skills/<skill-name>/SKILL.md`
+- **Add new skills:** Place in this folder, following current structure. Document purpose in a SKILL.md.
+- **Update this section:** Whenever new skills are added or removed.
+
+### Current available skills
+
+| Skill             | Summary                                                                                           |
+|-------------------|---------------------------------------------------------------------------------------------------|
+| **ai-sdk**        | Vercel AI SDK expert guidance—chat interfaces, text generation, tool calling, agents, integrations |
+| **nextjs**        | Next.js App Router guidance, Server/Client Components, routing, API/data patterns, Vercel deployment|
+| **find-skills**   | Helps discover and install skills from the open agent skills ecosystem                             |
+| **frontend-design**| Build non-generic, production-grade frontend UIs; enforces strong, unique aesthetic standards      |
+
+For details on each skill, see the corresponding `SKILL.md` under `.agents/skills/<name>/`.
+
+---
+
 ## Commands (pnpm required)
 
 - **Dev server:**  
@@ -101,6 +122,7 @@
 
 ## Miscellaneous Quirks
 
+- **Prefer sub-agents:** Use sub-agents as much as possible. Always try to break problems into smaller parts and delegate work to sub-agents to leverage parallelization, specialization, and improved autonomy.
 - **pnpm only:** Project is locked to `pnpm@10.33.0`; never use npm/yarn.
 - **Codegen is required** before any build/dev that touches queries/types.
 - **No monorepo/ sub-packages**—all code is single-package in `src/`.
