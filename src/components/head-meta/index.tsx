@@ -2,6 +2,17 @@ import { siteLinks } from "@constants";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+const defaultDescription =
+  "Clean Tank Services delivers industrial-grade water tank cleaning across India — ISO 9001:2015 certified, government-empanelled, trusted by hospitals, institutions, and enterprises nationwide.";
+
+const pageMeta: Record<string, { title?: string; description: string }> = {
+  "/contact": {
+    title: "Contact | Clean Tank Services",
+    description:
+      "Request a CleanTank Services site audit for residential societies, commercial buildings, hospitals, schools, government facilities, and industrial water tanks across India.",
+  },
+};
+
 const HeadMeta = () => {
   const { pathname } = useRouter();
   const page = (
@@ -10,9 +21,9 @@ const HeadMeta = () => {
     })?.name ?? "Not Found"
   ).trim();
 
-  const title = `${page} | Clean Tank Services`;
-  const description =
-    "Clean Tank Services delivers industrial-grade water tank cleaning across India — ISO 9001:2015 certified, government-empanelled, trusted by hospitals, institutions, and enterprises nationwide.";
+  const meta = pageMeta[pathname];
+  const title = meta?.title ?? `${page} | Clean Tank Services`;
+  const description = meta?.description ?? defaultDescription;
 
   return (
     <Head>

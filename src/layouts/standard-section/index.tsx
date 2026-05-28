@@ -1,5 +1,5 @@
 import Chip from "@components/chip";
-import { H2, P } from "@components/html";
+import { H1, H2, P } from "@components/html";
 import { HomeSectionWrapper } from "@layouts/standard-section/styles";
 import { StandardSectionLayoutProps } from "@layouts/standard-section/types";
 
@@ -7,11 +7,14 @@ const StandardSectionLayout = ({
   chip,
   title,
   description,
+  headingLevel = "h2",
   children,
   bg,
   element,
   className,
 }: StandardSectionLayoutProps) => {
+  const Heading = headingLevel === "h1" ? H1 : H2;
+
   return (
     <HomeSectionWrapper bg={bg!} element={element} className={className!}>
       {chip && (
@@ -24,9 +27,13 @@ const StandardSectionLayout = ({
           {String(chip).toUpperCase()}
         </Chip>
       )}
-      <H2 $margin={chip ? "1rem 0 0" : "0"} $weight="700" className="title">
+      <Heading
+        $margin={chip ? "1rem 0 0" : "0"}
+        $weight="700"
+        className="title"
+      >
         {title}
-      </H2>
+      </Heading>
       {description && (
         <P
           className="desc"

@@ -22,6 +22,20 @@ export const siteLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+export const businessContactDetails = {
+  phone: {
+    label: "+91 12345 67890",
+    href: "tel:+911234567890",
+  },
+  email: {
+    label: "cleantankservices@gmail.com",
+    href: "mailto:cleantankservices@gmail.com",
+  },
+  serviceArea:
+    "Serving commercial, residential, institutional, and government facilities across India",
+  hours: "Mon-Sat, 9:00 AM-7:00 PM IST",
+};
+
 export const cleaningProcessSteps: {
   mainIcon: SvgIconComponent | IconType;
   imageSrc: string | StaticImageData;
