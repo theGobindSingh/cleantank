@@ -1,4 +1,4 @@
-import Button from "@components/button";
+import Button, { ButtonProps } from "@components/button";
 import Chip from "@components/chip";
 import { P } from "@components/html";
 import {
@@ -7,10 +7,11 @@ import {
   HeroSectionTitle,
   HeroSectionWrapper,
   heroSectionWrapperStyles,
+  splitHeroSectionWrapperStyles,
 } from "@layouts/hero-section/styles";
 import { HeroSectionProps } from "@layouts/hero-section/types";
 import { useLenis } from "lenis/react";
-import { useCallback, useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 
 const getTitle = (title: HeroSectionProps["title"]) => {
   if (typeof title === "string") {
@@ -41,7 +42,18 @@ const getTitle = (title: HeroSectionProps["title"]) => {
   );
 };
 
-const HeroSection = ({
+const ctaMapper = (
+  { text, ...props }: NonNullable<HeroSectionProps["CTAs"]>[number],
+  index: number,
+) => {
+  return (
+    <Button key={`hero-section-cta-${index}`} {...(props as ButtonProps)}>
+      {text}
+    </Button>
+  );
+};
+
+const HeroSectionLayout = ({
   imgSrc,
   title,
   CTAs = [],
@@ -72,19 +84,6 @@ const HeroSection = ({
       />
     );
   }, [imgSrc]);
-  const ctaMapper = useCallback(
-    (
-      { text, ...props }: NonNullable<HeroSectionProps["CTAs"]>[number],
-      index: number,
-    ) => {
-      return (
-        <Button key={`hero-section-cta-${index}`} {...(props as any)}>
-          {text}
-        </Button>
-      );
-    },
-    [],
-  );
 
   const hasRightPanel = !!rightPanel;
   const isSplitLayout = layout === "split" && hasRightPanel;
@@ -125,7 +124,12 @@ const HeroSection = ({
     <HeroSectionWrapper
       bg={"var(--color-primary-400)"}
       secondContainer={secondContainer}
-      wrapperCss={heroSectionWrapperStyles}
+      wrapperCss={
+        isSplitLayout
+          ? [heroSectionWrapperStyles, splitHeroSectionWrapperStyles]
+          : heroSectionWrapperStyles
+      }
+      className={isSplitLayout ? "split-layout" : ""}
     >
       {isSplitLayout ? (
         <HeroSectionSplitGrid $hasRightPanel={hasRightPanel}>
@@ -138,4 +142,4 @@ const HeroSection = ({
   );
 };
 
-export default HeroSection;
+export default HeroSectionLayout;

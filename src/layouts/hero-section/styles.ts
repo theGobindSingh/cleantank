@@ -26,6 +26,13 @@ export const heroSectionWrapperStyles = css`
   }
 `;
 
+export const splitHeroSectionWrapperStyles = css`
+  ${mediaQuery.nonDesktop} {
+    height: auto;
+    min-height: 100svh;
+  }
+`;
+
 export const HeroSectionWrapper = styled(CommonFullWidthWrapper)`
   display: flex;
   flex-direction: column;
@@ -35,7 +42,7 @@ export const HeroSectionWrapper = styled(CommonFullWidthWrapper)`
   align-items: flex-start;
   height: 100%;
   --_height-var: 2.25rem;
-  padding-top: calc(var(--_height-var) + (2 * 1rem));
+  padding-top: calc(var(--_height-var) + (2 * 1rem) + 2rem);
   ${mediaQuery.nonDesktop} {
     --_height-var: 1.5rem;
   }
@@ -62,6 +69,14 @@ export const HeroSectionWrapper = styled(CommonFullWidthWrapper)`
     .btns-container {
       display: flex;
       gap: 1rem;
+    }
+  }
+
+  &.split-layout {
+    ${mediaQuery.nonDesktop} {
+      justify-content: flex-start;
+      height: auto;
+      padding-bottom: 2.25rem;
     }
   }
 `;
@@ -94,17 +109,35 @@ export const HeroSectionSplitGrid = styled("div", { shouldForwardProp })<{
     justify-content: flex-end;
   }
 
-  ${mediaQuery.tablet} {
+  ${mediaQuery.nonDesktop} {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    align-items: stretch;
+
+    .content-wrapper {
+      .btns-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
 
     .right-panel-wrapper {
       justify-content: flex-start;
+
+      > * {
+        width: 100%;
+        max-width: none;
+      }
     }
   }
 
   ${mediaQuery.phone} {
+    gap: 1rem;
+
     .content-wrapper {
+      max-width: 100%;
+
       .btns-container {
         width: 100%;
         flex-direction: column;
@@ -130,5 +163,9 @@ export const HeroSectionTitle = styled(H1)`
   margin: 0;
   * {
     color: var(--color-secondary-800);
+  }
+
+  ${mediaQuery.nonDesktop} {
+    font-size: var(--fs-3xl);
   }
 `;

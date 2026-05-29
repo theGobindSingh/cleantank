@@ -12,7 +12,7 @@ const benefitMapper = ({
   description,
 }: NonNullable<FranchiseBenefitsSectionProps["items"]>[number]) => {
   return (
-    <FranchiseBenefitCard key={title}>
+    <FranchiseBenefitCard key={title} className="benefit-card">
       <div className="benefit-icon">
         <Icon />
       </div>
@@ -22,6 +22,7 @@ const benefitMapper = ({
         $color="primary"
         $colorWeight="200"
         $margin="0"
+        className="benefit-title"
       >
         {title}
       </H3>
@@ -31,6 +32,7 @@ const benefitMapper = ({
         $colorWeight="400"
         $margin="0"
         $lineHeight="1.65"
+        className="benefit-description"
       >
         {description}
       </P>
