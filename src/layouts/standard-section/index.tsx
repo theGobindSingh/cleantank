@@ -11,12 +11,18 @@ const StandardSectionLayout = ({
   children,
   bg,
   element,
+  wrapperProps,
   className,
 }: StandardSectionLayoutProps) => {
   const Heading = headingLevel === "h1" ? H1 : H2;
 
   return (
-    <HomeSectionWrapper bg={bg!} element={element} className={className!}>
+    <HomeSectionWrapper
+      bg={bg!}
+      element={element}
+      wrapperProps={wrapperProps}
+      className={className!}
+    >
       {chip && (
         <Chip
           $backgroundColor="secondary"

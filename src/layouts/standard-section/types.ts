@@ -8,5 +8,6 @@ export interface StandardSectionLayoutProps extends PropsWithChildren {
   headingLevel?: "h1" | "h2" | undefined;
   bg?: string | undefined;
   element?: FullWidthWrapperProps["element"] | undefined;
+  wrapperProps?: FullWidthWrapperProps["wrapperProps"];
   className?: string | undefined;
 }

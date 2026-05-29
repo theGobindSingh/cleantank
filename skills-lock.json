@@ -37,6 +37,12 @@
       "skillPath": "skills/opinionated-nextjs-systems/SKILL.md",
       "computedHash": "0ee311ee0ed8b15b333207c9fa2a9cba45e864997e33409216c598c5d0031b7b"
     },
+    "plan-writing": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/plan-writing/SKILL.md",
+      "computedHash": "7b71feab40a6f633057cdb96dba8db05e16d2f6b6d99a492b4b48abf131e474a"
+    },
     "subagent-driven-development": {
       "source": "sickn33/antigravity-awesome-skills",
       "sourceType": "github",

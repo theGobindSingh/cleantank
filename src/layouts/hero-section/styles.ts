@@ -2,7 +2,7 @@ import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { H1 } from "@components/html";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { mediaQuery } from "@styles/global";
+import { mediaQuery, shouldForwardProp } from "@styles/global";
 import Image from "next/image";
 
 export const heroSectionWrapperStyles = css`
@@ -62,6 +62,54 @@ export const HeroSectionWrapper = styled(CommonFullWidthWrapper)`
     .btns-container {
       display: flex;
       gap: 1rem;
+    }
+  }
+`;
+
+export const HeroSectionSplitGrid = styled("div", { shouldForwardProp })<{
+  $hasRightPanel: boolean;
+}>`
+  width: 100%;
+  display: grid;
+  grid-template-columns: ${({ $hasRightPanel }) => {
+    return $hasRightPanel ? "minmax(0, 1.1fr) minmax(17rem, 0.9fr)" : "1fr";
+  }};
+  gap: ${({ $hasRightPanel }) => {
+    return $hasRightPanel ? "2.25rem" : "0";
+  }};
+  align-items: center;
+
+  .content-wrapper {
+    max-width: 44rem;
+
+    .sub-title {
+      width: 100%;
+      max-width: 34rem;
+    }
+  }
+
+  .right-panel-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  ${mediaQuery.tablet} {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    .right-panel-wrapper {
+      justify-content: flex-start;
+    }
+  }
+
+  ${mediaQuery.phone} {
+    .content-wrapper {
+      .btns-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   }
 `;

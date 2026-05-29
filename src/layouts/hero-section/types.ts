@@ -1,5 +1,6 @@
 import { ButtonProps } from "@components/button";
 import { ImageProps } from "next/image";
+import { ReactNode } from "react";
 
 export interface HeroSectionProps {
   imgSrc: ImageProps["src"];
@@ -12,4 +13,6 @@ export interface HeroSectionProps {
       };
   subtitle?: string;
   CTAs?: (Omit<ButtonProps, "children"> & { text: string })[];
+  layout?: "default" | "split";
+  rightPanel?: ReactNode;
 }

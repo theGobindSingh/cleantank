@@ -3,6 +3,7 @@ import Chip from "@components/chip";
 import { P } from "@components/html";
 import {
   HeroSectionImage,
+  HeroSectionSplitGrid,
   HeroSectionTitle,
   HeroSectionWrapper,
   heroSectionWrapperStyles,
@@ -15,13 +16,27 @@ const getTitle = (title: HeroSectionProps["title"]) => {
   if (typeof title === "string") {
     return <HeroSectionTitle>{title}</HeroSectionTitle>;
   }
+
   const { text, highlight } = title;
-  const parts = text.split(highlight);
+
+  if (!highlight) {
+    return <HeroSectionTitle>{text}</HeroSectionTitle>;
+  }
+
+  const highlightStart = text.indexOf(highlight);
+
+  if (highlightStart < 0) {
+    return <HeroSectionTitle>{text}</HeroSectionTitle>;
+  }
+
+  const textBeforeHighlight = text.slice(0, highlightStart);
+  const textAfterHighlight = text.slice(highlightStart + highlight.length);
+
   return (
     <HeroSectionTitle>
-      {parts[0]}
+      {textBeforeHighlight}
       <span>{highlight}</span>
-      {parts[1]}
+      {textAfterHighlight}
     </HeroSectionTitle>
   );
 };
@@ -32,6 +47,8 @@ const HeroSection = ({
   CTAs = [],
   chip,
   subtitle,
+  layout = "default",
+  rightPanel,
 }: HeroSectionProps) => {
   const ref = useRef<HTMLImageElement>(null);
   useLenis(() => {
@@ -68,12 +85,12 @@ const HeroSection = ({
     },
     [],
   );
-  return (
-    <HeroSectionWrapper
-      bg={"var(--color-primary-400)"}
-      secondContainer={secondContainer}
-      wrapperCss={heroSectionWrapperStyles}
-    >
+
+  const hasRightPanel = !!rightPanel;
+  const isSplitLayout = layout === "split" && hasRightPanel;
+
+  const content = (
+    <>
       <div className="content-wrapper">
         {chip && (
           <Chip
@@ -100,6 +117,23 @@ const HeroSection = ({
         )}
         <div className="btns-container">{CTAs.map(ctaMapper)}</div>
       </div>
+      {hasRightPanel && <div className="right-panel-wrapper">{rightPanel}</div>}
+    </>
+  );
+
+  return (
+    <HeroSectionWrapper
+      bg={"var(--color-primary-400)"}
+      secondContainer={secondContainer}
+      wrapperCss={heroSectionWrapperStyles}
+    >
+      {isSplitLayout ? (
+        <HeroSectionSplitGrid $hasRightPanel={hasRightPanel}>
+          {content}
+        </HeroSectionSplitGrid>
+      ) : (
+        content
+      )}
     </HeroSectionWrapper>
   );
 };
