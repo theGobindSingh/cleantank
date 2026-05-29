@@ -7,6 +7,12 @@
       "skillPath": "skills/ai-sdk/SKILL.md",
       "computedHash": "b1033ddc9773edad5d0712ff2d55b90e71e1eac8a93c98298d11ab4699fdc2f7"
     },
+    "brainstorming": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/brainstorming/SKILL.md",
+      "computedHash": "8df9b47092524833138b58682d03f2e153a242e550d1693657afdbee0cc9cdb0"
+    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
@@ -24,6 +30,24 @@
       "sourceType": "github",
       "skillPath": "skills/nextjs/SKILL.md",
       "computedHash": "228adbce76c9036e79d1177e5b9fe05062569b8aea7effb89152f83f6d4603b2"
+    },
+    "opinionated-nextjs-systems": {
+      "source": "webadeva/opinionated-nextjs-systems-skill",
+      "sourceType": "github",
+      "skillPath": "skills/opinionated-nextjs-systems/SKILL.md",
+      "computedHash": "0ee311ee0ed8b15b333207c9fa2a9cba45e864997e33409216c598c5d0031b7b"
+    },
+    "subagent-driven-development": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/subagent-driven-development/SKILL.md",
+      "computedHash": "21dc38e2291b4229224aab9066445578037a87f7cd4216eea85bb12ca187b65e"
+    },
+    "using-superpowers": {
+      "source": "obra/superpowers",
+      "sourceType": "github",
+      "skillPath": "skills/using-superpowers/SKILL.md",
+      "computedHash": "de10fd3ff46d797acc92b9df6b3ea456a5cd1d095b73c90bc921e83cce4c5bb9"
     }
   }
 }
