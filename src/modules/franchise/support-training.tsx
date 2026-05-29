@@ -25,6 +25,7 @@ const supportCardMapper = ({
         $color="primary"
         $colorWeight="200"
         $margin="0"
+        className="support-title"
       >
         {title}
       </H3>
@@ -34,6 +35,7 @@ const supportCardMapper = ({
         $colorWeight="400"
         $margin="0"
         $lineHeight="1.65"
+        className="support-description"
       >
         {description}
       </P>
