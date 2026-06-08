@@ -8,12 +8,13 @@ export const ImageCardWrapper = styled.div<Pick<ImageCardProps, "$isReversed">>`
   flex-direction: ${({ $isReversed = false }) => {
     return $isReversed ? "row-reverse" : "row";
   }};
+  justify-content: space-between;
   gap: 2rem;
   position: relative;
 
   .img-container {
     position: relative;
-    width: 52.5%;
+    width: 45%;
     aspect-ratio: 2;
     flex-shrink: 0;
     overflow: hidden;
@@ -50,7 +51,7 @@ export const ImageCardWrapper = styled.div<Pick<ImageCardProps, "$isReversed">>`
 
 export const ImageCardContentWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,6 +85,7 @@ export const ImageCardContentWrapper = styled.div`
   }
 
   ${mediaQuery.nonDesktop} {
+    width: 100%;
     .number {
       position: absolute;
       top: 0;

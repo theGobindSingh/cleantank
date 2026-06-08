@@ -53,7 +53,7 @@ export const IndustryCard = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  cursor: default;
+  cursor: pointer;
 
   &::after {
     content: "";

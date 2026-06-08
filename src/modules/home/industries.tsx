@@ -6,40 +6,7 @@ import {
   IndustryCardImage,
 } from "@modules/home/styles";
 import { IndustriesSectionProps } from "@modules/home/types";
-
-const industryCardMapper = ({
-  title,
-  subTitle,
-  imgSrc,
-}: NonNullable<IndustriesSectionProps["items"]>[number]) => {
-  return (
-    <IndustryCard key={title}>
-      <IndustryCardImage
-        src={imgSrc}
-        alt={title}
-        width={900}
-        height={600}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        className="industry-img"
-      />
-      <div className="industry-content">
-        <H3
-          $size="l"
-          $weight="700"
-          $color="neutral"
-          $colorWeight="1000"
-          $margin="0 0 0.5rem"
-          className="industry-title"
-        >
-          {title}
-        </H3>
-        <P $size="3xs" $color="neutral" $colorWeight="700" $weight="500">
-          {subTitle}
-        </P>
-      </div>
-    </IndustryCard>
-  );
-};
+import { useRouter } from "next/router";
 
 const IndustriesSection = ({
   chip,
@@ -47,6 +14,43 @@ const IndustriesSection = ({
   description,
   items = [],
 }: IndustriesSectionProps) => {
+  const { push } = useRouter();
+  const clickHandler = () => {
+    void push("/clients");
+  };
+  const industryCardMapper = ({
+    title,
+    subTitle,
+    imgSrc,
+  }: NonNullable<IndustriesSectionProps["items"]>[number]) => {
+    return (
+      <IndustryCard key={title} onClick={clickHandler}>
+        <IndustryCardImage
+          src={imgSrc}
+          alt={title}
+          width={900}
+          height={600}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="industry-img"
+        />
+        <div className="industry-content">
+          <H3
+            $size="l"
+            $weight="700"
+            $color="neutral"
+            $colorWeight="1000"
+            $margin="0 0 0.5rem"
+            className="industry-title"
+          >
+            {title}
+          </H3>
+          <P $size="3xs" $color="neutral" $colorWeight="700" $weight="500">
+            {subTitle}
+          </P>
+        </div>
+      </IndustryCard>
+    );
+  };
   return (
     <StandardSectionLayout
       chip={chip}

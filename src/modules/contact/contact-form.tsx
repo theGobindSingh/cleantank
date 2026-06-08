@@ -13,7 +13,7 @@ import {
   useEasyGoogleForm,
   UseEasyGoogleFormParams,
 } from "@webadeva/use-easy-google-form";
-import { FormEvent, SubmitEvent, useMemo, useRef } from "react";
+import { SubmitEvent, SubmitEventHandler, useMemo, useRef } from "react";
 import { toast } from "react-toastify";
 
 const isContactFormConfigured = ({
@@ -103,7 +103,7 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
   }, [gFormConfig.gFormId, gFormConfig.links]);
   const submitHandler = useEasyGoogleForm(easyParams);
 
-  const guardedSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+  const guardedSubmitHandler: SubmitEventHandler<HTMLFormElement> = (event) => {
     if (!isConfigured) {
       event.preventDefault();
       toast.info(
@@ -143,17 +143,10 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
         <Button
           type="submit"
           $variant="filled"
-          $size="lg"
-          $color="secondary"
-          $colorWeight="700"
+          $size="md"
           $textColor="primary"
-          $textColorWeight="100"
-          $fontWeight="800"
-          $borderRadius="0.57rem"
-          style={{
-            paddingInline: "2.4em",
-            boxShadow: "0 2.5px 10px 0 rgba(80,80,90,0.01)",
-          }}
+          $textColorWeight="1000"
+          $fontWeight="700"
         >
           {submitText}
         </Button>

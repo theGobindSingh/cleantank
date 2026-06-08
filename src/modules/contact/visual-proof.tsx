@@ -43,9 +43,8 @@ const VisualProofSection = ({
       title={title}
       description={description}
       element="section"
-      bg="var(--color-primary-1000)"
       css={{
-        paddingTop: "0",
+        paddingTop: "0rem",
       }}
     >
       <VisualProofBody>

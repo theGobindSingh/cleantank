@@ -21,11 +21,19 @@ import {
 const processMapper = (
   props: (typeof processCardsData)[number],
   index: number,
+  arr: typeof processCardsData,
 ) => {
   return (
-    <li key={props.title}>
-      <ImageCard {...props} number={index + 1} $isReversed={index % 2 === 1} />
-    </li>
+    <Fragment key={props.title}>
+      <li>
+        <ImageCard
+          {...props}
+          number={index + 1}
+          $isReversed={index % 2 === 1}
+        />
+      </li>
+      {index !== arr.length - 1 && <hr />}
+    </Fragment>
   );
 };
 

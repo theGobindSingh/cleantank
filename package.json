@@ -9,7 +9,6 @@
   "private": true,
   "scripts": {
     "prebuild": "pnpm run gql:codegen",
-    "predev": "pnpm run gql:codegen",
     "dev": "next dev",
     "dev:all": "concurrently 'pnpm run dev' 'pnpm run gql:codegen:watch'",
     "build": "next build",

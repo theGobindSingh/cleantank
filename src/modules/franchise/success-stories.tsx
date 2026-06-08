@@ -22,14 +22,21 @@ const storyMapper = ({
         $colorWeight="400"
         $margin="0"
         $lineHeight="1.75"
+        className="quote"
       >
         {quote}
       </P>
       <FranchiseStoryFooter>
-        <Span $size="2xs" $weight="700" $color="primary" $colorWeight="100">
+        <Span
+          $size="2xs"
+          $weight="700"
+          $color="primary"
+          $colorWeight="100"
+          className="name"
+        >
           {name}
         </Span>
-        <Span $size="3xs" $color="neutral" $colorWeight="500">
+        <Span $size="3xs" $color="neutral" $colorWeight="500" className="role">
           {role}
         </Span>
         <Span
@@ -48,6 +55,7 @@ const storyMapper = ({
           $colorWeight="400"
           $margin="0.35rem 0 0"
           $lineHeight="1.65"
+          className="outcome"
         >
           {outcome}
         </P>

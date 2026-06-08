@@ -28,8 +28,7 @@ const comparisonRowMapper = ({
         <H3
           $size="3xs"
           $weight="700"
-          $color="primary"
-          $colorWeight="100"
+          $color="var(--_criteria-text-color)"
           $margin="0"
         >
           {criteria}
@@ -41,8 +40,7 @@ const comparisonRowMapper = ({
         </FranchiseComparisonCellTitle>
         <P
           $size="3xs"
-          $color="neutral"
-          $colorWeight="300"
+          $color="var(--_ct-text-color)"
           $margin="0"
           $lineHeight="1.65"
         >
@@ -55,8 +53,7 @@ const comparisonRowMapper = ({
         </FranchiseComparisonCellTitle>
         <P
           $size="3xs"
-          $color="neutral"
-          $colorWeight="500"
+          $color="var(--_text-color)"
           $margin="0"
           $lineHeight="1.65"
         >
@@ -90,8 +87,7 @@ const FranchiseTechnologyComparisonSection = ({
               <H3
                 $size="3xs"
                 $weight="700"
-                $color="primary"
-                $colorWeight="100"
+                $color="var(--_criteria-text-color)"
                 $margin="0"
               >
                 Criteria
@@ -101,8 +97,7 @@ const FranchiseTechnologyComparisonSection = ({
               <H3
                 $size="3xs"
                 $weight="700"
-                $color="secondary"
-                $colorWeight="700"
+                $color="var(--_ct_heading-text-color)"
                 $margin="0"
               >
                 {cleanTankLabel}
@@ -112,8 +107,7 @@ const FranchiseTechnologyComparisonSection = ({
               <H3
                 $size="3xs"
                 $weight="700"
-                $color="neutral"
-                $colorWeight="500"
+                $color="var(--_heading-text-color)"
                 $margin="0"
               >
                 {traditionalLabel}

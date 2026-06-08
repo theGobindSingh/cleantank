@@ -20,7 +20,7 @@ import {
   useEasyGoogleForm,
   UseEasyGoogleFormParams,
 } from "@webadeva/use-easy-google-form";
-import { FormEvent, SubmitEvent, useMemo, useRef } from "react";
+import { SubmitEvent, SubmitEventHandler, useMemo, useRef } from "react";
 import { toast } from "react-toastify";
 
 const formFieldMapper = ({
@@ -93,7 +93,7 @@ const FranchiseInquirySection = ({
 
   const submitHandler = useEasyGoogleForm(easyParams);
 
-  const guardedSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+  const guardedSubmitHandler: SubmitEventHandler<HTMLFormElement> = (event) => {
     const formElement = formRef.current;
 
     if (!formElement) {
@@ -177,16 +177,16 @@ const FranchiseInquirySection = ({
             <H3
               $size="s"
               $weight="700"
-              $color="primary"
-              $colorWeight="100"
+              $color="neutral"
+              $colorWeight="900"
               $margin="0"
             >
               {formTitle}
             </H3>
             <P
-              $size="4xs"
+              $size="3xs"
               $color="neutral"
-              $colorWeight="500"
+              $colorWeight="800"
               $margin="0.45rem 0 0"
               $lineHeight="1.6"
             >
@@ -224,20 +224,19 @@ const FranchiseInquirySection = ({
             <Button
               type="submit"
               $variant="filled"
-              $size="lg"
+              $size="md"
               $color="secondary"
               $colorWeight="800"
               $textColor="primary"
               $textColorWeight="100"
               $fontWeight="700"
-              $borderRadius="md"
             >
               {submitText}
             </Button>
             <Span
-              $size="4xs"
+              $size="3xs"
               $color="neutral"
-              $colorWeight="500"
+              $colorWeight="800"
               $margin="0.7rem 0 0"
               className="form-note"
             >

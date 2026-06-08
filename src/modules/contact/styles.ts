@@ -114,7 +114,7 @@ export const ContactDetailsPanel = styled.aside`
   flex-direction: column;
   gap: 1.45rem;
   padding: 1.55rem 1.25rem 1.6rem 1.25rem;
-  border-radius: 0.65rem;
+  border-radius: 0.25rem;
   background: var(--color-primary-100);
   color: var(--color-primary-1000);
   box-shadow: 0 0.5px 20px 0 rgba(30, 34, 54, 0.1);
@@ -193,7 +193,7 @@ export const VisualProofImageFrame = styled.div`
   width: 100%;
   min-height: 21rem;
   overflow: hidden;
-  border-radius: 0.7rem;
+  border-radius: 0.25rem;
   background: none;
   box-shadow: 0 2.5px 18px 0 rgba(var(--color-neutral-900-base), 0.045);
 

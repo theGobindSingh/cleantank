@@ -89,7 +89,7 @@ const ReachOutSection = ({
             $color="primary"
             $colorWeight="1000"
             $margin="0 0 0.45em 0"
-            style={{ letterSpacing: ".02em" }}
+            css={{ letterSpacing: ".02em" }}
           >
             Direct Contact
           </H3>

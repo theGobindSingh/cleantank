@@ -322,12 +322,24 @@ export const FranchiseSupportCard = styled("article", {
 // ─── Technology Comparison ─────────────────────────────────────────────────────
 
 export const FranchiseComparisonTable = styled.div`
+  --_bg: rgba(var(--color-primary-200-base), 1);
+  --_dark-bg: rgba(var(--color-primary-100-base), 0.75);
+  --_outer-border-color: rgba(var(--color-neutral-800-base), 0.75);
+  --_inner-border-color: rgba(var(--color-neutral-800-base), 0.6);
+  --_header-inner-border-color: rgba(var(--color-neutral-800-base), 0.75);
+  --_border-width: 1px;
+  --_criteria-text-color: var(--color-neutral-900);
+  --_ct_heading-text-color: var(--color-secondary-900);
+  --_heading-text-color: rgba(var(--color-neutral-900-base), 0.95);
+  --_ct-text-color: var(--color-neutral-1000);
+  --_text-color: rgba(var(--color-neutral-900-base), 0.95);
+
   width: 100%;
   margin-top: 2.75rem;
-  border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
+  border: var(--_border-width) solid var(--_outer-border-color);
   border-radius: 0.5rem;
   overflow: hidden;
-  background-color: rgba(var(--color-neutral-900-base), 0.5);
+  background-color: var(--_bg);
 
   ${mediaQuery.phone} {
     margin-top: 2rem;
@@ -338,12 +350,12 @@ export const FranchiseComparisonHeader = styled.div`
   display: grid;
   grid-template-columns: minmax(10rem, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 0;
-  background-color: rgba(var(--color-neutral-800-base), 0.5);
+  background-color: var(--_dark-bg);
 
   .header-cell {
     padding: 1rem 1.1rem;
-    border-right: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-
+    border-right: var(--_border-width) solid var(--_inner-border-color);
+    border-bottom: var(--_border-width) solid var(--_header-inner-border-color);
     &:last-child {
       border-right: none;
     }
@@ -363,7 +375,7 @@ export const FranchiseComparisonList = styled.ul`
 export const FranchiseComparisonRow = styled.li`
   display: grid;
   grid-template-columns: minmax(10rem, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  border-top: 1px solid rgba(var(--color-neutral-800-base), 0.6);
+  border-top: var(--_border-width) solid var(--_inner-border-color);
 
   &:first-of-type {
     border-top: none;
@@ -371,14 +383,14 @@ export const FranchiseComparisonRow = styled.li`
 
   .cell {
     padding: 1rem 1.1rem;
-    border-right: 1px solid rgba(var(--color-neutral-800-base), 0.6);
+    border-right: var(--_border-width) solid var(--_inner-border-color);
 
     &:last-child {
       border-right: none;
     }
 
     &.criteria {
-      background-color: rgba(var(--color-neutral-800-base), 0.42);
+      background-color: var(--_dark-bg);
     }
   }
 
@@ -386,18 +398,18 @@ export const FranchiseComparisonRow = styled.li`
     display: flex;
     flex-direction: column;
     gap: 0;
-    border-top: 1px solid rgba(var(--color-neutral-800-base), 0.6);
+    border-top: var(--_border-width) solid var(--_inner-border-color);
 
     .cell {
       border-right: none;
-      border-top: 1px solid rgba(var(--color-neutral-800-base), 0.45);
+      border-top: var(--_border-width) solid var(--_inner-border-color);
 
       &:first-of-type {
         border-top: none;
       }
 
       &.criteria {
-        background-color: rgba(var(--color-neutral-800-base), 0.5);
+        background-color: var(--_dark-bg);
       }
     }
   }
@@ -444,6 +456,18 @@ const storyCardHoverStyles = css`
   border-color: rgba(var(--color-secondary-700-base), 0.45);
   background-color: rgba(var(--color-primary-200-base), 1);
   transform: translateY(-0.15rem);
+  .quote {
+    color: var(--color-neutral-900);
+  }
+  .name {
+    color: var(--color-secondary-1000);
+  }
+  .role {
+    color: var(--color-neutral-800);
+  }
+  .outcome {
+    color: var(--color-neutral-800);
+  }
 `;
 
 export const FranchiseStoryCard = styled.blockquote`
@@ -484,6 +508,7 @@ export const FranchiseStoryFooter = styled.footer`
   gap: 0.3rem;
   border-top: 1px solid rgba(var(--color-neutral-800-base), 0.45);
   padding-top: 0.9rem;
+  margin-top: auto;
 
   .story-region {
     font-family: var(--font-mono);
@@ -496,7 +521,7 @@ export const FranchiseInquiryGrid = styled.div`
   width: 100%;
   margin-top: 2.75rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 1.05fr);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);
   gap: 1.5rem;
   align-items: start;
 
@@ -511,7 +536,7 @@ export const FranchiseInquiryGrid = styled.div`
 
 export const FranchiseInquiryAssurancePanel = styled.aside`
   border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   background-color: rgba(var(--color-neutral-900-base), 0.5);
   padding: 1.4rem;
   display: flex;
@@ -545,8 +570,8 @@ export const FranchiseInquiryAssuranceItem = styled.li`
 
 export const FranchiseInquiryFormCard = styled.form`
   border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-  border-radius: 0.6rem;
-  background-color: rgba(var(--color-neutral-800-base), 0.5);
+  border-radius: 0.25rem;
+  background-color: var(--color-primary-200);
   padding: 1.45rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -562,6 +587,10 @@ export const FranchiseInquiryFormCard = styled.form`
 
   .form-actions {
     padding-top: 0.25rem;
+
+    button[type="submit"] {
+      margin: 1rem 0 1rem 0;
+    }
 
     .form-note {
       display: block;

@@ -10,7 +10,8 @@ type ColorType =
   | "info"
   | "error"
   | "black"
-  | "white";
+  | "white"
+  | `var(--${string})`;
 type Weight = `${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}00` | "1000";
 
 const fontSizes = {
@@ -44,6 +45,9 @@ const getColor = ({
   $colorAlpha,
 }: Pick<CommonTextProps, "$color" | "$colorWeight" | "$colorAlpha">) => {
   if (!$color) return "inherit";
+  if ($color.includes("var")) {
+    return $color;
+  }
   if ($color === "black" || $color === "white") {
     return `var(--color-${$color})`;
   }
