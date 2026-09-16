@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "cleantank.vercel.app" }],
+      "destination": "https://www.cleantankservices.com/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -42,3 +42,4 @@ package-lock.json
 *.map
 *.env*
 !*.env.example
+!.env.sample

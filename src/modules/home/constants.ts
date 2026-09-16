@@ -19,7 +19,7 @@ import {
 export const HeroCTAs: NonNullable<HeroSectionProps["CTAs"]> = [
   {
     text: "Get a quote",
-    href: "/quote",
+    href: "/contact",
     $variant: "filled",
     $color: "secondary",
     $colorWeight: "800",

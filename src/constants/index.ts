@@ -13,6 +13,9 @@ import {
 } from "@mui/icons-material";
 import { StaticImageData } from "next/image";
 
+export const SITE_URL = "https://www.cleantankservices.com";
+export const SITE_NAME = "Clean Tank Services";
+
 export const siteLinks = [
   { name: "Home", path: "/" },
   { name: "Clients", path: "/clients" },
@@ -34,6 +37,31 @@ export const businessContactDetails = {
   serviceArea:
     "Serving commercial, residential, institutional, and government facilities across India",
   hours: "Mon-Sat, 9:00 AM-7:00 PM IST",
+  // Structured opening hours derived from `hours` above, for LocalBusiness schema.
+  openingHoursSpecification: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ].map((dayOfWeek) => {
+    return { dayOfWeek, opens: "09:00", closes: "19:00" };
+  }),
+  // Physical address — to be filled in by the owner. Null until confirmed.
+  address: null as null | {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: "IN";
+  },
+  // Map coordinates for the primary location — to be filled in by the owner.
+  geo: null as null | { latitude: number; longitude: number },
+  // Canonical profile URLs for schema `sameAs` (Google Business Profile, LinkedIn, Facebook, Instagram, etc.) — to be filled in by the owner.
+  socialProfiles: [] as string[],
+  // Google Business Profile URL — to be filled in by the owner.
+  googleBusinessProfileUrl: null as null | string,
 };
 
 export const cleaningProcessSteps: {

@@ -16,11 +16,6 @@ import {
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 
-const quickLinks = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Service", href: "/terms-of-service" },
-  { label: "Sitemap", href: "/sitemap" },
-];
 const contacts: {
   label: string;
   href: string;
@@ -56,20 +51,6 @@ const FooterCopyrightSection = () => {
     >
       {`© ${currentYear} Clean Tank Services. Industrial-Grade Hygiene Certified.`}
     </CommonFullWidthWrapper>
-  );
-};
-
-const quickLinksMapper = ({ href, label }: (typeof quickLinks)[number]) => {
-  return (
-    <a
-      key={href}
-      href={href}
-      className="footer-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {label}
-    </a>
   );
 };
 
@@ -136,10 +117,6 @@ const Footer = () => {
             <ShieldRounded />
           </div>
         </div>
-        <nav className="footer-section short nav">
-          <span className="title">Quick Links</span>
-          {quickLinks.map(quickLinksMapper)}
-        </nav>
         <nav className="footer-section short nav">
           <span className="title">Contact</span>
           {contacts.map(contactsMapper)}
