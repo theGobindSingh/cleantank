@@ -28,6 +28,7 @@ For details on each skill, see the corresponding `SKILL.md` under `.agents/skill
 ### Session-start requirement
 
 - **Always load first:** For every new request/session, first discover currently available skills, then invoke the `using-superpowers` skill before any clarification, planning, tool call, or implementation action.
+- **Working style:** Also invoke the `gobind:working-style` skill (local plugin, `.claude/skills/gobind`) at the start of every new session, right after `using-superpowers`. Its rules apply to all work here.
 - **Subagent exception:** If operating as a dispatched subagent, follow the `using-superpowers` `<SUBAGENT-STOP>` rule.
 
 ---

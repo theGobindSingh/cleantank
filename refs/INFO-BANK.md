@@ -1,73 +1,72 @@
 # Clean Tank Services — Information Bank
 
-Everything below is one company: **Clean Tank Services, presented by Gobind Galaxy**. Older collateral used the name "Indus Global Technologies (IGT)" — same company, earlier era. Where sources disagree, all variants are listed and the conflict is logged in §10 for the owner to resolve before publishing.
+Everything below is one company: **Clean Tank Services**, an initiative of **Gobind Galaxy** (the parent legal firm; Clean Tank Services is its brand).
 
 ---
 
 ## 1. Company identity
 
-| Field                  | Value                                                                                                   |
-| ---------------------- | ------------------------------------------------------------------------------------------------------- |
-| Brand                  | **Clean Tank Services** (also styled "Clean Tank", "CLEAN TANK Services")                               |
-| Parent / legal firm    | **Gobind Galaxy** (proprietorship; "All India Authorized Service Applicator")                           |
-| Earlier trading name   | Indus Global Technologies (IGT) — "Clean Tank Service, a group of Indus Global Technologies"            |
-| Established            | 2008 ("history of more than 10 years")                                                                  |
-| ISO claim              | "an ISO certified company" (newest poster; no certificate number given)                                 |
-| PAN / Income Tax No.   | ALFPS1473F                                                                                              |
-| GSTIN                  | 09ALFPS1473F3ZW (franchise docs) — variants seen: 09ALFPS1473F3WZ, 09ALFPS1473F5WZ, 09LFS1473F5ZU → §10 |
-| Technology             | Mechanized and Scientific Method                                                                        |
-| Technical support      | Technical representatives in all major cities in India                                                  |
-| Business registrations | Ordnance Factories, BSNL, ESI, EPFO, SSI, Railways, CSIR, MSME, Commercial Taxes "…and many more"       |
-| Branches / presence    | Madhya Pradesh, Himachal Pradesh, Punjab, Delhi, Jharkhand, Uttar Pradesh, Maharashtra                  |
+| Field                  | Value                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Brand                  | **Clean Tank Services**                                                                                                              |
+| Parent / legal firm    | **Gobind Galaxy** (owns the business; Clean Tank Services is its brand — "An Initiative of Gobind Galaxy")                           |
+| Proprietor             | Mr. Gurdev Singh (also Founder & CEO)                                                                                                |
+| Established            | 2008 (in business since 2008 — "15+ years" is safe and stays true)                                                                   |
+| ISO                    | ISO 9001:2015 certified — see "ISO certificate" below                                                                                |
+| PAN                    | ALFPS1473F                                                                                                                           |
+| GSTIN                  | 09LFS1473F5ZU                                                                                                                        |
+| Technology             | Mechanized and Scientific Method                                                                                                     |
+| Technical support      | Technical representatives in all major cities in India                                                                               |
+| Business registrations | MSME / SSI, GST, Income Tax, EPFO, ESI, ISO certification, BSNL enlistment / registration (older copy also lists "Commercial Taxes") |
+| Branches / presence    | Madhya Pradesh, Himachal Pradesh, Punjab, Delhi, Jharkhand, Uttar Pradesh, Maharashtra                                               |
 
 ### Offices & addresses
 
-| Label                                                       | Address                                                                                               | Phone        |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------ |
-| Regd./Head Office (older)                                   | 200, Bengali Colony, Safipur 2nd, Harjinder Nagar, Kanpur-208007, U.P.                                | 0512-2405290 |
-| Regd. Office (newer)                                        | 109/122, Nehru Nagar, R.K. Nagar, Kanpur Nagar-208012, U.P.                                           | 9453517514   |
-| Correspondence Office, Punjab (newest, on letterhead)       | B-3/17, Jamuna Apartments, Chandigarh-Kurali Highway, NH-5, Khanpur, Kharar, SAS Nagar-140301, Punjab | 8699339947   |
-| Marketing/Sales Office, Punjab                              | B3/26, Chd-Kurali Road/Highway, SAS Nagar, Mohali-140301                                              | 8699339947   |
-| Residence Representative / Branch / Regional Office, Punjab | 11-G, Omega City, Kharar, Mohali-140301, Punjab                                                       | 8699339947   |
-| Works 2 / Residence Rep, Punjab (older)                     | 501-C, Omega City, Kharar, Mohali-140301                                                              | 8699339947   |
-| Works 1                                                     | Plot no. EL-90, TTC Area, MIDC Electronic Zone, Mahape, Navi Mumbai, Maharashtra                      | —            |
-| Delhi office (IGT era)                                      | D 248/10, Office No. 113, Abhishek Business Centre, Vikas Marg, Laxmi Nagar, Delhi-110092             | 011-43015189 |
-| Mumbai Regd. Office (IGT era)                               | 27, Tamarind Lane, Rajabahadur Building, Near Stock Exchange, Fort, Mumbai-400001                     | —            |
-
-### Phone numbers
-
-- **9453517514** — most common; standee, poster, flyers, all letterheads (primary Kanpur mobile)
-- **8699339947** — Punjab/Chandigarh office (Gurdev Singh); on flyers & poster
-- 7880907878 — Kanpur (Gurdev Singh); one deck has it mistyped as "788007878"
-- 7084998877 — Kanpur
-- 0512-2405290 — Kanpur landline
-- **+91 9779517597** — only on the newest poster design → confirm
-- 011-43015189 — Delhi office landline (older collateral)
+| Label                                                  | Address                                                                                       | Phone      |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- | ---------- |
+| Regd. Office                                           | 109/122, Nehru Nagar, R.K. Nagar, Kanpur Nagar-208012, U.P.                                   | 9453517514 |
+| Correspondence Office & Marketing/Sales Office, Punjab | B-3/26, Jamuna Apartments, Ch-Kurali Highway, NH-5, Khanpur, Kharar, SAS Nagar-140301, Punjab | 8699339947 |
 
 ### Emails
 
-- <gobindgalaxy@gmail.com> (everywhere)
-- <gobindgalaxyknp@gmail.com> (Kanpur)
-- <gobindgalaxychd@gmail.com> (Chandigarh)
-- **<admin@cleantankservices.com>** — only branded-domain email (on newest letterhead)
-- <govindgalxy@gmail.com> — likely a typo of one of the above
-- <igtgroupbk@gmail.com> / <igtgroupbk@hotmail.com> / <cleentankservices@gmail.com> (sic) — older collateral
+- <gobindgalaxy@gmail.com>
+- <admin@cleantankservices.com>
 
 ### Website
 
-- <www.cleantankservices.com> (newest poster shows "www.cleantankservies.com" — typo)
+- <www.cleantankservices.com>
+
+### ISO certificate
+
+| Field               | Value                                                                                                                                                                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Standard            | ISO 9001:2015 (Quality Management Systems) — "Certificate of Compliance"                                                                                                                                                         |
+| Certified entity    | GOBIND GALAXY, 109/122, Nehru Nagar, R.K. Nagar, Kanpur 208012, Uttar Pradesh                                                                                                                                                    |
+| Issuer              | Q2A UK Certification Board (Q2ACB-UK), Office: 9FD Frederick Street, Kings Cross, London WC1X 0ND, United Kingdom; verify at q2acb.uk or by QR code on the certificate                                                           |
+| Certificate number  | Q2A-2026-0401T118011                                                                                                                                                                                                             |
+| Registered / issued | 01-Apr-2026                                                                                                                                                                                                                      |
+| Valid until         | 31-Mar-2029 (1st surveillance on or before Apr-2027; 2nd on or before Apr-2028)                                                                                                                                                  |
+| Scope               | "Providing services of water storage tank cleaning services by mechanized and scientific method which includes cleaning, disinfection and maintenance of water storage tank for residential, commercial and industrial premises" |
+
+Public display: owner wants it public; the certificate has been verified by the owner on the issuer's verification page. No accreditation body (UKAS/IAF/NABCB) is claimed by the issuer, so **never say "accredited", "internationally recognised", "UKAS" or "IAF"**. Safe wording: **"ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029."** The certificate shows only business name, address, scope and number (no personal data).
 
 ---
 
 ## 2. People
 
-**Mr. Gurdev Singh — Founder & CEO** (also listed as "Chief Executive: Sr. Gurdev Singh", phones 7880907878 / 8699339947). Portrait: elderly Sikh gentleman, black turban, grey beard, cream blazer, light blue shirt, seated on a teal bench.
+**Mr. Gurdev Singh — Founder & CEO** : Sr. Gurdev Singh, phone 8699339947
 
-Bio (verbatim, under the heading "The Leader"):
+Roles: Founder & CEO of Clean Tank Services; Proprietor of Gobind Galaxy (signs as "Proprietor" on the ISO certificate; signs "G. Singh"). Also written "Mr G D Singh" in franchise material.
 
-> Mr. Gurdev Singh is a visionary leader and a driving force behind the success of the Clean Tank Services industry. Widely recognized as a go-to operations expert, he seamlessly blends technology with business strategy to deliver outstanding results. He began his career in business and sales with Godrej, where he developed a strong foundation in customer engagement and market understanding. Building on this experience, he ventured into the service industry, bringing with him a forward-thinking mindset and a passion for excellence.
+Bio :
+
+> Mr. Gurdev Singh is a visionary leader and a driving force behind the success of the Clean Tank Services industry. Widely recognized as a go-to operations expert, he seamlessly blends technology with business strategy to deliver outstanding results. He began his career in business and sales with Brand Godrej, where he developed a strong foundation in customer engagement and market understanding. Building on this experience, he ventured into the service industry, bringing with him a forward-thinking mindset and a passion for excellence.
 >
 > With over 35 years of experience, Mr. Singh has played a pivotal role in transforming the industry through innovation, dedication, and a deep understanding of market needs. As the founder, his leadership continues to take the company to new heights, setting benchmarks and shaping the future of the business. Beyond his professional achievements, Mr. Singh is known for his personal approach to leadership. He supports his team not just as a leader, but as a mentor and guide, fostering a family-like environment that inspires trust, loyalty, and success.
+
+Alternate, more measured bio (usable as the short "About the founder" version):
+
+> Mr. Gurdev Singh is the Founder and CEO of CLEAN TANK SERVICES and a driving force behind the development of the business. With more than 35 years of professional experience, he brings together business understanding, customer engagement, operational knowledge and service-industry experience. He began his career in business and sales with Godrej, where he developed a strong foundation in customer relationships, sales and market understanding. Building on this experience, he entered the service industry with a focus on professional execution and customer-oriented solutions. Over the years, his experience and understanding of market requirements have contributed to the development of CLEAN TANK SERVICES and its mechanized and scientific approach to water-storage-tank cleaning. As Founder and CEO, Mr. Singh focuses on innovation, service quality, operational discipline and long-term customer relationships. His leadership style emphasizes personal guidance and team development. He works closely with his professionals as a mentor and guide, encouraging a supportive working environment based on trust, responsibility and teamwork.
 
 ---
 
@@ -77,12 +76,11 @@ Bio (verbatim, under the heading "The Leader"):
 
 1. **Current**: stylised cylindrical water-tank icon flanked by two blue water droplets and a blue swoosh/wave; wordmark "CLEAN TANK" in bold blue caps + "Services" in green beneath; subtext "BY GOBIND GALAXY". Blue/green (teal) gradient. **Use this.**
 2. Earlier: solid blue rectangle with white lowercase condensed "cleantank" wordmark; tagline "Clean Tank, Healthy Life" in navy beneath. Also an oval silver "Clean Tank Services" badge with a red swoosh accent.
-3. Gobind Galaxy marks: circular "G G" black/white logo; red script "GOBIND GALAXY" on letterhead; small blue globe "T" icon on IGT-era headers.
+3. Gobind Galaxy marks: circular "G G" black/white logo; red script "GOBIND GALAXY" on the company letterhead; small blue globe "T" icon on IGT-era headers.
 
 ### Taglines / slogans
 
-- **"Clean Tank, Healthy Life"** / "CLEAN TANK – HEALTHY LIFE" (primary)
-- "Water itself is Life"
+- **"Clean Tank, Healthy Life"** (primary)
 - "Water – The Wonder Drug"
 - "Health is Wealth"
 - "Think Hygiene! Clean Your Water Storage Tank"
@@ -90,9 +88,13 @@ Bio (verbatim, under the heading "The Leader"):
 - "Bacteria Free Safe Drinking Water Tanks"
 - "A new standard in water tank cleaning services"
 - "Be concerned about the health and hygiene – look inside the water storage tank."
-- "24x7 Emergency Service"
 - "Start your own business!" / "Step beyond jobs."
 - "Unlimited opportunity of growth – Join service industry"
+- "Water Itself Is Life" · "Excellence in Hygiene and Healthcare" · "Clean Water Storage. Better Hygiene. Healthier Living."
+- Brand line: "CLEAN TANK SERVICES — An Initiative of GOBIND GALAXY"; descriptor "Scientific & Mechanized Water Storage Tank Cleaning Services"
+- Brand pillars: Scientific Cleaning | Mechanized Methods | Professional Service | Water Hygiene
+- AMC: "Never Miss Your Tank Cleaning Schedule" / "Planned Cleaning. Timely Reminders. Greater Peace of Mind."
+- Vision: "Clean & Healthy Nation"
 
 ### Visual style of newest collateral
 
@@ -102,60 +104,52 @@ Navy cards with white text and a thin red border; deep blue → yellow/gold grad
 
 ## 4. Services
 
-- Scientific & mechanized cleaning of water storage tanks — domestic, commercial overhead, commercial underground.
+- Scientific & mechanized cleaning and disinfection of water storage tanks for residential, commercial and industrial premises (wording from the ISO scope).
+- **Tank types:** domestic · commercial overhead · commercial underground · institutional · large-capacity facilities · other specialised requirements.
 - **Tank capacities handled**
   1. Domestic tanks: up to **20,000 L**
-  2. Commercial overhead tanks: up to **20,00,000 L (2 million)**
+  2. Commercial overhead tanks: up to **20,00,000 L (20 lakh / 2 million)**
   3. Commercial underground tanks: up to **1 crore L**
-     "…and many more"
-- **Recommended frequency**: periodical cleaning every 3/6 months; also stated as "should be cleaned four times a year"
-- **Annual Maintenance Contract (AMC)**: "We are providing annual cleaning contract system also. A computerised database of all contacts to appointments notifies users in advance of the cleaning schedule. After adopting our AMC, Clean Tank assures complete peace of mind."
-- 24x7 Emergency Service
-- Cost pitch: "process cost is highly economical"; "at very reasonable price"
-- **No customer-facing price list exists in any material.**
+     "…and many more" — other capacities may be undertaken depending on tank design, site conditions, access and service requirements.
+- **Recommended frequency — depends on the organisation** (owner ruling; do not publish one flat number). Examples: healthcare ≈ every 3 months, schools ≈ every 6 months. Factors: tank type & capacity, frequency of use, water quality, sediment build-up, surrounding conditions, type of facility, applicable hygiene requirements. General guidance: every 3–6 months; facilities needing more can adopt a quarterly schedule. (The older line "four times a year" is superseded.)
+- **Annual Maintenance Contract (AMC)** — "Never Miss Your Tank Cleaning Schedule." Earlier copy: "We are providing annual cleaning contract system also. A computerised database of all contacts to appointments notifies users in advance of the cleaning schedule. After adopting our AMC, Clean Tank assures complete peace of mind." Features: annual scheduled cleaning programme · computerised customer/service database · advance notification of upcoming cleaning dates · planned periodic visits · service-history management · customer convenience, less follow-up · emergency support where required. AMC terms (scope, schedule, price) are agreed per customer.
+- **24×7 Emergency Service** — for urgent requirements, subject to location, manpower and operational availability.
+- Cost pitch: "process cost is highly economical"; "at very reasonable price"; "competitive and reasonable prices according to the scope of work". Pricing varies by scope, capacity, location, site conditions, manpower and equipment — no fixed public price list.
 
-### Aims & objectives ("Our aim is to provide")
+### Why choose us (site copy)
 
-Clean & healthy nation · Environment-friendly services · Customer satisfaction · A quality cleaning service · Value for money · Top quality relationship · Well organized & helpful teams
+Scientific & mechanized approach · Advanced equipment (cleaning, pumping, vacuum and treatment) · Experienced, trained technicians · Time-bound execution ("complete assigned work within the agreed schedule") · Quality-focused operations · Technical training (periodic training/workshops under senior service executives) · Pan-India support (technical representatives in major cities, multiple states) · AMC support · Customer-focused service · Cost-effective solutions.
 
----
+### Aims & objectives
 
-## 5. Cleaning process (three versions exist — pick one for the site)
+Vision: **Clean & Healthy Nation** — "contribute to better water-storage hygiene through professional and responsible cleaning services."
 
-### A. 6-step (official signed letterhead version)
-
-1. De-watering with mechanical pumps.
-2. Removal of left-over dirty water and sludge after de-silting with **sludge removal pump** _(franchise docs; letterhead omits this and adds step 4 instead)_.
-3. Cleaning of all walls, floor and roof by **high-pressure water jet pump (up to 250 bar)**.
-4. _(letterhead only)_ Algae/heavily soiled areas treated with **5% diluted food-grade hydrochloric acid (HCl)**, then thoroughly rinsed.
-5. Removal of remaining sludge and water from the floor with **industrial vacuum cleaner**.
-6. Spraying of **non-toxic, biodegradable, eco-friendly anti-bacterial agent** (certified by Govt-approved laboratory) to disinfect from all harmful pathogens.
-7. **Ultra-violet radiation** treatment inside the tank to kill remaining suspended/floating bacteria.
-
-### B. 10-stage detailed (company deck)
-
-1. Thoroughly clean the manhole and surroundings (dirt, mud, algae).
-2. Remove all stale water with a **submersible pump**.
-3. Team enters with **gloves, helmet, safety shoes**; blocks the connection cork so no germs are carried in.
-4. Sludge on floor sucked out with **sludge pump**, disposed outside at a safe place.
-5. Walls and ceiling washed with **100–120 bar rotary jet pressure machine**, removing dirt, algae, calcination (ceiling holds highest germ concentration due to oxygen + condensation).
-6. Floor cleaned with **high-pressure jet gun**; remaining sludge removed with **industrial vacuum cleaner** — "absolutely dirt free".
-7. Wash with **eco-friendly water solution** via high-jet rotary gun, removing slickness.
-8. Full rinse with rotary jet gun — "99.99% physically cleaned".
-9. Most important: **antibacterial spray** into all nooks and corners for total sterilization.
-10. Final disinfection with **UV radiation**.
-
-### C. 8-step marketing list
-
-Dewatering · Sludge removal · Pressurized Cleaning · Vacuum Cleaning · Detergent Cleaning · Water Cleaning · Sterilization of Tank · UV Radiation
-
-### Equipment named
-
-Submersible pump, sludge removal pump, high-pressure water jet pump (up to 250 bar) / rotary jet pressure machine (100–120 bar), high-pressure jet gun, industrial vacuum cleaner, anti-bacterial spray (govt-lab certified, non-toxic, biodegradable), UV radiation unit, 5% food-grade HCl. PPE: gloves, helmet, safety shoes, coveralls, respirator.
+| Objective                             | Line                                                                                     |
+| ------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Environment-friendly services         | Promoting responsible cleaning practices and appropriate use of eco-conscious solutions. |
+| Customer satisfaction                 | Understanding customer requirements and delivering organised, responsive services.       |
+| Quality cleaning services             | Maintaining systematic cleaning procedures and service standards.                        |
+| Value for money                       | Providing practical and cost-effective professional solutions.                           |
+| Long-term / top-quality relationships | Building trust and sustainable relationships with customers and institutions.            |
+| Well-organised & helpful teams        | Developing trained, disciplined and customer-focused service teams.                      |
 
 ---
+
+## 5. Cleaning process
+
+### A. 5-step process (canonical — owner confirmed 5 steps)
+
+1. **De-watering** — water removed with mechanical pumps to prepare the tank.
+2. **High-pressure cleaning** — all walls, floor and roof cleaned by **high-pressure water jet pump (up to 250 bar)**, subject to site and equipment requirements.
+3. **Sludge & water removal** — remaining sludge, sediment and water removed from the floor with an **industrial vacuum cleaner**.
+4. **Disinfection** — spraying of **non-toxic, biodegradable, eco-friendly anti-bacterial agent** (supported by Govt-approved laboratory certification/documentation) to disinfect the tank from all harmful pathogens.
+5. **Ultra-violet radiation** treatment inside the tank to kill remaining suspended/floating bacteria (an additional treatment, "where applicable").
+
+Professional execution: trained technicians follow systematic procedures and use equipment according to tank size, construction, condition and site requirements.
 
 ## 6. "Why clean your tank" — health facts & copy
+
+**Responsibility rule (owner ruling):** we clean and disinfect the tank the best way possible, but the quality of the water a customer uses also depends on things outside our service — source-water quality, plumbing, tank condition, environment and later maintenance. We are not responsible for those. Every "safe / bacteria-free" line below must sit with that qualifier (see "Website-safe copy" and the disclaimer). Two tones are kept: the punchy earlier copy (below) for flyers/social, and the measured copy for the website.
 
 - ~**60% of diseases** caused to humans are water-borne; **children below 5** more susceptible.
 - Diseases named: Cholera, Dysentery, Gastro.
@@ -163,11 +157,29 @@ Submersible pump, sludge removal pump, high-pressure water jet pump (up to 250 b
 - Tanks are usually "either neglected or cleaned by inappropriate means like a local plumber or sweeper".
 - Water purifiers are ineffective unless input water is clean & filters maintained; a clean source extends purifier component life; water is also used for cooking, washing, bathing.
 
-### Long-form copy (usable for About / Why pages)
+### Website-safe copy (preferred for the site)
+
+**About Clean Tank Services**
+
+> Water-storage tanks are an essential part of residential, commercial and institutional water-supply systems. However, because tanks are generally located away from everyday view, their cleaning and hygiene can often be overlooked. Over time, sediment, sludge, deposits and other contaminants may accumulate inside water-storage tanks. If tanks are not cleaned and maintained appropriately, the quality and hygiene of stored water may be adversely affected. CLEAN TANK SERVICES was established as a specialized service brand of GOBIND GALAXY to address this requirement through professional, scientific and mechanized tank-cleaning solutions. Instead of relying solely on conventional cleaning practices, our service methodology uses specialized equipment, systematic cleaning procedures, disinfection and, where applicable, ultraviolet treatment. Our objective is to help homes, apartments, institutions, hospitals, hotels, commercial establishments and organizations maintain cleaner and more hygienic water-storage facilities.
+
+**About Gobind Galaxy**
+
+> GOBIND GALAXY, the parent legal firm of CLEAN TANK SERVICES, is an established service organization engaged in professional water-storage-tank cleaning through mechanized and scientific methods since 2008. With more than 15 years of experience in this specialized service field, the firm has developed expertise in serving residential, commercial, institutional, healthcare, hospitality, educational, government and other organizations. Our approach combines customer-focused service, technical expertise, trained manpower, advanced equipment and a commitment to maintaining consistent service quality. The organization has built its service capabilities with a focus on professional execution, customer satisfaction and long-term relationships.
+
+**Water Hygiene Matters**
+
+> Contaminated water can contribute to a range of waterborne illnesses. Proper maintenance of water-storage infrastructure is therefore an important part of an overall water-hygiene and facility-maintenance program. With rapid urbanization and the growth of apartment communities, institutions and commercial facilities across India, greater attention to the cleanliness of common water-storage utilities has become increasingly important. _Clean Water Storage. Better Hygiene. Healthier Living._
+
+**Look Inside Your Water Storage Tank**
+
+> A water-storage tank may remain out of sight, but it remains an important part of the water-supply system. Regular maintenance can help address the accumulation of sediment, sludge, deposits, dirt and suspended matter, and microbial contamination. Conventional cleaning arrangements may not always provide a systematic combination of mechanical cleaning, sludge removal and disinfection. CLEAN TANK SERVICES provides a professional alternative through a structured mechanized cleaning methodology. _Think Hygiene. Clean Your Water Storage Tank._ **Bacteria-Free, Safe Drinking Water Tanks** — _subject to proper source-water quality, tank condition, cleaning, disinfection and ongoing maintenance._
+
+### Long-form copy — earlier version (punchy; flyers/social/About; keep the qualifier above with any "bacteria free" claim)
 
 **Introduction / Company Profile**
 
-> Gobind Galaxy, a global player registered with BSNL, ESI, EPFO, Commercial Taxes, SSI, … offers services for cleaning of water storage tanks with mechanized and scientific method. A well established and renowned firm working in the field of cleaning of water storage tanks by mechanized and scientific method since 2008, Gobind Galaxy is a premier service provider having a history of more than 10 years. It is the preferred choice of individuals and organizations when it comes to their cleaning solutions. Gobind Galaxy offers a unique combination of focused customer service, technical expertise and a commitment to excellence that allows its clients to experience unparalleled cleaning and support services.
+> Gobind Galaxy, a global player registered with BSNL, ESI, EPFO, Commercial Taxes, SSI, … offers services for cleaning of water storage tanks with mechanized and scientific method. A well established and renowned firm working in the field of cleaning of water storage tanks by mechanized and scientific method since 2008, Gobind Galaxy is a premier service provider having a history of more than 15 years. It is the preferred choice of individuals and organizations when it comes to their cleaning solutions. Gobind Galaxy offers a unique combination of focused customer service, technical expertise and a commitment to excellence that allows its clients to experience unparalleled cleaning and support services.
 
 **An Introduction**
 
@@ -185,7 +197,7 @@ Submersible pump, sludge removal pump, high-pressure water jet pump (up to 250 b
 
 > Considering the rapid urbanization and the fast pace of development in India in general, we feel that there is an urgent need to educate the masses regarding the importance of maintaining cleanliness and hygiene of common utilities. Drinking water storage tanks are the only thing consumed directly by humans that comes from storage. It is highly essential and compulsory to maintain perfect cleanliness of these so far highly neglected drinking water storage tanks. Furthermore, because we believe that Water itself is Life, this concept has been developed by us to ensure that our fellow beings are benefited to a greater extent to make their lives safe and healthy. The enormity of the task involved in CLEAN TANK SERVICES is very big. As such we are highly confident that our committed franchisees spread across the wide, ever-increasing network laid down by us will diligently fulfil the gigantic task of spreading this much-needed health awareness among the masses with professional ease. A healthy and prosperous community would be a reflection of CLEAN TANK SERVICES — BACTERIA FREE SAFE DRINKING WATER TANKS.
 
-**Short flyer copy**
+**Short flyer / social copy**
 
 > WATER: THE WONDER DRUG. Water storage tanks could harbor harmful bacteria, decaying vegetation, sediment, insects, reptiles or even animals — all of which could be contributing to making our family sick.
 > HEALTH IS WEALTH. For a safe & healthy life — one of the most recognized & scientific services involved in rendering scientific & mechanized cleaning & disinfection of drinking water storage tanks. A tested system that incorporates scientific technology & adheres to quality certification.
@@ -196,111 +208,82 @@ Submersible pump, sludge removal pump, high-pressure water jet pump (up to 250 b
 
 ## 7. Clients ("Existing Clients")
 
-- **Corporates:** CPWD, Z-Square
-- **Hospitals:** Regency Hospital, Krishna Hospital
-- **Educational:** Agriculture University, IIT Kanpur, Virendra Swarup Education Centre (Kanpur), Rama University, HBTU, Apollo Institute of Technology, KIT, Law College, IIM Lucknow, NIT Hamirpur (H.P.), Guru Har Rai Academy
-- **Hotels:** Hotel Landmark, Hotel Mandakini, Hotel Bliss, Kanha Galaxy, Kanha International, Hotel Celebration
-- **Govt. sector:** LIC of India, MES, UPSIDC, BSNL, ALIMCO (source spelling "ALIMO"), Cantonment Board
-- **Apartments:** "many apartments" (unnamed)
+**Spellings are kept exactly as listed and treated as separate entities** (owner ruling). Entries containing "Galaxy" (Kanha/Kanak Galaxy) are third-party clients, not Gobind Galaxy. Client names/logos on the site should be used only with permission/documentation.
+
+- **Government:** LIC of India, MES (Military Engineering Services), UPSIDC, BSNL, ALIMCO (also spelled "ALIMO"), Cantonment Board / Cantonment Boards, CPWD, Municipal Corporations, National Investigation Agency (NIA), Sports Authority of India (SAI)
+- **Healthcare:** Regency Hospital, Krishna Hospital, AIIMS, Max Hospital, Fortis Hospital, Paras Hospital, Sohana Hospital, Apollo Hospital
+- **Industrial** (corporate & commercial): Z-Square
+- **Hospitality & Residential:** Hotel Landmark, Hotel Mandakini, Hotel Bliss, Kanha Galaxy, Kanha International, Kanak Galaxy, Kanak International, Hotel Celebration; residential communities — "many apartments" / multiple apartment and residential communities across India, including TDI, MR and others
+- **Institutional** (education & research): Agriculture University, IIT Kanpur, IITs across India, NITs across India, NIT Hamirpur (H.P.), CSIR institutions across India, IIM Lucknow, HBTU, Rama University, Apollo Institute of Technology, KIT, Law College, Guru Har Rai Academy, Virendra Swarup Education Centre (Kanpur), Viren Swaroop Education Centre, Kanpur (alternate spelling)
 
 ---
 
 ## 8. Franchise programme
 
-### Pitch / USPs
+Owner ruling: every franchise figure, plan and term is taken from the current franchise material only. Contact details: §1.
 
-- "Guaranteed return Rs. one lakh per month with this business"; "₹1 lakh/month earning potential"
-- Low investment & high returns · Full training · Lead generation · Marketing & advertising support · Systematic on-site training · Small office or operate from home · "Great for even ambitious house ladies" · "Low headache, low investment, high returns" · "Remember business is for PROFIT!"
-- Event offers (franchise-show standee): **Special discount of Rs. 50K "on this meet"**; **First 3 months 0 royalty**; **Free marketing support of 50K**
-- Why Tank Cleaning? — "Tank hygiene is a daily necessity for clean and healthy living, making it a service that stays in constant demand. With affordable, mechanized, and scientific cleaning methods, it offers quality results, convenience, and strong profit potential in both metro cities and smaller towns across India." Four benefit tiles: **Rapid Growth · High Demand due to low cost investment · Steady Income · Limitless Potential**
-- Poster copy: "With scientific and mechanized cleaning methods, you can ensure water storage tanks are maintained to the highest standards. This is a great opportunity to become part of a growing franchise offering a simple operation with a small investment and high profit returns, supported by marketing training and all sales assistance." — "Don't miss out – own a profitable business"
-- "Service industry is the best business — a unique 06-stage scientific concept; investment as little as 4–5 lacs"
+### Pitch
 
-### Financials — four different models exist (→ §10)
+- Heading: **FRANCHISE & BUSINESS OPPORTUNITY — START YOUR OWN BUSINESS. STEP BEYOND JOBS.**
+- "CLEAN TANK SERVICES is expanding its franchise network across India and offers an opportunity for entrepreneurs to establish a professional water-storage-tank cleaning and hygiene service business in their territory. Our franchise concept combines a specialized service, mechanized and scientific cleaning methodology, structured training, marketing assistance, lead-generation support and operational guidance."
+- Print headline: "GOBIND GALAXY INTRODUCES Clean Tank Services — Scientific and mechanised cleaning of water storage tank — FRANCHISE NOW — All in package, ready to operate — Great opportunity to become a FRANCHISE". Sub-lines: "CLEAN TANK - HEALTHY LIFE"; "NOW OPEN FOR FRANCHISE".
+- Closing: "BUILD YOUR OWN SERVICE BUSINESS — With a specialized service concept, professional methodology and structured support system, CLEAN TANK SERVICES aims to help franchise partners establish and develop their own local service businesses. Service Industry. Professional Opportunity. Scalable Business."
 
-**Model 1 — Poster "Franchise now, all-in package"**
+### Why tank cleaning
 
-| Item             | Value                  |
-| ---------------- | ---------------------- |
-| Asking price     | 3–8 Lac                |
-| Low startup cost | 3 Lac                  |
-| Royalty          | 3.5% per month         |
-| Expected ROI     | 40% & above            |
-| Payback period   | 4–6 months             |
-| Office           | 150 sq ft / from home  |
-| Market size      | Very big               |
-| Agreement period | 3 years                |
-| Support          | Franchise grow revenue |
+Recurring maintenance requirement for: residential societies, apartment complexes, commercial buildings, hospitals, hotels, educational institutions, government establishments, industrial and institutional facilities. "The recurring nature of cleaning requirements also creates opportunities for repeat business and Annual Maintenance Contracts."
 
-**Model 2 — Brochure "The Commercials"**
+### Key franchise benefits
 
-|                       | Standard FOFO         | Classic FOCO | Premium FOCO     |
-| --------------------- | --------------------- | ------------ | ---------------- |
-| Shop area             | From home / 150 sq ft | 250 sq ft    | 350 sq ft        |
-| Franchise fee         | Rs. 2 Lakh            | Rs. 3 Lakh   | Rs. 5 Lakh       |
-| Machine cost          | Rs. 2.5 Lakh          | Rs. 2.5 Lakh | Rs. 5 Lakh       |
-| Royalty               | 7%                    | 7%           | As per agreement |
-| Operational breakeven | 2–3 months            | 2–3 months   | 2–3 months       |
-| Gross profit          | 55–60%                | 55–60%       | 55–60%           |
-| Payback               | 4–6 months            | 4–6 months   | 2–3 months       |
-| Expected ROI          | 40% & above           | 40% & above  | 40% & above      |
-| Market size           | Very big              | Very big     | Very big         |
-| Agreement period      | 2 years               | 2 years      | 2 years          |
-| Business opportunity  | Huge                  | Huge         | Huge             |
+| Benefit                            | Copy                                                                                                                            |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Low Infrastructure Requirement     | Can be operated with a comparatively lean office and operational setup depending on the selected franchise model and territory. |
+| Training & On-Site Support         | Structured training and practical on-site guidance in service operations and business processes.                                |
+| Marketing & Advertising Support    | Marketing, promotional and advertising assistance to help franchise partners develop their local market.                        |
+| Lead Generation & Sales Assistance | "Support **may be** provided for lead generation and sales development according to the applicable franchise model."            |
+| Flexible Office Model              | Depending on the model, small office or suitable home-based setup.                                                              |
+| Recurring Business Potential       | Periodic cleaning and AMC services can help develop repeat customers and recurring revenue.                                     |
+| Scalable Market                    | Can be developed in metros as well as smaller cities and towns, depending on local market conditions.                           |
 
-(FOFO = Franchise Owned Franchise Operated; FOCO = Franchise Owned Company Operated.)
+### Franchise business model (indicative)
 
-**Model 3 — Financial Outlay "Per unit investment"**
+| Particular                | Indicative details                                                                  |
+| ------------------------- | ----------------------------------------------------------------------------------- |
+| Franchise investment      | ₹3 lakh – ₹8 lakh depending on model                                                |
+| Suggested startup level   | From approximately ₹3 lakh                                                          |
+| Royalty                   | **3.5% per month, as applicable to the selected model**                             |
+| Indicative ROI            | 40% or above, subject to actual business performance                                |
+| Indicative payback period | 4–6 months, subject to actual business performance                                  |
+| Office requirement        | Approximately 150 sq. ft. or suitable home-based setup (small office / home / shop) |
+| Agreement period          | 3 years                                                                             |
+| Market                    | Residential, commercial, institutional & industrial                                 |
+| Business support          | Training, marketing, lead generation, sales & operational support                   |
 
-| S.No | Particulars                        | Amount             |
-| ---- | ---------------------------------- | ------------------ |
-| 1    | Expected investment for franchisee | Rs. 4,00,000       |
-| 2    | Includes: Franchisee fee           | Rs. 1,50,000       |
-|      | Equipments                         | Rs. 3,00,000       |
-|      | Office                             | Rs. 10,000         |
-|      | Advertising/Marketing              | Rs. 25,000         |
-| 3    | Capital investment required        | Rs. 5,00,000       |
-| 4    | Expected ROI                       | 8 months           |
-| 5    | Any other investment               | As per requirement |
+### Franchise support system (flow, top to bottom)
 
-Options: **(a) With machine investment** ≈ Rs. 5 Lakh depending on location; **(b) Without machine investment** ≈ Rs. 1,50,000 depending on location. Investment capacity bands on the application form: 4 / 5 / 7 Lakh.
+Training → On-Site Service Training → Marketing Support → Lead Generation → Sales Assistance → Operational Guidance → Business Growth Support
 
-**Model 4 — Fixed royalty in the T&Cs**: Rs. 2,000/month (Rs. 24,000/yr + service tax) in the Kanpur version vs Rs. 5,000/month (Rs. 60,000/yr + service tax) in the Chandigarh version; Year 1 paid at signing, Years 2 & 3 by post-dated cheques dated 12 and 24 months out.
+### Additional print-collateral highlights
 
-### Support offered
+Use the hedged wording above on the website; these are the punchier print lines: All-in package, ready to operate · No hidden charges · With all sales support · Pan India · Easy to operate · Small investment, high profit · Marketing training · Run from home · Fast ROI · Marketing support 24×7 · Projected market size very big · Market demand growing · Training & technical support as required · Operation plan support · Execution plan for big orders · Recruitment support as required · Growth-oriented work policy.
 
-- Consulting: concept development; market & feasibility studies; strategic planning
-- Support: unit marketing; training manual; standard operating procedure; reward & recognition programme for staff
-- Marketing & technical training at company cost in Kanpur (franchisee bears travel/lodging)
-- 2 free service visits in first 12 months; exclusive territory; company-generated enquiries routed to franchisee
-- Vehicle advice: "Because cleaning of water storage tanks is done at customer's site, vehicles are important to this business. Choose the right vehicle so that you can control daily consumption of fuel."
+### CTAs and enquiry
 
-### Eligibility (from T&Cs)
+- Button: **[Become a Franchise Partner]**
+- Enquiry block — "Franchise Enquiry: Get details about available franchise models, investment, territory, training and support." Button: **[Send an Enquiry]** (other enquiry types: Service Enquiry, AMC Enquiry).
+- Footer navigation includes "Franchise".
 
-1. **Primary:** prior working/business experience, preferably service sector/housekeeping; liking for hygiene; willing to work hard under company guidance; full-time personal attention.
-2. **Infrastructure:** 100–150 sq ft office/storage; one telephone; one admin person; compulsory computerised system with internet; easily accessible area (not necessarily commercial); at least two persons (1 marketing, 1 supervision) + two more for cleaning/machinery operations. Application asks: willing to employ ≥1 marketing + 3 execution staff; van for equipment in future.
-3. **Financial:** capacity to invest ~Rs. 5 Lacs in phased manner, plus further equipment/advertising as needed.
+### Financial disclaimer (mandatory next to any figures)
 
-### Key T&C clauses
+"All investment, revenue, ROI and payback figures are indicative business projections and are not guaranteed returns unless specifically stated in the executed franchise agreement. Actual results may vary depending on territory, customer acquisition, sales volume, pricing, operating expenses, manpower, local competition and other business conditions."
 
-- Booking amount (franchise fee) non-refundable; balance within 2 weeks; area may be reallotted if >4 weeks late; area classification A/B/C.
-- Equipment dispatch within 8 weeks of 50% advance or 1 week of full payment; consumables/spares within 7 days.
-- Warranty 12 / 6 months back-to-back per manufacturer; wear & tear excluded.
-- Prices ex-office Kanpur; packing 2% extra outstation; freight & transit insurance on franchisee.
-- Taxes extra. Local ads need prior approval. Pricing per company policy, may change without notice.
-- Kanpur jurisdiction.
+### Terms & Conditions, item 10 "Franchise"
 
-### Application form fields (29-question version)
+"Franchise opportunities are governed by a separate franchise agreement. Website information regarding investment, ROI, payback or business potential is indicative unless expressly incorporated into the executed agreement."
 
-Applicant name(s) + passport photo · Company name · Address with PIN · City & State · Contact numbers (Mobile/Phone/Residence/Fax) · Email · Educational qualification · Industry background · Working experience (Business/Service) · Number of years · Required franchisee territory · Confident Clean Tank will be a winning concept? · Time per day · Willing to employ 1 marketing + 3 execution? · Have a computer? · Aware computer mandatory for records? · Willing to implement prescribed system? · Aware it needs personal meetings to convince customers? · Able to convince customers? · Able to make it a household name in your area? · Why you qualify + 3 strengths / 3 weaknesses · Expectations of support · How you plan to promote · Investment capacity · Accept calculated business risk? · Willing to buy a van later? / how promote / if no, why · Open to other water-related opportunities?
+### Not stated anywhere — do not present as fact
 
-Property details: address, city, state, residential market, carpet & built-up area (sq ft), floor, levels, leased/owned/rented, rent & term, municipal approval, commercial/residential.
-
-Declaration: "We declare that all details given above are correct, complete and accurate to the best of our belief and knowledge." + place/date/signature/seal.
-
-Risk clause (verbatim): "We want to clarify that this is not an investment, but a business opportunity that we are promoting and like any other business opportunity, this also involves a calculated business risk factor. Do you have the capacity to accept that business risk as a challenge?"
-
----
+What ROI is measured on and over what period; what the royalty is calculated on; what the ₹3 lakh vs ₹8 lakh models include; territory exclusivity; renewal terms; what "All in package" covers. Earlier claims now dropped (guaranteed ₹1 lakh/month, 4–5 lakh investment, event discounts/zero-royalty offers, "06-stage") are listed in §12.
 
 ## 9. Image descriptions for AI generation
 
@@ -325,6 +308,8 @@ Variants: icon-only (tank + drops + wave) for favicon/app icon; horizontal locku
 > Bright, warm lifestyle photo: a grandfather, a father and a young boy (Indian family) smiling and clinking tall glasses of clear water in a toast, shot slightly from below, shallow depth of field, soft white kitchen light. Conveys safe drinking water for the whole family.
 
 ### 9.5 Franchise "why" section (icon set)
+
+> **Note:** the four tile labels below are earlier copy, dropped from the franchise programme (§8, §12). Reuse the visual style only; relabel from the seven franchise benefits (§8) before use.
 
 > Four flat line-art icons, black on white rounded-square tiles, 2px stroke, consistent style: (1) rocket ascending alongside a rising bar chart — "Rapid Growth"; (2) rupee coin with an upward arrow above three simple people figures — "High Demand due to low cost investment"; (3) money bag balanced on a scale with two up-arrows — "Steady Income"; (4) archery target with an arrow hit, a person figure beside it — "Limitless Potential". Tiles sit on a deep navy rounded card.
 
@@ -371,17 +356,64 @@ Photorealistic, blue-teal grade, same technician (dark blue coverall, yellow har
 
 ---
 
-## 10. Conflicts & open questions for the owner
+## 10. Website copy deck
 
-1. **GSTIN** — 4 spellings: 09ALFPS1473F3ZW / 09ALFPS1473F3WZ / 09ALFPS1473F5WZ / 09LFS1473F5ZU. Get the real one.
-2. **Registered office** — Bengali Colony (Kanpur-208007) vs 109/122 Nehru Nagar, R.K. Nagar (Kanpur-208012). Newest material uses R.K. Nagar.
-3. **Punjab office** — 4 addresses (501-C Omega City; 11-G Omega City; B3/26 Chd-Kurali Rd; B-3/17 Jamuna Apartments, NH-5 Khanpur, Kharar). Newest letterhead says Jamuna Apartments.
-4. **Primary phone for the site** — 9453517514 (most collateral) vs 9779517597 (newest poster) vs 8699339947 (Chandigarh).
-5. **Email** — <admin@cleantankservices.com>? <gobindgalaxychd@gmail.com>?
-6. **Franchise financials** — four incompatible models (§8): royalty 3.5%/mo vs 7% vs Rs 2k/mo vs Rs 5k/mo; agreement 3 yrs vs 2 yrs; investment 3–8 Lac vs 4.5/5.5/10 Lakh tiers vs Rs 4–5 Lakh. Outlay line items sum to 4,85,000, matching neither stated total.
-7. **Process** — 6-step vs 10-stage vs 8-step; 250 bar vs 100–120 bar; HCl step appears only on the letterhead version.
-8. **Cleaning frequency** — every 3/6 months vs 4×/year.
-9. **"ISO certified"** claim — no certificate number anywhere.
-10. Delhi (011-43015189) and Mumbai Fort addresses from the IGT-era collateral — still active, or Kanpur/Punjab only now?
-11. Anti-bacterial agent datasheet is referenced ("we are attaching herewith the data") but was never in the material.
-12. Source typos to avoid on site: Hygeiene, Higiene/Healthicare, becteria, recoznized, invalved, Vaccum, Sterlization, maintenence, asured, Recomened, harmfull, ROYALITY, Busines, SPEECAL, "franchises" (→ franchisee), cleantankservies.com, "house ladies".
+- **Hero:** "CLEAN TANK SERVICES — An Initiative of GOBIND GALAXY — CLEAN TANK, HEALTHY LIFE. Scientific & Mechanized Water Storage Tank Cleaning Services. Professional cleaning and disinfection of domestic, commercial, institutional and large-capacity water storage tanks using scientific and mechanized methods." CTAs: **[Get a Service Quote]** **[Explore Our Services]**
+- **Section order:** About Us → Our Services → Our Scientific Cleaning Process → Recommended Cleaning Frequency → AMC → Why Choose Us → Water Hygiene → Our Clientele → Pan-India Presence → Aims & Objectives → Founder & CEO → Our Brand → Our Message → Franchise & Business Opportunity → Contact → Enquiry.
+- **Our Brand:** "CLEAN TANK SERVICES represents the specialized water-storage-tank cleaning and hygiene service vertical of GOBIND GALAXY." Promise: **CLEAN TANK, HEALTHY LIFE**.
+- **Our Message:** Water Itself Is Life · Water, the Wonder Drug · Health Is Wealth · Think Hygiene. Clean Your Water Storage Tank. · Excellence in Hygiene and Healthcare · Bacteria-Free, Safe Drinking Water Tanks · A New Standard in Water Tank Cleaning Services · Be Concerned About Health & Hygiene. Look Inside Your Water Storage Tank.
+- **Pan-India presence:** "a growing service presence supported through operations and technical representation across multiple states" — Punjab, Delhi, Uttar Pradesh, Himachal Pradesh, Madhya Pradesh, Jharkhand, Maharashtra; technical representatives in major cities across India, subject to service requirements.
+- **Enquiry types:** _Service Enquiry_ — "Tell us your location, tank type, capacity and cleaning requirement." · _AMC Enquiry_ — "Ask us about scheduled annual tank-cleaning and maintenance programmes." · _Franchise Enquiry_ — "Get details about available franchise models, investment, territory, training and support." Button **[Send an Enquiry]**.
+- **Footer:** Home | About Us | Services | Process | AMC | Why Choose Us | Clients | Franchise | Contact Us · Privacy Policy | Terms & Conditions · "© GOBIND GALAXY / CLEAN TANK SERVICES. All Rights Reserved."
+- **Contacts:** use §1 only.
+
+---
+
+## 11. Legal pages
+
+### Terms & Conditions
+
+1. **General** — Website operated by GOBIND GALAXY under the brand CLEAN TANK SERVICES; by using it, visitors agree to these terms.
+2. **Services** — Professional water-storage-tank cleaning and related maintenance; exact scope varies by tank type, capacity, construction, accessibility, site conditions and customer requirements.
+3. **Service assessment** — Before service the company may assess the tank, site conditions, access, water level, sludge accumulation and other factors.
+4. **Pricing** — Determined by scope, tank capacity, location, site conditions, manpower, equipment and other factors; prices may vary from site to site.
+5. **Customer responsibilities** — Reasonable access to the tank, premises and required utilities; authorised personnel able to carry out the service.
+6. **Water supply** — Customer arranges water availability, alternate supply and restoration of normal usage during/after cleaning.
+7. **Service results** — Cleaning and disinfection are intended to improve the cleanliness and hygiene of the tank. Stored-water condition/quality also depends on source-water quality, plumbing, tank condition, environmental conditions and subsequent maintenance. _(This is the "not our responsibility" clause.)_
+8. **AMC** — Subject to specific commercial terms, schedule, scope and conditions agreed with the customer.
+9. **Emergency services** — 24×7 support subject to service-area coverage, manpower, equipment availability and operating conditions.
+10. **Franchise** — Governed by a separate franchise agreement; website figures on investment, ROI, payback or potential are indicative unless expressly incorporated into the executed agreement.
+11. **Intellectual property** — Website content, brand name, logos, photographs, graphics may not be reproduced without prior authorisation.
+12. **Website information** — Reasonable efforts to keep it accurate; specifications, availability and terms may be updated.
+13. **Contact** — Via the contact details published on the website.
+
+### Privacy Policy
+
+1. **Introduction** — CLEAN TANK SERVICES, an initiative of GOBIND GALAXY, respects visitor/customer privacy and handles personal information responsibly.
+2. **Information collected** — Name, phone, email, company/organisation, service location, tank-related information, service or franchise requirements, other voluntarily provided information.
+3. **Use** — Respond to enquiries; provide quotations/service information; schedule services; manage AMC; respond to franchise enquiries; communicate about requested services; improve customer-service processes; maintain business and service records.
+4. **Security** — Reasonable administrative and technical measures against unauthorised access, misuse, alteration or disclosure.
+5. **Sharing** — Not sold or disclosed for unrelated purposes; may be shared where reasonably necessary to provide requested services, comply with law or protect rights/security.
+6. **Cookies** — May use cookies or similar technologies for functionality, analytics or other legitimate purposes, depending on platform and third-party services.
+7. **Third-party services** — Analytics, communication, payment or other integrated platforms may have their own privacy practices.
+8. **User requests** — Visitors may ask about personal information they submitted, subject to applicable law and verification.
+9. **Policy updates** — May be updated periodically.
+10. **Contact** — <admin@cleantankservices.com>
+
+---
+
+## 12. Decisions (owner rulings, Sept 2026)
+
+| Topic                   | Ruling                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GSTIN                   | `09LFS1473F5ZU` is correct (§1). Other variants seen in older material are wrong.                                                                                                                                                                                                                                                                                                                                                                        |
+| Phones / emails         | Exactly as in §1. Do not add other numbers or email addresses.                                                                                                                                                                                                                                                                                                                                                                                           |
+| Correspondence address  | **B-3/26**, Jamuna Apartments (not B-3/17 or B-326).                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Experience              | In business since 2008; "15+ years" is fine.                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Process                 | **5 steps** (§5). An older 6-step version with a 5% food-grade HCl algae wash is not used.                                                                                                                                                                                                                                                                                                                                                               |
+| Franchise               | Only the figures/plans in §8. Dropped: "guaranteed ₹1 lakh/month", "4–5 lakh" investment, event offers (₹50K discount, 3 months zero royalty, ₹50K marketing), "ambitious house ladies", "06-stage", the four benefit tiles (Rapid Growth · High Demand due to low cost investment · Steady Income · Limitless Potential), "Remember business is for PROFIT!", "Low headache, low investment, high returns". Print-only lines are softer on the website. |
+| Clients                 | One merged list in five groups (§7); nothing dropped; spellings kept separate; "Galaxy" clients are third parties.                                                                                                                                                                                                                                                                                                                                       |
+| Health / liability copy | Punchy and measured versions both kept (§6); water quality beyond our service (source water, plumbing, tank condition, later upkeep) is not our responsibility.                                                                                                                                                                                                                                                                                          |
+| Cleaning frequency      | Depends on the organisation (healthcare ≈ 3 months, schools ≈ 6); no single number.                                                                                                                                                                                                                                                                                                                                                                      |
+| Ownership               | Gobind Galaxy = parent firm; Clean Tank Services = its brand; Gurdev Singh = proprietor.                                                                                                                                                                                                                                                                                                                                                                 |
+| ISO                     | ISO 9001:2015, Q2A-UK, No. Q2A-2026-0401T118011, valid to 31-Mar-2029 (§1); never say "accredited".                                                                                                                                                                                                                                                                                                                                                      |
