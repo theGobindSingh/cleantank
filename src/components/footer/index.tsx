@@ -5,6 +5,14 @@ import {
   FooterMidSection,
   FooterOuterWrapper,
 } from "@components/footer/styles";
+import {
+  brand,
+  contact,
+  footerNavLinks,
+  iso,
+  legalLinks,
+  offices,
+} from "@constants";
 import { Interpolation, Theme } from "@emotion/react";
 import {
   EmailRounded,
@@ -14,6 +22,7 @@ import {
   VerifiedRounded,
   WorkspacePremiumRounded,
 } from "@mui/icons-material";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const contacts: {
@@ -21,10 +30,19 @@ const contacts: {
   href: string;
   icon?: SvgIconComponent;
 }[] = [
-  { label: "+91 12345 67890", href: "tel:+911234567890", icon: PhoneRounded },
   {
-    label: "cleantankservices@gmail.com",
-    href: "mailto:cleantankservices@gmail.com",
+    label: contact.primaryPhone.label,
+    href: contact.primaryPhone.href,
+    icon: PhoneRounded,
+  },
+  {
+    label: contact.emails.admin.label,
+    href: contact.emails.admin.href,
+    icon: EmailRounded,
+  },
+  {
+    label: contact.emails.gobindGalaxy.label,
+    href: contact.emails.gobindGalaxy.href,
     icon: EmailRounded,
   },
 ];
@@ -49,7 +67,7 @@ const FooterCopyrightSection = () => {
       bg="var(--color-primary-100)"
       css={css}
     >
-      {`© ${currentYear} Clean Tank Services. Industrial-Grade Hygiene Certified.`}
+      {`© ${currentYear} GOBIND GALAXY / CLEAN TANK SERVICES. All Rights Reserved.`}
     </CommonFullWidthWrapper>
   );
 };
@@ -70,6 +88,32 @@ const contactsMapper = ({
       {Icon && <Icon className="icon" />}
       {label}
     </a>
+  );
+};
+
+const navLinkMapper = ({ name, path }: (typeof footerNavLinks)[number]) => {
+  return (
+    <Link key={name} href={path} className="footer-link">
+      {name}
+    </Link>
+  );
+};
+
+const legalLinkMapper = ({ name, path }: (typeof legalLinks)[number]) => {
+  return (
+    <Link key={name} href={path} className="footer-link">
+      {name}
+    </Link>
+  );
+};
+
+const officeMapper = ({ label, address, phone }: (typeof offices)[number]) => {
+  return (
+    <span key={label} className="office">
+      <span className="office-label">{label}</span>
+      <span className="office-address">{address}</span>
+      <span className="office-phone">{`+91 ${phone}`}</span>
+    </span>
   );
 };
 
@@ -105,11 +149,9 @@ const Footer = () => {
         wrapperCss={wrapperCss}
       >
         <div className="footer-section long">
-          <span className="title">Clean Tank Services</span>
+          <span className="title">{brand.name}</span>
           <span className="sub-title">
-            Providing government-grade hygiene solutions for heavy-scale
-            industrial and commercial water storage systems across India.
-            Certified ISO 9001:2015.
+            {brand.brandLine} — {brand.descriptor}. {iso.safeWording}
           </span>
           <div className="icons-container">
             <VerifiedRounded />
@@ -118,9 +160,18 @@ const Footer = () => {
           </div>
         </div>
         <nav className="footer-section short nav">
+          <span className="title">Navigate</span>
+          {footerNavLinks.map(navLinkMapper)}
+          {legalLinks.map(legalLinkMapper)}
+        </nav>
+        <nav className="footer-section short nav">
           <span className="title">Contact</span>
           {contacts.map(contactsMapper)}
         </nav>
+        <div className="footer-section short offices">
+          <span className="title">Offices</span>
+          {offices.map(officeMapper)}
+        </div>
       </FooterMidSection>
       <FooterCopyrightSection />
     </FooterOuterWrapper>

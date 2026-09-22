@@ -1,0 +1,1 @@
+- [CleanTank Button component has no $margin prop](cleantank-button-no-margin-prop.md) — don't pass $margin to Button, only to H1/H2/H3/P/Span

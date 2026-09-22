@@ -46,7 +46,7 @@ const fieldMapper = ({
         <ContactFormLabel htmlFor={id}>{label}</ContactFormLabel>
         <ContactFormSelect id={id} required={required} defaultValue="">
           <option value="" disabled>
-            Select project type
+            Select enquiry type
           </option>
           {options.map((option) => {
             return (
@@ -97,7 +97,7 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
       links: gFormConfig.links,
       onSubmitExtra: () => {
         formRef.current?.reset();
-        toast.success("Your site audit request has been sent successfully.");
+        toast.success("Your enquiry has been sent successfully.");
       },
     };
   }, [gFormConfig.gFormId, gFormConfig.links]);
@@ -107,7 +107,7 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
     if (!isConfigured) {
       event.preventDefault();
       toast.info(
-        "Contact form setup is pending. Please call or email CleanTank Services.",
+        "Contact form setup is pending. Please call or email Clean Tank Services.",
       );
       return;
     }
@@ -126,7 +126,7 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
           $margin="0"
           style={{ letterSpacing: "0.01em" }}
         >
-          Business Inquiry
+          Send an Enquiry
         </H3>
         <P
           $size="4xs"
@@ -135,7 +135,7 @@ const ContactForm = ({ fields, gFormConfig, submitText }: ContactFormProps) => {
           $margin="0.4rem 0 0"
           $lineHeight="1.62"
         >
-          Share the basics and our team will respond with the best audit path.
+          Share the basics and our team will respond as soon as possible.
         </P>
       </div>
       {fields.map(fieldMapper)}

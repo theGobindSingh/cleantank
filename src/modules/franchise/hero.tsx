@@ -1,8 +1,6 @@
-import { H2, H3, P, Span } from "@components/html";
+import { H2, P, Span } from "@components/html";
 import HeroSection from "@layouts/hero-section";
 import {
-  FranchiseHeroHighlightItem,
-  FranchiseHeroHighlightList,
   FranchiseHeroStatGrid,
   FranchiseHeroStatItem,
   FranchiseHeroTrustHeader,
@@ -14,18 +12,14 @@ const statMapper = ({
   label,
   value,
   supportingText,
-  isPlaceholder,
 }: NonNullable<FranchiseHeroSectionProps["stats"]>[number]) => {
   return (
-    <FranchiseHeroStatItem
-      key={`${label}-${value}`}
-      $isPlaceholder={!!isPlaceholder}
-    >
+    <FranchiseHeroStatItem key={`${label}-${value}`}>
       <Span
         $size="4xs"
         $weight="700"
         $color="neutral"
-        $colorWeight="700"
+        $colorWeight="900"
         $letterSpacing="0.08em"
       >
         {label.toUpperCase()}
@@ -33,42 +27,10 @@ const statMapper = ({
       <Span $size="1xs" $weight="800" $color="neutral" $colorWeight="1000">
         {value}
       </Span>
-      <Span $size="4xs" $color="neutral" $colorWeight="700" $lineHeight="1.5">
+      <Span $size="4xs" $color="neutral" $colorWeight="900" $lineHeight="1.5">
         {supportingText}
       </Span>
     </FranchiseHeroStatItem>
-  );
-};
-
-const highlightMapper = ({
-  icon: Icon,
-  title,
-  description,
-}: NonNullable<FranchiseHeroSectionProps["highlights"]>[number]) => {
-  return (
-    <FranchiseHeroHighlightItem key={title}>
-      <Icon className="highlight-icon" />
-      <div className="highlight-copy">
-        <H3
-          $size="3xs"
-          $weight="700"
-          $color="neutral"
-          $colorWeight="1000"
-          $margin="0"
-        >
-          {title}
-        </H3>
-        <P
-          $size="4xs"
-          $color="neutral"
-          $colorWeight="700"
-          $margin="0"
-          $lineHeight="1.6"
-        >
-          {description}
-        </P>
-      </div>
-    </FranchiseHeroHighlightItem>
   );
 };
 
@@ -81,8 +43,6 @@ const FranchiseHeroSection = ({
   trustCardTitle,
   trustCardDescription,
   stats = [],
-  highlights = [],
-  footnote,
 }: FranchiseHeroSectionProps) => {
   return (
     <HeroSection
@@ -107,7 +67,7 @@ const FranchiseHeroSection = ({
             <P
               $size="4xs"
               $color="neutral"
-              $colorWeight="700"
+              $colorWeight="900"
               $margin="0"
               $lineHeight="1.6"
             >
@@ -118,24 +78,6 @@ const FranchiseHeroSection = ({
             <FranchiseHeroStatGrid>
               {stats.map(statMapper)}
             </FranchiseHeroStatGrid>
-          )}
-          {highlights.length > 0 && (
-            <FranchiseHeroHighlightList>
-              {highlights.map(highlightMapper)}
-            </FranchiseHeroHighlightList>
-          )}
-          {footnote && (
-            <P
-              $size="4xs"
-              $color="neutral"
-              $colorWeight="700"
-              $margin="0"
-              $lineHeight="1.5"
-              $colorAlpha={0.78}
-              className="hero-footnote"
-            >
-              {footnote}
-            </P>
           )}
         </FranchiseHeroTrustPanel>
       }

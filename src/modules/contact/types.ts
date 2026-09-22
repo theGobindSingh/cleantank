@@ -1,3 +1,4 @@
+import { Office } from "@constants";
 import { SvgIconComponent } from "@mui/icons-material";
 import { StaticImageData } from "next/image";
 
@@ -41,7 +42,12 @@ export interface ContactMethod {
   icon: SvgIconComponent;
   title: string;
   value: string;
-  href?: string;
+  href: string;
+}
+
+export interface EnquiryTypeItem {
+  title: string;
+  description: string;
 }
 
 export interface ContactFormProps {
@@ -51,14 +57,24 @@ export interface ContactFormProps {
 }
 
 export interface ReachOutSectionProps extends ContactSectionMeta {
+  enquiryTypes: EnquiryTypeItem[];
   fields: ContactFormField[];
   gFormConfig: ContactGoogleFormConfig;
   methods: ContactMethod[];
   submitText: string;
 }
 
-export interface VisualProofSectionProps extends ContactSectionMeta {
-  image: StaticImageData;
-  imageAlt: string;
-  proofItems: string[];
+export interface OfficesSectionProps extends ContactSectionMeta {
+  offices: Office[];
+  gstin: string;
+  pan: string;
+  isoWording: string;
+}
+
+export interface PresenceSectionProps extends ContactSectionMeta {
+  image?: StaticImageData;
+  imageAlt?: string;
+  states: readonly string[];
+  technicalRepresentativesLine: string;
+  emergencyLine: string;
 }

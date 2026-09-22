@@ -15,6 +15,10 @@ const styles = css`
   padding-bottom: 2.5rem;
   gap: 0.75rem;
   text-align: center;
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
   ${mediaQuery.nonDesktop} {
     --_height-var: 1.5rem;
   }

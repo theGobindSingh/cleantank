@@ -1,3 +1,5 @@
+import Button from "@components/button";
+import { P } from "@components/html";
 import HeroSection from "@layouts/hero-section";
 import StandardSectionLayout from "@layouts/standard-section";
 import {
@@ -48,12 +50,19 @@ const ClientCardComponent = ({
   }, [visible, client.name]);
 
   return (
-    <ClientCard key={client.name}>
-      <div className="img-wrapper" ref={ref}>
-        {visible && (
-          <Image src={client.src} alt={client.name} width={150} height={150} />
-        )}
-      </div>
+    <ClientCard key={client.name} className={client.src ? "" : "text-only"}>
+      {client.src && (
+        <div className="img-wrapper" ref={ref}>
+          {visible && (
+            <Image
+              src={client.src}
+              alt={client.name}
+              width={150}
+              height={150}
+            />
+          )}
+        </div>
+      )}
       <ClientCardTitle className="title">{client.name}</ClientCardTitle>
     </ClientCard>
   );
@@ -95,7 +104,19 @@ const Clients = ({ clients = {} }: ClientsProps) => {
   return (
     <Fragment>
       <HeroSection {...clientsHeroProps} />
+      <StandardSectionLayout title="Trusted Across Sectors">
+        <P $margin="0.75rem 0 0" $size="s" $color="neutral" $colorWeight="400">
+          From government institutions and hospitals to hotels, residential
+          communities and leading academic institutions, Clean Tank Services has
+          served clients across five sectors nationwide.
+        </P>
+      </StandardSectionLayout>
       {Object.keys(clients).map(clientsCategoryMapper)}
+      <StandardSectionLayout title="Ready to Join Our Client List?">
+        <Button href="/contact" $variant="filled" $color="secondary">
+          Become Our Next Client
+        </Button>
+      </StandardSectionLayout>
     </Fragment>
   );
 };

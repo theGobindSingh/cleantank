@@ -1,9 +1,14 @@
 interface ClientProp {
   name: string;
-  src: string;
+  src?: string;
 }
 
-type ClientType = "industrial" | "institutional" | "healthcare" | "government";
+type ClientType =
+  | "industrial"
+  | "institutional"
+  | "healthcare"
+  | "government"
+  | "hospitalityAndResidential";
 
 export interface ClientsProps {
   className?: string;

@@ -1,6 +1,5 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { mediaQuery, shouldForwardProp } from "@styles/global";
+import { mediaQuery } from "@styles/global";
 
 // ─── Hero Trust Panel ──────────────────────────────────────────────────────────
 
@@ -25,10 +24,6 @@ export const FranchiseHeroTrustPanel = styled.aside`
     padding: 1.2rem;
     gap: 1rem;
   }
-
-  .hero-footnote {
-    font-family: var(--font-mono);
-  }
 `;
 
 export const FranchiseHeroTrustHeader = styled.div`
@@ -51,609 +46,138 @@ export const FranchiseHeroStatGrid = styled.ul`
   }
 `;
 
-export const FranchiseHeroStatItem = styled("li", { shouldForwardProp })<{
-  $isPlaceholder?: boolean;
-}>`
+export const FranchiseHeroStatItem = styled.li`
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.8rem;
   border-radius: 0.5rem;
-  border: 1px solid
-    ${({ $isPlaceholder }) => {
-      return $isPlaceholder
-        ? "rgba(var(--color-secondary-800-base), 0.42)"
-        : "rgba(var(--color-neutral-1000-base), 0.1)";
-    }};
-  background-color: ${({ $isPlaceholder }) => {
-    return $isPlaceholder
-      ? "rgba(var(--color-secondary-900-base), 0.12)"
-      : "rgba(var(--color-primary-200-base), 0.42)";
-  }};
+  border: 1px solid rgba(var(--color-neutral-1000-base), 0.1);
+  background-color: rgba(var(--color-primary-200-base), 0.42);
 `;
 
-export const FranchiseHeroHighlightList = styled.ul`
+// ─── Why Tank Cleaning ─────────────────────────────────────────────────────────
+
+export const FranchiseWhyList = styled.ul`
   list-style: none;
-  margin: 0;
+  margin: 2rem 0 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-
-  ${mediaQuery.phone} {
-    gap: 0.6rem;
-  }
-`;
-
-export const FranchiseHeroHighlightItem = styled.li`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.75rem;
-
-  .highlight-icon {
-    color: var(--color-secondary-700);
-    font-size: var(--fs-s);
-    margin-top: 0.1rem;
-  }
-
-  .highlight-copy {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-`;
-
-// ─── Benefits Grid ─────────────────────────────────────────────────────────────
-
-export const FranchiseBenefitsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  width: 100%;
-  margin-top: 2.75rem;
-
-  ${mediaQuery.desktop} {
-    &:has(.benefit-card:hover) .benefit-card:not(:hover) {
-      scale: 0.95;
-      opacity: 0.8;
-    }
-  }
-
-  ${mediaQuery.tablet} {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  ${mediaQuery.phone} {
-    grid-template-columns: 1fr;
-    margin-top: 2rem;
-  }
-`;
-
-const benefitCardHoverStyles = css`
-  border-color: rgba(var(--color-secondary-700-base), 0.45);
-  background-color: rgba(var(--color-primary-200-base), 1);
-  .benefit-title {
-    color: var(--color-neutral-900);
-  }
-  .benefit-description {
-    color: var(--color-neutral-700);
-  }
-
-  .benefit-icon {
-    color: var(--color-secondary-700);
-    background: rgba(var(--color-secondary-800-base), 0.2);
-  }
-`;
-
-export const FranchiseBenefitCard = styled.article`
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-  border-radius: 0.25rem;
-  padding: 1.3rem;
-  background-color: rgba(var(--color-neutral-900-base), 0.5);
-  transition: all 0.3s ease;
-
-  * {
-    transition: all 0.3s ease;
-  }
-
-  .benefit-title,
-  .benefit-description {
-    transition: all 0.3s ease;
-  }
-
-  .benefit-icon {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 0.45rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-secondary-600);
-    background: rgba(var(--color-neutral-800-base), 0.5);
-
-    svg {
-      font-size: var(--fs-s);
-    }
-  }
-
-  ${mediaQuery.desktop} {
-    &:hover {
-      ${benefitCardHoverStyles}
-    }
-  }
-
-  ${mediaQuery.tablet} {
-    &:hover {
-      ${benefitCardHoverStyles}
-    }
-  }
-
-  &.active {
-    ${benefitCardHoverStyles}
-  }
-`;
-
-// ─── Support Bento Grid ────────────────────────────────────────────────────────
-
-export const FranchiseSupportGrid = styled.div`
-  width: 100%;
-  margin-top: 2.75rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: minmax(10.5rem, auto);
-  gap: 1rem;
+  gap: 0.75rem;
 
   ${mediaQuery.tablet} {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   ${mediaQuery.phone} {
-    margin-top: 2rem;
     grid-template-columns: 1fr;
   }
-`;
 
-const supportCardHoverStyles = css`
-  border-color: rgba(var(--color-secondary-700-base), 0.45);
-  background-color: rgba(var(--color-primary-200-base), 1);
-
-  .support-title {
-    color: var(--color-neutral-900);
-  }
-
-  .support-description {
-    color: var(--color-neutral-700);
-  }
-
-  .support-icon {
-    color: var(--color-secondary-800);
-  }
-
-  .support-label {
-    color: var(--color-secondary-800);
+  li {
+    padding: 0.75rem 1rem;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
+    background-color: rgba(var(--color-neutral-900-base), 0.5);
   }
 `;
 
-export const FranchiseSupportCard = styled("article", {
-  shouldForwardProp,
-})<{
-  $size?: "default" | "wide" | "tall";
-}>`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  border-radius: 0.5rem;
+// ─── Franchise Business Model ───────────────────────────────────────────────────
+
+export const FranchiseModelTable = styled.dl`
+  margin: 2.75rem 0 0;
   border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-  background-color: rgba(var(--color-neutral-800-base), 0.5);
-  padding: 1.15rem;
-  min-height: 100%;
-  transition: all 0.3s ease;
-
-  * {
-    transition: all 0.3s ease;
-  }
-
-  ${({ $size }) => {
-    if ($size === "wide") {
-      return css`
-        grid-column: span 2;
-      `;
-    }
-
-    if ($size === "tall") {
-      return css`
-        grid-row: span 2;
-      `;
-    }
-
-    return null;
-  }}
-
-  &>* {
-    transition: all 0.3s ease;
-  }
-
-  .support-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-
-  .support-icon {
-    color: var(--color-secondary-600);
-    font-size: var(--fs-s);
-  }
-
-  .support-label {
-    font-family: var(--font-mono);
-    font-size: var(--fs-4xs);
-    font-weight: 700;
-    color: rgba(var(--color-neutral-300-base), 0.88);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  ${mediaQuery.nonDesktop} {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  ${mediaQuery.desktop} {
-    &:hover {
-      ${supportCardHoverStyles}
-    }
-  }
-
-  ${mediaQuery.tablet} {
-    &:hover {
-      ${supportCardHoverStyles}
-    }
-  }
-
-  &.active {
-    ${supportCardHoverStyles}
-  }
-`;
-
-// ─── Technology Comparison ─────────────────────────────────────────────────────
-
-export const FranchiseComparisonTable = styled.div`
-  --_bg: rgba(var(--color-primary-200-base), 1);
-  --_dark-bg: rgba(var(--color-primary-100-base), 0.75);
-  --_outer-border-color: rgba(var(--color-neutral-800-base), 0.75);
-  --_inner-border-color: rgba(var(--color-neutral-800-base), 0.6);
-  --_header-inner-border-color: rgba(var(--color-neutral-800-base), 0.75);
-  --_border-width: 1px;
-  --_criteria-text-color: var(--color-neutral-900);
-  --_ct_heading-text-color: var(--color-secondary-900);
-  --_heading-text-color: rgba(var(--color-neutral-900-base), 0.95);
-  --_ct-text-color: var(--color-neutral-1000);
-  --_text-color: rgba(var(--color-neutral-900-base), 0.95);
-
-  width: 100%;
-  margin-top: 2.75rem;
-  border: var(--_border-width) solid var(--_outer-border-color);
   border-radius: 0.5rem;
   overflow: hidden;
-  background-color: var(--_bg);
+  background-color: rgba(var(--color-primary-200-base), 1);
 
   ${mediaQuery.phone} {
     margin-top: 2rem;
   }
 `;
 
-export const FranchiseComparisonHeader = styled.div`
+export const FranchiseModelRow = styled.div`
   display: grid;
-  grid-template-columns: minmax(10rem, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: 0;
-  background-color: var(--_dark-bg);
-
-  .header-cell {
-    padding: 1rem 1.1rem;
-    border-right: var(--_border-width) solid var(--_inner-border-color);
-    border-bottom: var(--_border-width) solid var(--_header-inner-border-color);
-    &:last-child {
-      border-right: none;
-    }
-  }
-
-  ${mediaQuery.phone} {
-    display: none;
-  }
-`;
-
-export const FranchiseComparisonList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-`;
-
-export const FranchiseComparisonRow = styled.li`
-  display: grid;
-  grid-template-columns: minmax(10rem, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  border-top: var(--_border-width) solid var(--_inner-border-color);
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 1.4fr);
+  border-top: 1px solid rgba(var(--color-neutral-800-base), 0.6);
 
   &:first-of-type {
     border-top: none;
   }
 
-  .cell {
-    padding: 1rem 1.1rem;
-    border-right: var(--_border-width) solid var(--_inner-border-color);
-
-    &:last-child {
-      border-right: none;
-    }
-
-    &.criteria {
-      background-color: var(--_dark-bg);
-    }
+  dt,
+  dd {
+    margin: 0;
+    padding: 0.9rem 1.1rem;
   }
 
-  ${mediaQuery.phone} {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-top: var(--_border-width) solid var(--_inner-border-color);
-
-    .cell {
-      border-right: none;
-      border-top: var(--_border-width) solid var(--_inner-border-color);
-
-      &:first-of-type {
-        border-top: none;
-      }
-
-      &.criteria {
-        background-color: var(--_dark-bg);
-      }
-    }
-  }
-`;
-
-export const FranchiseComparisonCellTitle = styled.span`
-  display: block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-4xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(var(--color-neutral-400-base), 0.86);
-  margin-bottom: 0.45rem;
-
-  ${mediaQuery.desktop} {
-    display: none;
-  }
-
-  ${mediaQuery.tablet} {
-    display: none;
-  }
-`;
-
-// ─── Franchise Success Stories ─────────────────────────────────────────────────
-
-export const FranchiseStoriesGrid = styled.div`
-  width: 100%;
-  margin-top: 2.75rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-
-  ${mediaQuery.tablet} {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  dt {
+    background-color: rgba(var(--color-primary-100-base), 0.75);
   }
 
   ${mediaQuery.phone} {
     grid-template-columns: 1fr;
-    margin-top: 2rem;
-  }
-`;
 
-const storyCardHoverStyles = css`
-  border-color: rgba(var(--color-secondary-700-base), 0.45);
-  background-color: rgba(var(--color-primary-200-base), 1);
-  transform: translateY(-0.15rem);
-  .quote {
-    color: var(--color-neutral-900);
-  }
-  .name {
-    color: var(--color-secondary-1000);
-  }
-  .role {
-    color: var(--color-neutral-800);
-  }
-  .outcome {
-    color: var(--color-neutral-800);
-  }
-`;
+    dt {
+      padding-bottom: 0.35rem;
+    }
 
-export const FranchiseStoryCard = styled.blockquote`
-  margin: 0;
-  border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-  border-radius: 0.5rem;
-  padding: 1.35rem;
-  background-color: rgba(var(--color-neutral-900-base), 0.5);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: all 0.3s ease;
-
-  * {
-    transition: all 0.3s ease;
-  }
-
-  ${mediaQuery.desktop} {
-    &:hover {
-      ${storyCardHoverStyles}
+    dd {
+      padding-top: 0;
     }
   }
-
-  ${mediaQuery.tablet} {
-    &:hover {
-      ${storyCardHoverStyles}
-    }
-  }
-
-  &.active {
-    ${storyCardHoverStyles}
-  }
 `;
 
-export const FranchiseStoryFooter = styled.footer`
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  border-top: 1px solid rgba(var(--color-neutral-800-base), 0.45);
-  padding-top: 0.9rem;
-  margin-top: auto;
-
-  .story-region {
-    font-family: var(--font-mono);
-  }
+export const FranchiseDisclaimerNote = styled.aside`
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(var(--color-secondary-700-base), 0.45);
+  background-color: rgba(var(--color-secondary-900-base), 0.12);
 `;
 
-// ─── Inquiry CTA + Form ────────────────────────────────────────────────────────
+// ─── Franchise Support Flow ─────────────────────────────────────────────────────
 
-export const FranchiseInquiryGrid = styled.div`
-  width: 100%;
-  margin-top: 2.75rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);
-  gap: 1.5rem;
-  align-items: start;
-
-  ${mediaQuery.nonDesktop} {
-    grid-template-columns: 1fr;
-  }
-
-  ${mediaQuery.phone} {
-    margin-top: 2rem;
-  }
-`;
-
-export const FranchiseInquiryAssurancePanel = styled.aside`
-  border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-  border-radius: 0.25rem;
-  background-color: rgba(var(--color-neutral-900-base), 0.5);
-  padding: 1.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-export const FranchiseInquiryAssuranceList = styled.ul`
+export const FranchiseSupportFlow = styled.ol`
+  counter-reset: support-step;
   list-style: none;
-  margin: 0;
+  margin: 2.75rem 0 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-`;
-
-export const FranchiseInquiryAssuranceItem = styled.li`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.55rem;
-  align-items: start;
-
-  .assurance-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    margin-top: 0.42rem;
-    background-color: var(--color-secondary-700);
-  }
-`;
-
-export const FranchiseInquiryFormCard = styled.form`
-  border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
-  border-radius: 0.25rem;
-  background-color: var(--color-primary-200);
-  padding: 1.45rem;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.95rem;
-
-  .full-row {
-    grid-column: 1 / -1;
-  }
-
-  .form-intro {
-    padding-bottom: 0.5rem;
-  }
-
-  .form-actions {
-    padding-top: 0.25rem;
-
-    button[type="submit"] {
-      margin: 1rem 0 1rem 0;
-    }
-
-    .form-note {
-      display: block;
-      margin-top: 0.7rem;
-    }
-
-    .contact-link-btn {
-      margin-top: 0.35rem;
-      align-self: flex-start;
-    }
-  }
+  flex-wrap: wrap;
+  gap: 1rem;
 
   ${mediaQuery.phone} {
-    grid-template-columns: 1fr;
-    padding: 1.15rem;
+    margin-top: 2rem;
+    flex-direction: column;
   }
 `;
 
-export const FranchiseInquiryField = styled.div`
+export const FranchiseSupportFlowStep = styled.li`
+  counter-increment: support-step;
+  flex: 1 1 12rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-`;
+  gap: 0.5rem;
+  padding: 1.1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(var(--color-neutral-800-base), 0.75);
+  background-color: rgba(var(--color-neutral-900-base), 0.5);
 
-export const FranchiseInquiryLabel = styled.label`
-  font-family: var(--font-sans);
-  font-size: var(--fs-3xs);
-  font-weight: 600;
-  color: var(--color-primary-1000);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-`;
-
-const inquiryControlStyles = css`
-  width: 100%;
-  min-height: 2.7rem;
-  border-radius: 0.4rem;
-  border: 1px solid rgba(var(--color-primary-300-base), 0.32);
-  background-color: rgba(var(--color-neutral-1000-base), 0.9);
-  color: var(--color-neutral-100);
-  font-family: var(--font-sans);
-  font-size: var(--fs-2xs);
-  padding: 0.8rem 0.9rem;
-  outline: none;
-  transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-
-  &::placeholder {
-    color: rgba(var(--color-neutral-500-base), 0.58);
-  }
-
-  &:focus {
-    border-color: var(--color-secondary-700);
-    box-shadow: 0 0 0 2px rgba(var(--color-secondary-700-base), 0.12);
+  &::before {
+    content: counter(support-step, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: var(--fs-2xs);
+    font-weight: 800;
+    color: var(--color-secondary-600);
   }
 `;
 
-export const FranchiseInquiryInput = styled.input`
-  ${inquiryControlStyles}
-`;
+// ─── Closing / Inquiry CTA ──────────────────────────────────────────────────────
 
-export const FranchiseInquirySelect = styled.select`
-  ${inquiryControlStyles}
-  cursor: pointer;
+export const FranchiseInquiryCtaRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
 `;

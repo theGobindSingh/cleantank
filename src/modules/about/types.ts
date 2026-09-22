@@ -5,43 +5,15 @@ export interface AboutProps {
   className?: string;
 }
 
-// ─── Hero ─────────────────────────────────────────────────────────────────────
+// ─── Simple Text Sections (About CTS, About Gobind Galaxy, Our Brand, Founder) ─
 
-export interface AboutHeroProps {
-  chip: string;
-  title: string;
-  subtitle: string;
-  imgSrc: string;
-}
-
-// ─── Core Operation Pillars ───────────────────────────────────────────────────
-
-export interface PillarItem {
-  icon: SvgIconComponent;
-  title: string;
-  description: string;
-}
-
-export interface PillarsSectionProps {
+export interface TextSection {
   chip?: string;
-  title?: string;
-  description?: string;
-  items?: PillarItem[];
-}
-
-// ─── Credentials Strip ────────────────────────────────────────────────────────
-
-export interface CredentialItem {
-  icon: SvgIconComponent;
   title: string;
-  subTitle: string;
+  body: string;
 }
 
-export interface CredentialsSectionProps {
-  items: CredentialItem[];
-}
-
-// ─── Technology (Precision Machines) ─────────────────────────────────────────
+// ─── Technology / Professional Execution (also used by Process page) ────────
 
 export interface TechnologyPoint {
   icon: SvgIconComponent;
@@ -59,23 +31,33 @@ export interface TechnologySectionProps {
   }[];
 }
 
-// ─── Company Timeline ─────────────────────────────────────────────────────────
-
-export interface TimelineEvent {
-  year: string;
-  title: string;
-  description: string;
-}
-
-export interface TimelineSectionProps {
-  chip?: string;
-  title?: string;
-  events?: TimelineEvent[];
-}
-
 // ─── Values Banner ────────────────────────────────────────────────────────────
 
 export interface ValuesBannerProps {
   statement: string;
   attribution?: string;
+}
+
+// ─── Credentials & Compliance ─────────────────────────────────────────────────
+
+export interface CredentialsSection {
+  isoStatement: string;
+  isoScope: string;
+  pan: string;
+  gstin: string;
+  registrationsList: string[];
+}
+
+// ─── Pan-India Presence ───────────────────────────────────────────────────────
+
+export interface PresenceSection {
+  states: string[];
+  technicalRepresentativesLine: string;
+}
+
+// ─── Our Message ──────────────────────────────────────────────────────────────
+
+export interface MessageSection {
+  lines: string[];
+  qualifier: string;
 }

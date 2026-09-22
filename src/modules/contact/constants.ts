@@ -1,17 +1,12 @@
+import { contact, iso, offices, presence, registrations } from "@constants";
 import tankImage from "@images/tank.png";
-import {
-  AccessTimeRounded,
-  AssignmentTurnedInRounded,
-  EmailRounded,
-  LocationOnRounded,
-  PhoneRounded,
-} from "@mui/icons-material";
+import { EmailRounded, PhoneRounded, WhatsApp } from "@mui/icons-material";
 
-import { businessContactDetails } from "@constants";
 import {
   ContactFormProps,
+  OfficesSectionProps,
+  PresenceSectionProps,
   ReachOutSectionProps,
-  VisualProofSectionProps,
 } from "./types";
 
 export const reachOutSectionMeta: Pick<
@@ -19,10 +14,28 @@ export const reachOutSectionMeta: Pick<
   "chip" | "title" | "description"
 > = {
   chip: "CONTACT",
-  title: "Talk to CleanTank Services",
+  title: "Talk to Clean Tank Services",
   description:
-    "Request a site audit for residential societies, commercial buildings, hospitals, schools, institutions, government facilities, or high-capacity industrial tanks.",
+    "Tell us what you need — a cleaning service, an AMC, or a franchise — and our team will get back to you.",
 };
+
+export const enquiryTypeItems: ReachOutSectionProps["enquiryTypes"] = [
+  {
+    title: "Service Enquiry",
+    description:
+      "Tell us your location, tank type, capacity and cleaning requirement.",
+  },
+  {
+    title: "AMC Enquiry",
+    description:
+      "Ask us about scheduled annual tank-cleaning and maintenance programmes.",
+  },
+  {
+    title: "Franchise Enquiry",
+    description:
+      "Get details about available franchise models, investment, territory, training and support.",
+  },
+];
 
 export const contactFormFields: ContactFormProps["fields"] = [
   {
@@ -34,16 +47,8 @@ export const contactFormFields: ContactFormProps["fields"] = [
     required: true,
   },
   {
-    id: "contact-organization",
-    label: "Organization / facility name",
-    type: "text",
-    placeholder: "Society, institution, or company name",
-    autoComplete: "organization",
-    required: true,
-  },
-  {
     id: "contact-phone",
-    label: "Phone number",
+    label: "Phone",
     type: "tel",
     placeholder: "+91 98765 43210",
     autoComplete: "tel",
@@ -58,33 +63,45 @@ export const contactFormFields: ContactFormProps["fields"] = [
     required: true,
   },
   {
+    id: "contact-organization",
+    label: "Organisation / company",
+    type: "text",
+    placeholder: "Society, institution, or company name (optional)",
+    autoComplete: "organization",
+  },
+  {
     id: "contact-location",
-    label: "City / service location",
+    label: "Service location — city / state",
     type: "text",
     placeholder: "Mumbai, Maharashtra",
     autoComplete: "address-level2",
     required: true,
   },
   {
-    id: "contact-project-type",
-    label: "Project type",
+    id: "contact-enquiry-type",
+    label: "Enquiry type",
     type: "select",
     required: true,
-    options: [
-      "Residential Society",
-      "Commercial Building",
-      "Hospital / Healthcare",
-      "School / Institution",
-      "Government Facility",
-      "Industrial Tank",
-    ],
+    options: ["Service Enquiry", "AMC Enquiry", "Franchise Enquiry"],
+  },
+  {
+    id: "contact-tank-type",
+    label: "Tank type",
+    type: "text",
+    placeholder:
+      "Domestic / commercial overhead / commercial underground / institutional / other",
+  },
+  {
+    id: "contact-tank-capacity",
+    label: "Approximate tank capacity",
+    type: "text",
+    placeholder: "e.g. 5,000 L or 2,00,000 L",
   },
   {
     id: "contact-message",
-    label: "Message / tank details",
+    label: "Message",
     type: "textarea",
-    placeholder:
-      "Share tank size, quantity, urgency, access notes, or audit requirements.",
+    placeholder: "Share any other details about your requirement.",
   },
 ];
 
@@ -98,11 +115,6 @@ export const contactGoogleFormConfig: ContactFormProps["gFormConfig"] = {
     },
     {
       type: "text",
-      entryId: "entry.REPLACE_ORGANIZATION",
-      formId: "contact-organization",
-    },
-    {
-      type: "text",
       entryId: "entry.REPLACE_PHONE",
       formId: "contact-phone",
     },
@@ -113,13 +125,28 @@ export const contactGoogleFormConfig: ContactFormProps["gFormConfig"] = {
     },
     {
       type: "text",
+      entryId: "entry.REPLACE_ORGANIZATION",
+      formId: "contact-organization",
+    },
+    {
+      type: "text",
       entryId: "entry.REPLACE_LOCATION",
       formId: "contact-location",
     },
     {
       type: "dropdown",
-      entryId: "entry.REPLACE_PROJECT_TYPE",
-      formId: "contact-project-type",
+      entryId: "entry.REPLACE_ENQUIRY_TYPE",
+      formId: "contact-enquiry-type",
+    },
+    {
+      type: "text",
+      entryId: "entry.REPLACE_TANK_TYPE",
+      formId: "contact-tank-type",
+    },
+    {
+      type: "text",
+      entryId: "entry.REPLACE_TANK_CAPACITY",
+      formId: "contact-tank-capacity",
     },
     {
       type: "textarea",
@@ -132,49 +159,55 @@ export const contactGoogleFormConfig: ContactFormProps["gFormConfig"] = {
 export const contactMethods: ReachOutSectionProps["methods"] = [
   {
     icon: PhoneRounded,
-    title: "Phone",
-    value: businessContactDetails.phone.label,
-    href: businessContactDetails.phone.href,
+    title: "Call",
+    value: contact.primaryPhone.label,
+    href: contact.primaryPhone.href,
+  },
+  {
+    icon: WhatsApp,
+    title: "WhatsApp",
+    value: contact.whatsapp.label,
+    href: contact.whatsapp.href,
   },
   {
     icon: EmailRounded,
     title: "Email",
-    value: businessContactDetails.email.label,
-    href: businessContactDetails.email.href,
-  },
-  {
-    icon: LocationOnRounded,
-    title: "Service Area",
-    value: businessContactDetails.serviceArea,
-  },
-  {
-    icon: AccessTimeRounded,
-    title: "Hours",
-    value: businessContactDetails.hours,
+    value: contact.emails.admin.label,
+    href: contact.emails.admin.href,
   },
 ];
 
-export const contactSubmitText = "Request a Site Audit";
+export const contactSubmitText = "Send an Enquiry";
 
-export const visualProofSectionMeta: Pick<
-  VisualProofSectionProps,
+export const officesSectionMeta: Pick<
+  OfficesSectionProps,
   "chip" | "title" | "description"
 > = {
-  chip: "AUDIT READY",
-  title: "A documented protocol for serious facilities",
-  description:
-    "Every cleaning assignment is handled with a repeatable machine-led process, compliance-minded reporting, and sterile treatment standards.",
+  chip: "OUR OFFICES",
+  title: "Registered & correspondence offices",
+  description: "Reach the team closest to your location.",
 };
 
-export const visualProofImage = tankImage;
+export const officesList: OfficesSectionProps["offices"] = offices;
+export const officesGstin = registrations.gstin;
+export const officesPan = registrations.pan;
+export const officesIsoWording = iso.safeWording;
 
-export const visualProofImageAlt =
-  "Industrial water tank cleaning equipment used by CleanTank Services";
+export const presenceSectionMeta: Pick<
+  PresenceSectionProps,
+  "chip" | "title" | "description"
+> = {
+  chip: "PAN-INDIA PRESENCE",
+  title: "Wherever your tanks are, we can reach them",
+  description:
+    "Operations and technical representation across multiple states, backed by round-the-clock emergency support.",
+};
 
-export const visualProofItems: VisualProofSectionProps["proofItems"] = [
-  "ISO 9001:2015",
-  "5-step scientific protocol",
-  "Government-grade compliance",
-];
-
-export const visualProofIcon = AssignmentTurnedInRounded;
+export const presenceImage = tankImage;
+export const presenceImageAlt =
+  "Industrial water tank cleaning equipment used by Clean Tank Services";
+export const presenceStates = presence.states;
+export const presenceTechnicalRepresentativesLine =
+  presence.technicalRepresentativesLine;
+export const presenceEmergencyLine =
+  "24×7 Emergency Service — for urgent requirements, subject to location, manpower and operational availability.";

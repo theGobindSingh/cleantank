@@ -1,24 +1,44 @@
+import {
+  brand,
+  founder,
+  iso,
+  presence,
+  registrations,
+  serviceResultsQualifier,
+} from "@constants/index";
 import techImgTwo from "@images/tank.png";
 import techImgOne from "@images/water_gun.png";
 import { HeroSectionProps } from "@layouts/hero-section/types";
 import {
-  CredentialItem,
-  PillarItem,
+  IconCardItem,
+  IconCardSectionLayoutProps,
+} from "@layouts/icon-card-section/types";
+import {
+  CredentialsSection,
+  MessageSection,
+  PresenceSection,
   TechnologyPoint,
-  TimelineEvent,
+  TechnologySectionProps,
+  TextSection,
   ValuesBannerProps,
 } from "@modules/about/types";
 import {
-  BuildOutlined,
+  AssignmentOutlined,
   EngineeringOutlined,
-  HealthAndSafetyOutlined,
+  GroupsOutlined,
+  HandshakeOutlined,
   NatureOutlined,
+  PaidOutlined,
+  PeopleOutlined,
   PrecisionManufacturingOutlined,
-  SecurityRounded,
-  SpeedOutlined,
-  TaskAltRounded,
-  VerifiedRounded,
-  VisibilityOutlined,
+  PublicOutlined,
+  SavingsOutlined,
+  ScheduleOutlined,
+  SchoolOutlined,
+  ScienceOutlined,
+  SentimentSatisfiedAltOutlined,
+  VerifiedOutlined,
+  WorkspacePremiumOutlined,
 } from "@mui/icons-material";
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -26,107 +46,212 @@ import {
 export const aboutHeroProps: HeroSectionProps = {
   chip: "About Clean Tank Services",
   title: {
-    text: "Defining the Standard of Tank Purity",
-    highlight: "Standard of Tank Purity",
+    text: brand.brandLine,
+    highlight: brand.parent,
   },
-  subtitle:
-    "A decade of precision engineering, government-grade compliance, and zero-compromise water hygiene — delivered across India's most critical institutions.",
+  subtitle: `${brand.descriptor}. ${brand.primaryTagline}.`,
   imgSrc:
     "https://images.pexels.com/photos/5115943/pexels-photo-5115943.jpeg?auto=compress&w=1600",
 };
 
-// ─── Core Operation Pillars ───────────────────────────────────────────────────
+// ─── About Clean Tank Services / About Gobind Galaxy / Our Brand / Founder ────
 
-export const pillarsSectionMeta = {
-  chip: "Core Operation Pillars",
-  title: "What Drives Every Deployment",
-  description:
-    "Every project we undertake is governed by four non-negotiable principles that define our operational identity.",
+export const aboutCompanySection: TextSection = {
+  title: "About Clean Tank Services",
+  body: "Water-storage tanks are an essential part of residential, commercial and institutional water-supply systems. However, because tanks are generally located away from everyday view, their cleaning and hygiene can often be overlooked. Over time, sediment, sludge, deposits and other contaminants may accumulate inside water-storage tanks. If tanks are not cleaned and maintained appropriately, the quality and hygiene of stored water may be adversely affected. CLEAN TANK SERVICES was established as a specialized service brand of GOBIND GALAXY to address this requirement through professional, scientific and mechanized tank-cleaning solutions. Instead of relying solely on conventional cleaning practices, our service methodology uses specialized equipment, systematic cleaning procedures, disinfection and, where applicable, ultraviolet treatment. Our objective is to help homes, apartments, institutions, hospitals, hotels, commercial establishments and organizations maintain cleaner and more hygienic water-storage facilities.",
 };
 
-export const pillarItems: PillarItem[] = [
-  {
-    icon: HealthAndSafetyOutlined,
-    title: "Public Safety",
-    description:
-      "Drinking water quality is a public health imperative. We treat every tank as critical infrastructure — zero shortcuts, zero risk.",
-  },
-  {
-    icon: VisibilityOutlined,
-    title: "Integrity Testing",
-    description:
-      "Post-clean water samples are verified through certified laboratory analysis. You receive a full quality report with every service.",
-  },
-  {
-    icon: SecurityRounded,
-    title: "Process Transparency",
-    description:
-      "End-to-end documentation, timestamped photo logs, and audit-ready reports are generated for every project — no exceptions.",
-  },
+export const aboutGobindGalaxySection: TextSection = {
+  title: "About Gobind Galaxy",
+  body: "GOBIND GALAXY, the parent legal firm of CLEAN TANK SERVICES, is an established service organization engaged in professional water-storage-tank cleaning through mechanized and scientific methods since 2008. With more than 15 years of experience in this specialized service field, the firm has developed expertise in serving residential, commercial, institutional, healthcare, hospitality, educational, government and other organizations. Our approach combines customer-focused service, technical expertise, trained manpower, advanced equipment and a commitment to maintaining consistent service quality. The organization has built its service capabilities with a focus on professional execution, customer satisfaction and long-term relationships.",
+};
+
+export const ourBrandSection: TextSection = {
+  title: "Our Brand",
+  body: "CLEAN TANK SERVICES represents the specialized water-storage-tank cleaning and hygiene service vertical of GOBIND GALAXY.",
+};
+
+export const valuesBannerProps: ValuesBannerProps = {
+  statement: brand.primaryTagline.toUpperCase(),
+  attribution: "— Our Promise",
+};
+
+export const founderSection: TextSection = {
+  title: `${founder.role} — ${founder.name}`,
+  body: founder.founderBio,
+};
+
+// ─── Aims & Objectives ────────────────────────────────────────────────────────
+
+export const aimsSectionMeta: Pick<
+  IconCardSectionLayoutProps,
+  "chip" | "title" | "description"
+> = {
+  chip: "Aims & Objectives",
+  title: `Our Vision: ${brand.vision}`,
+  description:
+    "We contribute to better water-storage hygiene through professional and responsible cleaning services.",
+};
+
+export const aimsItems: IconCardItem[] = [
   {
     icon: NatureOutlined,
-    title: "Environmental Stewardship",
+    title: "Environment-friendly services",
     description:
-      "We use food-grade, biodegradable agents and follow regulated wastewater disposal protocols on every site.",
+      "Promoting responsible cleaning practices and appropriate use of eco-conscious solutions.",
   },
   {
-    icon: BuildOutlined,
-    title: "Continuous Innovation",
+    icon: SentimentSatisfiedAltOutlined,
+    title: "Customer satisfaction",
     description:
-      "We invest in R&D to integrate the latest cleaning technologies and refine our processes — ensuring we set the industry standard, not follow it.",
+      "Understanding customer requirements and delivering organised, responsive services.",
+  },
+  {
+    icon: VerifiedOutlined,
+    title: "Quality cleaning services",
+    description:
+      "Maintaining systematic cleaning procedures and service standards.",
+  },
+  {
+    icon: SavingsOutlined,
+    title: "Value for money",
+    description:
+      "Providing practical and cost-effective professional solutions.",
+  },
+  {
+    icon: HandshakeOutlined,
+    title: "Long-term relationships",
+    description:
+      "Building trust and sustainable relationships with customers and institutions.",
+  },
+  {
+    icon: GroupsOutlined,
+    title: "Well-organised & helpful teams",
+    description:
+      "Developing trained, disciplined and customer-focused service teams.",
   },
 ];
 
-// ─── Credentials Strip ────────────────────────────────────────────────────────
+// ─── Credentials & Compliance ─────────────────────────────────────────────────
 
-export const credentialItems: CredentialItem[] = [
+export const credentialsSection: CredentialsSection = {
+  isoStatement: iso.safeWording,
+  isoScope: iso.scope,
+  pan: registrations.pan,
+  gstin: registrations.gstin,
+  registrationsList: [...registrations.list],
+};
+
+// ─── Pan-India Presence ───────────────────────────────────────────────────────
+
+export const presenceSection: PresenceSection = {
+  states: [...presence.states],
+  technicalRepresentativesLine: presence.technicalRepresentativesLine,
+};
+
+// ─── Our Message ──────────────────────────────────────────────────────────────
+
+export const messageSection: MessageSection = {
+  lines: [
+    "Water Itself Is Life",
+    "Water, the Wonder Drug",
+    "Health Is Wealth",
+    "Think Hygiene. Clean Your Water Storage Tank.",
+    "Excellence in Hygiene and Healthcare",
+    "Bacteria-Free, Safe Drinking Water Tanks",
+    "A New Standard in Water Tank Cleaning Services",
+    "Be Concerned About Health & Hygiene. Look Inside Your Water Storage Tank.",
+  ],
+  qualifier: serviceResultsQualifier,
+};
+
+// ─── Why Choose Us ────────────────────────────────────────────────────────────
+
+export const whyChooseUsSectionMeta: Pick<
+  IconCardSectionLayoutProps,
+  "chip" | "title"
+> = {
+  chip: "Why Choose Us",
+  title: "Why Choose Clean Tank Services",
+};
+
+export const whyChooseUsItems: IconCardItem[] = [
   {
-    icon: VerifiedRounded,
-    title: "ISO 9001:2015",
-    subTitle: "Quality Certified",
+    icon: ScienceOutlined,
+    title: "Scientific & mechanized approach",
+    description:
+      "A professional, scientific and mechanized approach to tank cleaning.",
   },
   {
-    icon: TaskAltRounded,
-    title: "5000+",
-    subTitle: "Projects Completed",
-  },
-  {
-    icon: BuildOutlined,
-    title: "8 States",
-    subTitle: "Active Operations",
+    icon: PrecisionManufacturingOutlined,
+    title: "Advanced equipment",
+    description: "Cleaning, pumping, vacuum and treatment equipment.",
   },
   {
     icon: EngineeringOutlined,
-    title: "200+",
-    subTitle: "Certified Technicians",
+    title: "Experienced, trained technicians",
+    description: "Skilled technicians experienced in tank-cleaning operations.",
+  },
+  {
+    icon: ScheduleOutlined,
+    title: "Time-bound execution",
+    description: "Complete assigned work within the agreed schedule.",
+  },
+  {
+    icon: WorkspacePremiumOutlined,
+    title: "Quality-focused operations",
+    description: "Consistent, quality-focused service operations.",
+  },
+  {
+    icon: SchoolOutlined,
+    title: "Technical training",
+    description:
+      "Periodic training and workshops under senior service executives.",
+  },
+  {
+    icon: PublicOutlined,
+    title: "Pan-India support",
+    description: "Technical representatives in major cities, multiple states.",
+  },
+  {
+    icon: AssignmentOutlined,
+    title: "AMC support",
+    description: "Annual maintenance contract (AMC) support.",
+  },
+  {
+    icon: PeopleOutlined,
+    title: "Customer-focused service",
+    description: "A customer-focused approach to service delivery.",
+  },
+  {
+    icon: PaidOutlined,
+    title: "Cost-effective solutions",
+    description: "Cost-effective, value-driven service solutions.",
   },
 ];
 
-// ─── Technology Section ───────────────────────────────────────────────────────
+// ─── Technology / Professional Execution (also consumed by the Process page) ──
 
-export const technologySectionMeta = {
-  chip: "Our Technology",
-  title: "Precision Machines.\nNot Manual Labor.",
+export const technologySectionMeta: Pick<
+  TechnologySectionProps,
+  "chip" | "title"
+> = {
+  chip: "Professional Execution",
+  title: "Professional Execution",
 };
 
 export const technologyPoints: TechnologyPoint[] = [
   {
-    icon: PrecisionManufacturingOutlined,
-    title: "Industrial Grade Tools",
-    description:
-      "Hydro-jetting rigs, industrial-capacity vacuum systems, and UVC sterilization arrays purpose-built for large-volume tanks — none of this can be replicated by manual scrubbing.",
-  },
-  {
     icon: EngineeringOutlined,
-    title: "Trained Technicians",
+    title: "Systematic Procedures",
     description:
-      "Every operator completes our 6-week certification programme covering SOPs, chemical handling, confined-space protocols, and post-service reporting standards.",
+      "Trained technicians follow systematic procedures and use equipment according to tank size, construction, condition and site requirements.",
   },
   {
-    icon: SpeedOutlined,
-    title: "Rapid Response",
+    icon: PrecisionManufacturingOutlined,
+    title: "Advanced Equipment",
     description:
-      "Standard deployment from site assessment to full-cycle completion is within 24 hours — critical for hospitals and high-occupancy buildings with no downtime tolerance.",
+      "Cleaning, pumping, vacuum and treatment equipment support every stage of the service.",
   },
 ];
 
@@ -140,63 +265,3 @@ export const technologyImages = [
     alt: "Industrial-grade hydro-jetting machine on site",
   },
 ];
-
-// ─── Company Timeline ─────────────────────────────────────────────────────────
-
-export const timelineSectionMeta = {
-  chip: "Our Journey",
-  title: "A Decade of Building India's Cleanest Infrastructure",
-};
-
-export const timelineEvents: TimelineEvent[] = [
-  {
-    year: "2015",
-    title: "Founded in Chennai",
-    description:
-      "Clean Tank Services launched with two industrial machines and a singular mission: to professionalise water tank sanitation in India.",
-  },
-  {
-    year: "2017",
-    title: "First Government Contract",
-    description:
-      "Awarded a municipal corporation contract in Chennai — our first large-scale public sector engagement and the foundation of our compliance framework.",
-  },
-  {
-    year: "2019",
-    title: "500 Projects Milestone",
-    description:
-      "Reached 500 completed projects across healthcare, residential, and commercial verticals in Tamil Nadu and Andhra Pradesh.",
-  },
-  {
-    year: "2020",
-    title: "UV Sterilization Integration",
-    description:
-      "Deployed UVC spectrum sterilization across all service units — the first company in Southern India to standardise this technology at scale.",
-  },
-  {
-    year: "2021",
-    title: "ISO 9001:2015 Certified",
-    description:
-      "Achieved ISO 9001:2015 quality management certification, formalising our documentation and process standards across all operations.",
-  },
-  {
-    year: "2022",
-    title: "Franchise Model Launched",
-    description:
-      "Introduced the Clean Tank Franchise Programme with 10 territories operational in the first year, backed by full equipment and training support.",
-  },
-  {
-    year: "2024",
-    title: "National Scale",
-    description:
-      "Expanded to 8 states with 200+ certified technicians, 5000+ completed projects, and empanelment as a preferred vendor for government institutions in three states.",
-  },
-];
-
-// ─── Values Banner ────────────────────────────────────────────────────────────
-
-export const valuesBannerProps: ValuesBannerProps = {
-  statement:
-    "We don't clean tanks. We protect the water your family drinks, the water your patients depend on, and the water your city runs on.",
-  attribution: "— Clean Tank Services Mission Statement",
-};

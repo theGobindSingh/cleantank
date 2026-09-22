@@ -3,32 +3,51 @@ import {
   contactGoogleFormConfig,
   contactMethods,
   contactSubmitText,
+  enquiryTypeItems,
+  officesGstin,
+  officesIsoWording,
+  officesList,
+  officesPan,
+  officesSectionMeta,
+  presenceEmergencyLine,
+  presenceImage,
+  presenceImageAlt,
+  presenceSectionMeta,
+  presenceStates,
+  presenceTechnicalRepresentativesLine,
   reachOutSectionMeta,
-  visualProofImage,
-  visualProofImageAlt,
-  visualProofItems,
-  visualProofSectionMeta,
 } from "@modules/contact/constants";
+import OfficesSection from "@modules/contact/offices";
+import PresenceSection from "@modules/contact/presence";
 import ReachOutSection from "@modules/contact/reach-out";
 import { ContactPageWrapper } from "@modules/contact/styles";
 import { ContactModuleProps } from "@modules/contact/types";
-import VisualProofSection from "@modules/contact/visual-proof";
 
 const Contact = (_: ContactModuleProps) => {
   return (
     <ContactPageWrapper>
       <ReachOutSection
         {...reachOutSectionMeta}
+        enquiryTypes={enquiryTypeItems}
         fields={contactFormFields}
         gFormConfig={contactGoogleFormConfig}
         methods={contactMethods}
         submitText={contactSubmitText}
       />
-      <VisualProofSection
-        {...visualProofSectionMeta}
-        image={visualProofImage}
-        imageAlt={visualProofImageAlt}
-        proofItems={visualProofItems}
+      <OfficesSection
+        {...officesSectionMeta}
+        offices={officesList}
+        gstin={officesGstin}
+        pan={officesPan}
+        isoWording={officesIsoWording}
+      />
+      <PresenceSection
+        {...presenceSectionMeta}
+        image={presenceImage}
+        imageAlt={presenceImageAlt}
+        states={presenceStates}
+        technicalRepresentativesLine={presenceTechnicalRepresentativesLine}
+        emergencyLine={presenceEmergencyLine}
       />
     </ContactPageWrapper>
   );

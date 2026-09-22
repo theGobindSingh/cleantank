@@ -1,3 +1,4 @@
+import Button from "@components/button";
 import { H3, P, Span } from "@components/html";
 import StandardSectionLayout from "@layouts/standard-section";
 import ContactForm from "@modules/contact/contact-form";
@@ -5,8 +6,14 @@ import {
   ContactDetailsPanel,
   ContactGrid,
   ContactMethodRow,
+  EnquiryTypeCard,
+  EnquiryTypeGrid,
 } from "@modules/contact/styles";
-import { ContactMethod, ReachOutSectionProps } from "@modules/contact/types";
+import {
+  ContactMethod,
+  EnquiryTypeItem,
+  ReachOutSectionProps,
+} from "@modules/contact/types";
 
 const contactMethodMapper = ({
   icon: Icon,
@@ -29,39 +36,50 @@ const contactMethodMapper = ({
         >
           {title.toUpperCase()}
         </Span>
-        {href ? (
-          <a className="method-link" href={href}>
-            <P
-              $size="3xs"
-              $weight="700"
-              $color="primary"
-              $colorWeight="1000"
-              $lineHeight="1.55"
-              style={{ wordBreak: "break-word" }}
-            >
-              {value}
-            </P>
-          </a>
-        ) : (
-          <P
-            $size="3xs"
-            $weight="600"
-            $color="accent"
-            $colorWeight="1000"
-            $lineHeight="1.55"
-          >
-            {value}
-          </P>
-        )}
+        <Button
+          href={href}
+          $variant="text"
+          $textColor="primary"
+          $textColorWeight="1000"
+          $fontWeight="700"
+          className="method-link"
+        >
+          {value}
+        </Button>
       </div>
     </ContactMethodRow>
   );
 };
 
+const enquiryTypeMapper = ({ title, description }: EnquiryTypeItem) => {
+  return (
+    <EnquiryTypeCard key={title}>
+      <H3
+        $size="4xs"
+        $weight="800"
+        $color="neutral"
+        $colorWeight="1000"
+        $margin="0 0 0.35em 0"
+      >
+        {title}
+      </H3>
+      <P
+        $size="4xs"
+        $color="neutral"
+        $colorWeight="900"
+        $lineHeight="1.55"
+        $margin="0"
+      >
+        {description}
+      </P>
+    </EnquiryTypeCard>
+  );
+};
+
 const ReachOutSection = ({
-  // chip,
   title,
   description,
+  enquiryTypes,
   fields,
   gFormConfig,
   methods,
@@ -69,13 +87,13 @@ const ReachOutSection = ({
 }: ReachOutSectionProps) => {
   return (
     <StandardSectionLayout
-      // chip={chip}
       title={title}
       description={description}
       element="section"
       headingLevel="h1"
       bg="var(--color-neutral-1000)"
     >
+      <EnquiryTypeGrid>{enquiryTypes.map(enquiryTypeMapper)}</EnquiryTypeGrid>
       <ContactGrid>
         <ContactForm
           fields={fields}
@@ -93,6 +111,17 @@ const ReachOutSection = ({
           >
             Direct Contact
           </H3>
+          <P
+            $size="4xs"
+            $color="primary"
+            $colorWeight="1000"
+            $colorAlpha={0.75}
+            $margin="0 0 0.6em 0"
+            $lineHeight="1.55"
+          >
+            The form above cannot be submitted yet — please reach us directly
+            instead.
+          </P>
           {methods.map(contactMethodMapper)}
         </ContactDetailsPanel>
       </ContactGrid>

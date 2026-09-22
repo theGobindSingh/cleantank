@@ -1,5 +1,6 @@
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
+import { clientGroupLabels } from "@constants";
 import { ClientsCategoryData } from "@modules/clients/types";
 
 export const clientsHeroProps = {
@@ -9,34 +10,39 @@ export const clientsHeroProps = {
     highlight: "India's Leaders",
   },
   subtitle:
-    "Clean Tank Services provides mission-critical water hygiene for over 500+ major installations across the subcontinent. From central universities to industrial complexes.",
+    "Clean Tank Services has cleaned and maintained water storage tanks for government bodies, hospitals, hotels, residential communities and leading academic institutions across India.",
   imgSrc:
     "https://images.pexels.com/photos/31403876/pexels-photo-31403876.jpeg?auto=compress&w=1600",
 };
 
 export const clientsCategoryData: ClientsCategoryData = {
-  institutional: {
-    title: "Institutional Partnerships",
+  government: {
+    title: clientGroupLabels.government,
     description:
-      "Empowering academic and research hubs with sterile water systems.",
-    chip: "Academic Leaders",
-  },
-  industrial: {
-    title: "Industrial Giants",
-    description:
-      "Supporting heavy manufacturing and high-throughput production lines.",
-    chip: "Manufacturing & Core",
+      "Serving government bodies, municipal corporations and public-sector institutions.",
+    chip: clientGroupLabels.government,
   },
   healthcare: {
-    title: "Healthcare Networks",
+    title: clientGroupLabels.healthcare,
     description:
-      "Clinical-grade sanitation for India's most advanced medical facilities.",
-    chip: "Medical & Clinical",
+      "Maintaining hygienic water storage for hospitals across India.",
+    chip: clientGroupLabels.healthcare,
   },
-  government: {
-    title: "Government & Public Sector",
+  industrial: {
+    title: clientGroupLabels.industrial,
+    description: "Supporting industrial and commercial facilities.",
+    chip: clientGroupLabels.industrial,
+  },
+  hospitalityAndResidential: {
+    title: clientGroupLabels.hospitalityAndResidential,
     description:
-      "Managing public utility and administrative water infrastructure.",
-    chip: "Public Sector",
+      "Serving hotels, hospitality establishments and many apartment and residential communities across India, including TDI and MR.",
+    chip: clientGroupLabels.hospitalityAndResidential,
+  },
+  institutional: {
+    title: clientGroupLabels.institutional,
+    description:
+      "Serving universities, IITs, NITs, CSIR institutions and schools across India.",
+    chip: clientGroupLabels.institutional,
   },
 };

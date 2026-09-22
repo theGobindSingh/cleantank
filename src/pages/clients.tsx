@@ -1,3 +1,4 @@
+import { clients as clientsData } from "@constants";
 import Clients from "@modules/clients";
 import { ClientsProps } from "@modules/clients/types";
 import { GetStaticProps } from "next";
@@ -5,7 +6,7 @@ import { GetStaticProps } from "next";
 const ClientsPage = ({ clients }: ClientsProps) => {
   return (
     <>
-      <Clients clients={clients} />;
+      <Clients clients={clients} />
     </>
   );
 };
@@ -32,32 +33,39 @@ export const getStaticProps: GetStaticProps<ClientsProps> = async () => {
     ".svg",
   ]);
 
-  const toDisplayName = (filename: string) => {
-    return path.basename(filename, path.extname(filename));
+  const normalize = (name: string) => {
+    return name.trim().toLowerCase();
   };
 
-  const categories = fs
-    .readdirSync(IMAGES_DIR, { withFileTypes: true })
-    .filter((entry) => {
-      return entry.isDirectory();
-    })
-    .map((entry) => {
-      return entry.name;
-    });
-
-  const clients: ClientsProps["clients"] = {};
-
-  for (const category of categories) {
+  const buildImageLookup = (category: string) => {
     const categoryDir = path.join(IMAGES_DIR, category);
+    if (!fs.existsSync(categoryDir)) return new Map<string, string>();
+
     const files = fs.readdirSync(categoryDir).filter((f) => {
       return IMAGE_EXTENSIONS.has(path.extname(f).toLowerCase());
     });
-    const key = category as keyof ClientsProps["clients"];
-    clients[key] = files.map((filename) => {
-      return {
-        name: toDisplayName(filename),
-        src: `${IMAGES_URL_BASE}/${category}/${filename}`,
-      };
+
+    const lookup = new Map<string, string>();
+    for (const filename of files) {
+      const displayName = path.basename(filename, path.extname(filename));
+      lookup.set(
+        normalize(displayName),
+        `${IMAGES_URL_BASE}/${category}/${filename}`,
+      );
+    }
+    return lookup;
+  };
+
+  const clients: ClientsProps["clients"] = {};
+
+  for (const category of Object.keys(
+    clientsData,
+  ) as (keyof typeof clientsData)[]) {
+    const names = clientsData[category] ?? [];
+    const imageLookup = buildImageLookup(category);
+    clients[category] = names.map((name) => {
+      const src = imageLookup.get(normalize(name));
+      return src ? { name, src } : { name };
     });
   }
 

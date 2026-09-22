@@ -1,3 +1,4 @@
+import { ButtonProps } from "@components/button";
 import { HeroSectionProps } from "@layouts/hero-section/types";
 import { SvgIconComponent } from "@mui/icons-material";
 
@@ -11,17 +12,12 @@ export interface FranchiseSectionMeta {
   description?: string;
 }
 
+export type FranchiseCTA = Omit<ButtonProps, "children"> & { text: string };
+
 export interface FranchiseHeroStat {
   label: string;
   value: string;
   supportingText: string;
-  isPlaceholder?: boolean;
-}
-
-export interface FranchiseHeroHighlight {
-  icon: SvgIconComponent;
-  title: string;
-  description: string;
 }
 
 export interface FranchiseHeroSectionProps {
@@ -33,8 +29,11 @@ export interface FranchiseHeroSectionProps {
   trustCardTitle: string;
   trustCardDescription: string;
   stats?: FranchiseHeroStat[];
-  highlights?: FranchiseHeroHighlight[];
-  footnote?: string;
+}
+
+export interface FranchiseWhySectionProps extends FranchiseSectionMeta {
+  sectors?: string[];
+  note?: string;
 }
 
 export interface FranchiseBenefitItem {
@@ -47,79 +46,22 @@ export interface FranchiseBenefitsSectionProps extends FranchiseSectionMeta {
   items?: FranchiseBenefitItem[];
 }
 
-export type FranchiseSupportCardSize = "default" | "wide" | "tall";
-
-export interface FranchiseSupportItem {
-  icon: SvgIconComponent;
+export interface FranchiseModelRow {
   label: string;
-  title: string;
-  description: string;
-  size?: FranchiseSupportCardSize;
+  value: string;
+}
+
+export interface FranchiseBusinessModelSectionProps extends FranchiseSectionMeta {
+  rows?: FranchiseModelRow[];
+  disclaimer: string;
 }
 
 export interface FranchiseSupportTrainingSectionProps extends FranchiseSectionMeta {
-  items?: FranchiseSupportItem[];
+  steps?: string[];
 }
 
-export interface FranchiseComparisonRow {
-  criteria: string;
-  cleanTank: string;
-  traditional: string;
-}
-
-export interface FranchiseTechnologyComparisonSectionProps extends FranchiseSectionMeta {
-  cleanTankLabel: string;
-  traditionalLabel: string;
-  rows?: FranchiseComparisonRow[];
-}
-
-export interface FranchiseSuccessStory {
-  quote: string;
-  name: string;
-  role: string;
-  region: string;
-  outcome: string;
-}
-
-export interface FranchiseSuccessStoriesSectionProps extends FranchiseSectionMeta {
-  items?: FranchiseSuccessStory[];
-}
-
-export interface FranchiseInquiryFieldIds {
-  name: string;
-  email: string;
-  cityRegion: string;
-  investmentRange: string;
-  cityInvestment: string;
-}
-
-export interface FranchiseInquiryField {
-  id: string;
-  label: string;
-  placeholder: string;
-  type: "email" | "text";
-  autoComplete?: string;
-  required?: boolean;
-}
-
-export interface FranchiseGoogleFormConfig {
-  gFormId: string;
-  links: {
-    entryId: string;
-    formId: string;
-    type: "dropdown" | "textarea" | "text";
-  }[];
-}
-
-export interface FranchiseInquirySectionProps extends FranchiseSectionMeta {
-  formTitle: string;
-  formDescription: string;
-  submitText: string;
-  investmentRangeLabel: string;
-  investmentRangePlaceholder: string;
-  fields?: FranchiseInquiryField[];
-  investmentRanges?: string[];
-  assurances?: string[];
-  fieldIds: FranchiseInquiryFieldIds;
-  gFormConfig: FranchiseGoogleFormConfig;
+export interface FranchiseInquirySectionProps {
+  heading: string;
+  body: string;
+  CTAs?: FranchiseCTA[];
 }

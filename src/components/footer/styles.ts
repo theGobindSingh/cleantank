@@ -88,7 +88,8 @@ export const FooterMidSection = styled(CommonFullWidthWrapper)`
           font-weight: 600;
           margin-bottom: 0.75rem;
         }
-        a {
+        a,
+        .footer-link {
           display: flex;
           align-items: center;
           gap: 0.5rem;
@@ -98,6 +99,23 @@ export const FooterMidSection = styled(CommonFullWidthWrapper)`
           .icon {
             font-size: var(--fs-2xs);
           }
+        }
+      }
+      &.offices {
+        .title {
+          font-size: var(--fs-1xs);
+          color: var(--color-secondary-800);
+          font-weight: 600;
+          margin-bottom: 0.75rem;
+        }
+        .office {
+          display: flex;
+          flex-direction: column;
+          font-size: var(--fs-3xs);
+          margin-bottom: 0.75rem;
+        }
+        .office-label {
+          font-weight: 600;
         }
       }
     }

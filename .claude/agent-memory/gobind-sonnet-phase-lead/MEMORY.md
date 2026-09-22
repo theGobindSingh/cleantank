@@ -1,0 +1,2 @@
+- [Cleantank constants foundation](cleantank-constants-foundation.md) — @constants alias/file pre-existed; preserve existing export shapes; process content fixed as of 2026-09-21
+- [No Playwright MCP in subagent sessions](no-playwright-mcp-in-subagent-sessions.md) — check your tool list before assuming browser MCP tools exist; fall back to curl-based checks

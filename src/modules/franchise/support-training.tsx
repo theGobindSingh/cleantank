@@ -1,45 +1,18 @@
-import { H3, P, Span } from "@components/html";
+import { Span } from "@components/html";
 import StandardSectionLayout from "@layouts/standard-section";
 import {
-  FranchiseSupportCard,
-  FranchiseSupportGrid,
+  FranchiseSupportFlow,
+  FranchiseSupportFlowStep,
 } from "@modules/franchise/styles";
 import { FranchiseSupportTrainingSectionProps } from "@modules/franchise/types";
 
-const supportCardMapper = ({
-  icon: Icon,
-  label,
-  title,
-  description,
-  size,
-}: NonNullable<FranchiseSupportTrainingSectionProps["items"]>[number]) => {
+const stepMapper = (step: string) => {
   return (
-    <FranchiseSupportCard key={title} $size={size ?? "default"}>
-      <div className="support-head">
-        <Span className="support-label">{label}</Span>
-        <Icon className="support-icon" />
-      </div>
-      <H3
-        $size="1xs"
-        $weight="700"
-        $color="primary"
-        $colorWeight="200"
-        $margin="0"
-        className="support-title"
-      >
-        {title}
-      </H3>
-      <P
-        $size="3xs"
-        $color="neutral"
-        $colorWeight="400"
-        $margin="0"
-        $lineHeight="1.65"
-        className="support-description"
-      >
-        {description}
-      </P>
-    </FranchiseSupportCard>
+    <FranchiseSupportFlowStep key={step}>
+      <Span $size="2xs" $weight="700" $color="neutral" $colorWeight="100">
+        {step}
+      </Span>
+    </FranchiseSupportFlowStep>
   );
 };
 
@@ -47,7 +20,7 @@ const FranchiseSupportTrainingSection = ({
   chip,
   title,
   description,
-  items = [],
+  steps = [],
 }: FranchiseSupportTrainingSectionProps) => {
   return (
     <StandardSectionLayout
@@ -57,10 +30,8 @@ const FranchiseSupportTrainingSection = ({
       element="section"
       bg="var(--color-neutral-900)"
     >
-      {items.length > 0 && (
-        <FranchiseSupportGrid>
-          {items.map(supportCardMapper)}
-        </FranchiseSupportGrid>
+      {steps.length > 0 && (
+        <FranchiseSupportFlow>{steps.map(stepMapper)}</FranchiseSupportFlow>
       )}
     </StandardSectionLayout>
   );

@@ -5,10 +5,11 @@ import {
   HeaderLink,
   HeaderLinksWrapper,
   HeaderLogo,
+  HeaderLogoSubline,
   HeaderNav,
   headerWrapperStyles,
 } from "@components/header/styles";
-import { siteLinks } from "@constants";
+import { brand, siteLinks } from "@constants";
 import { useRouter } from "next/router";
 import {
   ChangeEventHandler,
@@ -76,7 +77,10 @@ const Header = () => {
   return (
     <CommonFullWidthWrapper element="header" wrapperCss={headerWrapperStyles}>
       <HeaderNav>
-        <HeaderLogo href="/">CLEANTANK SERVICES</HeaderLogo>
+        <HeaderLogo href="/">
+          CLEAN TANK SERVICES
+          <HeaderLogoSubline>{brand.brandLine}</HeaderLogoSubline>
+        </HeaderLogo>
         <HeaderLinksWrapper>
           {siteLinks.map(linkMapper)}{" "}
           <Button $size="sm" href={"/contact"} className="contact-btn">

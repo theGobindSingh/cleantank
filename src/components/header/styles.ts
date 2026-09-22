@@ -15,13 +15,29 @@ export const headerWrapperStyles = css`
 `;
 
 export const HeaderLogo = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
   font-size: var(--fs-m);
   font-weight: 800;
+  line-height: 1.1;
   color: var(--color-primary-400);
   text-decoration: none;
   transition: all 0.3s ease;
   &:has(~ label input:checked) {
     opacity: 0;
+  }
+`;
+
+// Desktop-only subline — omitted on narrow headers where it would crowd the
+// nav (see brand.brandLine, "An Initiative of Gobind Galaxy").
+export const HeaderLogoSubline = styled.span`
+  display: none;
+  ${mediaQuery.desktop} {
+    display: block;
+    font-size: var(--fs-4xs);
+    font-weight: 500;
+    color: var(--color-accent-300);
   }
 `;
 

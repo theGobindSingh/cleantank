@@ -73,7 +73,7 @@ export const contactControlStyles = css`
   min-height: 2.7rem;
   border: 1px solid rgba(var(--color-primary-400-base), 0.28);
   border-radius: 0.25rem;
-  background-color: var(--color-neutral-1100, #fff);
+  background-color: var(--color-neutral-1000);
   color: var(--color-neutral-100);
   font-family: var(--font-sans);
   font-size: var(--fs-2xs);
@@ -117,7 +117,7 @@ export const ContactDetailsPanel = styled.aside`
   border-radius: 0.25rem;
   background: var(--color-primary-100);
   color: var(--color-primary-1000);
-  box-shadow: 0 0.5px 20px 0 rgba(30, 34, 54, 0.1);
+  box-shadow: 0 0.5px 20px 0 rgba(var(--color-neutral-900-base), 0.1);
   min-width: 0;
 `;
 
@@ -137,7 +137,7 @@ export const ContactMethodRow = styled.div`
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    background: rgba(83, 116, 235, 0.09);
+    background: rgba(var(--color-secondary-700-base), 0.09);
     color: var(--color-primary-1000);
     opacity: 1;
   }
@@ -238,4 +238,50 @@ export const ProofItem = styled.li`
     font-size: 1.18rem;
     opacity: 0.82;
   }
+`;
+
+export const EnquiryTypeGrid = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+
+  ${mediaQuery.nonDesktop} {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const EnquiryTypeCard = styled.li`
+  padding: 1.1rem 1.15rem;
+  border-radius: 0.25rem;
+  background: var(--color-primary-100);
+  border: 1px solid rgba(var(--color-primary-400-base), 0.18);
+`;
+
+export const OfficeGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+
+  ${mediaQuery.nonDesktop} {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const OfficeCard = styled.div`
+  padding: 1.4rem 1.3rem;
+  border-radius: 0.25rem;
+  background: var(--color-primary-100);
+  box-shadow: 0 0.5px 20px 0 rgba(var(--color-neutral-900-base), 0.1);
+`;
+
+export const ComplianceNote = styled.p`
+  margin: 1.5rem 0 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-4xs);
+  color: var(--color-neutral-500);
+  line-height: 1.6;
 `;

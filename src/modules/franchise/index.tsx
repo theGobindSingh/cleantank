@@ -1,57 +1,44 @@
-import FranchiseBenefitsSection from "@modules/franchise/benefits";
+import FeatureCardSection from "@layouts/feature-card-section";
+import FranchiseBusinessModelSection from "@modules/franchise/business-model";
 import {
   franchiseBenefitItems,
   franchiseBenefitsSectionMeta,
-  franchiseComparisonRows,
-  franchiseGoogleFormConfig,
+  franchiseBusinessModelDisclaimer,
+  franchiseBusinessModelRows,
+  franchiseBusinessModelSectionMeta,
   franchiseHeroProps,
-  franchiseInquiryAssurances,
-  franchiseInquiryFieldIds,
-  franchiseInquiryFields,
-  franchiseInquirySectionMeta,
-  franchiseInvestmentRanges,
-  franchiseSuccessStories,
-  franchiseSuccessStoriesSectionMeta,
-  franchiseSupportItems,
+  franchiseInquiryProps,
+  franchiseSupportSteps,
   franchiseSupportTrainingSectionMeta,
-  franchiseTechnologyComparisonSectionMeta,
+  franchiseWhySectionProps,
 } from "@modules/franchise/constants";
 import FranchiseHeroSection from "@modules/franchise/hero";
 import FranchiseInquirySection from "@modules/franchise/inquiry-cta";
-import FranchiseSuccessStoriesSection from "@modules/franchise/success-stories";
 import FranchiseSupportTrainingSection from "@modules/franchise/support-training";
-import FranchiseTechnologyComparisonSection from "@modules/franchise/technology-comparison";
 import { FranchiseModuleProps } from "@modules/franchise/types";
+import FranchiseWhySection from "@modules/franchise/why-tank-cleaning";
 import { Fragment } from "react";
 
 const FranchiseModule = (_: FranchiseModuleProps) => {
   return (
     <Fragment>
       <FranchiseHeroSection {...franchiseHeroProps} />
-      <FranchiseBenefitsSection
+      <FranchiseWhySection {...franchiseWhySectionProps} />
+      <FeatureCardSection
         {...franchiseBenefitsSectionMeta}
         items={franchiseBenefitItems}
+        bg="var(--color-neutral-1000)"
+      />
+      <FranchiseBusinessModelSection
+        {...franchiseBusinessModelSectionMeta}
+        rows={franchiseBusinessModelRows}
+        disclaimer={franchiseBusinessModelDisclaimer}
       />
       <FranchiseSupportTrainingSection
         {...franchiseSupportTrainingSectionMeta}
-        items={franchiseSupportItems}
+        steps={franchiseSupportSteps}
       />
-      <FranchiseTechnologyComparisonSection
-        {...franchiseTechnologyComparisonSectionMeta}
-        rows={franchiseComparisonRows}
-      />
-      <FranchiseSuccessStoriesSection
-        {...franchiseSuccessStoriesSectionMeta}
-        items={franchiseSuccessStories}
-      />
-      <FranchiseInquirySection
-        {...franchiseInquirySectionMeta}
-        fields={franchiseInquiryFields ?? []}
-        investmentRanges={franchiseInvestmentRanges ?? []}
-        assurances={franchiseInquiryAssurances ?? []}
-        fieldIds={franchiseInquiryFieldIds}
-        gFormConfig={franchiseGoogleFormConfig}
-      />
+      <FranchiseInquirySection {...franchiseInquiryProps} />
     </Fragment>
   );
 };

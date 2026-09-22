@@ -96,6 +96,17 @@ export const IndustryCard = styled.article`
   }
 `;
 
+// ─── Pan-India Presence ───────────────────────────────────────────────────────
+
+export const PresencePillList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+`;
+
 // ─── Franchise Section ────────────────────────────────────────────────────────
 
 export const FranchiseSectionWrapper = styled(CommonFullWidthWrapper)`

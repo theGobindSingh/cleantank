@@ -54,3 +54,23 @@ export interface TestimonialsSectionProps {
   description?: string;
   items?: TestimonialItem[];
 }
+
+export interface ServiceCardItem {
+  icon: SvgIconComponent;
+  title: string;
+  description: string;
+}
+
+export interface ServiceCardsSectionProps {
+  chip?: string;
+  title: string;
+  description?: string;
+  items?: ServiceCardItem[];
+}
+
+export interface PresenceSectionProps {
+  chip?: string;
+  title?: string;
+  description?: string;
+  states: readonly string[];
+}

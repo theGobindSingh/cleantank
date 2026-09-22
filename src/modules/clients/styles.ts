@@ -1,5 +1,6 @@
 import { Span } from "@components/html";
 import styled from "@emotion/styled";
+import { mediaQuery } from "@styles/global";
 
 export const ClientCardsWrapper = styled.div`
   width: 100%;
@@ -7,6 +8,14 @@ export const ClientCardsWrapper = styled.div`
   grid-template-columns: repeat(8, 1fr);
   gap: 1.5rem;
   margin-top: 1rem;
+
+  ${mediaQuery.tablet} {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  ${mediaQuery.phone} {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const ClientCard = styled.div`
@@ -14,7 +23,7 @@ export const ClientCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.5rem;
   .img-wrapper {
     padding: 0.25rem;
@@ -27,6 +36,15 @@ export const ClientCard = styled.div`
       height: 100%;
     }
   }
+  &.text-only {
+    justify-content: center;
+    align-items: center;
+    min-height: 96px;
+    padding: 0.75rem;
+    border: 1px solid var(--color-neutral-800);
+    border-radius: 0.5rem;
+    text-align: center;
+  }
 `;
 
 export const ClientCardTitle = styled(Span)`
@@ -34,4 +52,8 @@ export const ClientCardTitle = styled(Span)`
   font-size: var(--fs-2xs);
   text-align: center;
   width: 100%;
+
+  .text-only & {
+    font-weight: 700;
+  }
 `;

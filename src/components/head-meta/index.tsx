@@ -1,7 +1,11 @@
 import {
   SITE_NAME,
   SITE_URL,
+  brand,
   businessContactDetails,
+  clientGroupLabels,
+  iso,
+  legalLinks,
   siteLinks,
 } from "@constants";
 import Head from "next/head";
@@ -9,61 +13,71 @@ import { useRouter } from "next/router";
 
 const THEME_COLOR = "#001B3C";
 
-const defaultDescription =
-  "Clean Tank Services delivers industrial-grade water tank cleaning across India — ISO 9001:2015 certified, government-empanelled, trusted by hospitals, institutions, and enterprises nationwide.";
+const defaultDescription = `${brand.brandLine}. ${brand.descriptor}. ${iso.safeWording} Serving residential, commercial and institutional water storage tanks across India.`;
 
 const pageMeta: Record<string, { title: string; description: string }> = {
   "/": {
-    title: "Water Tank Cleaning Services in India | Clean Tank Services",
+    title: "Water Tank Cleaning Services India | Clean Tank",
     description:
-      "ISO 9001:2015 certified, government-grade water tank cleaning across India using robotic hydro-jetting and UV sterilization. 5000+ projects completed.",
+      "ISO 9001:2015 certified water storage tank cleaning across 7 Indian states. Scientific, mechanized cleaning, disinfection and AMC plans since 2008.",
   },
   "/clients": {
-    title: "Our Clients & Case Studies | Clean Tank Services",
+    title: "Our Clients | Clean Tank Services",
     description:
-      "Clean Tank Services powers 500+ major installations across India, from institutional and industrial giants to healthcare networks and government bodies.",
+      "Clean Tank Services has cleaned water storage tanks for government bodies, hospitals, IITs, NITs, hotels and residential complexes across India.",
   },
   "/process": {
-    title: "The 5-Step Tank Cleaning Protocol | Clean Tank Services",
+    title: "5-Step Tank Cleaning Process | Clean Tank",
     description:
-      "Clean Tank Services' 5-step scientific protocol: water removal, high-pressure jetting, sludge removal, chemical treatment, and UV sterilization for tanks.",
+      "Our scientific 5-step tank cleaning process: de-watering, high-pressure jetting, sludge removal, disinfection and UV treatment where applicable.",
   },
   "/about-us": {
-    title: "About Clean Tank Services | Clean Tank Services",
+    title: "About Clean Tank Services | Since 2008",
     description:
-      "A decade of precision engineering behind Clean Tank Services: ISO 9001:2015 certified, 5000+ projects, 200+ technicians, and operations across 8 states.",
+      "Clean Tank Services, an initiative of Gobind Galaxy, has offered ISO 9001:2015 certified water tank cleaning across India since 2008.",
+  },
+  "/services": {
+    title: "Water Tank Cleaning Services & AMC | Clean Tank",
+    description:
+      "Domestic, commercial, institutional and industrial water tank cleaning, disinfection and annual maintenance contracts (AMC) across India.",
   },
   "/franchise": {
-    title: "Franchise Opportunities | Clean Tank Services",
+    title: "Water Tank Cleaning Franchise | Clean Tank",
     description:
-      "Explore the Clean Tank Services franchise programme: ISO-aligned brand, turnkey equipment, structured training, and territory support for a high-trust business.",
+      "Start a Clean Tank Services franchise from approximately ₹3 lakh. Training, marketing support and an ISO-aligned tank cleaning business model.",
   },
   "/contact": {
-    title: "Contact | Clean Tank Services",
+    title: "Contact Clean Tank Services | Get a Quote",
     description:
-      "Request a Clean Tank Services site audit for residential societies, commercial buildings, hospitals, schools, government facilities, or industrial tanks.",
+      "Contact Clean Tank Services for a water storage tank cleaning quote — residential, commercial, institutional and government facilities across India.",
+  },
+  "/privacy-policy": {
+    title: "Privacy Policy | Clean Tank Services",
+    description:
+      "How Clean Tank Services collects, uses and protects your personal information when you contact us or use this website.",
+  },
+  "/terms": {
+    title: "Terms & Conditions | Clean Tank Services",
+    description:
+      "Terms and conditions governing use of the Clean Tank Services website and our water storage tank cleaning services.",
   },
 };
 
-const serviceSegments = [
-  "Residential Societies",
-  "Commercial Buildings",
-  "Hospitals",
-  "Schools & Institutions",
-  "Government Facilities",
-  "Industrial Tanks",
-];
+// Same five client groups as `/clients` and the home "Who We Serve" section —
+// labels come from `@constants` so this JSON-LD list can never drift apart.
+const serviceSegments = Object.values(clientGroupLabels);
 
 const businessId = `${SITE_URL}/#business`;
 const websiteId = `${SITE_URL}/#website`;
 
 // Escape `<` so a stringified JSON-LD payload can never break out of the
 // surrounding <script> tag.
-const escapeJsonLd = (json: string) => json.replace(/</g, "\\u003c");
+const escapeJsonLd = (json: string) => {
+  return json.replace(/</g, "\\u003c");
+};
 
 const buildBusinessNode = () => {
-  const { phone, email, hours, address, geo, socialProfiles } =
-    businessContactDetails;
+  const { phone, email, address, geo, socialProfiles } = businessContactDetails;
   // E.164 phone number derived from the existing tel: href.
   const telephone = phone.href.replace(/^tel:/, "");
 
@@ -77,17 +91,9 @@ const buildBusinessNode = () => {
     description: defaultDescription,
     image: `${SITE_URL}/icon-512.png`,
     logo: `${SITE_URL}/icon-512.png`,
-    openingHoursSpecification:
-      businessContactDetails.openingHoursSpecification.map(
-        ({ dayOfWeek, opens, closes }) => {
-          return {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek,
-            opens,
-            closes,
-          };
-        },
-      ),
+    // No documented fixed opening hours exist (INFO-BANK only supports 24x7
+    // emergency service, subject to availability) — omit
+    // openingHoursSpecification rather than assert hours that aren't real.
     areaServed: { "@type": "Country", name: "India" },
     ...(address && {
       address: { "@type": "PostalAddress", ...address },
@@ -106,7 +112,6 @@ const buildBusinessNode = () => {
         },
       };
     }),
-    hoursAvailable: hours,
   };
 };
 
@@ -157,8 +162,12 @@ const buildBreadcrumbNode = ({
 
 const HeadMeta = () => {
   const { pathname } = useRouter();
-  const link = siteLinks.find((siteLink) => {
-    return siteLink.path === pathname;
+  // Known routes = primary nav + legal pages. `pageMeta` only supplies
+  // title/description overrides; whether a route is indexable must not
+  // depend on it having a `pageMeta` entry (that previously noindexed
+  // /privacy-policy and /terms, which have no siteLinks entry).
+  const link = [...siteLinks, ...legalLinks].find((knownLink) => {
+    return knownLink.path === pathname;
   });
   const isNotFound = !link;
   const pageName = (link?.name ?? "Page Not Found").trim();
