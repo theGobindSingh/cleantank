@@ -97,7 +97,7 @@ export const IconCard = styled.li`
   }
 
   .numbers-visible &::before {
-    content: "0" counter(hero-process-item-counter);
+    content: counter(hero-process-item-counter, decimal-leading-zero);
     position: absolute;
     --_pos: 5%;
     top: var(--_pos);

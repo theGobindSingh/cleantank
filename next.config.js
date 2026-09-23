@@ -5,7 +5,7 @@ const nextConfig = {
   ...(isGithubActions
     ? { output: "export", basePath: "/cleantank", assetPrefix: "/cleantank/" }
     : {}),
-  allowedDevOrigins: ["*", "192.168.1.6"],
+  allowedDevOrigins: ["192.168.1.6", process.env.ORACLE_SERVER_IP].filter(Boolean),
   reactStrictMode: true,
   images: {
     unoptimized: isGithubActions,

@@ -70,10 +70,6 @@ const FeatureCardSection = ({
         <FeatureCardCta>
           <Button
             href={cta.href}
-            $variant="outlined"
-            $color="secondary"
-            $colorWeight="700"
-            $fontWeight="600"
           >
             {cta.text}
           </Button>
