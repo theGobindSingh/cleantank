@@ -1,0 +1,58 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+yarn.lock
+package-lock.json
+*.log
+*.map
+
+# agent links (created by scripts/link-agents.js)
+.claude/skills
+CLAUDE.md
+
+# personal Claude Code settings
+.claude/settings.local.json
+
+# playwright mcp output
+.playwright-mcp
+
+# payload: local SQLite database and uploads
+*.db
+*.db-*
+/media

@@ -1,0 +1,50 @@
+# Conventions
+
+How code in this repo is shaped. Principles only — the code is the reference for specifics.
+
+## Files and folders
+
+- Everything on disk is `kebab-case`. Identifiers keep normal TS/React casing.
+- One folder per unit: `button/index.tsx`, plus `types.ts`, `styles.ts` or helpers beside it when needed.
+- Shared components go in `src/components/`. Components used by one route live in that route's folder (`src/app/<route>/components/`). Promote a component to `src/components/` only when a second route needs it.
+- `src/app` has two root layouts in route groups: `(frontend)` for the site and `(payload)` for the admin. Its root holds only files that cover both: `global-not-found.tsx`, `global-error.tsx`, `robots.ts` and `sitemap.ts`. Keep route files thin: compose, don't implement. Shared UI goes in `src/components`, fonts in `src/styles`.
+
+## Code
+
+- Components are `const` arrow functions with a default export.
+- Server Components by default. Add `"use client"` only at the smallest leaf that needs state, effects or browser APIs.
+- Name every function, including callbacks and handlers (`useEffect(syncTheme, [])`, `onClick={handleToggle}`).
+- Types are strict (`@tsconfig/strictest`). No `any`, no `!` assertions, no lint-disables without a written reason.
+- Import with path aliases (`@components/*`, `@utils/*`, …) rather than `../..` chains.
+
+## Styling
+
+- Tailwind utilities first. Use the token-backed classes (`bg-bg`, `text-fg`, `bg-accent-600`), never raw hex or Tailwind's built-in palette.
+- Build or merge class strings with `tw` from `@utils/tw`, as a tag (``tw`flex gap-2` ``) or a call (`tw("flex", isActive && "text-fg", className)`). It drops falsy values, and the editor and ESLint check classes in both forms.
+- For typography, use the text components in `@components/html` (`H1`–`H3`, `P`, `Span`, `Hr`) or plain elements with utilities. Pick one style per project.
+- When a component's CSS outgrows utilities, put it in a co-located `<name>.css` written with `@utility`, and register it in `src/styles/components.css`. `button/button.css` is the example.
+- Dark mode comes from the theme (below); components don't branch on theme in JS. Use the `dark:` variant only for things tokens can't express (e.g. swapping icons).
+
+## Theme
+
+An inline script in the root layout's `<head>` adds `<meta name="color-scheme">` before the page paints: the saved choice from localStorage first, then the OS preference. CSS keys dark mode off that meta tag with `:root:has(...)`. Pages stay static because the server never reads the theme. It's an injected meta tag because React owns `<html>`, and any attribute change there before hydration causes a mismatch. `@utils/theme` holds that script and the helpers for changing the theme; reuse them rather than re-implementing.
+
+## Pages, SEO and security
+
+- Site name, description and URL live in `src/site.ts`; metadata, `robots.ts`, `sitemap.ts` and `opengraph-image.tsx` read from it. Give each page its own `metadata.title`, and add public routes to `sitemap.ts`.
+- The 404 and error pages are thin wrappers around `@components/status-page`: `global-not-found.tsx` (unmatched URLs) and `(frontend)/not-found.tsx` (`notFound()` calls) share `@components/not-found-content`, and `error.tsx` and `global-error.tsx` share `@components/error-content`.
+- Security headers, including a static CSP, are set in `next.config.js`. When adding a third-party script, font, image host or API, allow its origin in the CSP.
+- Scrolling is smoothed by Lenis (`@components/smooth-scroll`). Mark nested scroll containers (modals, menus) with `data-lenis-prevent`.
+
+## Payload
+
+Payload CMS runs inside the app: the admin is at `/admin` and the REST API under `/api`. It stores data in a local SQLite file (`DATABASE_URL`, default `payload.db`), and needs `PAYLOAD_SECRET` set before it starts.
+
+- All content lives in Payload, so editors can change it without a deploy. Components get structure and styling; the words and images come from a collection (repeating things like posts) or a global (one-off things like the home page or footer).
+- One file per collection in `src/collections`, registered in `src/payload.config.ts`. Use the types in `src/payload-types.ts`.
+- Read data in Server Components with the Local API (`getPayload({ config })` from `payload`, with `config` from `@payload-config`), not over HTTP.
+- In development Payload updates the database schema for you. Production doesn't: create a migration with `pnpm payload migrate:create` and run `pnpm payload migrate` before starting.
+
+## Git
+
+Conventional Commits (`feat:`, `fix:`, `docs:`, …), checked by commitlint in `.husky/commit-msg`. The same hook strips Claude and Anthropic co-author trailers. Commit `pnpm-lock.yaml`.
