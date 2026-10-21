@@ -25,6 +25,7 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 - `src/i18n`, `src/proxy.ts` — languages, interface-string dictionaries and language routing
 - `src/styles` — design tokens (`globals.css`), fonts, base styles, component CSS
 - `src/site.ts` — site-wide constants: name, brand lines, URL, contacts, GSTIN
+- `src/instrumentation.ts`, `src/instrumentation-client.ts` — Sentry and PostHog start-up (see docs/CONVENTIONS.md, Analytics and errors)
 - `e2e/` — Playwright browser and accessibility tests; `e2e/pages.ts` lists the pages they visit
 - `docs/` — product, design and convention docs (below). `docs/ref/INFO-BANK.md` holds the owner-approved facts; nothing else in `docs/ref/` is used
 

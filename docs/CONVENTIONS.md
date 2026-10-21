@@ -46,9 +46,14 @@ An inline script in the root layout's `<head>` adds `<meta name="color-scheme">`
 - Site-wide constants live in `src/site.ts`: name, brand lines, description, URL, phone, WhatsApp, email, offices and GSTIN. Read them from there, never retype them. Metadata, `robots.ts`, `sitemap.ts` and `opengraph-image.tsx` read from it. Give each page its own `metadata.title`, and add public routes to `sitemap.ts`.
 - The 404 and error pages are thin wrappers around `@components/status-page`: `global-not-found.tsx` (unmatched URLs, English) and `(frontend)/[lang]/not-found.tsx` (`notFound()` calls) share `@components/not-found-content`, and `error.tsx` and `global-error.tsx` share `@components/error-content`.
 - Security headers, including a static CSP, are set in `next.config.js`. When adding a third-party script, font, image host or API, allow its origin in the CSP.
-- Planned after the enquiry form: a cookie consent banner, PostHog analytics and Sentry error tracking.
 - `/design` (`src/app/(frontend)/[lang]/design`) is the team's live design reference. It is the one page whose text lives in code rather than Payload, because it documents the code itself. It is `noindex` and not in the sitemap. Its swatches and samples read the rendered CSS, so token changes show up by themselves; when you add a token family, role or shared component, add it there too.
 - Scrolling is smoothed by Lenis (`@components/smooth-scroll`). Mark nested scroll containers (modals, menus) with `data-lenis-prevent`.
+
+## Analytics and errors
+
+- Sentry (`@sentry/nextjs`) reports errors from the server (`src/instrumentation.ts`), the browser (`src/instrumentation-client.ts`) and the error pages (`@components/error-content`). Errors only: no tracing and no session replay, so it needs no consent. Requests go through our own `/monitoring` route. It is off until `NEXT_PUBLIC_SENTRY_DSN` is set; `SENTRY_ORG`, `SENTRY_PROJECT` and `SENTRY_AUTH_TOKEN` upload source maps at build.
+- PostHog (`posthog-js`) loads after the page from `@utils/analytics`, through the `/ingest` rewrites in `next.config.js`. It runs with `cookieless_mode: "on_reject"`: nothing is stored or captured until the visitor answers `@components/consent-banner`, and after a "no" visits are only counted without cookies. It and the banner are off until `NEXT_PUBLIC_POSTHOG_KEY` is set, and it never runs on `/admin`. Use `loadAnalytics()` to reach it; don't import `posthog-js` directly.
+- `src/proxy.ts` skips `/ingest` and `/monitoring`; keep it that way when changing its matcher.
 
 ## Testing
 
