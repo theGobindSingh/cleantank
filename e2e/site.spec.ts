@@ -1,5 +1,11 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import { missingPages, pages } from "./pages";
+
+// Below xl the theme toggle and language links sit in the header menu.
+const openMenu = async (page: Page) => {
+  const menu = page.getByRole("button", { name: "Menu" });
+  if (await menu.isVisible()) await menu.click();
+};
 
 const langOf = (path: string) => {
   const [, first = ""] = path.split("/");
@@ -51,7 +57,9 @@ test("switching language keeps the theme and logs no errors", async ({
 
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/");
+  await openMenu(page);
   await page.getByRole("button", { name: /theme/i }).click();
+  await page.getByText("EN", { exact: true }).click();
   await page.getByRole("link", { name: "ਪੰਜਾਬੀ" }).click();
   await page.waitForURL("**/pa");
 
@@ -78,6 +86,7 @@ test("the theme toggle switches theme and is remembered", async ({ page }) => {
   const scheme = page.locator('meta[name="color-scheme"]');
   await expect(scheme).toHaveAttribute("content", "light");
 
+  await openMenu(page);
   await page.getByRole("button", { name: /theme/i }).click();
   await expect(scheme).toHaveAttribute("content", "dark");
 
@@ -94,6 +103,25 @@ test("keyboard focus is visible", async ({ page }) => {
       : "none";
   });
   expect(outline).not.toBe("none");
+});
+
+test("the header marks the current page", async ({ page }) => {
+  await page.goto("/contact");
+  await openMenu(page);
+  await expect(
+    page.getByRole("navigation", { name: "Main" }).getByRole("link", {
+      name: "Contact",
+    }),
+  ).toHaveAttribute("aria-current", "page");
+});
+
+test("the hero comparison moves with the arrow keys", async ({ page }) => {
+  await page.goto("/");
+  const slider = page.getByRole("slider");
+  await slider.focus();
+  const start = Number(await slider.inputValue());
+  await page.keyboard.press("ArrowLeft");
+  await expect(slider).toHaveValue(String(start - 1));
 });
 
 // docs/DESIGN.md: no horizontal scroll at 320 px.
