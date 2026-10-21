@@ -1,3 +1,4 @@
+import CompareSlider from "@components/compare-slider";
 import { H3, P, Span } from "@components/html";
 import Breakpoints from "./breakpoints";
 import { SPACING } from "./data";
@@ -101,6 +102,40 @@ const Layout = () => {
         <div className="grid grid-cols-4 gap-4 md:grid-cols-8 md:gap-6 lg:grid-cols-12">
           {COLUMNS.map(renderColumn)}
         </div>
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <H3 $margin="0">Page containers</H3>
+        <P className="max-w-[68ch]">
+          Every outermost block of a page (the header, the hero and each
+          section) sits in CommonFullWidthWrapper. Its outer element spans the
+          screen and carries the background or band; the inner one holds the
+          content at 90% of the width below 1024 px and 85% above, never wider
+          than 1200 px. The header above is one: a sticky navy band whose links
+          fold into a menu below 1280 px.
+        </P>
+      </div>
+
+      <div className="flex flex-col gap-3">
+        <H3 $margin="0">Before and after comparison</H3>
+        <P className="max-w-[68ch]">
+          CompareSlider, used by the hero. Drag the divider, or focus it and use
+          the arrow keys.
+        </P>
+        <CompareSlider
+          before={{
+            src: "/assets/images/compare/dirty.png",
+            alt: "A concrete tank before cleaning",
+          }}
+          after={{
+            src: "/assets/images/compare/clean.png",
+            alt: "The same tank after cleaning",
+          }}
+          label="Before and after cleaning"
+          beforeLabel="Before"
+          afterLabel="After"
+          className="aspect-3/2 w-full max-w-2xl rounded-sm"
+        />
       </div>
 
       <div className="flex flex-col gap-3">

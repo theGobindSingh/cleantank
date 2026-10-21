@@ -1,9 +1,9 @@
-import { site } from "@/site";
-import { H1, P } from "@components/html";
-import LanguageSwitcher from "@components/language-switcher";
-import ThemeToggle from "@components/theme-toggle";
-import { getDictionary, localeAlternates, localePath, toLocale } from "@i18n";
+import Blocks from "@/blocks";
+import { localeAlternates, localePath, toLocale } from "@i18n";
+import config from "@payload-config";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getPayload } from "payload";
 
 export const generateMetadata = async ({
   params,
@@ -17,30 +17,23 @@ export const generateMetadata = async ({
   };
 };
 
-/** Holding page until the home page content is modelled in Payload. */
+/** The gateway page, built from the `home` page's blocks in Payload. */
 const HomePage = async ({ params }: PageProps<"/[lang]">) => {
   const locale = toLocale((await params).lang);
-  const dictionary = getDictionary(locale);
+  const payload = await getPayload({ config });
+  const {
+    docs: [page],
+  } = await payload.find({
+    collection: "pages",
+    where: { slug: { equals: "home" } },
+    locale,
+    limit: 1,
+  });
+  if (!page) notFound();
 
   return (
-    <main className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center gap-8 px-4 py-24">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <LanguageSwitcher
-          locale={locale}
-          path="/"
-          label={dictionary.language.label}
-        />
-        <ThemeToggle label={dictionary.theme.toggle} />
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <H1 lang="en" $margin="0">
-          {site.name}
-        </H1>
-        <P lang="en" $size="body-l" className="text-fg-muted">
-          {site.descriptor}
-        </P>
-      </div>
+    <main>
+      <Blocks blocks={page.layout} locale={locale} />
     </main>
   );
 };
