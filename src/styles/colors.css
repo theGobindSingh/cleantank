@@ -39,8 +39,8 @@
   --color-accent-900-base: 13 55% 20%;
   --color-accent-950-base: 13.1 53.3% 11.8%;
 
-  /* secondary: indigo slate, 700 #484474 (owner-approved). A quiet partner
-     to navy for tags, chart series, heading rules and one emphasis band;
+  /* secondary: indigo slate, 700 #484474. A quiet partner to
+     navy for tags, chart series, heading rules and one emphasis band;
      never a button, link or status */
   --color-secondary-50-base: 245 19.5% 96.5%;
   --color-secondary-100-base: 245 19.5% 92.5%;

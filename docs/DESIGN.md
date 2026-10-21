@@ -19,7 +19,7 @@ Never: gradients, shadows, gloss, glass or blur, glow; water splashes, droplets,
 - Ramps. Every family has stops 50 to 950 and they are the same in every mode:
   - `primary`: steel-navy, 700 = `#20334B` (locked).
   - `accent`: coral, 500 = `#EE7555` (locked).
-  - `secondary`: indigo slate, 700 = `#484474` (owner-approved). 700 is text, rules and fills, 100 soft fill, 500 border, 300 text in dark mode.
+  - `secondary`: indigo slate, 700 = `#484474`. 700 is text, rules and fills, 100 soft fill, 500 border, 300 text in dark mode.
   - `grey`: warm stone (50 `#F5F4F1`) to graphite (900 `#25282A`). 500 is the lightest control border and 600 the lightest text; 400 and lighter are decorative only.
   - `success`, `caution`, `info`, `error`: 700 is text, 100 soft fill, 500 border and icon, 300 text in dark mode.
   - `white` on its own. There is no black.
@@ -56,8 +56,9 @@ So `bg-bg`, `text-fg-muted`, `border-border-control`, `bg-primary`, `text-headin
   - `font-sans`: Anek Latin, for body, buttons and UI.
   - `font-heading`: Anek Latin at `font-stretch: 78%`, for display to h3.
   - `font-mono`: IBM Plex Mono 500 and 600, for labels, reference codes and record values.
-  - `font-serif`: IBM Plex Serif. Not part of the launch system; only for long-form reading such as a printed-style certificate or legal text, and only with owner approval.
-  - `font-cursive`: Caveat. Not part of the launch system; only for a founder's signature or a handwritten note, never for headings or body.
+  - `font-serif`: IBM Plex Serif. Reserved, not in the launch pages; for long-form reading such as a certificate or legal text.
+  - `font-cursive`: Caveat. Reserved, not in the launch pages; for a signature or a handwritten note, never headings or body.
+  - Any face may change later, so components use only these tokens, never a family name.
   - Anek Devanagari and Anek Gurmukhi follow Anek Latin in the sans, heading and mono stacks, so Hindi and Punjabi text picks its own face. A page downloads an Indic font only when it has text in that script.
 - Type scale. `--fs-*` in `globals.css`, fluid between 360 and 1280 px (below). The text components in `src/components/html` take these names as `$size`.
 - Spacing. Tailwind's 4 px unit, restricted to the brand steps: 0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128 px (`1 2 3 4 6 8 10 12 16 20 24 32`). Other steps (5, 7, 9, 14) are off-scale.
@@ -108,7 +109,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 - Sections alternate white and stone with a 1 px rule between them. Section gaps 64 / 80 / 96 px by breakpoint.
 - Each section gets a number and a mono reference tag above its H2 (`02  REF CT-WEB-02`, `ref` style, `marker-text`).
 - Above the fold, at most five elements: headline, one line, CTAs, photo, brand mark.
-- Header: navy band, logo top-left (never centred), at most six nav links in button type, current page marked with a 3 px accent underline and `aria-current`. Fixed vs floating is still an owner decision.
+- Header: navy band, logo top-left (never centred), at most six nav links in button type, current page marked with a 3 px accent underline and `aria-current`. Sticky at the top of the page for now.
 - Mobile (under 768): a sticky bottom bar with Call (filled) and WhatsApp (outline) buttons, respecting `env(safe-area-inset-bottom)`.
 - Footer: navy band with ruled cells, contacts, GSTIN in mono, the ISO line and the Gobind Galaxy endorsement.
 
@@ -121,9 +122,9 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 ## Components
 
-- Buttons (`src/components/button`, `src/components/link`): `variant` filled (default for Button), outlined or text (default for Link, an underlined link); `size` `md` 48 px (default), `sm` 44 px for dense desktop tables only, `lg` 56 px for the hero; `color` `primary` (default) or a state or grey family. All are `rounded-sm`, Anek 700 uppercase 14 px (16 px at `lg`), +0.06em, padding 0 24 px, min width 120 px. Primary follows dark mode and bands by itself (white fill with a navy label there). Other families use 700 / 600 / 800 with a white label on light grounds and 300 / 200 / 100 with a navy label in dark mode and bands. One filled button per viewport. No accent buttons (the type doesn't allow it), no trailing arrows, no exclamation marks.
+- Buttons (`src/components/button`, `src/components/link`): `variant` filled (default for Button), outlined or text (default for Link: an underlined link that takes the type of the text around it); `size` `md` 48 px (default), `sm` 44 px for dense desktop tables only, `lg` 56 px for the hero; `color` `primary` (default) or a state or grey family. Filled and outlined are `rounded-sm`, Anek 700 uppercase 14 px (16 px at `lg`), +0.06em, padding 0 24 px, min width 120 px. Primary follows dark mode and bands by itself (white fill with a navy label there). Other families use 700 / 600 / 800 with a white label on light grounds and 300 / 200 / 100 with a navy label in dark mode and bands. One filled button per viewport. No accent buttons (the type doesn't allow it), no trailing arrows, no exclamation marks.
 - Language switcher (`src/components/language-switcher`): EN / हिंदी / ਪੰਜਾਬੀ, each named in its own script with `lang` and `hreflang`, current one in bold with `aria-current`. No flags and no redirect by IP or browser language.
-- Links: underlined 1 px at 3 px offset; hover darkens and thickens to 2 px. Never remove the underline in body copy.
+- Links: underlined 1 px at 3 px offset; hover darkens and thickens to 2 px. A text link keeps the size, weight and case of the text around it; nav links add button type with utilities. Never remove the underline in body copy.
 - Inputs: 48 px, `rounded-sm`, 1 px `border-control` border, white fill, 16 px text minimum. Label above in label style with "(required)" or "(optional)" in words. Errors: 2 px `error-border`, icon, message in `error`, `aria-invalid` and `aria-describedby`. Never disable submit.
 - Cards: cells of a ruled grid (radius 0, padding 24 / 40, container `rounded-xs`). A single standalone card is `rounded-sm` with a 1 px `border` edge. Clickable cards change the edge to `border-strong` on hover, no lift.
 - Alerts: `rounded-sm`, 1 px state border, state background, 20 px icon, bold title.
@@ -137,7 +138,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 - Illustration: flat orthographic line drawings in navy with one accent marker. No 3D, no isometric, no mascots.
 - Icons: Lucide only, with `stroke-linecap="square"`, `stroke-linejoin="miter"` and `currentColor`. Stroke 1.75 at 24 px (2 at 16, 1.85 at 20, 1.5 at 32). Icons always have a visible label except close, menu and search. No emoji, filled or 3D icons.
 - Asset file names: lowercase letters, digits and hyphens only, no spaces or capitals, at most 80 characters: `ct-<family>-<subject>-<variant>-<colour or mode>-<lang>-<size>-v<NN>.<ext>`, dropping parts that don't apply. Families include `logo`, `photo`, `ill`, `icon`, `cert`, `sticker`, `social`. Some current files in `public/assets/images/` (such as `IIT Delhi.png`, `water_gun.png`) don't follow this yet.
-- Logo: none is approved yet. Until then use the text lockup CLEAN TANK SERVICES in Anek 700 caps, primary 700.
+- Logo: the text lockup CLEAN TANK SERVICES in Anek 700 caps (primary 700, white on bands), with the descriptor "Scientific & Mechanized Water Tank Cleaning" in small type below it, never in caps. Both come from `src/site.ts`.
 
 ## Motion
 
@@ -150,7 +151,7 @@ Never: bounce, overshoot, shake, pulse, parallax, scroll fly-ins, staggered card
 ## Accessibility
 
 - WCAG 2.2 AA minimum. Every semantic role pair above passes (navy on white 12.83:1, graphite on white 14.83:1, `fg-muted` on white 5.87:1, `marker-text` on white 6.51:1, secondary 700 on white 8.92:1 and on stone 8.11:1, white on secondary 700 8.93:1, secondary 700 on 100 7.35:1, secondary 500 border on white 5.91:1, secondary 300 on primary 900 7.69:1).
-- Never use these pairs: accent 500 or 400 as text or thin icons on white, stone or accent 50 (2.5 to 2.9:1); white on accent 500; accent 500 body text on primary 700 (large only); primary 700 on accent 700; grey 400 as text or control border, or white on grey 400; grey 500 as text (3.75:1, borders and icons only); caution 500 or success 500 as small text (use the 700 text color); graphite on navy (1.16:1); secondary 700 on navy (1.43:1); on a secondary band, secondary 300 text (3.85:1) or `marker-text` as small text (3.58:1). Also never: accent as a button fill or CTA, accent beside error red in one component, accent text over photos, yellow or orange warning fills, red versus green as the only difference.
+- Never use these pairs: accent 500 or 400 as text or thin icons on white, stone or accent 50 (2.5 to 2.9:1); white on accent 500; accent 500 body text on primary 700 (large only); primary 700 on accent 700; grey 400 as text or control border, or white on grey 400; grey 500 as text (3.75:1, borders and icons only); caution 500 or success 500 as small text (use the 700 text color); graphite on navy (1.16:1); secondary 700 on navy (1.43:1); on a secondary band, secondary 300 text (3.85:1) or `marker-text` as small text (3.58:1). Also never: accent as a button fill or CTA, accent beside error red in one component, accent text over photos, red versus green as the only difference.
 - Focus: 2 px solid `focus` outline at 2 px offset on `:focus-visible`. It turns white on bands, photos and dark mode through the tokens. Never `outline: none`.
 - Targets 48 px, 44 px minimum, 8 px apart.
 - Meaning never by color alone: state gets icon plus word, links get underlines, charts get direct labels.
@@ -159,6 +160,6 @@ Never: bounce, overshoot, shake, pulse, parallax, scroll fly-ins, staggered card
 - `pnpm test:e2e` checks every page with axe in both modes, and checks for sideways scroll at 320 px (see docs/CONVENTIONS.md, Testing).
 - Performance: LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1, initial JS ≤ 150 KB gzipped.
 
-## Open owner decisions
+## Still open
 
-The logo, header fixed or floating, which section gets the second emphasis band, the reference-code scheme, and the final stone value on real screens.
+Which section gets the second emphasis band, and the reference-code scheme: decide them when building those parts and write the choice here. Check the stone value on real screens.

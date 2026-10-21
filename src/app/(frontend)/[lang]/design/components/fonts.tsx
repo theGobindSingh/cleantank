@@ -36,14 +36,14 @@ const FACES: Face[] = [
   {
     utility: "font-serif",
     name: "IBM Plex Serif",
-    role: "Reserved. Not part of the launch system; use only with the owner's approval, e.g. a quoted testimonial.",
+    role: "Reserved: not in the launch pages yet, e.g. a quoted testimonial. Use it only through font-serif.",
     weights: ["400", "600"],
     className: "font-serif",
   },
   {
     utility: "font-cursive",
     name: "Caveat",
-    role: "Reserved. Not part of the launch system; use only with the owner's approval, e.g. a handwritten note on a certificate mock-up.",
+    role: "Reserved: not in the launch pages yet, e.g. a handwritten note on a certificate. Use it only through font-cursive.",
     weights: ["400", "700"],
     className: "font-cursive",
   },

@@ -56,7 +56,7 @@ export const FAMILIES: Family[] = [
     name: "caution",
     label: "Caution",
     anchor: "700",
-    note: "Status only. Never a yellow or orange fill for warnings; the fill is the pale 100.",
+    note: "Status only. The soft fill is the pale 100; the caution button fills with 700, or 300 in dark mode.",
   },
   {
     name: "info",

@@ -45,8 +45,8 @@ const Accessibility = () => {
         </div>
         <P $size="small" className="max-w-[68ch] text-fg-muted">
           Also never: coral as a button fill or CTA, coral beside error red in
-          one component, coral text over photos, yellow or orange warning fills,
-          and red versus green as the only difference.
+          one component, coral text over photos, and red versus green as the
+          only difference.
         </P>
       </div>
       <div className="grid gap-8 md:grid-cols-2">
