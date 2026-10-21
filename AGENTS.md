@@ -1,6 +1,6 @@
 # AGENTS.md
 
-A lean Next.js starter (App Router, TypeScript strict, Tailwind v4, pnpm). It gives a solid base and stays out of the way — extend it however the product needs.
+The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, mechanized water tank cleaning. Next.js (App Router), TypeScript strict, Tailwind v4, Payload CMS, pnpm. English, Hindi and Punjabi.
 
 `CLAUDE.md` is a symlink to this file (created by `scripts/link-agents.js` on install). Edit this file only.
 
@@ -9,25 +9,30 @@ A lean Next.js starter (App Router, TypeScript strict, Tailwind v4, pnpm). It gi
 - `pnpm install` — install deps and create agent symlinks
 - `pnpm dev` — dev server
 - `pnpm build` — auto-fixes lint, then builds; the main quality gate
-- `pnpm lint` / `pnpm lint:fix` — Prettier + ESLint on `src/`
-- `pnpm payload` — Payload CLI (migrations, type and import-map generation)
+- `pnpm test` — unit tests (Vitest, `src/**/*.test.ts`)
+- `pnpm test:e2e` — builds, then runs the Playwright browser and axe accessibility tests in `e2e/`
+- `pnpm lint` / `pnpm lint:fix` — Prettier + ESLint on `src/` and `e2e/`
+- `pnpm payload` — Payload CLI (type and import-map generation), on the direct database URL
+- `pnpm migrate:create <name>` / `pnpm migrate` — create and run database migrations (Neon Postgres; schema push is off)
 
 ## Where things live
 
-- `src/app` — routes and Next.js special files only. The site lives in `(frontend)`, the Payload admin and API in `(payload)`. Route-only UI sits beside its route; shared code lives in the folders below
+- `src/app` — routes and Next.js special files only. The site lives in `(frontend)/[lang]`, the Payload admin and API in `(payload)`. Route-only UI sits beside its route; shared code lives in the folders below
 - `src/payload.config.ts`, `src/collections` — Payload CMS config and collections
 - `src/components` — shared components
 - `src/utils` — small framework-agnostic helpers
+- `src/i18n`, `src/proxy.ts` — languages, interface-string dictionaries and language routing
 - `src/styles` — design tokens (`globals.css`), fonts, base styles, component CSS
 - `src/site.ts` — site name, description and URL used by metadata and SEO files
-- `docs/` — product, design and convention docs (below)
+- `e2e/` — Playwright browser and accessibility tests; `e2e/pages.ts` lists the pages they visit
+- `docs/` — product, design and convention docs (below). `docs/ref/INFO-BANK.md` holds the owner-approved facts; nothing else in `docs/ref/` is used
 
 Discover the rest from the code; path aliases are in `tsconfig.json`.
 
 ## Rules
 
-- Read [docs/CONVENTIONS.md](docs/CONVENTIONS.md) before writing code and [docs/DESIGN.md](docs/DESIGN.md) before visual work.
-- All content goes in Payload: page text, images, posts, SEO fields. Add a collection or global for it and read it with the Local API; never hardcode content in components.
+- Read [docs/CONVENTIONS.md](docs/CONVENTIONS.md) before writing code, [docs/DESIGN.md](docs/DESIGN.md) before visual work and [docs/PRODUCT.md](docs/PRODUCT.md) before writing copy or planning pages.
+- All content goes in Payload: page text, images, posts, SEO fields. The one exception is the `/design` reference page, which documents the code (see docs/CONVENTIONS.md). Add a collection or global for it and read it with the Local API; never hardcode content in components.
 - Style through the tokens in `src/styles/globals.css`; no raw colors in components.
 - No anonymous functions: name every callback/handler as a `const` before passing it.
 - Never use `suppressHydrationWarning`; fix the cause.
@@ -35,7 +40,7 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - Never read, print or commit `.env` files or secrets. Ask the user to set them; document new variables in `.env.example`.
 - When a change makes any doc wrong, update that doc in the same change.
 - Never credit Claude, Anthropic or any AI in commits or PRs: no `Co-Authored-By` trailers, no "Generated with" lines. `.husky/commit-msg` strips Claude and Anthropic ones anyway.
-- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, and `pnpm generate:importmap` if you added admin components.
+- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Don't run `pnpm migrate` against a database without asking; it changes shared data.
 
 ## Every code change
 
@@ -47,7 +52,7 @@ Use the `human-writing` skill whenever you write content people will read: UI co
 
 ## Done means
 
-`pnpm build` passes with no lint errors. If it can't, report the full error output instead of marking the task complete.
+`pnpm build` passes with no lint errors and `pnpm test` passes. After UI or routing changes, `pnpm test:e2e` passes too. If they can't, report the full error output instead of marking the task complete.
 
 ## Tools and skills
 

@@ -7,7 +7,7 @@ How code in this repo is shaped. Principles only — the code is the reference f
 - Everything on disk is `kebab-case`. Identifiers keep normal TS/React casing.
 - One folder per unit: `button/index.tsx`, plus `types.ts`, `styles.ts` or helpers beside it when needed.
 - Shared components go in `src/components/`. Components used by one route live in that route's folder (`src/app/<route>/components/`). Promote a component to `src/components/` only when a second route needs it.
-- `src/app` has two root layouts in route groups: `(frontend)` for the site and `(payload)` for the admin. Its root holds only files that cover both: `global-not-found.tsx`, `global-error.tsx`, `robots.ts` and `sitemap.ts`. Keep route files thin: compose, don't implement. Shared UI goes in `src/components`, fonts in `src/styles`.
+- `src/app` has two root layouts in route groups: `(frontend)/[lang]` for the site and `(payload)` for the admin. Every site page lives under `[lang]` (see Languages). `(frontend)` itself holds only `icon.svg` and `opengraph-image.tsx`. The `src/app` root holds only files that cover both: `global-not-found.tsx`, `global-error.tsx`, `robots.ts` and `sitemap.ts`. Keep route files thin: compose, don't implement. Shared UI goes in `src/components`, fonts in `src/styles`.
 
 ## Code
 
@@ -15,35 +15,57 @@ How code in this repo is shaped. Principles only — the code is the reference f
 - Server Components by default. Add `"use client"` only at the smallest leaf that needs state, effects or browser APIs.
 - Name every function, including callbacks and handlers (`useEffect(syncTheme, [])`, `onClick={handleToggle}`).
 - Types are strict (`@tsconfig/strictest`). No `any`, no `!` assertions, no lint-disables without a written reason.
+- Every link is `Link` from `@components/link`; never `next/link` or a bare `<a>` (ESLint blocks both outside that folder). It uses `next/link` for routes and a plain `<a>` for external links (new tab, `rel="noopener noreferrer"`), `mailto:`, `tel:` and other schemes. Pass `native` to force a plain `<a>` and a full page load.
 - Import with path aliases (`@components/*`, `@utils/*`, …) rather than `../..` chains.
 
 ## Styling
 
-- Tailwind utilities first. Use the token-backed classes (`bg-bg`, `text-fg`, `bg-accent-600`), never raw hex or Tailwind's built-in palette.
-- Build or merge class strings with `tw` from `@utils/tw`, as a tag (``tw`flex gap-2` ``) or a call (`tw("flex", isActive && "text-fg", className)`). It drops falsy values, and the editor and ESLint check classes in both forms.
-- For typography, use the text components in `@components/html` (`H1`–`H3`, `P`, `Span`, `Hr`) or plain elements with utilities. Pick one style per project.
+- Tailwind utilities first. Prefer the semantic role classes (`bg-bg`, `text-fg-muted`, `text-heading`, `bg-primary`) over ramp stops (`bg-primary-700`), and never use raw hex. Tailwind's built-in palette is removed. Roles follow dark mode; ramp stops don't.
+- Build or merge class strings with `tw` from `@utils/tw`, as a tag (``tw`flex gap-2` ``) or a call (`tw("flex", isActive && "text-accent-600", className)`). It drops falsy values, and the editor and ESLint check classes in both forms.
+- For typography, use the text components in `@components/html` (`H1`–`H3`, `P`, `Span`, `Hr`), whose `$size` takes the `--fs-*` names (`h1`, `body`, `small`, …), or plain elements with utilities. Pick one style per project.
 - When a component's CSS outgrows utilities, put it in a co-located `<name>.css` written with `@utility`, and register it in `src/styles/components.css`. `button/button.css` is the example.
-- Dark mode comes from the theme (below); components don't branch on theme in JS. Use the `dark:` variant only for things tokens can't express (e.g. swapping icons).
+- Dark mode comes from the theme (below); components don't branch on theme in JS. Use the `dark:` variant only for things tokens can't express (e.g. swapping icons). Navy bands take `data-surface="band"`, which re-maps the tokens inside them the same way.
+
+## Languages
+
+The site is in English, Hindi and Punjabi (`src/i18n/config.ts`). English has no prefix (`/amc`); the others do (`/hi/amc`, `/pa/amc`).
+
+- `src/proxy.ts` rewrites unprefixed URLs to `/en/...` internally and redirects `/en/...` to the unprefixed URL. Pages read the language from the `lang` param with `toLocale((await params).lang)`; client components use `useParams`.
+- Page content comes from Payload, which has the same three locales. Mark a field `localized: true` to translate it and pass `locale` to the Local API. Missing translations fall back to English.
+- `src/i18n/dictionaries` holds only interface strings that must work without the CMS (error and 404 pages, control labels). Add a key to `en.ts` first; the type makes `hi.ts` and `pa.ts` follow.
+- Build links with `localePath(locale, path)`, and give each page `alternates` from `localeAlternates(path)`. Add new routes to `sitemap.ts` without a prefix; it lists every language.
+- Links that change the language take `native` (`<Link native>`), so they load the page in full. `[lang]` is part of the root layout, and a client navigation would rebuild `<html>` and the theme script in the browser. `@components/language-switcher` does this.
+- Set `lang` on any fragment in another script (see docs/DESIGN.md, Typography).
 
 ## Theme
 
-An inline script in the root layout's `<head>` adds `<meta name="color-scheme">` before the page paints: the saved choice from localStorage first, then the OS preference. CSS keys dark mode off that meta tag with `:root:has(...)`. Pages stay static because the server never reads the theme. It's an injected meta tag because React owns `<html>`, and any attribute change there before hydration causes a mismatch. `@utils/theme` holds that script and the helpers for changing the theme; reuse them rather than re-implementing.
+An inline script in the root layout's `<head>` adds `<meta name="color-scheme">` before the page paints: the saved choice from localStorage, otherwise light. The OS preference is ignored, so the site is light until the visitor picks dark. CSS keys dark mode off that meta tag with `:root:has(...)`. Pages stay static because the server never reads the theme. It's an injected meta tag because React owns `<html>`, and any attribute change there before hydration causes a mismatch. `@utils/theme` holds that script and the helpers for changing the theme; reuse them rather than re-implementing.
 
 ## Pages, SEO and security
 
 - Site name, description and URL live in `src/site.ts`; metadata, `robots.ts`, `sitemap.ts` and `opengraph-image.tsx` read from it. Give each page its own `metadata.title`, and add public routes to `sitemap.ts`.
-- The 404 and error pages are thin wrappers around `@components/status-page`: `global-not-found.tsx` (unmatched URLs) and `(frontend)/not-found.tsx` (`notFound()` calls) share `@components/not-found-content`, and `error.tsx` and `global-error.tsx` share `@components/error-content`.
+- The 404 and error pages are thin wrappers around `@components/status-page`: `global-not-found.tsx` (unmatched URLs, English) and `(frontend)/[lang]/not-found.tsx` (`notFound()` calls) share `@components/not-found-content`, and `error.tsx` and `global-error.tsx` share `@components/error-content`.
 - Security headers, including a static CSP, are set in `next.config.js`. When adding a third-party script, font, image host or API, allow its origin in the CSP.
+- `/design` (`src/app/(frontend)/[lang]/design`) is the team's live design reference. It is the one page whose text lives in code rather than Payload, because it documents the code itself. It is `noindex` and not in the sitemap. Its swatches and samples read the rendered CSS, so token changes show up by themselves; when you add a token family, role or shared component, add it there too.
 - Scrolling is smoothed by Lenis (`@components/smooth-scroll`). Mark nested scroll containers (modals, menus) with `data-lenis-prevent`.
+
+## Testing
+
+- Unit tests sit beside the code as `<name>.test.ts` and run with Vitest (`pnpm test`). Write one for logic with branches: helpers, parsers, `src/proxy.ts`.
+- Browser tests live in `e2e/` and run with Playwright against a production build (`pnpm test:e2e`), on a desktop and a phone viewport. They cover routing, the theme toggle, keyboard focus and sideways scroll at 320 px.
+- `e2e/a11y.spec.ts` runs axe (WCAG 2.2 A and AA plus best practices) on every page in every language, in light and dark mode, and fails on any violation. Add each new route to `e2e/pages.ts` so it gets checked.
+- ESLint (`@webadeva/eslint-config`) runs the `jsx-a11y-x` rules on JSX, so `pnpm lint` and `pnpm build` catch static problems like missing alt text or labels. axe checks the rendered page.
+- axe finds only part of what WCAG asks. Still check new UI by keyboard alone and at 200% zoom.
 
 ## Payload
 
-Payload CMS runs inside the app: the admin is at `/admin` and the REST API under `/api`. It stores data in a local SQLite file (`DATABASE_URL`, default `payload.db`), and needs `PAYLOAD_SECRET` set before it starts.
+Payload CMS runs inside the app: the admin is at `/admin` and the REST API under `/api`. It needs `PAYLOAD_SECRET` set before it starts. Data lives in Neon Postgres: the site connects through the pooled URL (`DATABASE_URL_POOLED`), and `pnpm payload` sets `PAYLOAD_DB_DIRECT` so the CLI and migrations use the direct one (`DATABASE_URL`). Uploads go to Neon's S3-compatible storage (`S3_BUCKET` and the `AWS_*` variables) and are served through `/api/media/file/...`, so Payload's access control still applies; with `S3_BUCKET` empty they stay in a local `/media` folder.
 
 - All content lives in Payload, so editors can change it without a deploy. Components get structure and styling; the words and images come from a collection (repeating things like posts) or a global (one-off things like the home page or footer).
 - One file per collection in `src/collections`, registered in `src/payload.config.ts`. Use the types in `src/payload-types.ts`.
 - Read data in Server Components with the Local API (`getPayload({ config })` from `payload`, with `config` from `@payload-config`), not over HTTP.
-- In development Payload updates the database schema for you. Production doesn't: create a migration with `pnpm payload migrate:create` and run `pnpm payload migrate` before starting.
+- Schema changes only go through migrations; automatic schema push is off, even in development, so a dev server never alters a shared database. After changing a collection or global, run `pnpm migrate:create <name>`, review the SQL in `src/migrations`, commit it, and run `pnpm migrate`. Deploys run `pnpm migrate` before `pnpm start`. The files in `src/migrations` are generated: lint and the type check skip them.
+- Develop against a separate Neon branch, never the production database.
 
 ## Git
 
