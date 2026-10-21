@@ -108,11 +108,11 @@ const Indic = () => {
             label="Language (example)"
           />
           <P $size="small" className="text-fg-muted">
-            Each language is named in its own script, with lang and hreflang.
-            The current one is bold with aria-current. No flags and no redirect
-            by location or browser language. Links that change the language load
-            the page in full (Link native). This reference stays in English
-            under every language.
+            A dropdown built on details. Each language is named in its own
+            script, with lang and hreflang. The current one is bold with
+            aria-current. No flags and no redirect by location or browser
+            language. Links that change the language load the page in full (Link
+            native). This reference stays in English under every language.
           </P>
         </div>
       </div>

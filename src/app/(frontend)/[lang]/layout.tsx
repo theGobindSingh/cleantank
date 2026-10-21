@@ -1,5 +1,6 @@
 import { site } from "@/site";
 import ConsentBanner from "@components/consent-banner";
+import Header from "@components/header";
 import SmoothScroll from "@components/smooth-scroll";
 import { getDictionary, locales, toLocale } from "@i18n";
 import { fontVariables } from "@styles/fonts";
@@ -41,6 +42,7 @@ const RootLayout = async ({ children, params }: LayoutProps<"/[lang]">) => {
       </head>
       <body>
         <SmoothScroll />
+        <Header locale={locale} />
         {children}
         <ConsentBanner {...getDictionary(locale).consent} />
       </body>

@@ -30,6 +30,24 @@ export const pa: Dictionary = {
     accept: "ਸਵੀਕਾਰ ਕਰੋ",
     decline: "ਅਸਵੀਕਾਰ ਕਰੋ",
   },
+  header: {
+    nav: "ਮੁੱਖ",
+    menu: "ਮੀਨੂ",
+    close: "ਮੀਨੂ ਬੰਦ ਕਰੋ",
+    links: {
+      homes: "ਘਰ",
+      organisations: "ਸੰਸਥਾਵਾਂ",
+      franchise: "ਫ਼ਰੈਂਚਾਇਜ਼ੀ",
+      process: "ਪ੍ਰਕਿਰਿਆ",
+      about: "ਸਾਡੇ ਬਾਰੇ",
+      contact: "ਸੰਪਰਕ",
+    },
+  },
+  compare: {
+    label: "ਸਫ਼ਾਈ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ",
+    before: "ਪਹਿਲਾਂ",
+    after: "ਬਾਅਦ ਵਿੱਚ",
+  },
   language: {
     label: "ਭਾਸ਼ਾ",
   },

@@ -1,11 +1,19 @@
 "use client";
 
+import { iconButtonStyles } from "@components/button/styles";
 import { applyTheme, getActiveTheme } from "@utils/theme";
 import { MoonIcon, SunIcon } from "lucide-react";
 
 interface ThemeToggleProps {
   label: string;
 }
+
+const ICON_PROPS = {
+  "aria-hidden": true,
+  strokeWidth: 1.85,
+  strokeLinecap: "square",
+  strokeLinejoin: "miter",
+} as const;
 
 /** Both icons render; the `dark:` variant picks one, so no client state is needed. */
 const ThemeToggle = ({ label }: ThemeToggleProps) => {
@@ -18,10 +26,10 @@ const ThemeToggle = ({ label }: ThemeToggleProps) => {
       type="button"
       onClick={handleToggle}
       aria-label={label}
-      className="inline-flex size-10 cursor-pointer items-center justify-center rounded-sm border border-border-control text-fg transition-colors hover:bg-bg-subtle"
+      className={iconButtonStyles}
     >
-      <SunIcon aria-hidden="true" className="hidden size-5 dark:block" />
-      <MoonIcon aria-hidden="true" className="size-5 dark:hidden" />
+      <SunIcon {...ICON_PROPS} className="hidden size-5 dark:block" />
+      <MoonIcon {...ICON_PROPS} className="size-5 dark:hidden" />
     </button>
   );
 };

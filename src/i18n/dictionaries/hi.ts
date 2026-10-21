@@ -30,6 +30,24 @@ export const hi: Dictionary = {
     accept: "स्वीकार करें",
     decline: "अस्वीकार करें",
   },
+  header: {
+    nav: "मुख्य",
+    menu: "मेन्यू",
+    close: "मेन्यू बंद करें",
+    links: {
+      homes: "घर",
+      organisations: "संस्थाएँ",
+      franchise: "फ़्रैंचाइज़ी",
+      process: "प्रक्रिया",
+      about: "हमारे बारे में",
+      contact: "संपर्क",
+    },
+  },
+  compare: {
+    label: "सफ़ाई से पहले और बाद",
+    before: "पहले",
+    after: "बाद में",
+  },
   language: {
     label: "भाषा",
   },

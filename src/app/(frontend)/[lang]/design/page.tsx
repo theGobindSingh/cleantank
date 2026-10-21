@@ -1,7 +1,5 @@
 import { H1, P } from "@components/html";
 import Link from "@components/link";
-import ThemeToggle from "@components/theme-toggle";
-import { getDictionary, toLocale } from "@i18n";
 import type { Metadata } from "next";
 import Accessibility from "./components/accessibility";
 import Buttons from "./components/buttons";
@@ -57,28 +55,20 @@ const renderEntry = ([id, title]: string[], index: number) => {
 };
 
 /** The live design reference: every token and component, rendered from the real CSS. */
-const DesignPage = async ({ params }: PageProps<"/[lang]/design">) => {
-  const dictionary = getDictionary(toLocale((await params).lang));
-
+const DesignPage = () => {
   return (
     // the reference is written in English under every language
     <main lang="en">
       <header className="bg-bg">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-4 pt-16 pb-12 md:px-8 lg:px-10">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex flex-col gap-3">
-              <span className="font-mono text-(length:--fs-ref) font-medium tracking-widest text-marker-text uppercase">
-                00&nbsp;&nbsp;REF CT-DS
-              </span>
-              <H1 $size="display" $margin="0">
-                Design system
-              </H1>
-              <span
-                aria-hidden="true"
-                className="block h-[3px] w-12 bg-marker"
-              />
-            </div>
-            <ThemeToggle label={dictionary.theme.toggle} />
+          <div className="flex flex-col gap-3">
+            <span className="font-mono text-(length:--fs-ref) font-medium tracking-widest text-marker-text uppercase">
+              00&nbsp;&nbsp;REF CT-DS
+            </span>
+            <H1 $size="display" $margin="0">
+              Design system
+            </H1>
+            <span aria-hidden="true" className="block h-[3px] w-12 bg-marker" />
           </div>
           <P $size="body-l" className="max-w-[60ch] text-fg-muted">
             Every colour, type size, font, component and rule on the Clean Tank

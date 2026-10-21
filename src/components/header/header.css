@@ -1,0 +1,71 @@
+/*
+ * The header's link panel. One element, two looks: from xl up an inline row
+ * in the band; below xl a sidenav popover that slides in from the right over
+ * the modal scrim. The popover attribute supplies the open state, Escape,
+ * click-outside and the ::backdrop; the reduced-motion rule in defaults.css
+ * removes the slide.
+ */
+@utility site-menu {
+  @media (width < 80rem) {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(20rem, 85vw);
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 1rem 1.5rem 1.5rem;
+    border: 0;
+    border-left: 1px solid var(--color-border);
+    background-color: var(--color-band);
+    color: var(--color-fg);
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    translate: 100% 0;
+    transition-property: translate, overlay, display;
+    transition-duration: 240ms;
+    transition-timing-function: cubic-bezier(0, 0, 0.38, 0.9);
+    transition-behavior: allow-discrete;
+
+    &:popover-open {
+      display: flex;
+      translate: 0 0;
+
+      @starting-style {
+        translate: 100% 0;
+      }
+    }
+
+    &::backdrop {
+      background-color: hsl(var(--color-primary-900-base) / 0.6);
+      opacity: 0;
+      transition-property: opacity, overlay, display;
+      transition-duration: 240ms;
+      transition-behavior: allow-discrete;
+    }
+
+    &:popover-open::backdrop {
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+
+  /* inline: undo the popover's UA styles and its hidden state */
+  @media (width >= 80rem) {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    overflow: visible;
+  }
+}

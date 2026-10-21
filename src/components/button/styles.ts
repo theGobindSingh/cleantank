@@ -50,3 +50,9 @@ export const colorStyleVars = (color: ColorFamily): CSSProperties => {
     "--c-dark-on": "var(--color-primary-900)",
   } as CSSProperties;
 };
+
+/**
+ * A square icon-only control (menu, close, theme): 36 px to the eye, with a
+ * transparent 4 px ring that keeps the hit area at 44 px.
+ */
+export const iconButtonStyles = tw`relative inline-flex size-9 cursor-pointer items-center justify-center rounded-sm border border-border-control text-fg before:absolute before:-inset-1 before:content-[''] hover:border-border-strong`;

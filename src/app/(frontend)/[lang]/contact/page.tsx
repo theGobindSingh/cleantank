@@ -1,8 +1,6 @@
 import { site } from "@/site";
 import { H1, H2, P } from "@components/html";
-import LanguageSwitcher from "@components/language-switcher";
 import Link from "@components/link";
-import ThemeToggle from "@components/theme-toggle";
 import { getDictionary, localeAlternates, localePath, toLocale } from "@i18n";
 import { formatPhone } from "@utils/phone";
 import type { Metadata } from "next";
@@ -40,19 +38,10 @@ const renderOffice = (office: Office) => {
  */
 const ContactPage = async ({ params }: PageProps<"/[lang]/contact">) => {
   const locale = toLocale((await params).lang);
-  const dictionary = getDictionary(locale);
-  const { contact } = dictionary;
+  const { contact } = getDictionary(locale);
 
   return (
     <main className="mx-auto flex max-w-2xl flex-col gap-12 px-4 py-16">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <LanguageSwitcher
-          locale={locale}
-          path="/contact"
-          label={dictionary.language.label}
-        />
-        <ThemeToggle label={dictionary.theme.toggle} />
-      </div>
       <div className="flex flex-col gap-4">
         <H1 $margin="0">{contact.title}</H1>
         <ul className="flex flex-col gap-2">

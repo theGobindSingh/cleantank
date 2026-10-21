@@ -31,6 +31,24 @@ export const en = {
     accept: "Accept",
     decline: "Decline",
   },
+  header: {
+    nav: "Main",
+    menu: "Menu",
+    close: "Close menu",
+    links: {
+      homes: "Homes",
+      organisations: "Organisations",
+      franchise: "Franchise",
+      process: "Process",
+      about: "About",
+      contact: "Contact",
+    },
+  },
+  compare: {
+    label: "Before and after cleaning",
+    before: "Before",
+    after: "After",
+  },
   language: {
     label: "Language",
   },
