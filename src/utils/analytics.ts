@@ -14,6 +14,9 @@ const init = ({ default: posthog }: { default: PostHog }) => {
     // Nothing is stored or captured until the visitor answers the consent
     // banner; after a "no", visits are only counted without cookies.
     cookieless_mode: "on_reject",
+    // Analytics and feature flags only. Replay stays off here, so turning it
+    // on in the PostHog project changes nothing.
+    disable_session_recording: true,
   });
   /* eslint-enable camelcase -- back to the house style */
   return posthog;

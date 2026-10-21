@@ -53,6 +53,7 @@ An inline script in the root layout's `<head>` adds `<meta name="color-scheme">`
 
 - Sentry (`@sentry/nextjs`) reports errors from the server (`src/instrumentation.ts`), the browser (`src/instrumentation-client.ts`) and the error pages (`@components/error-content`). Errors only: no tracing and no session replay, so it needs no consent. Requests go through our own `/monitoring` route. It is off until `NEXT_PUBLIC_SENTRY_DSN` is set; `SENTRY_ORG`, `SENTRY_PROJECT` and `SENTRY_AUTH_TOKEN` upload source maps at build.
 - PostHog (`posthog-js`) loads after the page from `@utils/analytics`, through the `/ingest` rewrites in `next.config.js`. It runs with `cookieless_mode: "on_reject"`: nothing is stored or captured until the visitor answers `@components/consent-banner`, and after a "no" visits are only counted without cookies. It and the banner are off until `NEXT_PUBLIC_POSTHOG_KEY` is set, and it never runs on `/admin`. Use `loadAnalytics()` to reach it; don't import `posthog-js` directly.
+- PostHog does analytics and feature flags. Session replay is turned off in code (`disable_session_recording`) and isn't used. Read a flag in a client component with `useFeatureFlag(key)` from `@utils/use-feature-flag`; it is `undefined` until flags load, so render the default then.
 - `src/proxy.ts` skips `/ingest` and `/monitoring`; keep it that way when changing its matcher.
 
 ## Testing
