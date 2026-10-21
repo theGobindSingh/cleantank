@@ -4,7 +4,7 @@ import type { ButtonProps } from "./types";
 const Button = ({
   variant = "filled",
   size = "md",
-  color = "accent",
+  color = "primary",
   type = "button",
   className,
   style,

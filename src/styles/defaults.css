@@ -4,7 +4,22 @@
     background-color: var(--color-bg);
     color: var(--color-fg);
     font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-stretch: 78%;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
+    color: var(--color-heading);
   }
 
   :focus-visible {
@@ -22,4 +37,33 @@
       scroll-behavior: auto !important;
     }
   }
+}
+
+/*
+ * Devanagari and Gurmukhi are never capitalised, tracked or condensed, and need
+ * more leading. Unlayered on purpose, so it beats utilities like `uppercase`.
+ * Wrap Latin words inside Hindi or Punjabi text in lang="en" to keep their caps.
+ */
+:lang(hi),
+:lang(pa) {
+  font-stretch: 100%;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* every element, so a Hindi or Punjabi fragment on an English page gets it too */
+:lang(hi) {
+  line-height: 1.65;
+}
+
+:lang(pa) {
+  line-height: 1.6;
+}
+
+:is(h1, h2, h3):lang(hi) {
+  line-height: 1.35;
+}
+
+:is(h1, h2, h3):lang(pa) {
+  line-height: 1.3;
 }

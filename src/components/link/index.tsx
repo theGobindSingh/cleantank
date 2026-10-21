@@ -6,29 +6,54 @@ const isExternal = (href: string): boolean => {
   return /^(https?:)?\/\//.test(href);
 };
 
-/** next/link for every href; external ones also open in a new tab safely. */
+// mailto:, tel:, whatsapp: and the like aren't routes
+const hasScheme = (href: string): boolean => {
+  return /^[a-z][a-z\d+.-]*:/i.test(href);
+};
+
+/**
+ * next/link for routes. A plain <a> for external links (opened in a new tab
+ * safely), other schemes, and anything marked `native`.
+ */
 const Link = ({
   variant = "text",
   size = "md",
-  color = "accent",
+  color = "primary",
+  native = false,
   href,
   className,
   style,
   children,
   ...rest
 }: LinkProps) => {
-  const externalProps = isExternal(href)
-    ? { target: "_blank", rel: "noopener noreferrer" }
-    : {};
+  const sharedProps = {
+    href,
+    style: { ...colorStyleVars(color), ...style },
+    className: interactionStyles({ variant, size, className }),
+  };
+
+  if (native || isExternal(href) || hasScheme(href)) {
+    // next/link-only options aren't valid on <a>
+    const {
+      prefetch,
+      replace,
+      scroll,
+      onNavigate,
+      transitionTypes,
+      ...anchorProps
+    } = rest;
+    const externalProps = isExternal(href)
+      ? { target: "_blank", rel: "noopener noreferrer" }
+      : {};
+    return (
+      <a {...sharedProps} {...externalProps} {...anchorProps}>
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <NextLink
-      href={href}
-      style={{ ...colorStyleVars(color), ...style }}
-      className={interactionStyles({ variant, size, className })}
-      {...externalProps}
-      {...rest}
-    >
+    <NextLink {...sharedProps} {...rest}>
       {children}
     </NextLink>
   );

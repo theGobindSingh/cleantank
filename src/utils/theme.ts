@@ -31,17 +31,15 @@ export const applyTheme = (theme: Theme): void => {
 
 /**
  * Inline script for <head>: runs before <body> paints, so there is no flash.
- * Saved choice first, then the OS preference. Doesn't write to storage, so
- * users who never toggle keep following their OS setting.
+ * Saved choice, else light: the OS preference is ignored on purpose, so the
+ * site is light until the visitor picks dark.
  */
 export const THEME_INIT_SCRIPT = `(function initTheme() {
   let theme = "light";
   try {
     theme = localStorage.getItem("${THEME_KEY}");
   } catch {}
-  if (theme !== "light" && theme !== "dark") {
-    theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  }
+  if (theme !== "dark") theme = "light";
   let meta = document.createElement("meta");
   meta.name = "color-scheme";
   meta.content = theme;

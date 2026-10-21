@@ -6,12 +6,12 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 // ImageResponse can't read CSS variables, so these mirror the light theme in
-// src/styles/colors.css (grey-50, grey-950, grey-700, accent-600).
+// src/styles/colors.css (white, primary-700, grey-600, band).
 const COLORS = {
-  bg: "hsl(210 12% 97%)",
-  fg: "hsl(210 17.5% 5%)",
-  muted: "hsl(209 12% 38%)",
-  accent: "hsl(15 100% 40.75%)",
+  bg: "#ffffff",
+  fg: "#20334b",
+  muted: "#65655f",
+  band: "#20334b",
 };
 
 /** Default social preview image, generated at build time. */
@@ -27,15 +27,13 @@ const OpengraphImage = () => {
         height: "100%",
         padding: 96,
         background: COLORS.bg,
-        borderTop: `16px solid ${COLORS.accent}`,
+        borderTop: `16px solid ${COLORS.band}`,
       }}
     >
       <div style={{ fontSize: 72, fontWeight: 700, color: COLORS.fg }}>
         {site.name}
       </div>
-      <div style={{ fontSize: 36, color: COLORS.muted }}>
-        {site.description}
-      </div>
+      <div style={{ fontSize: 36, color: COLORS.muted }}>{site.descriptor}</div>
     </div>,
     size,
   );

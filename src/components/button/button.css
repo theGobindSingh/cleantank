@@ -1,52 +1,81 @@
 /*
  * Shared styles for the Button and Link primitives.
  *
- * Colors come from two CSS vars set inline by `colorStyleVars` (styles.ts):
- *   --c        base color   e.g. var(--color-accent-600)
- *   --c-hover  hover color  e.g. var(--color-accent-700)
+ * Colors come from four CSS vars:
+ *   --c         base color    e.g. var(--color-error-700)
+ *   --c-hover   hover color   e.g. var(--color-error-600)
+ *   --c-active  pressed color e.g. var(--color-error-800)
+ *   --c-on      label on a filled button
+ * Primary uses the primary roles, so it follows dark mode and
+ * [data-surface="band"] (white fill, navy label). For other families
+ * `colorStyleVars` (styles.ts) sets --c-light-* and --c-dark-* inline, and the
+ * rule at the end of this file switches to the dark set by mode.
  *
  * Declared with @utility (not @layer components) so Tailwind v4 treats these
  * as real utilities: they merge with className overrides and lint recognizes them.
  */
 
 @utility btn {
+  --c: var(--c-light, var(--color-primary));
+  --c-hover: var(--c-light-hover, var(--color-primary-hover));
+  --c-active: var(--c-light-active, var(--color-primary-active));
+  --c-on: var(--c-light-on, var(--color-on-primary));
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.5em 1.25em;
-  border-radius: var(--radius-md);
-  font-weight: 500;
+  min-height: 3rem;
+  min-width: 7.5rem;
+  padding: 0 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
   transition-property: color, background-color, border-color;
-  transition-duration: 150ms;
+  transition-duration: 110ms;
 
   &:disabled,
   &[aria-disabled="true"] {
     cursor: not-allowed;
     pointer-events: none;
-    opacity: 0.5;
+    border-color: var(--color-disabled-bg);
+    background-color: var(--color-disabled-bg);
+    color: var(--color-disabled);
   }
 }
 
+/* compact, for dense desktop tables only */
 @utility btn-sm {
-  font-size: var(--text-sm);
+  min-height: 2.75rem;
+  min-width: 0;
+  padding: 0 1rem;
 }
 
 @utility btn-lg {
-  font-size: var(--text-lg);
+  min-height: 3.5rem;
+  padding: 0 2rem;
+  font-size: 1rem;
 }
 
 @utility btn-filled {
   border: 1px solid var(--c);
   background-color: var(--c);
-  color: var(--color-grey-50);
+  color: var(--c-on);
 
   &:hover {
     border-color: var(--c-hover);
     background-color: var(--c-hover);
+  }
+
+  &:active {
+    border-color: var(--c-active);
+    background-color: var(--c-active);
   }
 }
 
@@ -56,18 +85,37 @@
   color: var(--c);
 
   &:hover {
-    border-color: var(--c-hover);
-    background-color: var(--c-hover);
-    color: var(--color-grey-50);
+    background-color: color-mix(in srgb, var(--c) 8%, transparent);
+  }
+
+  &:active {
+    background-color: color-mix(in srgb, var(--c) 14%, transparent);
   }
 }
 
+/* an underlined text link; hover darkens, so it uses the pressed color */
 @utility btn-text {
+  min-width: 0;
+  min-height: 0;
   padding: 0;
   background-color: transparent;
   color: var(--c);
+  text-decoration: underline 1px;
+  text-underline-offset: 3px;
 
   &:hover {
-    color: var(--c-hover);
+    color: var(--c-active);
+    text-decoration-thickness: 2px;
   }
+}
+
+/* dark mode and bands: the light stops of a family, with a navy label */
+:root:has(meta[name="color-scheme"][content="dark"])
+  .btn:not([data-scheme="light"] .btn),
+[data-scheme="dark"] .btn,
+[data-surface="band"] .btn {
+  --c: var(--c-dark, var(--color-primary));
+  --c-hover: var(--c-dark-hover, var(--color-primary-hover));
+  --c-active: var(--c-dark-active, var(--color-primary-active));
+  --c-on: var(--c-dark-on, var(--color-on-primary));
 }

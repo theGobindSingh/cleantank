@@ -1,4 +1,3 @@
-import { tw } from "@utils/tw";
 import { resolveTextStyles } from "./styles";
 import type { TextDefaults, TextProps } from "./types";
 
@@ -40,11 +39,7 @@ const Text = ({
   );
 
   return (
-    <Tag
-      className={tw("leading-normal tracking-normal", className)}
-      style={textStyle}
-      {...rest}
-    >
+    <Tag className={className} style={textStyle} {...rest}>
       {children}
     </Tag>
   );

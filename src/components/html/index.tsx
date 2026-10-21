@@ -7,7 +7,7 @@ export const H1 = (props: TextProps) => {
     <Text
       {...props}
       as="h1"
-      defaults={{ size: "4xl", weight: "700", margin: "0 0 0.75em 0" }}
+      defaults={{ size: "h1", weight: "700", margin: "0 0 0.75em 0" }}
     />
   );
 };
@@ -17,7 +17,7 @@ export const H2 = (props: TextProps) => {
     <Text
       {...props}
       as="h2"
-      defaults={{ size: "2xl", weight: "700", margin: "0 0 0.5em 0" }}
+      defaults={{ size: "h2", weight: "700", margin: "0 0 0.5em 0" }}
     />
   );
 };
@@ -27,7 +27,7 @@ export const H3 = (props: TextProps) => {
     <Text
       {...props}
       as="h3"
-      defaults={{ size: "m", weight: "500", margin: "0 0 0.25em 0" }}
+      defaults={{ size: "h3", weight: "700", margin: "0 0 0.25em 0" }}
     />
   );
 };
@@ -37,7 +37,7 @@ export const P = (props: TextProps) => {
     <Text
       {...props}
       as="p"
-      defaults={{ size: "2xs", weight: "400", margin: "0" }}
+      defaults={{ size: "body", weight: "400", margin: "0" }}
     />
   );
 };
@@ -47,7 +47,7 @@ export const Span = (props: TextProps) => {
     <Text
       {...props}
       as="span"
-      defaults={{ size: "1xs", weight: "400", margin: "0" }}
+      defaults={{ size: "body", weight: "400", margin: "0" }}
     />
   );
 };

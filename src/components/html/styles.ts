@@ -6,9 +6,14 @@ import type {
   TextDefaults,
 } from "./types";
 
-const resolveColor = (color?: ColorToken, stop?: ColorStop): string => {
-  if (!color) return "inherit";
-  if (color === "black" || color === "white") return `var(--color-${color})`;
+// Unset props return undefined, so the base styles in defaults.css apply
+// (heading color, line height and tracking).
+const resolveColor = (
+  color?: ColorToken,
+  stop?: ColorStop,
+): string | undefined => {
+  if (!color) return undefined;
+  if (color === "white") return "var(--color-white)";
   return `var(--color-${color}-${stop ?? "400"})`;
 };
 
@@ -21,8 +26,8 @@ export const resolveTextStyles = (
     fontSize: `var(--fs-${props.$size ?? defaults.size})`,
     fontWeight: props.$weight ?? defaults.weight,
     margin: props.$margin ?? defaults.margin,
-    lineHeight: props.$lineHeight ?? "normal",
-    letterSpacing: props.$letterSpacing ?? "normal",
+    lineHeight: props.$lineHeight,
+    letterSpacing: props.$letterSpacing,
     ...props.style,
   };
 };

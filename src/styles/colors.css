@@ -1,172 +1,234 @@
 /*
  * Raw color ramps as space-separated HSL triplets, so any stop can take an alpha:
- *   hsl(var(--color-grey-900-base) / 0.1)
- * globals.css turns each triplet into a solid color + Tailwind utility.
- * Dark mode (see @utils/theme) only swaps the triplets (50 ↔ 950); nothing else changes.
+ *   hsl(var(--color-primary-900-base) / 0.7)
+ * globals.css turns each triplet into a solid color + Tailwind utility, and
+ * defines the semantic roles on top of them.
+ * Ramps are fixed in every mode. Dark mode and navy bands re-map the roles
+ * (below), never the ramps: brand dark mode is navy-based, not inverted.
+ * State ramps: 700 is text, 100 soft fill, 500 border and icon, 300 text in dark mode.
+ * Secondary: 700 is text, rules and fills, 100 soft fill, 500 border, 300 text in dark mode.
  */
 
 :root {
-  --color-black-base: 0 0% 0%;
   --color-white-base: 0 0% 100%;
 
-  /* grey */
-  --color-grey-50-base: 210 12% 97%;
-  --color-grey-100-base: 210 13% 91%;
-  --color-grey-200-base: 210 13% 82%;
-  --color-grey-300-base: 208 14% 76%;
-  --color-grey-400-base: 211 14% 68%;
-  --color-grey-500-base: 211 11% 59%;
-  --color-grey-600-base: 209 9% 50%;
-  --color-grey-700-base: 209 12% 38%;
-  --color-grey-800-base: 209 14% 25%;
-  --color-grey-900-base: 210 22% 15%;
-  --color-grey-950-base: 210 17.5% 5%;
+  /* primary: steel-navy, 700 #20334b locked */
+  --color-primary-50-base: 217 40% 96%;
+  --color-primary-100-base: 213 39% 91%;
+  --color-primary-200-base: 213 39% 82%;
+  --color-primary-300-base: 214 40% 70%;
+  --color-primary-400-base: 214 40% 56%;
+  --color-primary-500-base: 214 40% 43%;
+  --color-primary-600-base: 214 40% 32%;
+  --color-primary-700-base: 213 40% 21%;
+  --color-primary-800-base: 215 40% 15%;
+  --color-primary-900-base: 214 41% 10%;
+  --color-primary-950-base: 216 42.9% 6.9%;
 
-  /* accent */
-  --color-accent-50-base: 15 100% 95%;
-  --color-accent-100-base: 15 100% 88%;
-  --color-accent-200-base: 16 100% 82%;
-  --color-accent-300-base: 17 100% 74%;
-  --color-accent-400-base: 18 100% 64%;
-  --color-accent-500-base: 16 100% 47%;
-  --color-accent-600-base: 15 100% 40.75%;
-  --color-accent-700-base: 14 100% 19%;
-  --color-accent-800-base: 14 100% 9%;
-  --color-accent-900-base: 14 100% 4%;
-  --color-accent-950-base: 14 100% 2%;
+  /* accent: coral, 500 #ee7555 locked. A marker only, never a button,
+     link, body text or alert */
+  --color-accent-50-base: 13 90% 96%;
+  --color-accent-100-base: 11.7 90% 92.2%;
+  --color-accent-200-base: 12.9 85.4% 83.9%;
+  --color-accent-300-base: 13 84% 75%;
+  --color-accent-400-base: 13 83% 68%;
+  --color-accent-500-base: 12.5 81.8% 63.3%;
+  --color-accent-600-base: 13 68% 46%;
+  --color-accent-700-base: 13 68% 38%;
+  --color-accent-800-base: 13 59% 29%;
+  --color-accent-900-base: 13 55% 20%;
+  --color-accent-950-base: 13.1 53.3% 11.8%;
+
+  /* secondary: indigo slate, 700 #484474 (owner-approved). A quiet partner
+     to navy for tags, chart series, heading rules and one emphasis band;
+     never a button, link or status */
+  --color-secondary-50-base: 245 19.5% 96.5%;
+  --color-secondary-100-base: 245 19.5% 92.5%;
+  --color-secondary-200-base: 245 23.4% 84%;
+  --color-secondary-300-base: 245 23.4% 72%;
+  --color-secondary-400-base: 245 26% 59%;
+  --color-secondary-500-base: 245 26% 49%;
+  --color-secondary-600-base: 245 26% 42%;
+  --color-secondary-700-base: 245 26% 36%;
+  --color-secondary-800-base: 245 26% 28%;
+  --color-secondary-900-base: 245 26% 22%;
+  --color-secondary-950-base: 245 26% 17%;
+
+  /* grey: stone (50) to graphite (900). 500 is the lightest control
+     border, 600 the lightest text; 400 and lighter are decorative only */
+  --color-grey-50-base: 45 16.7% 95.3%;
+  --color-grey-100-base: 48 11.6% 91.6%;
+  --color-grey-200-base: 50 8% 86%;
+  --color-grey-300-base: 50 5% 77%;
+  --color-grey-400-base: 50 3.4% 65.1%;
+  --color-grey-500-base: 50 2.4% 51%;
+  --color-grey-600-base: 60 3.1% 38.4%;
+  --color-grey-700-base: 80 2% 29%;
+  --color-grey-800-base: 204 4.5% 21.8%;
+  --color-grey-900-base: 204 6.3% 15.5%;
+  --color-grey-950-base: 200 6.1% 9.6%;
 
   /* success */
-  --color-success-50-base: 145 88% 98%;
-  --color-success-100-base: 145 88% 96%;
-  --color-success-200-base: 145 88% 93%;
-  --color-success-300-base: 145 88% 85%;
-  --color-success-400-base: 145 88% 70%;
-  --color-success-500-base: 145 88% 56%;
-  --color-success-600-base: 145 88% 42%;
-  --color-success-700-base: 145 88% 28%;
-  --color-success-800-base: 145 88% 14%;
-  --color-success-900-base: 145 88% 5%;
-  --color-success-950-base: 145 88% 2%;
+  --color-success-50-base: 137.1 38.9% 96.5%;
+  --color-success-100-base: 137 39% 93%;
+  --color-success-200-base: 139.1 48.3% 77.6%;
+  --color-success-300-base: 139.4 50% 62.4%;
+  --color-success-400-base: 140 41.6% 51.3%;
+  --color-success-500-base: 140.5 54.1% 40.2%;
+  --color-success-600-base: 140.1 56.9% 35%;
+  --color-success-700-base: 139.6 60.5% 29.8%;
+  --color-success-800-base: 139.6 60.5% 21.5%;
+  --color-success-900-base: 139.6 60.5% 14.3%;
+  --color-success-950-base: 139.6 60.5% 8.3%;
 
   /* caution */
-  --color-caution-50-base: 30 88% 98%;
-  --color-caution-100-base: 30 88% 96%;
-  --color-caution-200-base: 30 88% 93%;
-  --color-caution-300-base: 30 88% 85%;
-  --color-caution-400-base: 30 88% 70%;
-  --color-caution-500-base: 30 88% 56%;
-  --color-caution-600-base: 30 88% 42%;
-  --color-caution-700-base: 30 88% 28%;
-  --color-caution-800-base: 30 88% 14%;
-  --color-caution-900-base: 30 88% 5%;
-  --color-caution-950-base: 30 88% 2%;
+  --color-caution-50-base: 44 100% 96%;
+  --color-caution-100-base: 44 100% 92%;
+  --color-caution-200-base: 42 81% 76%;
+  --color-caution-300-base: 42 77% 60%;
+  --color-caution-400-base: 40.6 69.3% 47.3%;
+  --color-caution-500-base: 39.5 100% 34.5%;
+  --color-caution-600-base: 39.4 100% 30.8%;
+  --color-caution-700-base: 39 100% 27%;
+  --color-caution-800-base: 39.1 100% 19.5%;
+  --color-caution-900-base: 39 100% 13%;
+  --color-caution-950-base: 39.1 100% 7.6%;
 
   /* info */
-  --color-info-50-base: 200 88% 98%;
-  --color-info-100-base: 200 88% 96%;
-  --color-info-200-base: 200 88% 93%;
-  --color-info-300-base: 200 88% 85%;
-  --color-info-400-base: 200 88% 70%;
-  --color-info-500-base: 200 88% 56%;
-  --color-info-600-base: 200 88% 42%;
-  --color-info-700-base: 200 88% 28%;
-  --color-info-800-base: 200 88% 14%;
-  --color-info-900-base: 200 88% 5%;
-  --color-info-950-base: 200 88% 2%;
+  --color-info-50-base: 198 58.8% 96.7%;
+  --color-info-100-base: 198 58.8% 93.3%;
+  --color-info-200-base: 198.4 64.6% 81.2%;
+  --color-info-300-base: 198.5 65.8% 69%;
+  --color-info-400-base: 198.6 56.4% 56.9%;
+  --color-info-500-base: 198.8 63.2% 44.7%;
+  --color-info-600-base: 198.9 65.3% 39%;
+  --color-info-700-base: 199.1 68.2% 33.3%;
+  --color-info-800-base: 199.1 68.2% 24%;
+  --color-info-900-base: 199 68% 16%;
+  --color-info-950-base: 199.1 68.2% 9.3%;
 
   /* error */
-  --color-error-50-base: 357 100% 95%;
-  --color-error-100-base: 357 100% 86%;
-  --color-error-200-base: 357 100% 79%;
-  --color-error-300-base: 356 100% 71%;
-  --color-error-400-base: 357 100% 60%;
-  --color-error-500-base: 4 100% 50%;
-  --color-error-600-base: 6 100% 33%;
-  --color-error-700-base: 6 100% 16%;
-  --color-error-800-base: 6 100% 8%;
-  --color-error-900-base: 6 100% 4%;
-  --color-error-950-base: 6 100% 2%;
+  --color-error-50-base: 342.4 73.9% 97.7%;
+  --color-error-100-base: 342.4 73.9% 95.5%;
+  --color-error-200-base: 343 79% 85%;
+  --color-error-300-base: 343.1 79.8% 74.7%;
+  --color-error-400-base: 343.7 68.2% 63%;
+  --color-error-500-base: 344 62.1% 51.4%;
+  --color-error-600-base: 343.4 65.5% 45.5%;
+  --color-error-700-base: 342.8 74.3% 39.6%;
+  --color-error-800-base: 342.8 74.3% 28.5%;
+  --color-error-900-base: 342.8 74.3% 19%;
+  --color-error-950-base: 343 74% 11%;
 }
 
-:root:has(meta[name="color-scheme"][content="dark"]) {
-  --color-black-base: 0 0% 100%;
-  --color-white-base: 0 0% 0%;
+/*
+ * Preview scopes: data-scheme="light" or "dark" on any element shows that
+ * mode inside it, whatever the page's theme (used by /design). The light copy
+ * must match the light roles in globals.css; src/styles/colors.test.ts checks it.
+ */
+[data-scheme="light"] {
+  --color-bg: var(--color-white);
+  --color-bg-subtle: var(--color-grey-50);
+  --color-surface: var(--color-white);
+  --color-band: var(--color-primary-700);
+  --color-fg: var(--color-grey-900);
+  --color-fg-muted: var(--color-grey-600);
+  --color-heading: var(--color-primary-700);
+  --color-link: var(--color-primary-700);
+  --color-link-hover: var(--color-primary-800);
+  --color-border: var(--color-grey-300);
+  --color-border-control: var(--color-grey-500);
+  --color-border-strong: var(--color-primary-700);
+  --color-primary: var(--color-primary-700);
+  --color-primary-hover: var(--color-primary-600);
+  --color-primary-active: var(--color-primary-800);
+  --color-on-primary: var(--color-white);
+  --color-marker: var(--color-accent-500);
+  --color-marker-text: var(--color-accent-700);
+  --color-secondary: var(--color-secondary-700);
+  --color-secondary-bg: var(--color-secondary-100);
+  --color-secondary-border: var(--color-secondary-500);
+  --color-focus: var(--color-primary-700);
+  --color-disabled: var(--color-grey-500);
+  --color-disabled-bg: var(--color-grey-100);
+  --color-success: var(--color-success-700);
+  --color-success-bg: var(--color-success-100);
+  --color-success-border: var(--color-success-500);
+  --color-caution: var(--color-caution-700);
+  --color-caution-bg: var(--color-caution-100);
+  --color-caution-border: var(--color-caution-500);
+  --color-info: var(--color-info-700);
+  --color-info-bg: var(--color-info-100);
+  --color-info-border: var(--color-info-500);
+  --color-error: var(--color-error-700);
+  --color-error-bg: var(--color-error-100);
+  --color-error-border: var(--color-error-500);
 
-  /* grey */
-  --color-grey-50-base: 210 17.5% 5%;
-  --color-grey-100-base: 210 22% 15%;
-  --color-grey-200-base: 209 14% 25%;
-  --color-grey-300-base: 209 12% 38%;
-  --color-grey-400-base: 209 9% 50%;
-  --color-grey-500-base: 211 11% 59%;
-  --color-grey-600-base: 211 14% 68%;
-  --color-grey-700-base: 208 14% 76%;
-  --color-grey-800-base: 210 13% 82%;
-  --color-grey-900-base: 210 13% 91%;
-  --color-grey-950-base: 210 12% 97%;
+  color-scheme: light;
+}
 
-  /* accent */
-  --color-accent-50-base: 14 100% 2%;
-  --color-accent-100-base: 14 100% 4%;
-  --color-accent-200-base: 14 100% 9%;
-  --color-accent-300-base: 14 100% 19%;
-  --color-accent-400-base: 15 100% 40.75%;
-  --color-accent-500-base: 16 100% 47%;
-  --color-accent-600-base: 18 100% 64%;
-  --color-accent-700-base: 17 100% 74%;
-  --color-accent-800-base: 16 100% 82%;
-  --color-accent-900-base: 15 100% 88%;
-  --color-accent-950-base: 15 100% 95%;
+/* dark: navy-based, never black (see @utils/theme for the meta tag) */
+:root:has(meta[name="color-scheme"][content="dark"]),
+[data-scheme="dark"] {
+  --color-bg: var(--color-primary-900);
+  --color-bg-subtle: var(--color-primary-800);
+  --color-surface: var(--color-primary-700);
+  --color-fg: var(--color-primary-50);
+  --color-fg-muted: var(--color-primary-200);
+  --color-heading: var(--color-white);
+  --color-link: var(--color-primary-200);
+  --color-link-hover: var(--color-white);
+  --color-border: var(--color-primary-600);
+  --color-border-control: var(--color-primary-400);
+  --color-border-strong: var(--color-white);
+  --color-primary: var(--color-white);
+  --color-primary-hover: var(--color-grey-100);
+  --color-primary-active: var(--color-grey-200);
+  --color-on-primary: var(--color-primary-700);
+  --color-marker-text: var(--color-accent-400);
+  --color-secondary: var(--color-secondary-300);
+  --color-secondary-bg: var(--color-primary-700);
+  --color-secondary-border: var(--color-secondary-300);
+  --color-focus: var(--color-white);
+  --color-disabled: var(--color-primary-400);
+  --color-disabled-bg: var(--color-primary-700);
+  --color-success: var(--color-success-300);
+  --color-success-bg: var(--color-primary-700);
+  --color-success-border: var(--color-success-300);
+  --color-caution: var(--color-caution-300);
+  --color-caution-bg: var(--color-primary-700);
+  --color-caution-border: var(--color-caution-300);
+  --color-info: var(--color-info-300);
+  --color-info-bg: var(--color-primary-700);
+  --color-info-border: var(--color-info-300);
+  --color-error: var(--color-error-300);
+  --color-error-bg: var(--color-primary-700);
+  --color-error-border: var(--color-error-300);
 
-  /* success */
-  --color-success-50-base: 145 88% 2%;
-  --color-success-100-base: 145 88% 5%;
-  --color-success-200-base: 145 88% 14%;
-  --color-success-300-base: 145 88% 28%;
-  --color-success-400-base: 145 88% 42%;
-  --color-success-500-base: 145 88% 56%;
-  --color-success-600-base: 145 88% 70%;
-  --color-success-700-base: 145 88% 85%;
-  --color-success-800-base: 145 88% 93%;
-  --color-success-900-base: 145 88% 96%;
-  --color-success-950-base: 145 88% 98%;
+  color-scheme: dark;
+}
 
-  /* caution */
-  --color-caution-50-base: 30 88% 2%;
-  --color-caution-100-base: 30 88% 5%;
-  --color-caution-200-base: 30 88% 14%;
-  --color-caution-300-base: 30 88% 28%;
-  --color-caution-400-base: 30 88% 42%;
-  --color-caution-500-base: 30 88% 56%;
-  --color-caution-600-base: 30 88% 70%;
-  --color-caution-700-base: 30 88% 85%;
-  --color-caution-800-base: 30 88% 93%;
-  --color-caution-900-base: 30 88% 96%;
-  --color-caution-950-base: 30 88% 98%;
+/*
+ * navy band (header, footer, process band), in either mode. For the secondary
+ * emphasis band, also set --color-band: [--color-band:var(--color-secondary-700)]
+ */
+[data-surface="band"] {
+  --color-fg: var(--color-white);
+  --color-fg-muted: var(--color-primary-200);
+  --color-heading: var(--color-white);
+  --color-link: var(--color-white);
+  --color-link-hover: var(--color-white);
+  --color-border: var(--color-primary-500);
+  --color-border-control: var(--color-primary-400);
+  --color-border-strong: var(--color-white);
+  --color-primary: var(--color-white);
+  --color-primary-hover: var(--color-grey-50);
+  --color-primary-active: var(--color-grey-100);
+  --color-on-primary: var(--color-primary-700);
+  --color-marker-text: var(--color-accent-400);
+  --color-secondary: var(--color-secondary-300);
+  --color-focus: var(--color-white);
 
-  /* info */
-  --color-info-50-base: 200 88% 2%;
-  --color-info-100-base: 200 88% 5%;
-  --color-info-200-base: 200 88% 14%;
-  --color-info-300-base: 200 88% 28%;
-  --color-info-400-base: 200 88% 42%;
-  --color-info-500-base: 200 88% 56%;
-  --color-info-600-base: 200 88% 70%;
-  --color-info-700-base: 200 88% 85%;
-  --color-info-800-base: 200 88% 93%;
-  --color-info-900-base: 200 88% 96%;
-  --color-info-950-base: 200 88% 98%;
-
-  /* error */
-  --color-error-50-base: 6 100% 2%;
-  --color-error-100-base: 6 100% 4%;
-  --color-error-200-base: 6 100% 8%;
-  --color-error-300-base: 6 100% 16%;
-  --color-error-400-base: 6 100% 33%;
-  --color-error-500-base: 4 100% 50%;
-  --color-error-600-base: 357 100% 60%;
-  --color-error-700-base: 356 100% 71%;
-  --color-error-800-base: 357 100% 79%;
-  --color-error-900-base: 357 100% 86%;
-  --color-error-950-base: 357 100% 95%;
+  background-color: var(--color-band);
+  color: var(--color-fg);
 }

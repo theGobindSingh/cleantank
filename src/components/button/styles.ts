@@ -31,9 +31,22 @@ export const interactionStyles = ({
   return tw("btn", variantClassName[variant], sizeClass, className);
 };
 
+/**
+ * Primary keeps the defaults in button.css, which follow dark mode and navy
+ * bands. Other families pass both sets of stops; button.css picks one by mode:
+ * 700 / 600 / 800 with a white label on light grounds, 300 / 200 / 100 with a
+ * navy label in dark mode and bands.
+ */
 export const colorStyleVars = (color: ColorFamily): CSSProperties => {
+  if (color === "primary") return {};
   return {
-    "--c": `var(--color-${color}-600)`,
-    "--c-hover": `var(--color-${color}-700)`,
+    "--c-light": `var(--color-${color}-700)`,
+    "--c-light-hover": `var(--color-${color}-600)`,
+    "--c-light-active": `var(--color-${color}-800)`,
+    "--c-light-on": "var(--color-white)",
+    "--c-dark": `var(--color-${color}-300)`,
+    "--c-dark-hover": `var(--color-${color}-200)`,
+    "--c-dark-active": `var(--color-${color}-100)`,
+    "--c-dark-on": "var(--color-primary-900)",
   } as CSSProperties;
 };
