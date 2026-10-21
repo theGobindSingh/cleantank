@@ -8,7 +8,9 @@ import {
   type Ref,
 } from "react";
 
-type WrapperElementProps = HTMLAttributes<HTMLElement>;
+// data-* attributes too, e.g. data-surface="band" for a navy band
+type WrapperElementProps = HTMLAttributes<HTMLElement> &
+  Partial<Record<`data-${string}`, string>>;
 
 export interface CommonFullWidthWrapperProps {
   children?: ReactNode;
@@ -60,7 +62,8 @@ const CommonFullWidthWrapper = ({
         element,
         {
           ref,
-          className: "mx-auto w-[85%] max-[1024px]:w-[90%]",
+          // docs/DESIGN.md, Layout: content never wider than 1200 px
+          className: "mx-auto w-[85%] max-w-[1200px] max-[1024px]:w-[90%]",
         },
         children,
       )}
