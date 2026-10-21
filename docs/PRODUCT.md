@@ -2,7 +2,7 @@
 
 What this site is, who it serves and what it may say. Agents read this before deciding pages, copy or structure.
 
-Facts, figures, legal text, contact details, client names and website-safe long copy come from `docs/ref/INFO-BANK.md`, which the owner approved. When this file and INFO-BANK disagree on a fact, INFO-BANK wins.
+Facts, figures, legal text, contact details, client names and website-safe long copy come from `docs/ref/INFO-BANK.md`. When this file and INFO-BANK disagree on a fact, INFO-BANK wins.
 
 ## The business
 
@@ -48,7 +48,7 @@ The old 6-step version is retired. After the service the customer gets a Cleanin
 
 The real competitor is the local plumber or labourer, and doing nothing. Never criticise either. The question every page should answer is "What difference will your service actually make?"
 
-Conversion goals, in order: service enquiry, AMC enquiry, franchise enquiry. Channels are phone, WhatsApp, the website and the enquiry form. An enquiry asks only for what planning needs: name, location, tank type, capacity, requirement and time since the last cleaning.
+Conversion goals, in order: service enquiry, AMC enquiry, franchise enquiry. Channels are phone, WhatsApp, the website and the enquiry form. An enquiry asks only for what planning needs: name, location, tank type, capacity, requirement and time since the last cleaning. Form submissions go through [ez-gform](https://github.com/webadeva/ez-gform); the details come when the form is built.
 
 ## Site structure
 
@@ -58,9 +58,9 @@ Navigation (at most six items in the header): About, Services, Process, AMC, Fra
 
 Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner". Never "Submit" or "Book now".
 
-Languages: English at `/`, Hindi at `/hi`, Punjabi at `/pa`. Routing, fonts, Payload locales and the interface strings for all three are in place; page content is English only so far. Every Hindi and Punjabi text needs a native-speaker review before it goes live, and an untranslated page shows English with a short note, never a half-translation. Hindi and Punjabi sentences end with the danda (।).
+Languages: English at `/`, Hindi at `/hi`, Punjabi at `/pa`. Routing, fonts, Payload locales and the interface strings for all three are in place. Whoever adds or changes English content writes the Hindi and Punjabi versions in the same change; no review is needed before they go live. If a translation is still missing, the page shows English with a short note, never a half-translation. Hindi and Punjabi sentences end with the danda (।).
 
-All of this content, including contact details, client lists and franchise figures, goes into Payload, not into components.
+Page content, client lists and franchise figures go into Payload, not into components. Site-wide constants (name, brand lines, URL, phone, WhatsApp, email, offices, GSTIN) live in `src/site.ts`, so one edit changes them everywhere.
 
 ## Voice
 
@@ -95,6 +95,7 @@ Safe to state:
 - "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Never "accredited", "internationally recognised", UKAS or IAF.
 - Operating states: Punjab, Delhi, Uttar Pradesh, Himachal Pradesh, Madhya Pradesh, Jharkhand, Maharashtra.
 - GSTIN 09LFS1473F5ZU.
+- The LIC tank story happened in Kanpur.
 
 Needs a document before use: non-toxic, biodegradable, eco-friendly, how long the treatment lasts, the CPWD DSR listing (exact edition and item), the "60% of diseases are water-borne" figure, the Delhi Railway Station story.
 
@@ -102,9 +103,9 @@ Every "safe" or "bacteria-free" line carries the qualifier that water quality al
 
 Franchise pages may use only these figures, with the financial disclaimer from INFO-BANK §8 directly beside them: investment ₹3 to 8 lakh, royalty 3.5% per month as applicable to the model, indicative ROI 40% or above subject to actual performance, payback 4 to 6 months, office about 150 sq ft or home-based, 3-year agreement. Don't state what ROI or royalty is calculated on, what each model includes, or territory exclusivity. The retired franchise copy listed in INFO-BANK (guaranteed income, event offers, "06-stage", "Remember business is for PROFIT!") never appears.
 
-Client names and logos need the client's permission before they go live. The list is in INFO-BANK; keep its spellings. IIT Delhi is a client (INFO-BANK lists it under "IITs across India"), and its logo is in `public/assets/images/clients/institutional/`.
+Clients have given permission to show their names and logos. The list is in INFO-BANK; keep its spellings. IIT Delhi is a client (INFO-BANK lists it under "IITs across India"), and its logo is in `public/assets/images/clients/institutional/`.
 
-Contact details come only from INFO-BANK §12. There is no WhatsApp number yet; don't make one up.
+Contact details come only from INFO-BANK §1, through `src/site.ts`. WhatsApp is +91 94535 17514 for now.
 
 ## Avoid
 
@@ -113,10 +114,3 @@ Contact details come only from INFO-BANK §12. There is no WhatsApp number yet; 
 - Sales pressure: countdowns, limited slots, discount badges, festive offers.
 - Corporate distance or claims to be international.
 - Attacks on competitors.
-
-## Open questions for the owner
-
-- Where the LIC tank story happened: the brand story names both Lucknow and Kanpur.
-- Whether UV is a required fifth step or "where applicable" (INFO-BANK says the latter; follow it until told otherwise).
-- WhatsApp number.
-- Permission for each client logo.
