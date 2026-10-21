@@ -13,6 +13,7 @@
     "prebuild": "pnpm run lint:fix",
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "pnpm migrate && pnpm build",
     "start": "next start",
     "payload": "PAYLOAD_DB_DIRECT=1 payload",
     "migrate": "pnpm payload migrate",
