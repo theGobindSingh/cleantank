@@ -1,4 +1,5 @@
 import { media } from "@/collections/media";
+import { pages } from "@/collections/pages";
 import { users } from "@/collections/users";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
@@ -25,7 +26,7 @@ export default buildConfig({
     user: users.slug,
     importMap: { baseDir: dirname },
   },
-  collections: [users, media],
+  collections: [users, media, pages],
   editor: lexicalEditor(),
   // Same codes as src/i18n/config.ts. Mark a field `localized: true` to translate it;
   // a missing translation falls back to English.
