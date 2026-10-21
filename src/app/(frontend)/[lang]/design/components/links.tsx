@@ -7,8 +7,9 @@ const LinkExamples = () => {
   return (
     <div className="flex flex-col gap-4">
       <P>
-        A <Link href="#links">text link</Link> inside running text keeps its
-        underline: 1 px at a 3 px offset, 2 px on hover.
+        A <Link href="#links">text link</Link> inside running text takes the
+        type around it and keeps its underline: 1 px at a 3 px offset, 2 px on
+        hover.
       </P>
       <div className="flex flex-wrap items-center gap-3">
         <Link href="#links" variant="filled">
@@ -18,7 +19,7 @@ const LinkExamples = () => {
           Send an Enquiry
         </Link>
       </div>
-      <ul className="flex flex-col gap-2 [&_a]:whitespace-normal">
+      <ul className="flex flex-col gap-2">
         <li>
           <Link href="https://www.iso.org/standard/62085.html">
             External link (new tab, rel=noopener)

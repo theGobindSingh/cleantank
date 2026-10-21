@@ -107,6 +107,16 @@
     color: var(--c-active);
     text-decoration-thickness: 2px;
   }
+
+  /* a link takes the type of the text around it; nav links add button type
+     with utilities */
+  &:where(a) {
+    display: inline;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    white-space: inherit;
+  }
 }
 
 /* dark mode and bands: the light stops of a family, with a navy label */
