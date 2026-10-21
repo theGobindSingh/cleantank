@@ -52,5 +52,9 @@ CLAUDE.md
 # playwright mcp output
 .playwright-mcp
 
+# playwright test output
+/test-results/
+/playwright-report/
+
 # payload: local uploads (used when S3_BUCKET is empty)
 /media
