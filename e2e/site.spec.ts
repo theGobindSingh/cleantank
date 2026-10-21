@@ -1,0 +1,113 @@
+import { expect, test } from "@playwright/test";
+import { missingPages, pages } from "./pages";
+
+const langOf = (path: string) => {
+  const [, first = ""] = path.split("/");
+  return ["hi", "pa"].includes(first) ? first : "en";
+};
+
+for (const path of pages) {
+  test(`${path} renders in its language`, async ({ page }) => {
+    const response = await page.goto(path);
+    expect(response?.status()).toBe(200);
+    await expect(page.locator("html")).toHaveAttribute("lang", langOf(path));
+    await expect(page.locator("h1")).toHaveCount(1);
+    await expect(page.locator("main")).toHaveCount(1);
+  });
+}
+
+for (const path of missingPages) {
+  test(`${path} is a 404`, async ({ page }) => {
+    const response = await page.goto(path);
+    expect(response?.status()).toBe(404);
+  });
+}
+
+test("/en redirects to /", async ({ request }) => {
+  const response = await request.get("/en", { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  expect(response.headers().location).toMatch(/\/$/);
+});
+
+test("the language switcher marks the current language", async ({ page }) => {
+  await page.goto("/hi");
+  await expect(page.locator('a[aria-current="true"]')).toHaveAttribute(
+    "hreflang",
+    "hi",
+  );
+});
+
+test("switching language keeps the theme and logs no errors", async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  const collectError = (message: {
+    type: () => string;
+    text: () => string;
+  }) => {
+    if (message.type() === "error") errors.push(message.text());
+  };
+  page.on("console", collectError);
+
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/");
+  await page.getByRole("button", { name: /theme/i }).click();
+  await page.getByRole("link", { name: "ਪੰਜਾਬੀ" }).click();
+  await page.waitForURL("**/pa");
+
+  await expect(page.locator("html")).toHaveAttribute("lang", "pa");
+  await expect(page.locator('meta[name="color-scheme"]')).toHaveAttribute(
+    "content",
+    "dark",
+  );
+  expect(errors).toEqual([]);
+});
+
+test("light is the default even when the OS prefers dark", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/");
+  await expect(page.locator('meta[name="color-scheme"]')).toHaveAttribute(
+    "content",
+    "light",
+  );
+});
+
+test("the theme toggle switches theme and is remembered", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/");
+  const scheme = page.locator('meta[name="color-scheme"]');
+  await expect(scheme).toHaveAttribute("content", "light");
+
+  await page.getByRole("button", { name: /theme/i }).click();
+  await expect(scheme).toHaveAttribute("content", "dark");
+
+  await page.reload();
+  await expect(scheme).toHaveAttribute("content", "dark");
+});
+
+test("keyboard focus is visible", async ({ page }) => {
+  await page.goto("/");
+  await page.keyboard.press("Tab");
+  const outline = await page.evaluate(() => {
+    return document.activeElement
+      ? getComputedStyle(document.activeElement).outlineStyle
+      : "none";
+  });
+  expect(outline).not.toBe("none");
+});
+
+// docs/DESIGN.md: no horizontal scroll at 320 px.
+test.describe("at 320 px wide", () => {
+  test.use({ viewport: { width: 320, height: 640 } });
+
+  for (const path of pages) {
+    test(`${path} does not scroll sideways`, async ({ page }) => {
+      await page.goto(path);
+      const overflow = await page.evaluate(() => {
+        const root = document.documentElement;
+        return root.scrollWidth - root.clientWidth;
+      });
+      expect(overflow).toBeLessThanOrEqual(0);
+    });
+  }
+});
