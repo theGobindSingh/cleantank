@@ -8,6 +8,6 @@ const allowPublicRead = () => {
 export const media: CollectionConfig = {
   slug: "media",
   access: { read: allowPublicRead },
-  fields: [{ name: "alt", type: "text", required: true }],
+  fields: [{ name: "alt", type: "text", required: true, localized: true }],
   upload: true,
 };

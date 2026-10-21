@@ -3,6 +3,8 @@
 import Button from "@components/button";
 import Link from "@components/link";
 import StatusPage from "@components/status-page";
+import { getDictionary, localePath, toLocale } from "@i18n";
+import { useParams } from "next/navigation";
 
 export interface ErrorProps {
   error: unknown;
@@ -20,6 +22,8 @@ const getDigest = (error: unknown): string | undefined => {
 /** Shared body of `error.tsx` and `global-error.tsx`. */
 const ErrorContent = ({ error, retry }: ErrorProps) => {
   const digest = getDigest(error);
+  const locale = toLocale(useParams<{ lang?: string }>().lang);
+  const dictionary = getDictionary(locale).error;
 
   const handleRetry = () => {
     retry();
@@ -27,13 +31,13 @@ const ErrorContent = ({ error, retry }: ErrorProps) => {
 
   return (
     <StatusPage
-      code={digest ? `Error ${digest}` : "Error"}
-      title="Something went wrong"
-      description="An unexpected error occurred. Try again, or come back later."
+      code={digest ? `${dictionary.code} ${digest}` : dictionary.code}
+      title={dictionary.title}
+      description={dictionary.description}
     >
-      <Button onClick={handleRetry}>Try again</Button>
-      <Link href="/" variant="outlined" color="grey">
-        Go home
+      <Button onClick={handleRetry}>{dictionary.retry}</Button>
+      <Link href={localePath(locale, "/")} variant="outlined">
+        {dictionary.home}
       </Link>
     </StatusPage>
   );

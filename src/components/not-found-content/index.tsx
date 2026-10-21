@@ -1,16 +1,23 @@
 import Link from "@components/link";
 import StatusPage from "@components/status-page";
+import { getDictionary, localePath, type Locale } from "@i18n";
 
-/** Shared body of `global-not-found.tsx` and `(frontend)/not-found.tsx`. */
-const NotFoundContent = () => {
+interface NotFoundContentProps {
+  locale: Locale;
+}
+
+/** Shared body of `global-not-found.tsx` and `(frontend)/[lang]/not-found.tsx`. */
+const NotFoundContent = ({ locale }: NotFoundContentProps) => {
+  const { notFound } = getDictionary(locale);
+
   return (
     <StatusPage
-      code="404"
-      title="Page not found"
-      description="The page you are looking for doesn't exist or has moved."
+      code={notFound.code}
+      title={notFound.title}
+      description={notFound.description}
     >
-      <Link href="/" variant="filled">
-        Go home
+      <Link href={localePath(locale, "/")} variant="filled">
+        {notFound.home}
       </Link>
     </StatusPage>
   );

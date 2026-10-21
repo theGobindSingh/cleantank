@@ -1,10 +1,10 @@
 import { site } from "@/site";
 import SmoothScroll from "@components/smooth-scroll";
+import { locales, toLocale } from "@i18n";
 import { fontVariables } from "@styles/fonts";
 import "@styles/globals.css";
 import { THEME_INIT_SCRIPT } from "@utils/theme";
 import type { Metadata } from "next";
-import type { PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -19,9 +19,22 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-const RootLayout = ({ children }: PropsWithChildren) => {
+const toParams = (lang: string) => {
+  return { lang };
+};
+
+// Every language is prerendered; any other first segment is a 404.
+export const generateStaticParams = () => {
+  return locales.map(toParams);
+};
+
+export const dynamicParams = false;
+
+const RootLayout = async ({ children, params }: LayoutProps<"/[lang]">) => {
+  const locale = toLocale((await params).lang);
+
   return (
-    <html lang="en" className={fontVariables}>
+    <html lang={locale} className={fontVariables}>
       <head>
         <script>{THEME_INIT_SCRIPT}</script>
       </head>
