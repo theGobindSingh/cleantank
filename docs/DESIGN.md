@@ -105,11 +105,11 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 ## Layout
 
-- Max content width 1200 px. Columns 4 (base), 8 (`md`), 12 (`lg` up). Margins 16 / 32 / 40, gutters 16 then 24.
+- Max content width 1200 px, set by `CommonFullWidthWrapper` (docs/CONVENTIONS.md, Styling): side margins are 5% of the width below 1024 px and 7.5% above, until the content reaches 1200 px. Columns 4 (base), 8 (`md`), 12 (`lg` up). Gutters 16 then 24.
 - Sections alternate white and stone with a 1 px rule between them. Section gaps 64 / 80 / 96 px by breakpoint.
 - Each section gets a number and a mono reference tag above its H2 (`02  REF CT-WEB-02`, `ref` style, `marker-text`).
-- Above the fold, at most five elements: headline, one line, CTAs, photo, brand mark.
-- Header: navy band, logo top-left (never centred), at most six nav links in button type, current page marked with a 3 px accent underline and `aria-current`. Sticky at the top of the page for now.
+- Above the fold, at most five elements: headline, one line, CTAs, the before/after comparison, brand mark.
+- Header (`src/components/header`): navy band, logo top-left (never centred), at most six nav links in button type, current page marked with a 3 px accent underline and `aria-current="page"`, then the language dropdown and theme toggle, all in one `<nav>`. Sticky at the top of the page for now. Below `xl` (1280 px) the same link panel becomes a sidenav (`popover`, styled in `header.css`) that slides in from the right over the modal scrim; a menu button opens it, and the close button, Escape, a click on the scrim or navigating closes it. Menu, close and theme are 36 px icon buttons (`iconButtonStyles`) with a 44 px hit area.
 - Mobile (under 768): a sticky bottom bar with Call (filled) and WhatsApp (outline) buttons, respecting `env(safe-area-inset-bottom)`.
 - Footer: navy band with ruled cells, contacts, GSTIN in mono, the ISO line and the Gobind Galaxy endorsement.
 
@@ -123,7 +123,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 ## Components
 
 - Buttons (`src/components/button`, `src/components/link`): `variant` filled (default for Button), outlined or text (default for Link: an underlined link that takes the type of the text around it); `size` `md` 48 px (default), `sm` 44 px for dense desktop tables and the cookie consent banner only, `lg` 56 px for the hero; `color` `primary` (default) or a state or grey family. Filled and outlined are `rounded-sm`, Anek 700 uppercase 14 px (16 px at `lg`), +0.06em, padding 0 24 px, min width 120 px. Primary follows dark mode and bands by itself (white fill with a navy label there). Other families use 700 / 600 / 800 with a white label on light grounds and 300 / 200 / 100 with a navy label in dark mode and bands. One filled button per viewport. No accent buttons (the type doesn't allow it), no trailing arrows, no exclamation marks.
-- Language switcher (`src/components/language-switcher`): EN / हिंदी / ਪੰਜਾਬੀ, each named in its own script with `lang` and `hreflang`, current one in bold with `aria-current`. No flags and no redirect by IP or browser language.
+- Language switcher (`src/components/language-switcher`): a `<details>` dropdown showing the current language, listing EN / हिंदी / ਪੰਜਾਬੀ, each named in its own script with `lang` and `hreflang`, current one in bold with `aria-current`. The list is its own navy band. Escape or a click elsewhere closes it. No flags and no redirect by IP or browser language.
 - Links: underlined 1 px at 3 px offset; hover darkens and thickens to 2 px. A text link keeps the size, weight and case of the text around it; nav links add button type with utilities. Never remove the underline in body copy.
 - Inputs: 48 px, `rounded-sm`, 1 px `border-control` border, white fill, 16 px text minimum. Label above in label style with "(required)" or "(optional)" in words. Errors: 2 px `error-border`, icon, message in `error`, `aria-invalid` and `aria-describedby`. Never disable submit.
 - Cards: cells of a ruled grid (radius 0, padding 24 / 40, container `rounded-xs`). A single standalone card is `rounded-sm` with a 1 px `border` edge. Clickable cards change the edge to `border-strong` on hover, no lift.
@@ -134,7 +134,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 ## Imagery and icons
 
 - Photos: real technicians at work, documentary, daylight, eye level, never looking at the camera. No stock people and no AI people. Inline frames `rounded-sm` with a 1 px grey 200 outline; full-bleed images radius 0; never circle crops.
-- Hero: a real `<img>` with `fetchpriority="high"`, never lazy, subject on the right and text in the left seven columns over the 70% scrim. No carousel and no autoplay video.
+- Hero (the `hero` block): a drag-to-compare slider (`src/components/compare-slider`) of one tank before and after cleaning, the two photos framed identically. From `lg` up it fills the hero and the heading, line and CTAs sit in the left seven columns over a flat primary 900 scrim at 70%, which runs from the left edge to the end of column seven; the comparison stays clear on the right and its divider starts there. Below `lg` the text sits on flat primary 900 with the comparison under it, divider centred. Both photos are real `<img>` elements with `fetchpriority="high"`, never lazy. The control is a native range input, so arrow keys work. No carousel and no autoplay video.
 - Illustration: flat orthographic line drawings in navy with one accent marker. No 3D, no isometric, no mascots.
 - Icons: Lucide only, with `stroke-linecap="square"`, `stroke-linejoin="miter"` and `currentColor`. Stroke 1.75 at 24 px (2 at 16, 1.85 at 20, 1.5 at 32). Icons always have a visible label except close, menu and search. No emoji, filled or 3D icons.
 - Asset file names: lowercase letters, digits and hyphens only, no spaces or capitals, at most 80 characters: `ct-<family>-<subject>-<variant>-<colour or mode>-<lang>-<size>-v<NN>.<ext>`, dropping parts that don't apply. Families include `logo`, `photo`, `ill`, `icon`, `cert`, `sticker`, `social`. Some current files in `public/assets/images/` (such as `IIT Delhi.png`, `water_gun.png`) don't follow this yet.
@@ -142,7 +142,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 ## Motion
 
-Functional only: exact, brief, still. Durations 70 / 110 / 150 / 240 ms (240 is the ceiling). Easing `cubic-bezier(0.2, 0, 0.38, 0.9)` standard, `cubic-bezier(0, 0, 0.38, 0.9)` entrance, `cubic-bezier(0.2, 0, 1, 0.9)` exit. Animate only opacity and transform, with at most 8 px of travel.
+Functional only: exact, brief, still. Durations 70 / 110 / 150 / 240 ms (240 is the ceiling). Easing `cubic-bezier(0.2, 0, 0.38, 0.9)` standard, `cubic-bezier(0, 0, 0.38, 0.9)` entrance, `cubic-bezier(0.2, 0, 1, 0.9)` exit. Animate only opacity and transform, with at most 8 px of travel. One exception (owner's call): the header sidenav slides its full width in 240 ms with the entrance easing while the scrim fades in.
 
 The one sequence is the 5-step band: it plays once when half in view, nodes fading in with a 120 ms stagger, then the Level Line draws in 240 ms with `cubic-bezier(0.4, 0.14, 0.3, 1)`.
 
