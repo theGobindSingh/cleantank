@@ -1,6 +1,8 @@
 import { withPayload } from "@payloadcms/next/withPayload";
+import { withSentryConfig } from "@sentry/nextjs/config";
 
 const isDev = process.env.NODE_ENV === "development";
+const posthogRegion = process.env.NEXT_PUBLIC_POSTHOG_REGION ?? "us";
 
 // Static CSP (no nonces), so pages stay statically rendered. 'unsafe-inline'
 // is needed for Next's inline bootstrap scripts and the theme script. For a
@@ -52,9 +54,42 @@ const nextConfig = {
     // One 404 for the site and the admin, which have separate root layouts.
     globalNotFound: true,
   },
+  // PostHog through our own origin (/ingest), so ad blockers and the CSP
+  // allow it. Its API uses trailing slashes, which Next must not redirect.
+  skipTrailingSlashRedirect: true,
+  async rewrites() {
+    return [
+      {
+        source: "/ingest/static/:path*",
+        destination: `https://${posthogRegion}-assets.i.posthog.com/static/:path*`,
+      },
+      {
+        source: "/ingest/array/:path*",
+        destination: `https://${posthogRegion}-assets.i.posthog.com/array/:path*`,
+      },
+      {
+        source: "/ingest/:path*",
+        destination: `https://${posthogRegion}.i.posthog.com/:path*`,
+      },
+    ];
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
 };
 
-export default withPayload(nextConfig, { devBundleServerPackages: false });
+export default withSentryConfig(
+  withPayload(nextConfig, { devBundleServerPackages: false }),
+  {
+    org: process.env.SENTRY_ORG,
+    project: process.env.SENTRY_PROJECT,
+    // Uploads source maps at build when set (Vercel), for readable stack traces.
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    // Sentry through our own origin, like PostHog above.
+    tunnelRoute: "/monitoring",
+    silent: !process.env.CI,
+    // Errors only, so leave tracing and its route manifest out of the bundle.
+    bundleSizeOptimizations: { excludeTracing: true, excludeDebugStatements: true },
+    routeManifestInjection: false,
+  },
+);

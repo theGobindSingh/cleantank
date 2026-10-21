@@ -26,6 +26,11 @@ export const en = {
     email: "Email",
     offices: "Offices",
   },
+  consent: {
+    text: "This site uses cookies to understand how visitors use it, so we can improve it. Nothing is stored unless you agree.",
+    accept: "Accept",
+    decline: "Decline",
+  },
   language: {
     label: "Language",
   },

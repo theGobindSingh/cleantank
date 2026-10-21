@@ -4,7 +4,9 @@ import Button from "@components/button";
 import Link from "@components/link";
 import StatusPage from "@components/status-page";
 import { getDictionary, localePath, toLocale } from "@i18n";
+import { captureException } from "@sentry/nextjs";
 import { useParams } from "next/navigation";
+import { useEffect } from "react";
 
 export interface ErrorProps {
   error: unknown;
@@ -24,6 +26,11 @@ const ErrorContent = ({ error, retry }: ErrorProps) => {
   const digest = getDigest(error);
   const locale = toLocale(useParams<{ lang?: string }>().lang);
   const dictionary = getDictionary(locale).error;
+
+  const reportError = () => {
+    captureException(error);
+  };
+  useEffect(reportError, [error]);
 
   const handleRetry = () => {
     retry();
