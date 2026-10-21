@@ -18,6 +18,13 @@ export const pa: Dictionary = {
   theme: {
     toggle: "ਰੰਗ ਥੀਮ ਬਦਲੋ",
   },
+  contact: {
+    title: "ਸੰਪਰਕ",
+    call: "ਕਾਲ ਕਰੋ",
+    whatsapp: "WhatsApp",
+    email: "ਈਮੇਲ",
+    offices: "ਦਫ਼ਤਰ",
+  },
   language: {
     label: "ਭਾਸ਼ਾ",
   },

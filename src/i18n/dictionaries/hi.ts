@@ -18,6 +18,13 @@ export const hi: Dictionary = {
   theme: {
     toggle: "रंग थीम बदलें",
   },
+  contact: {
+    title: "संपर्क",
+    call: "कॉल करें",
+    whatsapp: "WhatsApp",
+    email: "ईमेल",
+    offices: "कार्यालय",
+  },
   language: {
     label: "भाषा",
   },

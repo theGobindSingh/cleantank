@@ -1,7 +1,6 @@
 /*
  * Interface strings that must work without the CMS: error and 404 pages,
- * control labels. Page content belongs in Payload, never here.
- * hi.ts and pa.ts need a native-speaker review before launch.
+ * control labels, the holding contact page. Page content belongs in Payload.
  */
 export const en = {
   notFound: {
@@ -19,6 +18,13 @@ export const en = {
   },
   theme: {
     toggle: "Switch color theme",
+  },
+  contact: {
+    title: "Contact",
+    call: "Call",
+    whatsapp: "WhatsApp",
+    email: "Email",
+    offices: "Offices",
   },
   language: {
     label: "Language",
