@@ -43,9 +43,10 @@ An inline script in the root layout's `<head>` adds `<meta name="color-scheme">`
 
 ## Pages, SEO and security
 
-- Site name, description and URL live in `src/site.ts`; metadata, `robots.ts`, `sitemap.ts` and `opengraph-image.tsx` read from it. Give each page its own `metadata.title`, and add public routes to `sitemap.ts`.
+- Site-wide constants live in `src/site.ts`: name, brand lines, description, URL, phone, WhatsApp, email, offices and GSTIN. Read them from there, never retype them. Metadata, `robots.ts`, `sitemap.ts` and `opengraph-image.tsx` read from it. Give each page its own `metadata.title`, and add public routes to `sitemap.ts`.
 - The 404 and error pages are thin wrappers around `@components/status-page`: `global-not-found.tsx` (unmatched URLs, English) and `(frontend)/[lang]/not-found.tsx` (`notFound()` calls) share `@components/not-found-content`, and `error.tsx` and `global-error.tsx` share `@components/error-content`.
 - Security headers, including a static CSP, are set in `next.config.js`. When adding a third-party script, font, image host or API, allow its origin in the CSP.
+- Planned after the enquiry form: a cookie consent banner, PostHog analytics and Sentry error tracking.
 - `/design` (`src/app/(frontend)/[lang]/design`) is the team's live design reference. It is the one page whose text lives in code rather than Payload, because it documents the code itself. It is `noindex` and not in the sitemap. Its swatches and samples read the rendered CSS, so token changes show up by themselves; when you add a token family, role or shared component, add it there too.
 - Scrolling is smoothed by Lenis (`@components/smooth-scroll`). Mark nested scroll containers (modals, menus) with `data-lenis-prevent`.
 
@@ -61,12 +62,16 @@ An inline script in the root layout's `<head>` adds `<meta name="color-scheme">`
 
 Payload CMS runs inside the app: the admin is at `/admin` and the REST API under `/api`. It needs `PAYLOAD_SECRET` set before it starts. Data lives in Neon Postgres: the site connects through the pooled URL (`DATABASE_URL_POOLED`), and `pnpm payload` sets `PAYLOAD_DB_DIRECT` so the CLI and migrations use the direct one (`DATABASE_URL`). Uploads go to Neon's S3-compatible storage (`S3_BUCKET` and the `AWS_*` variables) and are served through `/api/media/file/...`, so Payload's access control still applies; with `S3_BUCKET` empty they stay in a local `/media` folder.
 
-- All content lives in Payload, so editors can change it without a deploy. Components get structure and styling; the words and images come from a collection (repeating things like posts) or a global (one-off things like the home page or footer).
+- All content lives in Payload, so editors can change it without a deploy. The exception is the site-wide constants in `src/site.ts`. Components get structure and styling; the words and images come from a collection (repeating things like posts) or a global (one-off things like the home page or footer).
 - One file per collection in `src/collections`, registered in `src/payload.config.ts`. Use the types in `src/payload-types.ts`.
 - Read data in Server Components with the Local API (`getPayload({ config })` from `payload`, with `config` from `@payload-config`), not over HTTP.
-- Schema changes only go through migrations; automatic schema push is off, even in development, so a dev server never alters a shared database. After changing a collection or global, run `pnpm migrate:create <name>`, review the SQL in `src/migrations`, commit it, and run `pnpm migrate`. Deploys run `pnpm migrate` before `pnpm start`. The files in `src/migrations` are generated: lint and the type check skip them.
-- Develop against a separate Neon branch, never the production database.
+- Schema changes only go through migrations; automatic schema push is off, even in development, so a dev server never alters a shared database. After changing a collection or global, run `pnpm migrate:create <name>`, review the SQL in `src/migrations`, commit it, and run `pnpm migrate`. The files in `src/migrations` are generated: lint and the type check skip them.
+- There is one database, production, and local development uses it too. Test entries are fine.
+
+## Hosting
+
+The site runs on Vercel at `https://www.cleantankservices.com` (`SITE_URL`); the bare domain redirects to www. Vercel's build runs the `vercel-build` script (`pnpm migrate && pnpm build`), so each deploy migrates the database first and a failed migration stops the deploy. Uploads pass through the server, so Vercel caps each file at about 4.5 MB, which is enough.
 
 ## Git
 
-Conventional Commits (`feat:`, `fix:`, `docs:`, …), checked by commitlint in `.husky/commit-msg`. The same hook strips Claude and Anthropic co-author trailers. Commit `pnpm-lock.yaml`.
+Work on `master`. Conventional Commits (`feat:`, `fix:`, `docs:`, …), checked by commitlint in `.husky/commit-msg`. Keep commits small, one concern each, so any one can be reverted alone. The same hook strips Claude and Anthropic co-author trailers. Commit `pnpm-lock.yaml`.
