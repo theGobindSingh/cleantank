@@ -50,10 +50,10 @@ const ConsentBanner = ({ text, accept, decline }: ConsentBannerProps) => {
           {text}
         </P>
         <div className="flex gap-3">
-          <Button variant="outlined" onClick={handleDecline}>
+          <Button variant="outlined" size="sm" onClick={handleDecline}>
             {decline}
           </Button>
-          <Button variant="outlined" onClick={handleAccept}>
+          <Button variant="outlined" size="sm" onClick={handleAccept}>
             {accept}
           </Button>
         </div>
