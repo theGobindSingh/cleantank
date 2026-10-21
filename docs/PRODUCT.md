@@ -131,6 +131,21 @@ Clients have given permission to show their names and logos. The list is in INFO
 
 Contact details come only from INFO-BANK §1, through `src/site.ts`. WhatsApp is +91 94535 17514 for now.
 
+## Legal: DPDP Act
+
+The site must comply fully with India's Digital Personal Data Protection Act 2023 and the DPDP Rules 2025, with no gaps. This is a hard requirement, not a nice-to-have. Not built yet; it gets its own piece of work. Until then, nothing new may collect personal data (forms, analytics, tracking) without checking it against the list below.
+
+What that piece of work covers at least:
+
+- A privacy policy and terms (source text in INFO-BANK §11, reviewed against the Act), linked from the footer and the consent banner.
+- Consent notices that say what is collected, why, and how to withdraw, in English, Hindi and Punjabi. Withdrawing must be as easy as giving: the cookie choice needs a "change cookie settings" link that reopens the banner (missing today).
+- A grievance contact and the visitor's rights: access, correction, erasure and nominating someone.
+- Retention limits and deletion for enquiry data, and a data-breach response plan.
+- No children's data without verifiable parental consent; the forms should not target or collect it.
+- Every processor listed and covered: Vercel, Neon, PostHog, Sentry and any form backend.
+
+Get a lawyer to review it before it goes live.
+
 ## Avoid
 
 - Looking like a generic cleaning company, a plumber's flyer or a trade-show standee.

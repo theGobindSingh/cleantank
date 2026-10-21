@@ -39,6 +39,7 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - No anonymous functions: name every callback/handler as a `const` before passing it.
 - Never use `suppressHydrationWarning`; fix the cause.
 - ESLint enforces a file-size limit. When it flags a file, split it into a folder (`index` + focused siblings) instead of disabling the rule.
+- The site must comply fully with India's DPDP Act (docs/PRODUCT.md, Legal). Anything that collects personal data gets checked against that section first.
 - Never read, print or commit `.env` files or secrets. Ask the user to set them; document new variables in `.env.example`.
 - When a change makes any doc wrong, update that doc in the same change.
 - Never credit Claude, Anthropic or any AI in commits or PRs: no `Co-Authored-By` trailers, no "Generated with" lines. `.husky/commit-msg` strips Claude and Anthropic ones anyway.
