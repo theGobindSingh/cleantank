@@ -32,7 +32,7 @@ The site is in English, Hindi and Punjabi (`src/i18n/config.ts`). English has no
 
 - `src/proxy.ts` rewrites unprefixed URLs to `/en/...` internally and redirects `/en/...` to the unprefixed URL. Pages read the language from the `lang` param with `toLocale((await params).lang)`; client components use `useParams`.
 - Page content comes from Payload, which has the same three locales. Mark a field `localized: true` to translate it and pass `locale` to the Local API. Missing translations fall back to English.
-- `src/i18n/dictionaries` holds only interface strings that must work without the CMS (error and 404 pages, control labels). Add a key to `en.ts` first; the type makes `hi.ts` and `pa.ts` follow.
+- `src/i18n/dictionaries` holds only interface strings that must work without the CMS (error and 404 pages, control labels, and for now the holding `/contact` page). Add a key to `en.ts` first; the type makes `hi.ts` and `pa.ts` follow.
 - Build links with `localePath(locale, path)`, and give each page `alternates` from `localeAlternates(path)`. Add new routes to `sitemap.ts` without a prefix; it lists every language.
 - Links that change the language take `native` (`<Link native>`), so they load the page in full. `[lang]` is part of the root layout, and a client navigation would rebuild `<html>` and the theme script in the browser. `@components/language-switcher` does this.
 - Set `lang` on any fragment in another script (see docs/DESIGN.md, Typography).

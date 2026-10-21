@@ -39,22 +39,46 @@ The process is the product. Always show five steps, in this order, with these na
 
 The old 6-step version is retired. After the service the customer gets a Cleaning Certificate and a Cleaning Date Sticker on the tank with the cleaning date and the next due date. Follow-up comes about a week before that date. The system recommends and the customer decides.
 
-## Users
+## Audiences
 
-- Homeowners and families. Often a joint decision, triggered by dirt, smell, insects or a long gap since the last cleaning. They want the process explained simply and they worry whether the chemicals are safe for drinking water. They find the service through Google, referrals and social media, and many think in Hindi.
-- Housing societies, RWAs and apartments. Many tanks in one place.
-- Institutions: hospitals, schools, colleges and universities, government. The buyer is usually engineering or maintenance staff, with admin and procurement. They need the method, trained teams, documentation, multi-tank scheduling and reliability, usually under an AMC. Government work comes through tenders and GeM.
-- Franchise partners. Local entrepreneurs with a service mindset and limited capital who want a proven system, training and support.
+The site serves three groups, all equally important. Each gets its own dedicated home page, complete on its own so an ad or a search can land there directly. The shared home page at `/` is the gateway.
+
+### Homes (`/homes`)
+
+Individual homeowners and families with their own tank. This group is new for the business. Often a joint decision, triggered by dirt, smell, insects or a long gap since the last cleaning. They want the process explained simply and they worry whether the chemicals are safe for drinking water. They find the service through Google, referrals and social media, and many think in Hindi or Punjabi. Warm tone, WhatsApp first.
+
+- Service area for homes: Chandigarh and the tri-city (Chandigarh, Mohali, Panchkula) only. Never promise home service anywhere else; new cities open as franchise partners join.
+- No prices yet. Leave a marked placeholder where a price would go; pricing, booking and better forms come later.
+
+### Organisations (`/organisations`)
+
+Companies, institutions and government: hospitals, schools, colleges and universities, hotels, offices, factories, PSUs, government departments, and housing societies, RWAs and apartment associations that contract for the whole building. This is the established business and where the bigger contracts are. The buyer is usually engineering or maintenance staff, with admin and procurement. They need the method, trained teams, documentation, multi-tank scheduling and reliability, usually under an AMC. Government work comes through tenders and GeM. Formal and precise tone.
+
+- Credentials to show when this page is built: GeM and MSME registration, work orders, the ISO certificate, the client list. The owner has the documents; ask for them then.
+
+### Franchise (`/franchise`)
+
+Local entrepreneurs with a service mindset and limited capital who want a proven system, training and support. This group is new. Structured tone.
+
+- Sell the system, the track record since 2008 and the client work (the same documents as Organisations). Never say how many partners there are, never imply the network is empty or new, and never use lines like "be among the first partners". Don't claim an existing partner network either.
+
+### Shared home page (`/`)
+
+What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, 15+ years, client logos and testimonials. Then three clear doors near the top: homes, organisations and franchise. Detail lives on the dedicated pages, not here.
+
+### All groups
 
 The real competitor is the local plumber or labourer, and doing nothing. Never criticise either. The question every page should answer is "What difference will your service actually make?"
 
-Conversion goals, in order: service enquiry, AMC enquiry, franchise enquiry. Channels are phone, WhatsApp, the website and the enquiry form. An enquiry asks only for what planning needs: name, location, tank type, capacity, requirement and time since the last cleaning. Form submissions go through [ez-gform](https://github.com/webadeva/ez-gform); the details come when the form is built.
+Each group gets its own enquiry form, asking only what planning needs. Where submissions go is not decided yet (Google Forms was tried and dropped); until then `/contact` lists the phone, WhatsApp, email and offices. Channels are phone, WhatsApp, the website and the forms. Separate WhatsApp numbers, emails and lead handling per group are planned but not set up; until then everything uses the contacts in `src/site.ts`.
+
+Testimonials: the organisations' staff have praised the work; collect quotes with the person's name, role and permission before using them. No Google Business profile yet (in progress).
 
 ## Site structure
 
-Section order from INFO-BANK §10: About Us, Our Services, Our Scientific Cleaning Process, Recommended Cleaning Frequency, AMC, Why Choose Us, Water Hygiene, Our Clientele, Pan-India Presence, Aims & Objectives, Founder & CEO, Our Brand, Our Message, Franchise & Business Opportunity, Contact, Enquiry.
+Pages: `/` (gateway), `/homes`, `/organisations`, `/franchise`, plus shared pages for the process, about and contact that link back to the three. INFO-BANK §10 has the source copy per section (About Us, Our Services, Our Scientific Cleaning Process, Recommended Cleaning Frequency, AMC, Why Choose Us, Water Hygiene, Our Clientele, Pan-India Presence, Aims & Objectives, Founder & CEO, Our Brand, Our Message, Franchise & Business Opportunity, Contact, Enquiry); place each section on the page whose audience it serves.
 
-Navigation (at most six items in the header): About, Services, Process, AMC, Franchise, Contact. Footer adds Why Choose Us, Clients, Privacy Policy and Terms & Conditions; the full legal text is in INFO-BANK §11.
+Navigation (at most six items in the header): Homes, Organisations, Franchise, Process, About, Contact. Footer adds Why Choose Us, Clients, Privacy Policy and Terms & Conditions; the full legal text is in INFO-BANK §11.
 
 Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner". Never "Submit" or "Book now".
 
