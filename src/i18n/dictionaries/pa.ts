@@ -33,7 +33,6 @@ export const pa: Dictionary = {
   header: {
     nav: "ਮੁੱਖ",
     menu: "ਮੀਨੂ",
-    close: "ਮੀਨੂ ਬੰਦ ਕਰੋ",
     links: {
       homes: "ਘਰ",
       organisations: "ਸੰਸਥਾਵਾਂ",

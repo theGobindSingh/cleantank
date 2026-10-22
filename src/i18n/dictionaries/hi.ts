@@ -33,7 +33,6 @@ export const hi: Dictionary = {
   header: {
     nav: "मुख्य",
     menu: "मेन्यू",
-    close: "मेन्यू बंद करें",
     links: {
       homes: "घर",
       organisations: "संस्थाएँ",

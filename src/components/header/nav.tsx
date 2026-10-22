@@ -7,9 +7,8 @@ import ThemeToggle from "@components/theme-toggle";
 import { localePath, type Dictionary, type Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import { useLenis } from "lenis/react";
-import { MenuIcon, XIcon } from "lucide-react";
 import { useSelectedLayoutSegments } from "next/navigation";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 interface HeaderNavProps {
   locale: Locale;
@@ -22,13 +21,12 @@ interface HeaderNavProps {
   };
 }
 
-const ICON_PROPS = {
-  className: "size-5",
-  strokeWidth: 1.85,
-  strokeLinecap: "square",
-  strokeLinejoin: "miter",
-  "aria-hidden": true,
-} as const;
+const FOCUSABLE = "a[href], button, summary";
+
+// Controls inside a closed language dropdown can't take focus.
+const isShown = (element: HTMLElement | null): element is HTMLElement => {
+  return element?.checkVisibility() ?? false;
+};
 
 // Route groups like "(frontend)" and internal ones like "__PAGE__" aren't in the URL.
 const isUrlSegment = (segment: string) => {
@@ -37,37 +35,56 @@ const isUrlSegment = (segment: string) => {
 
 /**
  * The header's one nav. The link panel (.site-menu, header.css) is an inline
- * row from `xl` up and a popover sidenav below it. The route is read from
+ * row from `lg` up and a sidenav below it, opened and closed by one animated
+ * burger button that stays above the panel. The route is read from
  * layout segments, not usePathname, so prerendered pages reached through the
  * proxy's rewrite hydrate without a mismatch.
  */
 const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
   const path = `/${useSelectedLayoutSegments().filter(isUrlSegment).join("/")}`;
+  const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
 
-  // A client navigation keeps the header mounted, so close the sidenav by hand.
-  const closeOnNavigate = () => {
-    const menu = menuRef.current;
-    if (menu?.matches(":popover-open")) menu.hidePopover();
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
-  useEffect(closeOnNavigate, [path]);
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
-  // Lenis drives the page scroll, so pause it while the sidenav is open.
-  const pauseScrollWhileOpen = () => {
-    const menu = menuRef.current;
-    if (!menu) return;
-    const handleToggle = (event: ToggleEvent) => {
-      if (event.newState === "open") lenis?.stop();
-      else lenis?.start();
+  // Escape closes and Tab cycles between the burger and the panel's controls,
+  // as in a modal. Lenis drives the page scroll, so pause it while open.
+  const holdWhileOpen = () => {
+    if (!isOpen) return;
+    const keepFocusInside = (event: KeyboardEvent) => {
+      const controls = [
+        buttonRef.current,
+        ...(menuRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE) ?? []),
+      ].filter(isShown);
+      const first = controls.at(0);
+      const last = controls.at(-1);
+      const edge = event.shiftKey ? first : last;
+      if (document.activeElement !== edge) return;
+      event.preventDefault();
+      (event.shiftKey ? last : first)?.focus();
     };
-    const removeListener = () => {
-      menu.removeEventListener("toggle", handleToggle);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Tab") keepFocusInside(event);
+      if (event.key !== "Escape") return;
+      setIsOpen(false);
+      buttonRef.current?.focus();
     };
-    menu.addEventListener("toggle", handleToggle);
-    return removeListener;
+    const release = () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      lenis?.start();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    lenis?.stop();
+    return release;
   };
-  useEffect(pauseScrollWhileOpen, [lenis]);
+  useEffect(holdWhileOpen, [isOpen, lenis]);
 
   const renderLink = ([key, label]: [string, string]) => {
     const route = `/${key}`;
@@ -77,6 +94,7 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
         <Link
           href={localePath(locale, route)}
           aria-current={isCurrent ? "page" : undefined}
+          onClick={closeMenu}
           className={tw(
             "flex min-h-12 items-center justify-start text-[0.875rem] font-bold tracking-[0.06em] uppercase underline-offset-8",
             isCurrent
@@ -93,34 +111,42 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
   return (
     <nav
       aria-label={labels.nav}
-      className="flex min-h-16 items-center justify-between gap-4 py-2"
+      className="flex h-16 items-center justify-between gap-4"
     >
       {logo}
       <button
+        ref={buttonRef}
         type="button"
-        popoverTarget="site-menu"
         aria-label={labels.menu}
-        className={tw(iconButtonStyles, "xl:hidden")}
+        aria-expanded={isOpen}
+        aria-controls="site-menu"
+        onClick={toggleMenu}
+        className={tw(iconButtonStyles, "relative z-2 lg:hidden")}
       >
-        <MenuIcon {...ICON_PROPS} />
+        <svg
+          viewBox="35 35 30 30"
+          aria-hidden="true"
+          className="size-5 overflow-visible burger"
+        >
+          <path d="M0 40h62c13 0 6 28-4 18L35 35" />
+          <path d="M0 50h70" />
+          <path d="M0 60h62c13 0 6-28-4-18L35 65" />
+        </svg>
       </button>
+      <div
+        aria-hidden="true"
+        data-open={isOpen || undefined}
+        onClick={closeMenu}
+        className="site-menu-scrim"
+      />
       <div
         ref={menuRef}
         id="site-menu"
-        popover="auto"
+        data-open={isOpen || undefined}
         data-lenis-prevent
         className="site-menu"
       >
-        <button
-          type="button"
-          popoverTarget="site-menu"
-          popoverTargetAction="hide"
-          aria-label={labels.close}
-          className={tw(iconButtonStyles, "self-end xl:hidden")}
-        >
-          <XIcon {...ICON_PROPS} />
-        </button>
-        <ul className="flex flex-col xl:flex-row xl:gap-6">
+        <ul className="flex flex-col lg:flex-row lg:gap-5">
           {Object.entries(links).map(renderLink)}
         </ul>
         <div className="flex items-center gap-3">
@@ -128,7 +154,7 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
             locale={locale}
             path={path}
             label={labels.language}
-            listClassName="left-0 xl:right-0 xl:left-auto"
+            listClassName="left-0 lg:right-0 lg:left-auto"
           />
           <ThemeToggle label={labels.theme} />
         </div>

@@ -1,6 +1,13 @@
 @layer base {
+  /* the fixed header's height (header/nav.tsx, h-16) */
+  html {
+    --header-height: 4rem;
+    scroll-padding-top: var(--header-height);
+  }
+
   body {
     min-height: 100dvh;
+    padding-top: var(--header-height);
     background-color: var(--color-bg);
     color: var(--color-fg);
     font-family: var(--font-sans);

@@ -144,7 +144,7 @@ What that piece of work covers at least:
 - No children's data without verifiable parental consent; the forms should not target or collect it.
 - Every processor listed and covered: Vercel, Neon, PostHog, Sentry and any form backend.
 
-Get a lawyer to review it before it goes live.
+Get a lawyer to review it before it goes live. docs/LAUNCH.md turns this list into the checklist to finish before launch.
 
 ## Avoid
 

@@ -1,76 +1,96 @@
 import { tw } from "@utils/tw";
-import {
-  createElement,
-  type CSSProperties,
-  type ElementType,
-  type HTMLAttributes,
-  type ReactNode,
-  type Ref,
+import type {
+  HTMLAttributes,
+  JSX,
+  PropsWithChildren,
+  ReactNode,
+  Ref,
 } from "react";
+import { forwardRef } from "react";
+import { jsx, jsxs } from "react/jsx-runtime";
 
-// data-* attributes too, e.g. data-surface="band" for a navy band
-type WrapperElementProps = HTMLAttributes<HTMLElement> &
-  Partial<Record<`data-${string}`, string>>;
-
-export interface CommonFullWidthWrapperProps {
-  children?: ReactNode;
+export interface FullWidthWrapperProps extends PropsWithChildren {
+  /** Classes for the inner content div (layout of the children). */
   className?: string;
-  element?: ElementType;
-  wrapperCss?: CSSProperties;
-  wrapperProps?: WrapperElementProps;
-  bg?: string;
-  ref?: Ref<HTMLElement>;
+  /** The outer element, which is the block itself: "section", "header", "footer"… */
+  element?: keyof JSX.IntrinsicElements;
+  /** Rendered in the outer element before the content div, e.g. an absolute scrim. */
+  beforeContainer?: ReactNode;
+  /** Rendered in the outer element after the content div, e.g. a full-bleed image. */
+  afterContainer?: ReactNode;
+  /** Classes for the outer element: background, position, height, z-index. */
+  wrapperClassName?: string;
+  /** Centres the content div on both axes (the outer element is a flex box). */
+  isContainerCenter?: boolean;
+  /** Width of the content div. */
+  containerSize?: string;
+  /** Cap on the content div's width; the --max-content-width variable overrides it. */
+  maxContentWidth?: string;
+  /** Attributes for the outer element; data-* too, e.g. data-surface="band" for a navy band. */
+  wrapperProps?: HTMLAttributes<HTMLElement> &
+    Partial<Record<`data-${string}`, string>>;
 }
 
-type WrapperStyle = CSSProperties;
+/**
+ * The outermost element of every page block (header, hero, each section,
+ * footer). Don't put it inside another <section>: pass `element` instead, so
+ * the wrapper is the block. The outer element spans the screen and takes the
+ * background; the inner div holds the content at 90% of the width, at most
+ * 1800 px. Layers that must span the full width (scrims, full-bleed images)
+ * go in `beforeContainer` / `afterContainer`, not in the children.
+ *
+ * <FullWidthWrapper
+ *   element="section"
+ *   wrapperProps={{ "data-surface": "band" }}
+ *   wrapperClassName="relative py-16"
+ *   className="flex flex-col gap-6"
+ *   afterContainer={<FullBleedImage />}
+ * >
+ *   <H2>…</H2>
+ * </FullWidthWrapper>
+ */
+const FullWidthWrapperWithoutRef = (
+  {
+    containerSize = "90%",
+    maxContentWidth = "1800px",
+    className,
+    children,
+    element = "section",
+    beforeContainer = null,
+    afterContainer = null,
+    wrapperClassName,
+    isContainerCenter = true,
+    wrapperProps = {},
+  }: FullWidthWrapperProps,
+  ref: Ref<HTMLElement>,
+): JSX.Element => {
+  const innerElement = jsx("div", {
+    style: {
+      maxWidth: `var(--max-content-width, ${maxContentWidth})`,
+      width: containerSize,
+    },
+    className,
+    children,
+  });
 
-const CommonFullWidthWrapper = ({
-  children,
-  className,
-  element = "section",
-  wrapperCss,
-  wrapperProps,
-  bg,
-  ref,
-}: CommonFullWidthWrapperProps) => {
-  const {
-    className: wrapperClassName,
-    style: wrapperStyle,
-    ...restWrapperProps
-  } = wrapperProps ?? {};
-
-  const mergedWrapperStyle: WrapperStyle = bg
-    ? {
-        width: "100%",
-        background: bg,
-        ...wrapperCss,
-        ...wrapperStyle,
-      }
-    : {
-        width: "100%",
-        ...wrapperCss,
-        ...wrapperStyle,
-      };
-
-  return (
-    <div
-      className={tw(className, wrapperClassName)}
-      style={mergedWrapperStyle}
-      {...restWrapperProps}
-    >
-      {createElement(
-        element,
-        {
-          ref,
-          // docs/DESIGN.md, Layout: content never wider than 1200 px
-          className: "mx-auto w-[85%] max-w-[1200px] max-[1024px]:w-[90%]",
-        },
-        children,
-      )}
-    </div>
-  );
+  return jsxs(element, {
+    className: tw`
+    flex
+    w-full
+    ${isContainerCenter && "justify-center items-center"}
+    ${wrapperClassName}
+    `,
+    ref,
+    children: [beforeContainer, innerElement, afterContainer],
+    ...wrapperProps,
+  });
 };
 
-CommonFullWidthWrapper.displayName = "CommonFullWidthWrapper";
+// eslint-disable-next-line @eslint-react/no-forward-ref -- ignore
+const FullWidthWrapper = forwardRef<HTMLElement, FullWidthWrapperProps>(
+  FullWidthWrapperWithoutRef,
+);
 
-export default CommonFullWidthWrapper;
+FullWidthWrapper.displayName = "FullWidthWrapper";
+
+export default FullWidthWrapper;

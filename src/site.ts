@@ -4,6 +4,9 @@
  * Contacts are exactly as in docs/ref/INFO-BANK.md §1.
  */
 export const site = {
+  // Off until launch: Sentry and PostHog (and so the consent banner) stay
+  // paused even with their keys set. docs/LAUNCH.md lists what to check first.
+  isLive: false,
   name: "Clean Tank Services",
   // Brand lines, always written exactly like this.
   descriptor: "Scientific & Mechanized Water Tank Cleaning",

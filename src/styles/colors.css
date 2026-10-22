@@ -213,6 +213,8 @@
  * emphasis band, also set --color-band: [--color-band:var(--color-secondary-700)]
  */
 [data-surface="band"] {
+  --color-white: hsla(0, 0%, 100%, 95%);
+
   --color-fg: var(--color-white);
   --color-fg-muted: var(--color-primary-200);
   --color-heading: var(--color-white);

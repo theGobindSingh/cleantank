@@ -1,71 +1,107 @@
 /*
- * The header's link panel. One element, two looks: from xl up an inline row
- * in the band; below xl a sidenav popover that slides in from the right over
- * the modal scrim. The popover attribute supplies the open state, Escape,
- * click-outside and the ::backdrop; the reduced-motion rule in defaults.css
- * removes the slide.
+ * The header's link panel. One element, two looks: from lg up an inline row
+ * in the band; below lg a sidenav that slides in from the right over the
+ * scrim while [data-open] is set (nav.tsx). Closed, it is hidden from
+ * assistive tech and the tab order by visibility, delayed until the slide
+ * ends. The reduced-motion rule in defaults.css removes the slide.
  */
 @utility site-menu {
-  @media (width < 80rem) {
+  @media (width < 64rem) {
     position: fixed;
     inset: 0 0 0 auto;
+    z-index: 1;
+    display: flex;
     width: min(20rem, 85vw);
     height: 100dvh;
-    max-height: none;
-    margin: 0;
-    padding: 1rem 1.5rem 1.5rem;
-    border: 0;
+    padding: 5rem 1.5rem 1.5rem;
     border-left: 1px solid var(--color-border);
     background-color: var(--color-band);
-    color: var(--color-fg);
     flex-direction: column;
     gap: 1.5rem;
     overflow-y: auto;
     translate: 100% 0;
-    transition-property: translate, overlay, display;
-    transition-duration: 240ms;
-    transition-timing-function: cubic-bezier(0, 0, 0.38, 0.9);
-    transition-behavior: allow-discrete;
+    visibility: hidden;
+    transition:
+      translate 240ms cubic-bezier(0, 0, 0.38, 0.9),
+      visibility 0s 240ms;
 
-    &:popover-open {
-      display: flex;
+    &[data-open] {
       translate: 0 0;
-
-      @starting-style {
-        translate: 100% 0;
-      }
-    }
-
-    &::backdrop {
-      background-color: hsl(var(--color-primary-900-base) / 0.6);
-      opacity: 0;
-      transition-property: opacity, overlay, display;
-      transition-duration: 240ms;
-      transition-behavior: allow-discrete;
-    }
-
-    &:popover-open::backdrop {
-      opacity: 1;
-
-      @starting-style {
-        opacity: 0;
-      }
+      visibility: visible;
+      transition-delay: 0s;
     }
   }
 
-  /* inline: undo the popover's UA styles and its hidden state */
-  @media (width >= 80rem) {
-    position: static;
+  @media (width >= 64rem) {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    color: inherit;
-    overflow: visible;
+    gap: 1.5rem;
+  }
+}
+
+/* the modal scrim behind the sidenav; a click on it closes the menu */
+@utility site-menu-scrim {
+  position: fixed;
+  inset: 0;
+  background-color: hsl(var(--color-primary-900-base) / 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 240ms,
+    visibility 0s 240ms;
+
+  &[data-open] {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  @media (width >= 64rem) {
+    display: none;
+  }
+}
+
+/*
+ * Animated burger: three strokes drawn along one path each; aria-expanded
+ * slides the dashes so the outer two meet in an X and the middle one empties.
+ */
+@utility burger {
+  --path-length-curved: 126.64;
+  --path-length-straight: 70;
+  --line-visible-length: 24;
+  --line-start-offset: -38;
+  --x-line-length: 22.63;
+  --x-line-offset: -94.11;
+  --middle-hidden-offset: -50;
+
+  & path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 500ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  & path:nth-child(1),
+  & path:nth-child(3) {
+    stroke-dasharray: var(--line-visible-length) var(--path-length-curved);
+    stroke-dashoffset: var(--line-start-offset);
+  }
+
+  & path:nth-child(2) {
+    stroke-dasharray: var(--line-visible-length) var(--path-length-straight);
+    stroke-dashoffset: var(--line-start-offset);
+  }
+
+  [aria-expanded="true"] > & path:nth-child(1),
+  [aria-expanded="true"] > & path:nth-child(3) {
+    stroke-dasharray: var(--x-line-length) var(--path-length-curved);
+    stroke-dashoffset: var(--x-line-offset);
+  }
+
+  [aria-expanded="true"] > & path:nth-child(2) {
+    stroke-dasharray: 0 var(--path-length-straight);
+    stroke-dashoffset: var(--middle-hidden-offset);
   }
 }

@@ -84,7 +84,7 @@ const Layout = () => {
       id="layout"
       number={12}
       title="Layout, spacing and shape"
-      intro="Content is at most 1200 px wide on a 4, 8 or 12 column grid. Spacing uses Tailwind's 4 px unit restricted to the brand steps. Corners are square or nearly square; nothing is rounder than 4 px, and there are no shadows."
+      intro="Content is at most 1800 px wide on a 4, 8 or 12 column grid. Spacing uses Tailwind's 4 px unit restricted to the brand steps. Corners are square or nearly square; nothing is rounder than 4 px, and there are no shadows."
     >
       <div className="grid gap-8 lg:grid-cols-2">
         <Breakpoints />
@@ -108,11 +108,12 @@ const Layout = () => {
         <H3 $margin="0">Page containers</H3>
         <P className="max-w-[68ch]">
           Every outermost block of a page (the header, the hero and each
-          section) sits in CommonFullWidthWrapper. Its outer element spans the
-          screen and carries the background or band; the inner one holds the
-          content at 90% of the width below 1024 px and 85% above, never wider
-          than 1200 px. The header above is one: a sticky navy band whose links
-          fold into a menu below 1280 px.
+          section) is a CommonFullWidthWrapper, never one nested in another
+          section. Its outer element spans the screen and carries the background
+          or band; the inner one holds the content at 90% of the width, never
+          wider than 1800 px. Full-width layers, like the hero's scrim and
+          photos, sit beside the content in the outer element. The header above
+          is one: a fixed navy band whose links fold into a menu below 1024 px.
         </P>
       </div>
 

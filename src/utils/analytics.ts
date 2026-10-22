@@ -1,3 +1,4 @@
+import { site } from "@/site";
 import type { PostHog } from "posthog-js";
 
 let loading: Promise<PostHog | null> | undefined;
@@ -24,10 +25,11 @@ const init = ({ default: posthog }: { default: PostHog }) => {
 
 /**
  * PostHog, loaded once and after the page so it stays off the critical path.
- * Null when NEXT_PUBLIC_POSTHOG_KEY is unset or on the Payload admin.
+ * Null when NEXT_PUBLIC_POSTHOG_KEY is unset, before launch (site.isLive)
+ * or on the Payload admin.
  */
 export const loadAnalytics = (): Promise<PostHog | null> => {
-  if (window.location.pathname.startsWith("/admin")) {
+  if (!site.isLive || window.location.pathname.startsWith("/admin")) {
     return Promise.resolve(null);
   }
   loading ??= import("posthog-js").then(init);

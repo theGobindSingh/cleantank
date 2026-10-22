@@ -9,14 +9,14 @@ interface HeaderProps {
   locale: Locale;
 }
 
-/** Sticky navy band holding the one nav: logo, links, language and theme. */
+/** Fixed navy band holding the one nav: logo, links, language and theme. */
 const Header = ({ locale }: HeaderProps) => {
   const dictionary = getDictionary(locale);
 
   return (
     <CommonFullWidthWrapper
       element="header"
-      className="sticky top-0 z-40"
+      wrapperClassName="fixed inset-x-0 top-0 z-60"
       wrapperProps={{ "data-surface": "band" }}
     >
       <HeaderNav

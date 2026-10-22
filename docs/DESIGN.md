@@ -10,7 +10,7 @@ The test: cover the logo and the page should still read as a ruled spec sheet wi
 
 References: a hospital lab bench, a calibrated pressure gauge, test reports, dated inspection tags, Swiss technical signage (navy plus one marker color), technicians in pressed navy uniforms.
 
-Never: gradients, shadows, gloss, glass or blur, glow; water splashes, droplets, waves, bubbles; sun rays, bokeh, lens flare; cartoon bacteria, mascots, 3D tanks; red or orange urgency badges, starbursts, seals, shields; countdowns; money imagery on franchise pages; stock handshakes and posed smiles; pills or any radius above 4 px; tricolour layouts or festival motifs; fake ISO or approval marks.
+Never: gradients (one exception: the hero scrim, below), shadows, gloss, glass or blur, glow; water splashes, droplets, waves, bubbles; sun rays, bokeh, lens flare; cartoon bacteria, mascots, 3D tanks; red or orange urgency badges, starbursts, seals, shields; countdowns; money imagery on franchise pages; stock handshakes and posed smiles; pills or any radius above 4 px; tricolour layouts or festival motifs; fake ISO or approval marks.
 
 ## Tokens
 
@@ -48,7 +48,7 @@ So `bg-bg`, `text-fg-muted`, `border-border-control`, `bg-primary`, `text-headin
 - Dark mode. The meta tag described in docs/CONVENTIONS.md switches the roles to a navy set: `bg` primary 900, `bg-subtle` 800, `surface` 700, `fg` primary 50, headings white, primary buttons white with a navy label, state and secondary text at 300. It is never black and never an inverted ramp. Light is the default, even when the OS prefers dark; dark mode applies only after the visitor picks it.
 - Band scope. Put `data-surface="band"` on any navy band. It fills the band and re-maps the roles inside it (white text and links, white focus ring, white-fill buttons with navy labels), in either mode. Components inside need no changes. For the secondary emphasis band, also set the fill: `data-surface="band"` with `className="[--color-band:var(--color-secondary-700)]"`.
 - Preview scopes. `data-scheme="light"` or `data-scheme="dark"` on any element shows that mode inside it, whatever the page theme. `/design` uses them to put both modes side by side. The light scope repeats the light roles, and `src/styles/colors.test.ts` fails if the copies differ.
-- Alpha. Tailwind modifiers (`bg-primary-900/70`) or `hsl(var(--color-primary-900-base) / 0.7)` in CSS. The only translucent colors are the photo scrim (primary 900 at 70%) and the modal scrim (primary 900 at 60%). No translucent accent.
+- Alpha. Tailwind modifiers (`bg-primary-900/70`) or `hsl(var(--color-primary-900-base) / 0.7)` in CSS. The only translucent colors are the photo scrim (primary 900 at 80%, fading out) and the modal scrim (primary 900 at 60%). No translucent accent.
 - Radius. `rounded-none` 0 (tables, bands, ruled cells, full-bleed images), `rounded-xs` 2 px (step nodes, checkbox, radio, grid containers), `rounded-sm` 4 px (buttons, inputs, cards, alerts, menus, image frames). Nothing else exists, including `rounded-full`.
 - Shadows. None. `shadow-*` generates nothing. Depth comes from 1 px rules, ruled cells, solid bands and white-to-stone steps.
 - Breakpoints. `sm` 360, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1440. Mobile first.
@@ -69,7 +69,7 @@ So `bg-bg`, `text-fg-muted`, `border-border-control`, `bg-primary`, `text-headin
 - Accent is a marker only: the Level Line, the active step, reference tags and index numbers, one key figure per view. Never a button fill, link, body text, alert, error, warning or urgency signal. `#EE7555` on white is 2.87:1 and fails; small accent text uses `marker-text`.
 - Secondary is navy's quiet partner: category tags (`bg-secondary-bg text-secondary border-secondary-border`), the rule beside a heading, the second chart series after navy, soft panels, and at most one emphasis band per page. Its area comes out of navy's 30%. Never a button, link, focus ring, status or alert, and never beside a state color in a way that could read as one.
 - Every state color comes with an icon and a word.
-- Text on photos only in the hero, white, over a flat primary 900 scrim at 70% or more.
+- Text on photos only in the hero, white, over a primary 900 scrim at 80% that stays solid behind the text.
 
 ## Typography
 
@@ -105,11 +105,11 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 ## Layout
 
-- Max content width 1200 px, set by `CommonFullWidthWrapper` (docs/CONVENTIONS.md, Styling): side margins are 5% of the width below 1024 px and 7.5% above, until the content reaches 1200 px. Columns 4 (base), 8 (`md`), 12 (`lg` up). Gutters 16 then 24.
+- Max content width 1800 px, set by `CommonFullWidthWrapper` (docs/CONVENTIONS.md, Styling): side margins are 5% of the width each, until the content reaches 1800 px. Columns 4 (base), 8 (`md`), 12 (`lg` up). Gutters 16 then 24.
 - Sections alternate white and stone with a 1 px rule between them. Section gaps 64 / 80 / 96 px by breakpoint.
 - Each section gets a number and a mono reference tag above its H2 (`02  REF CT-WEB-02`, `ref` style, `marker-text`).
 - Above the fold, at most five elements: headline, one line, CTAs, the before/after comparison, brand mark.
-- Header (`src/components/header`): navy band, logo top-left (never centred), at most six nav links in button type, current page marked with a 3 px accent underline and `aria-current="page"`, then the language dropdown and theme toggle, all in one `<nav>`. Sticky at the top of the page for now. Below `xl` (1280 px) the same link panel becomes a sidenav (`popover`, styled in `header.css`) that slides in from the right over the modal scrim; a menu button opens it, and the close button, Escape, a click on the scrim or navigating closes it. Menu, close and theme are 36 px icon buttons (`iconButtonStyles`) with a 44 px hit area.
+- Header (`src/components/header`): navy band, logo top-left (never centred), at most six nav links in button type, current page marked with a 3 px accent underline and `aria-current="page"`, then the language dropdown and theme toggle, all in one `<nav>`. Fixed to the top of the viewport, 64 px tall; the body is padded by the same amount. Below `lg` (1024 px, phones and tablets) the same link panel becomes a sidenav (styled in `header.css`) that slides in from the right over the modal scrim. One burger button opens and closes it, drawing its three lines into an X while open; Escape, a click on the scrim or following a link also close it. While it's open, Tab cycles between the burger and the panel's controls. The burger and the theme toggle are 36 px icon buttons (`iconButtonStyles`) with a 44 px hit area.
 - Mobile (under 768): a sticky bottom bar with Call (filled) and WhatsApp (outline) buttons, respecting `env(safe-area-inset-bottom)`.
 - Footer: navy band with ruled cells, contacts, GSTIN in mono, the ISO line and the Gobind Galaxy endorsement.
 
@@ -134,7 +134,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 ## Imagery and icons
 
 - Photos: real technicians at work, documentary, daylight, eye level, never looking at the camera. No stock people and no AI people. Inline frames `rounded-sm` with a 1 px grey 200 outline; full-bleed images radius 0; never circle crops.
-- Hero (the `hero` block): a drag-to-compare slider (`src/components/compare-slider`) of one tank before and after cleaning, the two photos framed identically. From `lg` up it fills the hero and the heading, line and CTAs sit in the left seven columns over a flat primary 900 scrim at 70%, which runs from the left edge to the end of column seven; the comparison stays clear on the right and its divider starts there. Below `lg` the text sits on flat primary 900 with the comparison under it, divider centred. Both photos are real `<img>` elements with `fetchpriority="high"`, never lazy. The control is a native range input, so arrow keys work. No carousel and no autoplay video.
+- Hero (the `hero` block): at least the screen height minus the header and 1rem, so the next section peeks in. A drag-to-compare slider (`src/components/compare-slider`) of one tank before and after cleaning, the two photos framed identically. From `lg` up it fills the hero and the heading, line and CTAs sit in the left seven columns over a primary 900 scrim at 80%. The scrim is solid from the left edge to the end of column seven, then fades to clear by the end of column nine (owner's call; the only gradient on the site); the comparison stays clear on the right. Below `lg` the text sits on flat primary 900 with the comparison under it, divider centred. Both photos are real `<img>` elements with `fetchpriority="high"`, never lazy. The control is a native range input, so arrow keys work. No carousel and no autoplay video.
 - Illustration: flat orthographic line drawings in navy with one accent marker. No 3D, no isometric, no mascots.
 - Icons: Lucide only, with `stroke-linecap="square"`, `stroke-linejoin="miter"` and `currentColor`. Stroke 1.75 at 24 px (2 at 16, 1.85 at 20, 1.5 at 32). Icons always have a visible label except close, menu and search. No emoji, filled or 3D icons.
 - Asset file names: lowercase letters, digits and hyphens only, no spaces or capitals, at most 80 characters: `ct-<family>-<subject>-<variant>-<colour or mode>-<lang>-<size>-v<NN>.<ext>`, dropping parts that don't apply. Families include `logo`, `photo`, `ill`, `icon`, `cert`, `sticker`, `social`. Some current files in `public/assets/images/` (such as `IIT Delhi.png`, `water_gun.png`) don't follow this yet.
@@ -142,7 +142,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 ## Motion
 
-Functional only: exact, brief, still. Durations 70 / 110 / 150 / 240 ms (240 is the ceiling). Easing `cubic-bezier(0.2, 0, 0.38, 0.9)` standard, `cubic-bezier(0, 0, 0.38, 0.9)` entrance, `cubic-bezier(0.2, 0, 1, 0.9)` exit. Animate only opacity and transform, with at most 8 px of travel. One exception (owner's call): the header sidenav slides its full width in 240 ms with the entrance easing while the scrim fades in.
+Functional only: exact, brief, still. Durations 70 / 110 / 150 / 240 ms (240 is the ceiling). Easing `cubic-bezier(0.2, 0, 0.38, 0.9)` standard, `cubic-bezier(0, 0, 0.38, 0.9)` entrance, `cubic-bezier(0.2, 0, 1, 0.9)` exit. Animate only opacity and transform, with at most 8 px of travel. One exception (owner's call): the header sidenav slides its full width in 240 ms with the entrance easing while the scrim fades in, and the burger's lines morph into an X in 500 ms with `cubic-bezier(0.645, 0.045, 0.355, 1)`, copied from the earlier site; and once both photos have loaded and the whole hero comparison is on screen below the header, its divider glides from the left edge 15 points past its start in 900 ms, easing out, then settles back on it in 500 ms (skipped under reduced motion, stopped by a drag).
 
 The one sequence is the 5-step band: it plays once when half in view, nodes fading in with a 120 ms stagger, then the Level Line draws in 240 ms with `cubic-bezier(0.4, 0.14, 0.3, 1)`.
 

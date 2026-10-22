@@ -34,7 +34,6 @@ export const en = {
   header: {
     nav: "Main",
     menu: "Menu",
-    close: "Close menu",
     links: {
       homes: "Homes",
       organisations: "Organisations",
