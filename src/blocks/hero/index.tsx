@@ -47,7 +47,7 @@ const Hero = ({ heading, text, before, after, actions, locale }: HeroProps) => {
   return (
     <CommonFullWidthWrapper
       wrapperProps={{ "data-surface": "band" }}
-      wrapperClassName="relative flex-col min-h-[calc(100svh-var(--header-height)-1rem)] [--color-band:var(--color-primary-900)]"
+      wrapperClassName="relative flex-col min-h-[calc(65svh-var(--header-height))] [--color-band:var(--color-primary-900)]"
       // pointer events pass through to the comparison beside the text
       className="pointer-events-none relative z-10"
       beforeContainer={
