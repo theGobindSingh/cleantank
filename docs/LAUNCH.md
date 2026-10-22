@@ -26,7 +26,7 @@ The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this l
 ## Consent and forms
 
 - [ ] The consent banner says what is collected, why and how to withdraw, in all three languages, and links to the privacy policy.
-- [ ] A "Change cookie settings" link in the footer reopens the banner, so withdrawing is as easy as agreeing.
+- [ ] The footer's "Cookie settings" button (built; hidden while analytics is paused) clears the answer and reopens the banner, so withdrawing is as easy as agreeing. Check it works once live.
 - [ ] Before the visitor answers, nothing but the theme choice is stored: no PostHog cookies or `ph_*` local storage.
 - [ ] Each form asks only for what it needs, shows its purpose next to the fields, has an unticked consent checkbox where consent is the basis, and links to the privacy policy.
 

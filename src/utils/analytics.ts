@@ -3,6 +3,9 @@ import type { PostHog } from "posthog-js";
 
 let loading: Promise<PostHog | null> | undefined;
 
+/** Dispatched on window to show the consent banner again (footer cookie settings). */
+export const CONSENT_REOPEN_EVENT = "ct:consent-reopen";
+
 const init = ({ default: posthog }: { default: PostHog }) => {
   const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   if (!key) return null;

@@ -78,7 +78,7 @@ Testimonials: the organisations' staff have praised the work; collect quotes wit
 
 Pages: `/` (gateway), `/homes`, `/organisations`, `/franchise`, plus shared pages for the process, about and contact that link back to the three. INFO-BANK §10 has the source copy per section (About Us, Our Services, Our Scientific Cleaning Process, Recommended Cleaning Frequency, AMC, Why Choose Us, Water Hygiene, Our Clientele, Pan-India Presence, Aims & Objectives, Founder & CEO, Our Brand, Our Message, Franchise & Business Opportunity, Contact, Enquiry); place each section on the page whose audience it serves.
 
-Navigation (at most six items in the header): Homes, Organisations, Franchise, Process, About, Contact. Footer adds Why Choose Us, Clients, Privacy Policy and Terms & Conditions; the full legal text is in INFO-BANK §11.
+Navigation (at most six items in the header): Homes, Organisations, Franchise, Process, About, Contact. Footer adds Why Choose Us (`/about#why-choose-us`), Clients (`/about#clients`), Privacy Policy (`/privacy`) and Terms & Conditions (`/terms`); the full legal text is in INFO-BANK §11.
 
 Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner". Never "Submit" or "Book now".
 

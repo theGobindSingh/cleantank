@@ -42,6 +42,23 @@ export const hi: Dictionary = {
       contact: "संपर्क",
     },
   },
+  footer: {
+    sitemap: "साइट मैप",
+    legal: "क़ानूनी जानकारी",
+    certified: "प्रमाणित",
+    issuer: "जारीकर्ता",
+    certificate: "प्रमाणपत्र संख्या",
+    validTo: "वैधता",
+    rights: "सर्वाधिकार सुरक्षित।",
+    links: {
+      home: "होम",
+      whyChooseUs: "हमें क्यों चुनें",
+      clients: "हमारे ग्राहक",
+      privacy: "गोपनीयता नीति",
+      terms: "नियम और शर्तें",
+    },
+    cookieSettings: "कुकी सेटिंग्स",
+  },
   compare: {
     label: "सफ़ाई से पहले और बाद",
     before: "पहले",

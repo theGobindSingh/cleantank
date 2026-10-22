@@ -11,6 +11,8 @@ export const site = {
   // Brand lines, always written exactly like this.
   descriptor: "Scientific & Mechanized Water Tank Cleaning",
   tagline: "Clean Tank, Healthy Life",
+  endorsement: "An Initiative of Gobind Galaxy",
+  legalName: "Gobind Galaxy",
   description:
     "Scientific and mechanized cleaning and disinfection of water storage tanks for homes, housing societies, institutions and industry. An initiative of Gobind Galaxy, Kanpur.",
   // Set SITE_URL in production so canonical and social URLs are absolute.
@@ -33,4 +35,11 @@ export const site = {
     },
   ],
   gstin: "09LFS1473F5ZU",
+  // INFO-BANK §1, ISO certificate. Never "accredited" or "internationally recognised".
+  iso: {
+    standard: "ISO 9001:2015",
+    issuer: "Q2A-UK Certification Board",
+    number: "Q2A-2026-0401T118011",
+    validTo: "31 Mar 2029",
+  },
 };

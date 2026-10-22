@@ -43,6 +43,23 @@ export const en = {
       contact: "Contact",
     },
   },
+  footer: {
+    sitemap: "Site map",
+    legal: "Legal",
+    certified: "Certified",
+    issuer: "Issued by",
+    certificate: "Certificate No.",
+    validTo: "Valid to",
+    rights: "All rights reserved.",
+    links: {
+      home: "Home",
+      whyChooseUs: "Why Choose Us",
+      clients: "Clients",
+      privacy: "Privacy Policy",
+      terms: "Terms & Conditions",
+    },
+    cookieSettings: "Cookie settings",
+  },
   compare: {
     label: "Before and after cleaning",
     before: "Before",

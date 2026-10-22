@@ -2,7 +2,7 @@
 
 import Button from "@components/button";
 import { P } from "@components/html";
-import { loadAnalytics } from "@utils/analytics";
+import { CONSENT_REOPEN_EVENT, loadAnalytics } from "@utils/analytics";
 import type { PostHog } from "posthog-js";
 import { useEffect, useState } from "react";
 
@@ -14,20 +14,30 @@ interface ConsentBannerProps {
 
 /**
  * Asks once whether PostHog may use cookies. Shown only while the answer is
- * pending, and never when analytics is off (no key set).
+ * pending, and never when analytics is off (no key set). The footer's cookie
+ * settings clear the answer and send CONSENT_REOPEN_EVENT to ask again.
  */
 const ConsentBanner = ({ text, accept, decline }: ConsentBannerProps) => {
   const [posthog, setPosthog] = useState<PostHog | null>(null);
 
-  const showIfPending = (instance: PostHog | null) => {
-    if (instance?.get_explicit_consent_status() === "pending") {
-      setPosthog(instance);
-    }
+  // Asks on load, and again whenever the footer's cookie settings reopen it.
+  const listenForReopen = () => {
+    const showIfPending = (instance: PostHog | null) => {
+      if (instance?.get_explicit_consent_status() === "pending") {
+        setPosthog(instance);
+      }
+    };
+    const checkConsent = () => {
+      void loadAnalytics().then(showIfPending);
+    };
+    checkConsent();
+    const stop = () => {
+      window.removeEventListener(CONSENT_REOPEN_EVENT, checkConsent);
+    };
+    window.addEventListener(CONSENT_REOPEN_EVENT, checkConsent);
+    return stop;
   };
-  const checkConsent = () => {
-    void loadAnalytics().then(showIfPending);
-  };
-  useEffect(checkConsent, []);
+  useEffect(listenForReopen, []);
 
   if (!posthog) return null;
 

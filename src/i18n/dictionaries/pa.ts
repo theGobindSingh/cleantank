@@ -42,6 +42,23 @@ export const pa: Dictionary = {
       contact: "ਸੰਪਰਕ",
     },
   },
+  footer: {
+    sitemap: "ਸਾਈਟ ਮੈਪ",
+    legal: "ਕਾਨੂੰਨੀ ਜਾਣਕਾਰੀ",
+    certified: "ਪ੍ਰਮਾਣਿਤ",
+    issuer: "ਜਾਰੀਕਰਤਾ",
+    certificate: "ਸਰਟੀਫਿਕੇਟ ਨੰਬਰ",
+    validTo: "ਵੈਧਤਾ",
+    rights: "ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।",
+    links: {
+      home: "ਹੋਮ",
+      whyChooseUs: "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
+      clients: "ਸਾਡੇ ਗਾਹਕ",
+      privacy: "ਪਰਦੇਦਾਰੀ ਨੀਤੀ",
+      terms: "ਨਿਯਮ ਅਤੇ ਸ਼ਰਤਾਂ",
+    },
+    cookieSettings: "ਕੂਕੀ ਸੈਟਿੰਗਾਂ",
+  },
   compare: {
     label: "ਸਫ਼ਾਈ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ",
     before: "ਪਹਿਲਾਂ",
