@@ -1,7 +1,7 @@
 import type { HeroBlock, Media } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import CompareSlider, { type CompareImage } from "@components/compare-slider";
-import { H1, P } from "@components/html";
+import { H1 } from "@components/html";
 import Link from "@components/link";
 import { getDictionary, localePath, type Locale } from "@i18n";
 
@@ -23,7 +23,7 @@ const toImage = (media: number | Media): CompareImage | null => {
  * comparison fills the hero under a scrim that is solid behind the text and
  * fades out to the right; below that they stack.
  */
-const Hero = ({ heading, text, before, after, actions, locale }: HeroProps) => {
+const Hero = ({ heading, before, after, actions, locale }: HeroProps) => {
   const { compare } = getDictionary(locale);
   const beforeImage = toImage(before);
   const afterImage = toImage(after);
@@ -54,7 +54,7 @@ const Hero = ({ heading, text, before, after, actions, locale }: HeroProps) => {
         // the scrim is solid behind the text (to the wrapper's seventh column: 90%, at most 1800 px) and fades out by the ninth
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 z-1 hidden w-[calc((100%-min(90%,1800px))/2+min(90%,1800px)*9/12)] bg-linear-to-r from-primary-900/80 from-50% to-transparent lg:block"
+          className="pointer-events-none absolute inset-y-0 left-0 z-1 hidden w-[calc((100%-min(90%,1800px))/2+min(90%,1800px)*9/12)] bg-linear-to-r from-accent-950/50 from-50% to-transparent lg:block"
         />
       }
       afterContainer={
@@ -66,19 +66,19 @@ const Hero = ({ heading, text, before, after, actions, locale }: HeroProps) => {
             label={compare.label}
             beforeLabel={compare.before}
             afterLabel={compare.after}
-            wideStart={75}
+            wideStart={35}
             className="aspect-3/2 w-full grow lg:absolute lg:inset-0 lg:aspect-auto"
           />
         )
       }
     >
       <div className="pointer-events-auto flex flex-col gap-6 py-16 lg:w-7/12 lg:py-24 lg:pr-10">
-        <H1 $size="display" $margin="0">
+        <H1 $size="display" $margin="0" className="max-w-[11ch]">
           {heading}
         </H1>
-        <P $size="body-l" className="max-w-[50ch] text-pretty">
+        {/* <P $size="body-l" className="max-w-[50ch] text-pretty">
           {text}
-        </P>
+        </P> */}
         {actions && actions.length > 0 && (
           <div className="flex flex-wrap gap-4 pt-2">
             {actions.map(renderAction)}

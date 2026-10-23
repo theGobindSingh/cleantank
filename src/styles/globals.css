@@ -16,7 +16,7 @@
 
 :root {
   /* type scale: fluid between 360 and 1280 px, ratio 1.2 */
-  --fs-display: clamp(2.488rem, 2.077rem + 1.515vw, 3.359rem);
+  --fs-display: clamp(2.488rem, 5vw, 7rem);
   --fs-h1: clamp(2.074rem, 1.972rem + 0.451vw, 2.333rem);
   --fs-h2: clamp(1.728rem, 1.643rem + 0.376vw, 1.944rem);
   --fs-h3: clamp(1.44rem, 1.37rem + 0.313vw, 1.62rem);
