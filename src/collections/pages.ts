@@ -1,4 +1,5 @@
 import { hero } from "@/blocks/hero/config";
+import { processBlock } from "@/blocks/process/config";
 import type { Page } from "@/payload-types";
 import { revalidatePath } from "next/cache";
 import type { CollectionAfterChangeHook, CollectionConfig } from "payload";
@@ -35,6 +36,11 @@ export const pages: CollectionConfig = {
         description: "The URL path without slashes. `home` is the home page.",
       },
     },
-    { name: "layout", type: "blocks", required: true, blocks: [hero] },
+    {
+      name: "layout",
+      type: "blocks",
+      required: true,
+      blocks: [hero, processBlock],
+    },
   ],
 };

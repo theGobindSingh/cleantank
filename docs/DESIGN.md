@@ -65,7 +65,7 @@ So `bg-bg`, `text-fg-muted`, `border-border-control`, `bg-primary`, `text-headin
 
 ### Color rules
 
-- Proportion: neutral (white and stone) about 60%, navy about 30%, accent at most 10% of non-photo area. On the website, navy is only the header, footer, the 5-step band, one other emphasis band and buttons. Never a whole navy page.
+- Proportion: neutral (white and stone) about 60%, navy about 30%, accent at most 10% of non-photo area. On the website, navy is only the header, footer, at most two emphasis bands and buttons. Never a whole navy page.
 - Accent is a marker only: the Level Line, the active step, reference tags and index numbers, one key figure per view. Never a button fill, link, body text, alert, error, warning or urgency signal. `#EE7555` on white is 2.87:1 and fails; small accent text uses `marker-text`.
 - Secondary is navy's quiet partner: category tags (`bg-secondary-bg text-secondary border-secondary-border`), the rule beside a heading, the second chart series after navy, soft panels, and at most one emphasis band per page. Its area comes out of navy's 30%. Never a button, link, focus ring, status or alert, and never beside a state color in a way that could read as one.
 - Every state color comes with an icon and a word.
@@ -107,7 +107,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 - Max content width 1800 px, set by `CommonFullWidthWrapper` (docs/CONVENTIONS.md, Styling): side margins are 5% of the width each, until the content reaches 1800 px. Columns 4 (base), 8 (`md`), 12 (`lg` up). Gutters 16 then 24.
 - Sections alternate white and stone with a 1 px rule between them. Section gaps 64 / 80 / 96 px by breakpoint.
-- Each section gets a number and a mono reference tag above its H2 (`02  REF CT-WEB-02`, `ref` style, `marker-text`).
+- Each section gets a number and a mono reference tag above its H2 (`02  REF CT-WEB-02`, `ref` style, `marker-text`). The number counts the sections after the hero, from 01, in page order. The 5-step track has no number, tag or visible heading (owner's call).
 - Above the fold, at most five elements: headline, one line, CTAs, the before/after comparison, brand mark.
 - Header (`src/components/header`): navy band, logo top-left (never centred), at most six nav links in button type, current page marked with a 3 px accent underline and `aria-current="page"`, then the language dropdown and theme toggle, all in one `<nav>`. Fixed to the top of the viewport, 64 px tall; the body is padded by the same amount. Below `lg` (1024 px, phones and tablets) the same link panel becomes a sidenav (styled in `header.css`) that slides in from the right over the modal scrim. One burger button opens and closes it, drawing its three lines into an X while open; Escape, a click on the scrim or following a link also close it. While it's open, Tab cycles between the burger and the panel's controls. The burger and the theme toggle are 36 px icon buttons (`iconButtonStyles`) with a 44 px hit area.
 - Mobile (under 768): a sticky bottom bar with Call (filled) and WhatsApp (outline) buttons, respecting `env(safe-area-inset-bottom)`.
@@ -117,7 +117,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 - Level Line: a 3 px `marker` rule, 48 px long, square ends, 12 px under the page H1 or the key figure. One per view, never on photos, buttons or alerts.
 - Reference tag: plain mono caps text, no box. One accent tag per view at most; the rest use `fg-muted`.
-- Step track (the 5-step process): five square 40 px nodes (32 px at 360), `rounded-xs`, 2 px outline, Plex Mono numerals 01 to 05, 2 px connectors with square elbows. Step 05 is dashed and labelled "* WHERE APPLICABLE". Active step: primary fill, white numeral, 3 px accent underline. Build it as an `<ol>`; decorative SVG is `aria-hidden`.
+- Step track (the 5-step process): five square 40 px nodes (32 px at 360), `rounded-xs`, 2 px outline, Plex Mono numerals 01 to 05, 2 px connectors with square elbows. Step 05 is dashed and labelled "* WHERE APPLICABLE". Active step: primary fill, white numeral, 3 px accent underline. Build it as an `<ol>`; decorative SVG is `aria-hidden`. The `process` block (`src/blocks/process`) shows the track on the page ground, with only each step's number, name and line (owner's call: no band, photos or visible heading; the H2 is for screen readers). The steps come from the `process` global. From `lg` up they run in five columns joined by one line; below that they stack, joined by a vertical line. The home page track has no active step.
 - Ruled cells: `display: grid; gap: 1px` over a `border` background, cells filled `surface` at radius 0.
 
 ## Components
@@ -144,7 +144,7 @@ Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,0
 
 Functional only: exact, brief, still. Durations 70 / 110 / 150 / 240 ms (240 is the ceiling). Easing `cubic-bezier(0.2, 0, 0.38, 0.9)` standard, `cubic-bezier(0, 0, 0.38, 0.9)` entrance, `cubic-bezier(0.2, 0, 1, 0.9)` exit. Animate only opacity and transform, with at most 8 px of travel. One exception (owner's call): the header sidenav slides its full width in 240 ms with the entrance easing while the scrim fades in, and the burger's lines morph into an X in 500 ms with `cubic-bezier(0.645, 0.045, 0.355, 1)`, copied from the earlier site; and once both photos have loaded and the whole hero comparison is on screen below the header, its divider glides from the left edge 15 points past its start in 900 ms, easing out, then settles back on it in 500 ms (skipped under reduced motion, stopped by a drag).
 
-The one sequence is the 5-step band: it plays once when half in view, nodes fading in with a 120 ms stagger, then the Level Line draws in 240 ms with `cubic-bezier(0.4, 0.14, 0.3, 1)`.
+The one sequence is the 5-step track: it plays once when the track rises above the bottom 15% of the screen, the nodes fading in with a 120 ms stagger.
 
 Never: bounce, overshoot, shake, pulse, parallax, scroll fly-ins, staggered card lists, count-up numbers, carousels, shimmer, autoplay. `prefers-reduced-motion` is respected globally in `src/styles/defaults.css`.
 
@@ -162,4 +162,4 @@ Never: bounce, overshoot, shake, pulse, parallax, scroll fly-ins, staggered card
 
 ## Still open
 
-Which section gets the second emphasis band, and the reference-code scheme: decide them when building those parts and write the choice here. Check the stone value on real screens.
+Which section gets the second emphasis band: decide it when building that part and write the choice here. Check the stone value on real screens.

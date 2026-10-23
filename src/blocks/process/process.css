@@ -1,0 +1,16 @@
+/*
+ * The 5-step track's one sequence, played when reveal.tsx sets [data-shown]:
+ * the step nodes fade in 120 ms apart (--step is the step's index). Without
+ * script, or with reduced motion, they show at once.
+ */
+@utility process-node {
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    opacity: 0;
+    transition: opacity 240ms cubic-bezier(0, 0, 0.38, 0.9)
+      calc(var(--step) * 120ms);
+
+    [data-shown] & {
+      opacity: 1;
+    }
+  }
+}

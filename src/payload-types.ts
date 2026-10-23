@@ -89,8 +89,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'hi' | 'pa') | ('en' | 'hi' | 'pa')[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    process: Process;
+  };
+  globalsSelect: {
+    process: ProcessSelect<false> | ProcessSelect<true>;
+  };
   locale: 'en' | 'hi' | 'pa';
   widgets: {
     collections: CollectionsWidget;
@@ -176,7 +180,7 @@ export interface Page {
    * The URL path without slashes. `home` is the home page.
    */
   slug: string;
-  layout: HeroBlock[];
+  layout: (HeroBlock | ProcessBlock)[];
   updatedAt: string;
   createdAt: string;
 }
@@ -211,6 +215,19 @@ export interface HeroBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProcessBlock".
+ */
+export interface ProcessBlock {
+  /**
+   * Read out by screen readers; not shown on the page.
+   */
+  heading: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'process';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -343,6 +360,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         hero?: T | HeroBlockSelect<T>;
+        process?: T | ProcessBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -363,6 +381,15 @@ export interface HeroBlockSelect<T extends boolean = true> {
         href?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProcessBlock_select".
+ */
+export interface ProcessBlockSelect<T extends boolean = true> {
+  heading?: T;
   id?: T;
   blockName?: T;
 }
@@ -405,6 +432,46 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "process".
+ */
+export interface Process {
+  id: number;
+  /**
+   * Always these five, in this order: De-watering, High-pressure cleaning, Sludge & water removal, Disinfection, UV treatment.
+   */
+  steps: {
+    title: string;
+    text: string;
+    image: number | Media;
+    /**
+     * Marks the step “Where applicable” (UV treatment).
+     */
+    whereApplicable?: boolean | null;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "process_select".
+ */
+export interface ProcessSelect<T extends boolean = true> {
+  steps?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        image?: T;
+        whereApplicable?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

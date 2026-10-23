@@ -59,6 +59,9 @@ export const hi: Dictionary = {
     },
     cookieSettings: "कुकी सेटिंग्स",
   },
+  process: {
+    whereApplicable: "जहाँ लागू हो",
+  },
   compare: {
     label: "सफ़ाई से पहले और बाद",
     before: "पहले",

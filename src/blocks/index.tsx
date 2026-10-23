@@ -1,6 +1,7 @@
 import type { Page } from "@/payload-types";
 import type { Locale } from "@i18n";
 import Hero from "./hero";
+import ProcessSection from "./process";
 
 interface BlocksProps {
   blocks: Page["layout"];
@@ -15,6 +16,10 @@ const Blocks = ({ blocks, locale }: BlocksProps) => {
     switch (block.blockType) {
       case "hero":
         return <Hero key={block.id ?? index} {...block} locale={locale} />;
+      case "process":
+        return (
+          <ProcessSection key={block.id ?? index} {...block} locale={locale} />
+        );
     }
   };
 

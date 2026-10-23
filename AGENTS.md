@@ -19,7 +19,7 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 ## Where things live
 
 - `src/app` — routes and Next.js special files only. The site lives in `(frontend)/[lang]`, the Payload admin and API in `(payload)`. Route-only UI sits beside its route; shared code lives in the folders below
-- `src/payload.config.ts`, `src/collections` — Payload CMS config and collections
+- `src/payload.config.ts`, `src/collections`, `src/globals` — Payload CMS config, collections and globals
 - `src/blocks` — Payload blocks for page layouts: each block's `config.ts` beside the component that renders it, and `index.tsx` mapping block types to components
 - `src/components` — shared components
 - `src/utils` — small framework-agnostic helpers

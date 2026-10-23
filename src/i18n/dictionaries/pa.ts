@@ -59,6 +59,9 @@ export const pa: Dictionary = {
     },
     cookieSettings: "ਕੂਕੀ ਸੈਟਿੰਗਾਂ",
   },
+  process: {
+    whereApplicable: "ਜਿੱਥੇ ਲਾਗੂ ਹੋਵੇ",
+  },
   compare: {
     label: "ਸਫ਼ਾਈ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ",
     before: "ਪਹਿਲਾਂ",

@@ -60,6 +60,9 @@ export const en = {
     },
     cookieSettings: "Cookie settings",
   },
+  process: {
+    whereApplicable: "Where applicable",
+  },
   compare: {
     label: "Before and after cleaning",
     before: "Before",
