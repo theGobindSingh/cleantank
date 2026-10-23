@@ -47,8 +47,11 @@ const nextConfig = {
   allowedDevOrigins: [process.env.DEV_SERVER_ORIGIN].filter(Boolean),
   images: {
     remotePatterns: [],
-    // Payload serves uploads from its API.
-    localPatterns: [{ pathname: "/api/media/file/**" }],
+    // Payload serves uploads from its API; /design shows images from public/.
+    localPatterns: [
+      { pathname: "/api/media/file/**" },
+      { pathname: "/assets/images/**" },
+    ],
   },
   experimental: {
     // One 404 for the site and the admin, which have separate root layouts.
