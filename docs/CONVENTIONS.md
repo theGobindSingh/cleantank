@@ -82,7 +82,7 @@ Payload CMS runs inside the app: the admin is at `/admin` and the REST API under
 
 ## Hosting
 
-The site runs on Vercel at `https://www.cleantankservices.com` (`SITE_URL`); the bare domain redirects to www. Vercel's build runs the `vercel-build` script (`pnpm migrate && pnpm build`), so each deploy migrates the database first and a failed migration stops the deploy. Uploads pass through the server, so Vercel caps each file at about 4.5 MB, which is enough.
+Until launch, the site is not on its domain: `https://www.cleantankservices.com` still serves the old site. The working preview is `https://nextjsdev.letmecome.in`, an nginx proxy to whatever `pnpm dev` runs on port 3000 of the dev server (`~/vps/docs/server.md`), so it is only up while a dev server runs there. Check UI and admin changes there. At launch the site moves to Vercel at `https://www.cleantankservices.com` (`SITE_URL`); the bare domain redirects to www. Vercel's build runs the `vercel-build` script (`pnpm migrate && pnpm build`), so each deploy migrates the database first and a failed migration stops the deploy. Uploads pass through the server, so Vercel caps each file at about 4.5 MB, which is enough.
 
 ## Git
 
