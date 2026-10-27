@@ -34,10 +34,10 @@ The process is the product. Always show five steps, in this order, with these na
 1. De-watering: water removed with mechanical pumps.
 2. High-pressure cleaning: walls, floor and roof cleaned with a high-pressure water jet (up to 250 bar, subject to site and equipment).
 3. Sludge & water removal: with an industrial vacuum.
-4. Disinfection: antibacterial agent.
+4. Disinfection: the Clean Tank agent, a food-grade, non-toxic antibacterial agent (owner's call, 26 Oct 2026). Call it "Clean Tank agent"; never name the product.
 5. UV treatment: marked "where applicable".
 
-The old 6-step version is retired. After the service the customer gets a Cleaning Certificate and a Cleaning Date Sticker on the tank with the cleaning date and the next due date. Follow-up comes about a week before that date. The system recommends and the customer decides.
+No job duration is published, for any step or tank size (owner's call). The old 6-step version is retired. After the service the customer gets a Cleaning Certificate and a Cleaning Date Sticker on the tank with the cleaning date and the next due date. Follow-up comes about a week before that date. The system recommends and the customer decides.
 
 ## Audiences
 
@@ -47,7 +47,7 @@ The site serves three groups, all equally important. Each gets its own dedicated
 
 Individual homeowners and families with their own tank. This group is new for the business. Often a joint decision, triggered by dirt, smell, insects or a long gap since the last cleaning. They want the process explained simply and they worry whether the chemicals are safe for drinking water. They find the service through Google, referrals and social media, and many think in Hindi or Punjabi. Warm tone, WhatsApp first.
 
-- Service area for homes: Chandigarh and the tri-city (Chandigarh, Mohali, Panchkula) only. Never promise home service anywhere else; new cities open as franchise partners join.
+- Service area for homes: Chandigarh, the tri-city (Chandigarh, Mohali, Panchkula) and anywhere within 20 km of it (owner's call, 23 Oct 2026). Never promise home service anywhere else; new cities open as franchise partners join.
 - No prices yet. Leave a marked placeholder where a price would go; pricing, booking and better forms come later.
 
 ### Organisations (`/organisations`)
@@ -64,7 +64,7 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 
 ### Shared home page (`/`)
 
-What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, 15+ years, client logos and testimonials. Then three clear doors near the top: homes, organisations and franchise. Detail lives on the dedicated pages, not here.
+What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, 15+ years, client logos and testimonials. Then three clear doors: homes, organisations and franchise, placed after the process and the client logos (owner's call). Detail lives on the dedicated pages, not here.
 
 ### All groups
 
@@ -72,13 +72,17 @@ The real competitor is the local plumber or labourer, and doing nothing. Never c
 
 Each group gets its own enquiry form, asking only what planning needs. Where submissions go is not decided yet (Google Forms was tried and dropped); until then `/contact` lists the phone, WhatsApp, email and offices. Channels are phone, WhatsApp, the website and the forms. Separate WhatsApp numbers, emails and lead handling per group are planned but not set up; until then everything uses the contacts in `src/site.ts`.
 
-Testimonials: the organisations' staff have praised the work; collect quotes with the person's name, role and permission before using them. No Google Business profile yet (in progress).
+Testimonials: the organisations' staff have praised the work; collect quotes with the person's name, role and permission before using them. Add each under Clients, then Testimonials in the admin, tick "Permission to publish" with the date, and pick it in the home page's testimonials block, the page's last section. No Google Business profile yet (in progress).
 
 ## Site structure
 
-Pages: `/` (gateway), `/homes`, `/organisations`, `/franchise`, plus shared pages for the process, about and contact that link back to the three. INFO-BANK §10 has the source copy per section (About Us, Our Services, Our Scientific Cleaning Process, Recommended Cleaning Frequency, AMC, Why Choose Us, Water Hygiene, Our Clientele, Pan-India Presence, Aims & Objectives, Founder & CEO, Our Brand, Our Message, Franchise & Business Opportunity, Contact, Enquiry); place each section on the page whose audience it serves.
+Pages: `/` (gateway), `/homes`, `/organisations`, `/franchise`, plus shared pages for the process, about and contact that link back to the three.
 
-Navigation (at most six items in the header): Homes, Organisations, Franchise, Process, About, Contact. Footer adds Why Choose Us (`/about#why-choose-us`), Clients (`/about#clients`), Privacy Policy (`/privacy`) and Terms & Conditions (`/terms`); the full legal text is in INFO-BANK §11.
+The process page (`/process`) explains the work for all three groups: the intro with a quote button, the step track as an index to each step in full (photo, what we do, why it matters, equipment), the before/after gallery, what to prepare before the visit, what the customer gets after it, how often to clean, questions, a closing band and the three doors. INFO-BANK §10 has the source copy per section (About Us, Our Services, Our Scientific Cleaning Process, Recommended Cleaning Frequency, AMC, Why Choose Us, Water Hygiene, Our Clientele, Pan-India Presence, Aims & Objectives, Founder & CEO, Our Brand, Our Message, Franchise & Business Opportunity, Contact, Enquiry); place each section on the page whose audience it serves.
+
+The about page (`/about`) tells who stands behind the work: the intro with a quote button, why we started (with the rooftop team photo), the founder with his photo and the measured bio from INFO-BANK §2, the track record figures, why choose us (`#why-choose-us`), registrations and certificates, every cleared client by name (`#clients`), aims and objectives (kept for now; the owner may drop it), the three doors and a closing band. Registrations and certificates (ISO, GSTIN, MSME, GeM and the rest) live only in `src/site.ts`, which the credentials block and the footer both read; Payload holds just the section's heading and line (owner's call, 27 Oct 2026: one source for facts that rarely change). The MSME (Udyam) number shows "To be added" until the owner sends it. The GeM row says "Registered seller" and never shows the seller ID: owner's call (27 Oct 2026), the ID goes only to clients who ask. When the ISO certificate image arrives, it goes in `public/` and in `iso.certificate` in `src/site.ts`, which turns on the "View certificate" window.
+
+Navigation (at most seven items in the header): Home, For Homes, For Organisations, For Franchise, Process, About, Contact (owner's call). Footer adds Why Choose Us (`/about#why-choose-us`), Clients (`/about#clients`), Privacy Policy (`/privacy`) and Terms & Conditions (`/terms`); the full legal text is in INFO-BANK §11.
 
 Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner". Never "Submit" or "Book now".
 
@@ -121,7 +125,7 @@ Safe to state:
 - GSTIN 09LFS1473F5ZU.
 - The LIC tank story happened in Kanpur.
 
-Needs a document before use: non-toxic, biodegradable, eco-friendly, how long the treatment lasts, the CPWD DSR listing (exact edition and item), the "60% of diseases are water-borne" figure, the Delhi Railway Station story.
+Needs a document before use: biodegradable, eco-friendly, how long the treatment lasts, the CPWD DSR listing (exact edition and item), the "60% of diseases are water-borne" figure, the Delhi Railway Station story.
 
 Every "safe" or "bacteria-free" line carries the qualifier that water quality also depends on source water, plumbing, tank condition and upkeep after the service.
 
@@ -142,11 +146,11 @@ What that piece of work covers at least:
 - A grievance contact and the visitor's rights: access, correction, erasure and nominating someone.
 - Retention limits and deletion for enquiry data, and a data-breach response plan.
 - No children's data without verifiable parental consent; the forms should not target or collect it.
+- The cookie notice lists the `lang` cookie: a language preference with no personal data, kept a year, needing no consent.
 - Every processor listed and covered: Vercel, Neon, PostHog, Sentry and any form backend.
 
 Get a lawyer to review it before it goes live. docs/LAUNCH.md turns this list into the checklist to finish before launch.
 
-- The cookie notice lists the `lang` cookie: a language preference with no personal data, kept a year, needing no consent.
 ## Avoid
 
 - Looking like a generic cleaning company, a plumber's flyer or a trade-show standee.

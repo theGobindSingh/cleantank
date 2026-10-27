@@ -70,6 +70,9 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
+    clients: Client;
+    'client-categories': ClientCategory;
+    testimonials: Testimonial;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -80,6 +83,9 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    clients: ClientsSelect<false> | ClientsSelect<true>;
+    'client-categories': ClientCategoriesSelect<false> | ClientCategoriesSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -180,7 +186,31 @@ export interface Page {
    * The URL path without slashes. `home` is the home page.
    */
   slug: string;
-  layout: (HeroBlock | ProcessBlock)[];
+  /**
+   * The browser tab and search title. Falls back to the title.
+   */
+  metaTitle?: string | null;
+  /**
+   * One or two sentences for search results. Optional.
+   */
+  metaDescription?: string | null;
+  layout: (
+    | HeroBlock
+    | AudiencesBlock
+    | ProcessBlock
+    | TrustBandBlock
+    | ClientsBandBlock
+    | TestimonialsBlock
+    | PageIntroBlock
+    | RuledListBlock
+    | CompareGalleryBlock
+    | FaqBlock
+    | CtaBandBlock
+    | StoryBlock
+    | FounderBlock
+    | CredentialsBlock
+    | ClientListBlock
+  )[];
   updatedAt: string;
   createdAt: string;
 }
@@ -218,16 +248,329 @@ export interface HeroBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AudiencesBlock".
+ */
+export interface AudiencesBlock {
+  heading: string;
+  /**
+   * Homes, Organisations, Franchise, in that order.
+   */
+  doors: {
+    title: string;
+    text: string;
+    /**
+     * A site path, such as /homes.
+     */
+    href: string;
+    linkLabel: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'audiences';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ProcessBlock".
  */
 export interface ProcessBlock {
+  heading: string;
   /**
-   * Read out by screen readers; not shown on the page.
+   * Also show each step in full, with its photo, purpose and equipment, and link the track to them. For the process page.
+   */
+  detailed?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'process';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TrustBandBlock".
+ */
+export interface TrustBandBlock {
+  /**
+   * A short label above the figures.
+   */
+  heading: string;
+  /**
+   * Only figures approved in INFO-BANK, such as 15+ years.
+   */
+  figures: {
+    value: string;
+    label: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'trustBand';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientsBandBlock".
+ */
+export interface ClientsBandBlock {
+  /**
+   * A short label beside the logos.
    */
   heading: string;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'process';
+  blockType: 'clientsBand';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock".
+ */
+export interface TestimonialsBlock {
+  heading: string;
+  /**
+   * Pick up to three. Only quotes with permission can be picked, and the section stays hidden until one is.
+   */
+  items?: (number | Testimonial)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonials';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  _order?: string | null;
+  quote: string;
+  name: string;
+  role: string;
+  organisation: string;
+  /**
+   * Tick only once the person has agreed to their quote, name and role being shown (PRODUCT.md).
+   */
+  permission?: boolean | null;
+  /**
+   * When they gave permission.
+   */
+  permissionDate?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PageIntroBlock".
+ */
+export interface PageIntroBlock {
+  heading: string;
+  text?: string | null;
+  /**
+   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   */
+  actions?:
+    | {
+        label: string;
+        /**
+         * A path such as /contact. The language prefix is added for you.
+         */
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pageIntro';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RuledListBlock".
+ */
+export interface RuledListBlock {
+  heading: string;
+  text?: string | null;
+  items: {
+    title: string;
+    text?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * A small note under the list. Optional.
+   */
+  note?: string | null;
+  /**
+   * Tick to alternate with the section above.
+   */
+  isSubtle?: boolean | null;
+  /**
+   * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
+   */
+  anchor?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ruledList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CompareGalleryBlock".
+ */
+export interface CompareGalleryBlock {
+  heading: string;
+  text?: string | null;
+  /**
+   * One tank each. Frame the before and after photos the same way.
+   */
+  items: {
+    before: number | Media;
+    after: number | Media;
+    /**
+     * Such as the tank type and capacity.
+     */
+    caption?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * Tick to alternate with the section above.
+   */
+  isSubtle?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'compareGallery';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqBlock".
+ */
+export interface FaqBlock {
+  heading: string;
+  items: {
+    question: string;
+    answer: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faq';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBandBlock".
+ */
+export interface CtaBandBlock {
+  heading: string;
+  text?: string | null;
+  /**
+   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   */
+  actions?:
+    | {
+        label: string;
+        /**
+         * A path such as /contact. The language prefix is added for you.
+         */
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'ctaBand';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StoryBlock".
+ */
+export interface StoryBlock {
+  heading: string;
+  /**
+   * Leave a blank line between paragraphs.
+   */
+  text: string;
+  image?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'story';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FounderBlock".
+ */
+export interface FounderBlock {
+  /**
+   * Shown as a small label above the name.
+   */
+  role: string;
+  name: string;
+  /**
+   * Leave a blank line between paragraphs.
+   */
+  bio: string;
+  /**
+   * A real photo with the background removed (transparent PNG or WebP). It sits on the section's ground, unframed.
+   */
+  portrait?: (number | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'founder';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CredentialsBlock".
+ */
+export interface CredentialsBlock {
+  heading: string;
+  text?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'credentials';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientListBlock".
+ */
+export interface ClientListBlock {
+  heading: string;
+  text?: string | null;
+  /**
+   * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
+   */
+  anchor?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'clientList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients".
+ */
+export interface Client {
+  id: number;
+  _order?: string | null;
+  /**
+   * Spelled exactly as in INFO-BANK §7.
+   */
+  name: string;
+  category: number | ClientCategory;
+  /**
+   * SVG only. Without one the client is left out of the band. No State Emblem of India.
+   */
+  logo?: (number | null) | Media;
+  /**
+   * Work completion certificate. Public, but not shown on the band.
+   */
+  certificate?: (number | null) | Media;
+  /**
+   * Tick only with the client's permission or documentation (INFO-BANK §7).
+   */
+  cleared?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "client-categories".
+ */
+export interface ClientCategory {
+  id: number;
+  _order?: string | null;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -264,6 +607,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'clients';
+        value: number | Client;
+      } | null)
+    | ({
+        relationTo: 'client-categories';
+        value: number | ClientCategory;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: number | Testimonial;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -356,11 +711,26 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  metaTitle?: T;
+  metaDescription?: T;
   layout?:
     | T
     | {
         hero?: T | HeroBlockSelect<T>;
+        audiences?: T | AudiencesBlockSelect<T>;
         process?: T | ProcessBlockSelect<T>;
+        trustBand?: T | TrustBandBlockSelect<T>;
+        clientsBand?: T | ClientsBandBlockSelect<T>;
+        testimonials?: T | TestimonialsBlockSelect<T>;
+        pageIntro?: T | PageIntroBlockSelect<T>;
+        ruledList?: T | RuledListBlockSelect<T>;
+        compareGallery?: T | CompareGalleryBlockSelect<T>;
+        faq?: T | FaqBlockSelect<T>;
+        ctaBand?: T | CtaBandBlockSelect<T>;
+        story?: T | StoryBlockSelect<T>;
+        founder?: T | FounderBlockSelect<T>;
+        credentials?: T | CredentialsBlockSelect<T>;
+        clientList?: T | ClientListBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -386,12 +756,238 @@ export interface HeroBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AudiencesBlock_select".
+ */
+export interface AudiencesBlockSelect<T extends boolean = true> {
+  heading?: T;
+  doors?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        href?: T;
+        linkLabel?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ProcessBlock_select".
  */
 export interface ProcessBlockSelect<T extends boolean = true> {
   heading?: T;
+  detailed?: T;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TrustBandBlock_select".
+ */
+export interface TrustBandBlockSelect<T extends boolean = true> {
+  heading?: T;
+  figures?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientsBandBlock_select".
+ */
+export interface ClientsBandBlockSelect<T extends boolean = true> {
+  heading?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock_select".
+ */
+export interface TestimonialsBlockSelect<T extends boolean = true> {
+  heading?: T;
+  items?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PageIntroBlock_select".
+ */
+export interface PageIntroBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  actions?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RuledListBlock_select".
+ */
+export interface RuledListBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  items?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        id?: T;
+      };
+  note?: T;
+  isSubtle?: T;
+  anchor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CompareGalleryBlock_select".
+ */
+export interface CompareGalleryBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  items?:
+    | T
+    | {
+        before?: T;
+        after?: T;
+        caption?: T;
+        id?: T;
+      };
+  isSubtle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FaqBlock_select".
+ */
+export interface FaqBlockSelect<T extends boolean = true> {
+  heading?: T;
+  items?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CtaBandBlock_select".
+ */
+export interface CtaBandBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  actions?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "StoryBlock_select".
+ */
+export interface StoryBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  image?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FounderBlock_select".
+ */
+export interface FounderBlockSelect<T extends boolean = true> {
+  role?: T;
+  name?: T;
+  bio?: T;
+  portrait?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CredentialsBlock_select".
+ */
+export interface CredentialsBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ClientListBlock_select".
+ */
+export interface ClientListBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  anchor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients_select".
+ */
+export interface ClientsSelect<T extends boolean = true> {
+  _order?: T;
+  name?: T;
+  category?: T;
+  logo?: T;
+  certificate?: T;
+  cleared?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "client-categories_select".
+ */
+export interface ClientCategoriesSelect<T extends boolean = true> {
+  _order?: T;
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  _order?: T;
+  quote?: T;
+  name?: T;
+  role?: T;
+  organisation?: T;
+  permission?: T;
+  permissionDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -445,6 +1041,14 @@ export interface Process {
   steps: {
     title: string;
     text: string;
+    /**
+     * Why the step matters, shown on the process page. Optional.
+     */
+    purpose?: string | null;
+    /**
+     * The equipment used, shown on the process page. Optional.
+     */
+    equipment?: string | null;
     image: number | Media;
     /**
      * Marks the step “Where applicable” (UV treatment).
@@ -465,6 +1069,8 @@ export interface ProcessSelect<T extends boolean = true> {
     | {
         title?: T;
         text?: T;
+        purpose?: T;
+        equipment?: T;
         image?: T;
         whereApplicable?: T;
         id?: T;

@@ -47,6 +47,8 @@ const nextConfig = {
   allowedDevOrigins: [process.env.DEV_SERVER_ORIGIN].filter(Boolean),
   images: {
     remotePatterns: [],
+    // 75 is the default; 100 is for the hero's before and after photos.
+    qualities: [75, 100],
     // Payload serves uploads from its API; /design shows images from public/.
     localPatterns: [
       { pathname: "/api/media/file/**" },

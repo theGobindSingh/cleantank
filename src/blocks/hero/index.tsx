@@ -1,62 +1,33 @@
-import type { HeroBlock, Media } from "@/payload-types";
+import Actions from "@/blocks/actions";
+import { toImage } from "@/blocks/to-image";
+import type { HeroBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import CompareSlider, { type CompareImage } from "@components/compare-slider";
+import CompareSlider from "@components/compare-slider";
 import { H1 } from "@components/html";
-import Link from "@components/link";
-import { getDictionary, localePath, type Locale } from "@i18n";
+import { getDictionary, type Locale } from "@i18n";
 
 interface HeroProps extends HeroBlock {
   locale: Locale;
 }
 
-type Action = NonNullable<HeroBlock["actions"]>[number];
-
-// Uploads arrive populated at depth 1; an id alone means the file is missing.
-const toImage = (media: number | Media): CompareImage | null => {
-  if (typeof media === "number" || !media.url) return null;
-  return { src: media.url, alt: media.alt };
-};
-
 /**
- * Heading, one line and up to two actions on flat navy, filling the screen
- * below the header but for a 1rem peek of the next section. From `lg` up the
- * comparison fills the hero under a scrim that is solid behind the text and
- * fades out to the right; below that they stack.
+ * Heading and up to two actions over the before/after comparison, which
+ * fills the hero. The slider's scrim keeps the text readable: from `lg` up
+ * the text sits on the left, below that at the bottom, with the drag handle
+ * above it.
  */
 const Hero = ({ heading, before, after, actions, locale }: HeroProps) => {
   const { compare } = getDictionary(locale);
   const beforeImage = toImage(before);
   const afterImage = toImage(after);
 
-  const renderAction = (action: Action, index: number) => {
-    const href = action.href.startsWith("/")
-      ? localePath(locale, action.href)
-      : action.href;
-    return (
-      <Link
-        key={action.id ?? index}
-        href={href}
-        variant={index === 0 ? "filled" : "outlined"}
-        size="md"
-      >
-        {action.label}
-      </Link>
-    );
-  };
-
   return (
     <CommonFullWidthWrapper
       wrapperProps={{ "data-surface": "band" }}
-      wrapperClassName="relative flex-col min-h-[calc(65svh-var(--header-height))] [--color-band:var(--color-primary-900)]"
-      // pointer events pass through to the comparison beside the text
+      isContainerCenter={false}
+      wrapperClassName="relative flex-col items-center justify-end min-h-[calc(90svh-var(--header-height))] lg:justify-center lg:min-h-[calc(65svh-var(--header-height))] [--color-band:var(--color-primary-900)]"
+      // pointer events pass through to the comparison, except on the buttons
       className="pointer-events-none relative z-10"
-      beforeContainer={
-        // the scrim is solid behind the text (to the wrapper's seventh column: 90%, at most 1800 px) and fades out by the ninth
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 z-1 hidden w-[calc((100%-min(90%,1800px))/2+min(90%,1800px)*9/12)] bg-linear-to-r from-accent-950/50 from-50% to-transparent lg:block"
-        />
-      }
       afterContainer={
         beforeImage &&
         afterImage && (
@@ -66,24 +37,28 @@ const Hero = ({ heading, before, after, actions, locale }: HeroProps) => {
             label={compare.label}
             beforeLabel={compare.before}
             afterLabel={compare.after}
-            wideStart={35}
-            className="aspect-3/2 w-full grow lg:absolute lg:inset-0 lg:aspect-auto"
+            wideStart={42.5}
+            widePeak={85}
+            handleClassName="top-[22%] lg:top-auto lg:bottom-4"
+            scrimColor="var(--color-accent-950)"
+            // ! beats the slider's own `relative`, so it fills the hero
+            className="absolute! inset-0"
           />
         )
       }
     >
-      <div className="pointer-events-auto flex flex-col gap-6 py-16 lg:w-7/12 lg:py-24 lg:pr-10">
+      <div className="flex flex-col gap-6 py-10 lg:w-7/12 lg:py-24 lg:pr-10">
         <H1 $size="display" $margin="0" className="max-w-[11ch]">
           {heading}
         </H1>
         {/* <P $size="body-l" className="max-w-[50ch] text-pretty">
           {text}
         </P> */}
-        {actions && actions.length > 0 && (
-          <div className="flex flex-wrap gap-4 pt-2">
-            {actions.map(renderAction)}
-          </div>
-        )}
+        <Actions
+          actions={actions}
+          locale={locale}
+          className="pointer-events-auto pt-2"
+        />
       </div>
     </CommonFullWidthWrapper>
   );

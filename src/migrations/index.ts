@@ -2,6 +2,14 @@ import * as migration_20261021_101918_initial from './20261021_101918_initial';
 import * as migration_20261021_181258_pages from './20261021_181258_pages';
 import * as migration_20261022_162357_process from './20261022_162357_process';
 import * as migration_20261022_163707_process_drop_text from './20261022_163707_process_drop_text';
+import * as migration_20261023_102606_clients from './20261023_102606_clients';
+import * as migration_20261023_104818_clients_band from './20261023_104818_clients_band';
+import * as migration_20261023_124158_audiences from './20261023_124158_audiences';
+import * as migration_20261023_133243_trust_band from './20261023_133243_trust_band';
+import * as migration_20261023_140040_testimonials from './20261023_140040_testimonials';
+import * as migration_20261026_072952_process_page from './20261026_072952_process_page';
+import * as migration_20261026_160615_about_page from './20261026_160615_about_page';
+import * as migration_20261027_091859_credentials_from_site from './20261027_091859_credentials_from_site';
 
 export const migrations = [
   {
@@ -22,6 +30,46 @@ export const migrations = [
   {
     up: migration_20261022_163707_process_drop_text.up,
     down: migration_20261022_163707_process_drop_text.down,
-    name: '20261022_163707_process_drop_text'
+    name: '20261022_163707_process_drop_text',
+  },
+  {
+    up: migration_20261023_102606_clients.up,
+    down: migration_20261023_102606_clients.down,
+    name: '20261023_102606_clients',
+  },
+  {
+    up: migration_20261023_104818_clients_band.up,
+    down: migration_20261023_104818_clients_band.down,
+    name: '20261023_104818_clients_band',
+  },
+  {
+    up: migration_20261023_124158_audiences.up,
+    down: migration_20261023_124158_audiences.down,
+    name: '20261023_124158_audiences',
+  },
+  {
+    up: migration_20261023_133243_trust_band.up,
+    down: migration_20261023_133243_trust_band.down,
+    name: '20261023_133243_trust_band',
+  },
+  {
+    up: migration_20261023_140040_testimonials.up,
+    down: migration_20261023_140040_testimonials.down,
+    name: '20261023_140040_testimonials',
+  },
+  {
+    up: migration_20261026_072952_process_page.up,
+    down: migration_20261026_072952_process_page.down,
+    name: '20261026_072952_process_page',
+  },
+  {
+    up: migration_20261026_160615_about_page.up,
+    down: migration_20261026_160615_about_page.down,
+    name: '20261026_160615_about_page',
+  },
+  {
+    up: migration_20261027_091859_credentials_from_site.up,
+    down: migration_20261027_091859_credentials_from_site.down,
+    name: '20261027_091859_credentials_from_site'
   },
 ];

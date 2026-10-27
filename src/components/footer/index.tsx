@@ -20,8 +20,8 @@ const isNotRegisteredOffice = (office: (typeof site.offices)[number]) => {
 const YEAR = new Date().getFullYear();
 
 /**
- * The site-wide navy footer, in ruled cells: brand and ISO line, site map,
- * contacts, legal links, then the correspondence office, with the copyright and GSTIN
+ * The site-wide navy footer, in ruled cells: brand, ISO, GSTIN, MSME and GeM, site map,
+ * contacts, legal links, then the correspondence office, with the copyright
  * under them. Labels come from the dictionaries and facts from src/site.ts,
  * so it renders on error pages too.
  */
@@ -29,7 +29,7 @@ const Footer = ({ locale }: FooterProps) => {
   const { footer, header, contact } = getDictionary(locale);
 
   const sitemap: [string, string][] = [
-    ["/", footer.links.home],
+    ["/", header.links.home],
     ["/homes", header.links.homes],
     ["/organisations", header.links.organisations],
     ["/franchise", header.links.franchise],
@@ -43,12 +43,9 @@ const Footer = ({ locale }: FooterProps) => {
     ["/privacy", footer.links.privacy],
     ["/terms", footer.links.terms],
   ];
-  const iso: [string, string][] = [
-    [footer.certified, site.iso.standard],
-    [footer.issuer, site.iso.issuer],
-    [footer.certificate, site.iso.number],
-    [footer.validTo, site.iso.validTo],
-  ];
+  const isoIssuer = footer.isoIssuer
+    .replace("{issuer}", site.iso.issuer)
+    .replace("{holder}", site.legalName);
 
   const renderLink = ([path, label]: [string, string]) => {
     return (
@@ -62,15 +59,6 @@ const Footer = ({ locale }: FooterProps) => {
 
   const renderOffice = (office: (typeof site.offices)[number]) => {
     return <OfficeCell key={office.label} office={office} />;
-  };
-
-  const renderIsoRow = ([term, value]: [string, string]) => {
-    return (
-      <div key={term} className="contents">
-        <dt className="text-fg-muted">{term}</dt>
-        <dd lang="en">{value}</dd>
-      </div>
-    );
   };
 
   return (
@@ -97,8 +85,33 @@ const Footer = ({ locale }: FooterProps) => {
           <P lang="en" $size="small">
             {site.endorsement}
           </P>
-          <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-(length:--fs-small)">
-            {iso.map(renderIsoRow)}
+          <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 text-(length:--fs-small)">
+            <dt className="text-fg-muted">{footer.certified}</dt>
+            <dd className="flex flex-col">
+              <span lang="en">{site.iso.standard}</span>
+              <span lang="en" className="font-mono">
+                {site.iso.number}
+              </span>
+              <span className="text-fg-muted">{isoIssuer}</span>
+            </dd>
+            <dt className="text-fg-muted">GSTIN</dt>
+            <dd lang="en" className="font-mono">
+              {site.gstin}
+            </dd>
+            <dt lang="en" className="text-fg-muted">
+              MSME
+            </dt>
+            {site.udyam ? (
+              <dd lang="en" className="font-mono">
+                {site.udyam}
+              </dd>
+            ) : (
+              <dd>{footer.toBeAdded}</dd>
+            )}
+            <dt lang="en" className="text-fg-muted">
+              GeM
+            </dt>
+            <dd>{footer.gemSeller}</dd>
           </dl>
         </div>
         <nav aria-label={footer.sitemap} className={tw(CELL, "lg:col-span-2")}>
@@ -108,7 +121,10 @@ const Footer = ({ locale }: FooterProps) => {
           </ul>
         </nav>
         <ContactCell labels={contact} />
-        <nav aria-label={footer.legal} className={tw(CELL, "lg:col-span-3")}>
+        <nav
+          aria-label={footer.legal}
+          className={tw(CELL, "md:col-span-2 lg:col-span-3")}
+        >
           <CellHeading>{footer.legal}</CellHeading>
           <ul className="flex flex-col gap-2">
             {legal.map(renderLink)}
@@ -120,17 +136,12 @@ const Footer = ({ locale }: FooterProps) => {
         </nav>
         {site.offices.filter(isNotRegisteredOffice).map(renderOffice)}
       </div>
-      <div className="flex flex-col gap-2 text-(length:--fs-caption) text-fg-muted md:flex-row md:justify-between">
-        <P $size="caption">
-          <span lang="en">
-            © {YEAR} {site.legalName} / {site.name}.
-          </span>{" "}
-          {footer.rights}
-        </P>
-        <P $size="caption" className="font-mono">
-          GSTIN {site.gstin}
-        </P>
-      </div>
+      <P $size="caption" className="text-fg-muted">
+        <span lang="en">
+          © {YEAR} {site.legalName} / {site.name}.
+        </span>{" "}
+        {footer.rights}
+      </P>
     </CommonFullWidthWrapper>
   );
 };

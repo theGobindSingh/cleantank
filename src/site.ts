@@ -35,11 +35,19 @@ export const site = {
     },
   ],
   gstin: "09LFS1473F5ZU",
+  // MSME (Udyam) registration number; null shows "To be added" until the owner sends it.
+  udyam: null as string | null,
+  // Registered on GeM too; owner's call: never publish the seller ID, it goes to clients on request.
+  // Shown in English on every language, beside the registrations above.
+  otherRegistrations: "EPFO, ESI, Income Tax, BSNL enlistment",
   // INFO-BANK §1, ISO certificate. Never "accredited" or "internationally recognised".
   iso: {
     standard: "ISO 9001:2015",
     issuer: "Q2A-UK Certification Board",
     number: "Q2A-2026-0401T118011",
-    validTo: "31 Mar 2029",
+    validTo: "2029-03-31",
+    verifyUrl: "https://q2acb.uk",
+    // An image in public/; null hides the about page's "View certificate" button.
+    certificate: null as { src: string; width: number; height: number } | null,
   },
 };

@@ -13,7 +13,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 interface HeaderNavProps {
   locale: Locale;
   logo: ReactNode;
-  /** Keyed by route: `homes` links to /homes. */
+  /** Keyed by route: `homes` links to /homes, `home` to /. */
   links: Dictionary["header"]["links"];
   labels: Dictionary["header"] & {
     language: string;
@@ -87,7 +87,7 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
   useEffect(holdWhileOpen, [isOpen, lenis]);
 
   const renderLink = ([key, label]: [string, string]) => {
-    const route = `/${key}`;
+    const route = key === "home" ? "/" : `/${key}`;
     const isCurrent = path === route || path.startsWith(`${route}/`);
     return (
       <li key={key}>

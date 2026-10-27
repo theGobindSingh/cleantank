@@ -3,7 +3,7 @@ import { localeAlternates, localePath, locales, type Locale } from "@i18n";
 import type { MetadataRoute } from "next";
 
 // Add an entry per public route, without a language prefix.
-const ROUTES = ["/", "/contact"];
+const ROUTES = ["/", "/process", "/about", "/contact"];
 
 const toUrl = (path: string): string => {
   return new URL(path, site.url).href;

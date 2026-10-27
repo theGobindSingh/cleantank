@@ -1,16 +1,8 @@
-import type { Process } from "@/payload-types";
-import { revalidatePath } from "next/cache";
-import type { GlobalAfterChangeHook, GlobalConfig } from "payload";
+import { revalidateSite } from "@/collections/revalidate-site";
+import type { GlobalConfig } from "payload";
 
 const allowPublicRead = () => {
   return true;
-};
-
-// The steps show on several pages, so a save rebuilds every page in every language.
-// Scripts outside Next (seeding) pass `context: { disableRevalidate: true }`.
-const revalidateSite: GlobalAfterChangeHook = ({ doc, context }) => {
-  if (!context.disableRevalidate) revalidatePath("/[lang]", "layout");
-  return doc as Process;
 };
 
 /** The 5-step cleaning process, shared by every page that shows it. */
@@ -32,6 +24,24 @@ export const processGlobal: GlobalConfig = {
       fields: [
         { name: "title", type: "text", required: true, localized: true },
         { name: "text", type: "textarea", required: true, localized: true },
+        {
+          name: "purpose",
+          type: "textarea",
+          localized: true,
+          admin: {
+            description:
+              "Why the step matters, shown on the process page. Optional.",
+          },
+        },
+        {
+          name: "equipment",
+          type: "text",
+          localized: true,
+          admin: {
+            description:
+              "The equipment used, shown on the process page. Optional.",
+          },
+        },
         { name: "image", type: "upload", relationTo: "media", required: true },
         {
           name: "whereApplicable",

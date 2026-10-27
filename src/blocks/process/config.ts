@@ -10,8 +10,13 @@ export const processBlock: Block = {
       type: "text",
       required: true,
       localized: true,
+    },
+    {
+      name: "detailed",
+      type: "checkbox",
       admin: {
-        description: "Read out by screen readers; not shown on the page.",
+        description:
+          "Also show each step in full, with its photo, purpose and equipment, and link the track to them. For the process page.",
       },
     },
   ],
