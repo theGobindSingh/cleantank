@@ -146,6 +146,7 @@ What that piece of work covers at least:
 
 Get a lawyer to review it before it goes live. docs/LAUNCH.md turns this list into the checklist to finish before launch.
 
+- The cookie notice lists the `lang` cookie: a language preference with no personal data, kept a year, needing no consent.
 ## Avoid
 
 - Looking like a generic cleaning company, a plumber's flyer or a trade-show standee.

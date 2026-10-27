@@ -35,6 +35,35 @@ test("/en redirects to /", async ({ request }) => {
   expect(response.headers().location).toMatch(/\/$/);
 });
 
+test("a first visit follows the browser's language", async ({ request }) => {
+  const response = await request.get("/contact", {
+    headers: { "accept-language": "hi-IN,hi;q=0.9,en;q=0.8" },
+    maxRedirects: 0,
+  });
+  expect(response.status()).toBe(307);
+  expect(response.headers().location).toMatch(/\/hi\/contact$/);
+});
+
+test.describe("with a Punjabi browser", () => {
+  // The browser's locale sets its Accept-Language; an extra header loses to it.
+  test.use({ locale: "pa-IN" });
+
+  test("a chosen language is remembered over the browser's", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.waitForURL("**/pa");
+
+    const isPlainHome = (url: URL) => {
+      return url.pathname === "/" && !url.search;
+    };
+    await page.goto("/?lang=en");
+    await page.waitForURL(isPlainHome);
+    await page.goto("/contact");
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  });
+});
+
 test("the language switcher marks the current language", async ({ page }) => {
   await page.goto("/hi");
   await expect(page.locator('a[aria-current="true"]')).toHaveAttribute(

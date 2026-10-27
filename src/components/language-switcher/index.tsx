@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "@components/link";
-import { localeNames, localePath, locales, type Locale } from "@i18n";
+import {
+  localeCookie,
+  localeNames,
+  localePath,
+  locales,
+  type Locale,
+} from "@i18n";
 import { tw } from "@utils/tw";
 import { ChevronDownIcon, LanguagesIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
@@ -23,9 +29,10 @@ const ICON_PROPS = {
 } as const;
 
 /**
- * A dropdown of EN / हिंदी / ਪੰਜਾਬੀ, each named in its own script. No flags, no
- * auto-redirect. Built on <details>, so it opens without JS; the effect only
- * adds closing on Escape and on a click elsewhere.
+ * A dropdown of EN / हिंदी / ਪੰਜਾਬੀ, each named in its own script. No flags.
+ * Built on <details>, so it opens without JS; the effect only adds closing on
+ * Escape and on a click elsewhere. Each link carries `?lang=`, so the proxy
+ * remembers the choice and stops auto-detecting the language.
  * `native`: a client navigation would re-render the root layout (its `lang`
  * and theme script) in the browser.
  */
@@ -66,7 +73,7 @@ const LanguageSwitcher = ({
       <li key={option}>
         <Link
           native
-          href={localePath(option, path)}
+          href={`${localePath(option, path)}?${localeCookie}=${option}`}
           lang={option}
           hrefLang={option}
           aria-current={isCurrent ? "true" : undefined}

@@ -9,6 +9,9 @@ export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "en";
 
+/** Cookie that remembers the visitor's language, set by `src/proxy.ts`. */
+export const localeCookie = "lang";
+
 /** Each language named in its own script, for the language switcher. */
 export const localeNames: Record<Locale, string> = {
   en: "EN",
@@ -31,10 +34,53 @@ export const localePath = (locale: Locale, path: string): string => {
   return path === "/" ? `/${locale}` : `/${locale}${path}`;
 };
 
-/** `hreflang` alternates for metadata and the sitemap. */
-export const localeAlternates = (path: string): Record<Locale, string> => {
+/**
+ * `hreflang` alternates for metadata and the sitemap. `x-default` is the
+ * unprefixed URL, where `src/proxy.ts` picks the visitor's language.
+ */
+export const localeAlternates = (
+  path: string,
+): Record<Locale | "x-default", string> => {
   const toEntry = (locale: Locale): [Locale, string] => {
     return [locale, localePath(locale, path)];
   };
-  return Object.fromEntries(locales.map(toEntry)) as Record<Locale, string>;
+  const entries = Object.fromEntries(locales.map(toEntry)) as Record<
+    Locale,
+    string
+  >;
+  return { ...entries, "x-default": path };
+};
+
+/**
+ * Our best language for an `Accept-Language` header, by the browser's own
+ * ranking: "pa-IN,hi;q=0.9,en;q=0.8" is "pa". English when none match.
+ */
+export const preferredLocale = (header: string | null): Locale => {
+  const toEntry = (part: string) => {
+    const [tag = "", ...params] = part.trim().split(";");
+    const weight = params.find(isWeight);
+    return {
+      code: tag.split("-")[0]?.toLowerCase() ?? "",
+      q: weight ? Number(weight.trim().slice(2)) : 1,
+    };
+  };
+  const isWeight = (param: string) => {
+    return param.trim().startsWith("q=");
+  };
+  const isAcceptable = ({ q }: { q: number }) => {
+    return q > 0;
+  };
+  const byWeight = (a: { q: number }, b: { q: number }) => {
+    return b.q - a.q;
+  };
+  const isSupported = ({ code }: { code: string }) => {
+    return hasLocale(code);
+  };
+  const best = (header ?? "")
+    .split(",")
+    .map(toEntry)
+    .filter(isAcceptable)
+    .sort(byWeight)
+    .find(isSupported);
+  return toLocale(best?.code);
 };

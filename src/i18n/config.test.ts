@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { localeAlternates, localePath, toLocale } from "./config";
+import {
+  localeAlternates,
+  localePath,
+  preferredLocale,
+  toLocale,
+} from "./config";
 
 describe("localePath", () => {
   it("leaves English unprefixed", () => {
@@ -26,5 +31,21 @@ it("localeAlternates lists every language", () => {
     en: "/amc",
     hi: "/hi/amc",
     pa: "/pa/amc",
+    "x-default": "/amc",
+  });
+});
+
+describe("preferredLocale", () => {
+  it("follows the browser's ranking", () => {
+    expect(preferredLocale("hi-IN,hi;q=0.9,en;q=0.8")).toBe("hi");
+    expect(preferredLocale("en-US,en;q=0.9,pa;q=0.8")).toBe("en");
+    expect(preferredLocale("fr,pa;q=0.5,hi;q=0.4")).toBe("pa");
+    expect(preferredLocale("en;q=0.5,hi;q=0.9")).toBe("hi");
+  });
+
+  it("falls back to English", () => {
+    expect(preferredLocale(null)).toBe("en");
+    expect(preferredLocale("fr-FR,de")).toBe("en");
+    expect(preferredLocale("hi;q=0")).toBe("en");
   });
 });
