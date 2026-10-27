@@ -1,4 +1,6 @@
 import { site } from "@/site";
+import Footer from "@components/footer";
+import Header from "@components/header";
 import NotFoundContent from "@components/not-found-content";
 import { defaultLocale, getDictionary } from "@i18n";
 import { fontVariables } from "@styles/fonts";
@@ -13,7 +15,8 @@ export const metadata: Metadata = {
 
 /**
  * 404 for unmatched URLs. The site and the admin have separate root layouts, so
- * it renders its own document. It sits outside [lang], so it is in English.
+ * it renders its own document, with the site header and footer. It sits
+ * outside [lang], so it is in English.
  */
 const GlobalNotFound = () => {
   return (
@@ -22,7 +25,9 @@ const GlobalNotFound = () => {
         <script>{THEME_INIT_SCRIPT}</script>
       </head>
       <body>
+        <Header locale={defaultLocale} />
         <NotFoundContent locale={defaultLocale} />
+        <Footer locale={defaultLocale} />
       </body>
     </html>
   );
