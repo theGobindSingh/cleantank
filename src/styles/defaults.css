@@ -2,12 +2,19 @@
   /* the fixed header's height (header/nav.tsx, h-16) */
   html {
     --header-height: 4rem;
+    /* the phone contact bar (contact-bar): a 48 px button, 12 px padding each side and its 1 px rule */
+    --contact-bar-height: calc(4.5rem + 1px + env(safe-area-inset-bottom));
     scroll-padding-top: var(--header-height);
+
+    @media (width >= 768px) {
+      --contact-bar-height: 0px;
+    }
   }
 
   body {
     min-height: 100dvh;
     padding-top: var(--header-height);
+    padding-bottom: var(--contact-bar-height);
     background-color: var(--color-bg);
     color: var(--color-fg);
     font-family: var(--font-sans);

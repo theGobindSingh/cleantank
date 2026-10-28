@@ -17,7 +17,7 @@ export const actionsField: Field = {
       required: true,
       admin: {
         description:
-          "A path such as /contact. The language prefix is added for you.",
+          "A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.",
       },
     },
   ],

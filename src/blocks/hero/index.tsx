@@ -25,7 +25,7 @@ const Hero = ({ heading, before, after, actions, locale }: HeroProps) => {
     <CommonFullWidthWrapper
       wrapperProps={{ "data-surface": "band" }}
       isContainerCenter={false}
-      wrapperClassName="relative flex-col items-center justify-end min-h-[calc(90svh-var(--header-height))] lg:justify-center lg:min-h-[calc(65svh-var(--header-height))] [--color-band:var(--color-primary-900)]"
+      wrapperClassName="relative flex-col items-center justify-end min-h-[calc(90svh-var(--header-height)-var(--contact-bar-height))] lg:justify-center lg:min-h-[calc(65svh-var(--header-height))] [--color-band:var(--color-primary-900)]"
       // pointer events pass through to the comparison, except on the buttons
       className="pointer-events-none relative z-10"
       afterContainer={

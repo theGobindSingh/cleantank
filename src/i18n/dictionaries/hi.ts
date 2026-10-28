@@ -29,6 +29,8 @@ export const hi: Dictionary = {
     title: "संपर्क",
     call: "कॉल करें",
     whatsapp: "WhatsApp",
+    whatsappText:
+      "नमस्ते, मुझे अपनी पानी की टंकी की सफ़ाई की क़ीमत जाननी है।\nइलाक़ा:\nटंकी का आकार (लीटर):\nछत वाली या ज़मीन के नीचे:",
     email: "ईमेल",
     offices: "कार्यालय",
   },

@@ -1,5 +1,7 @@
+import { site } from "@/site";
 import Link from "@components/link";
-import { localePath, type Locale } from "@i18n";
+import { getDictionary, localePath, type Locale } from "@i18n";
+import { whatsappHref } from "@utils/phone";
 import { tw } from "@utils/tw";
 
 export interface Action {
@@ -14,14 +16,24 @@ interface ActionsProps {
   className?: string;
 }
 
+// `whatsapp` and `call` read the number from src/site.ts, so the CMS never repeats it.
+const toHref = (href: string, locale: Locale): string => {
+  if (href === "whatsapp") {
+    return whatsappHref(
+      site.whatsapp,
+      getDictionary(locale).contact.whatsappText,
+    );
+  }
+  if (href === "call") return `tel:+${site.phone}`;
+  return href.startsWith("/") ? localePath(locale, href) : href;
+};
+
 /** A block's buttons: the first filled, the second outlined, full width on phones. */
 const Actions = ({ actions, locale, className }: ActionsProps) => {
   if (!actions || actions.length === 0) return null;
 
   const renderAction = (action: Action, index: number) => {
-    const href = action.href.startsWith("/")
-      ? localePath(locale, action.href)
-      : action.href;
+    const href = toHref(action.href, locale);
     return (
       <Link
         key={action.id ?? index}

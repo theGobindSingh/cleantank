@@ -29,6 +29,8 @@ export const pa: Dictionary = {
     title: "ਸੰਪਰਕ",
     call: "ਕਾਲ ਕਰੋ",
     whatsapp: "WhatsApp",
+    whatsappText:
+      "ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ ਆਪਣੀ ਪਾਣੀ ਦੀ ਟੈਂਕੀ ਦੀ ਸਫ਼ਾਈ ਦੀ ਕੀਮਤ ਜਾਣਨੀ ਹੈ।\nਇਲਾਕਾ:\nਟੈਂਕੀ ਦਾ ਆਕਾਰ (ਲੀਟਰ):\nਛੱਤ ਵਾਲੀ ਜਾਂ ਜ਼ਮੀਨ ਹੇਠਲੀ:",
     email: "ਈਮੇਲ",
     offices: "ਦਫ਼ਤਰ",
   },

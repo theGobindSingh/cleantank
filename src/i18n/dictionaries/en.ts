@@ -31,6 +31,9 @@ export const en = {
     title: "Contact",
     call: "Call",
     whatsapp: "WhatsApp",
+    // Pre-filled in WhatsApp chats opened from the site: a short form, so the first message can be quoted.
+    whatsappText:
+      "Hello, I would like a price for cleaning my water tank.\nArea:\nTank size (litres):\nOverhead or underground:",
     email: "Email",
     offices: "Offices",
   },

@@ -84,7 +84,7 @@ The about page (`/about`) tells who stands behind the work: the intro with a quo
 
 Navigation (at most seven items in the header): Home, For Homes, For Organisations, For Franchise, Process, About, Contact (owner's call). Footer adds Why Choose Us (`/about#why-choose-us`), Clients (`/about#clients`), Privacy Policy (`/privacy`) and Terms & Conditions (`/terms`); the full legal text is in INFO-BANK §11.
 
-Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner". Never "Submit" or "Book now".
+Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner", and for WhatsApp and phone buttons "Get a Price on WhatsApp" and "Call Us" (28 Oct 2026, for `/homes`). Never "Submit" or "Book now".
 
 Languages: English at `/`, Hindi at `/hi`, Punjabi at `/pa`. Routing, fonts, Payload locales and the interface strings for all three are in place. Whoever adds or changes English content writes the Hindi and Punjabi versions in the same change; no review is needed before they go live. If a translation is still missing, the page shows English with a short note, never a half-translation. Hindi and Punjabi sentences end with the danda (।).
 

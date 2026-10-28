@@ -1,5 +1,6 @@
 import { site } from "@/site";
 import ConsentBanner from "@components/consent-banner";
+import ContactBar from "@components/contact-bar";
 import Footer from "@components/footer";
 import Header from "@components/header";
 import SmoothScroll from "@components/smooth-scroll";
@@ -46,6 +47,7 @@ const RootLayout = async ({ children, params }: LayoutProps<"/[lang]">) => {
         <Header locale={locale} />
         {children}
         <Footer locale={locale} />
+        <ContactBar labels={getDictionary(locale).contact} />
         <ConsentBanner {...getDictionary(locale).consent} />
       </body>
     </html>
