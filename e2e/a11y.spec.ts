@@ -21,6 +21,8 @@ const saveTheme = (theme: string) => {
 for (const path of [...pages, ...missingPages]) {
   for (const theme of themes) {
     test(`${path} has no axe violations (${theme})`, async ({ page }) => {
+      // the reference page is large; axe alone takes about 30 s there
+      test.slow(path.endsWith("/design"));
       await page.addInitScript(saveTheme, theme);
       await page.goto(path);
       const { violations } = await new AxeBuilder({ page })
