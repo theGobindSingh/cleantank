@@ -57,7 +57,6 @@ export const pa: Dictionary = {
     isoIssuer: "({holder} ਲਈ {issuer} ਵੱਲੋਂ)",
     rights: "ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।",
     gemSeller: "ਰਜਿਸਟਰਡ ਵਿਕਰੇਤਾ",
-    toBeAdded: "ਜਲਦੀ ਜੋੜਿਆ ਜਾਵੇਗਾ",
     links: {
       whyChooseUs: "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
       clients: "ਸਾਡੇ ਗਾਹਕ",

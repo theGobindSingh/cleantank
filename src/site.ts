@@ -35,8 +35,8 @@ export const site = {
     },
   ],
   gstin: "09LFS1473F5ZU",
-  // MSME (Udyam) registration number; null shows "To be added" until the owner sends it.
-  udyam: null as string | null,
+  // MSME (Udyam) registration of Gobind Galaxy.
+  udyam: "UDYAM-UP-43-0011042",
   // Registered on GeM too; owner's call: never publish the seller ID, it goes to clients on request.
   // Shown in English on every language, beside the registrations above.
   otherRegistrations: "EPFO, ESI, Income Tax, BSNL enlistment",

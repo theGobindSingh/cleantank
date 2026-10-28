@@ -101,13 +101,9 @@ const Footer = ({ locale }: FooterProps) => {
             <dt lang="en" className="text-fg-muted">
               MSME
             </dt>
-            {site.udyam ? (
-              <dd lang="en" className="font-mono">
-                {site.udyam}
-              </dd>
-            ) : (
-              <dd>{footer.toBeAdded}</dd>
-            )}
+            <dd lang="en" className="font-mono">
+              {site.udyam}
+            </dd>
             <dt lang="en" className="text-fg-muted">
               GeM
             </dt>

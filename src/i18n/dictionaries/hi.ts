@@ -57,7 +57,6 @@ export const hi: Dictionary = {
     isoIssuer: "({holder} के लिए {issuer} द्वारा)",
     rights: "सर्वाधिकार सुरक्षित।",
     gemSeller: "पंजीकृत विक्रेता",
-    toBeAdded: "जल्द जोड़ा जाएगा",
     links: {
       whyChooseUs: "हमें क्यों चुनें",
       clients: "हमारे ग्राहक",

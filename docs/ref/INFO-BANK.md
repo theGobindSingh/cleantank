@@ -15,6 +15,7 @@ Everything below is one company: **Clean Tank Services**, an initiative of **Gob
 | ISO                    | ISO 9001:2015 certified — see "ISO certificate" below                                                                                |
 | PAN                    | ALFPS1473F                                                                                                                           |
 | GSTIN                  | 09LFS1473F5ZU                                                                                                                        |
+| Udyam (MSME)           | UDYAM-UP-43-0011042, Gobind Galaxy (27 Oct 2026)                                                                                     |
 | Technology             | Mechanized and Scientific Method                                                                                                     |
 | Technical support      | Technical representatives in all major cities in India                                                                               |
 | Business registrations | MSME / SSI, GST, Income Tax, EPFO, ESI, ISO certification, BSNL enlistment / registration (older copy also lists "Commercial Taxes") |

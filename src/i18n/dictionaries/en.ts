@@ -59,7 +59,6 @@ export const en = {
     isoIssuer: "(for {holder} by {issuer})",
     rights: "All rights reserved.",
     gemSeller: "Registered seller",
-    toBeAdded: "To be added",
     links: {
       whyChooseUs: "Why Choose Us",
       clients: "Clients",

@@ -26,7 +26,7 @@ interface Row {
  * and line are in Payload.
  */
 const Credentials = ({ heading, text, locale }: CredentialsProps) => {
-  const { credentials: labels, footer } = getDictionary(locale);
+  const { credentials: labels } = getDictionary(locale);
   const { iso } = site;
 
   const validTo = new Intl.DateTimeFormat(`${locale}-IN`, {
@@ -66,9 +66,7 @@ const Credentials = ({ heading, text, locale }: CredentialsProps) => {
       extra: isoExtra,
     },
     { label: "GSTIN", value: site.gstin, isEnglish: true },
-    site.udyam
-      ? { label: labels.msme, value: site.udyam, isEnglish: true }
-      : { label: labels.msme, value: footer.toBeAdded },
+    { label: labels.msme, value: site.udyam, isEnglish: true },
     { label: labels.gem, value: labels.gemValue },
     {
       label: labels.other,
