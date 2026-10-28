@@ -10,6 +10,7 @@ import Faq from "./faq";
 import Founder from "./founder";
 import Hero from "./hero";
 import PageIntro from "./page-intro";
+import PriceList from "./price-list";
 import ProcessSection from "./process";
 import RuledList from "./ruled-list";
 import ServiceArea from "./service-area";
@@ -74,6 +75,8 @@ const Blocks = ({ blocks, locale }: BlocksProps) => {
         return (
           <ServiceArea key={block.id ?? index} {...block} locale={locale} />
         );
+      case "priceList":
+        return <PriceList key={block.id ?? index} {...block} locale={locale} />;
     }
   };
 

@@ -8,6 +8,7 @@ import { faq } from "@/blocks/faq/config";
 import { founder } from "@/blocks/founder/config";
 import { hero } from "@/blocks/hero/config";
 import { pageIntro } from "@/blocks/page-intro/config";
+import { priceList } from "@/blocks/price-list/config";
 import { processBlock } from "@/blocks/process/config";
 import { ruledList } from "@/blocks/ruled-list/config";
 import { serviceArea } from "@/blocks/service-area/config";
@@ -90,6 +91,7 @@ export const pages: CollectionConfig = {
         credentials,
         clientList,
         serviceArea,
+        priceList,
       ],
     },
   ],

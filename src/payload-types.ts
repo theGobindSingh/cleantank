@@ -211,6 +211,7 @@ export interface Page {
     | CredentialsBlock
     | ClientListBlock
     | ServiceAreaBlock
+    | PriceListBlock
   )[];
   updatedAt: string;
   createdAt: string;
@@ -587,6 +588,72 @@ export interface ServiceAreaBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PriceListBlock".
+ */
+export interface PriceListBlock {
+  heading: string;
+  /**
+   * Leave a blank line between paragraphs.
+   */
+  text?: string | null;
+  /**
+   * One row per size band. Each band starts one litre above the band before it.
+   */
+  tiers: {
+    /**
+     * Leave empty on the last, open-ended band.
+     */
+    upTo?: number | null;
+    price: number;
+    per: 'tank' | 'litre';
+    discount?: boolean | null;
+    id?: string | null;
+  }[];
+  /**
+   * Each rate applies from its number of tanks until the next rate starts.
+   */
+  discounts?:
+    | {
+        tanks: number;
+        percent: number;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Added to the prices above in the calculator.
+   */
+  gst: number;
+  /**
+   * Small print under the prices. Leave a blank line between paragraphs.
+   */
+  note?: string | null;
+  /**
+   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   */
+  actions?:
+    | {
+        label: string;
+        /**
+         * A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.
+         */
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Tick to alternate with the section above.
+   */
+  isSubtle?: boolean | null;
+  /**
+   * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
+   */
+  anchor?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'priceList';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "clients".
  */
 export interface Client {
@@ -796,6 +863,7 @@ export interface PagesSelect<T extends boolean = true> {
         credentials?: T | CredentialsBlockSelect<T>;
         clientList?: T | ClientListBlockSelect<T>;
         serviceArea?: T | ServiceAreaBlockSelect<T>;
+        priceList?: T | PriceListBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -1039,6 +1107,43 @@ export interface ServiceAreaBlockSelect<T extends boolean = true> {
         id?: T;
       };
   isSubtle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PriceListBlock_select".
+ */
+export interface PriceListBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  tiers?:
+    | T
+    | {
+        upTo?: T;
+        price?: T;
+        per?: T;
+        discount?: T;
+        id?: T;
+      };
+  discounts?:
+    | T
+    | {
+        tanks?: T;
+        percent?: T;
+        id?: T;
+      };
+  gst?: T;
+  note?: T;
+  actions?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  isSubtle?: T;
+  anchor?: T;
   id?: T;
   blockName?: T;
 }

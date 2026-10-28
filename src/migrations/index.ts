@@ -13,6 +13,7 @@ import * as migration_20261027_091859_credentials_from_site from './20261027_091
 import * as migration_20261028_114430_service_area_block from './20261028_114430_service_area_block';
 import * as migration_20261028_132838_client_certificates from './20261028_132838_client_certificates';
 import * as migration_20261028_142411_testimonial_name_optional from './20261028_142411_testimonial_name_optional';
+import * as migration_20261028_172219_price_list_block from './20261028_172219_price_list_block';
 
 export const migrations = [
   {
@@ -89,5 +90,10 @@ export const migrations = [
     up: migration_20261028_142411_testimonial_name_optional.up,
     down: migration_20261028_142411_testimonial_name_optional.down,
     name: '20261028_142411_testimonial_name_optional',
+  },
+  {
+    up: migration_20261028_172219_price_list_block.up,
+    down: migration_20261028_172219_price_list_block.down,
+    name: '20261028_172219_price_list_block'
   },
 ];
