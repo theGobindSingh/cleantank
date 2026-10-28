@@ -77,6 +77,7 @@ export const pa: Dictionary = {
     play: "ਕਲਾਇੰਟ ਲੋਗੋ ਚਲਾਓ",
   },
   credentials: {
+    certificate: "ਸਰਟੀਫ਼ਿਕੇਟ, {year}",
     view: "ਸਰਟੀਫ਼ਿਕੇਟ ਵੇਖੋ",
     close: "ਬੰਦ ਕਰੋ",
     firm: "ਰਜਿਸਟਰਡ ਫ਼ਰਮ",

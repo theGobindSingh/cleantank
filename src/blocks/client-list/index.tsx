@@ -1,7 +1,14 @@
-import type { Client, ClientCategory, ClientListBlock } from "@/payload-types";
+import type {
+  Client,
+  ClientCategory,
+  ClientListBlock,
+  Media,
+} from "@/payload-types";
+import { site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
+import DocumentDialog from "@components/document-dialog";
 import { H2, H3, P } from "@components/html";
-import type { Locale } from "@i18n";
+import { getDictionary, type Locale } from "@i18n";
 import config from "@payload-config";
 import { tw } from "@utils/tw";
 import { getPayload } from "payload";
@@ -10,19 +17,19 @@ interface ClientListProps extends ClientListBlock {
   locale: Locale;
 }
 
+type Certificate = NonNullable<Client["certificates"]>[number];
+
 const categoryId = (client: Client) => {
   return typeof client.category === "number"
     ? client.category
     : client.category.id;
 };
 
-const renderName = (client: Client) => {
-  return <li key={client.id}>{client.name}</li>;
-};
-
 /**
  * Every cleared client by name, one ruled cell per sector in the admin's
- * order: stacked on phones, two columns from `md`, three from `lg`.
+ * order: stacked on phones, two columns from `md`, three from `lg`. A client
+ * with work completion certificates gets a text button per certificate,
+ * while `site.showClientCertificates` is on.
  */
 const ClientList = async ({
   heading,
@@ -30,6 +37,43 @@ const ClientList = async ({
   anchor,
   locale,
 }: ClientListProps) => {
+  const { clients: labels, credentials } = getDictionary(locale);
+
+  const renderCertificate = (certificate: Certificate) => {
+    // depth 1 populates the upload
+    const file = certificate.file as Media;
+    const year = String(new Date(certificate.date).getUTCFullYear());
+    return (
+      <DocumentDialog
+        key={certificate.id}
+        src={file.url ?? ""}
+        alt={file.alt}
+        width={file.width ?? 1600}
+        height={file.height ?? 2263}
+        caption={certificate.work}
+        variant="text"
+        openLabel={labels.certificate.replace("{year}", year)}
+        closeLabel={credentials.close}
+      />
+    );
+  };
+
+  const renderName = (client: Client) => {
+    const certificates = site.showClientCertificates
+      ? (client.certificates ?? [])
+      : [];
+    return (
+      <li key={client.id} className="flex flex-col gap-1">
+        {client.name}
+        {certificates.length > 0 && (
+          <div className="flex flex-wrap gap-x-4 text-(length:--fs-small) [&>button]:min-h-6">
+            {certificates.map(renderCertificate)}
+          </div>
+        )}
+      </li>
+    );
+  };
+
   const payload = await getPayload({ config });
   const [{ docs: categories }, { docs: clients }] = await Promise.all([
     payload.find({
@@ -43,7 +87,8 @@ const ClientList = async ({
       where: { cleared: { equals: true } },
       sort: "_order",
       pagination: false,
-      depth: 0,
+      depth: 1,
+      locale,
     }),
   ]);
 

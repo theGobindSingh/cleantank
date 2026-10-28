@@ -16,15 +16,22 @@ export const testimonials: CollectionConfig = {
   slug: "testimonials",
   admin: {
     group: "Clients",
-    useAsTitle: "name",
-    defaultColumns: ["name", "organisation", "permission"],
+    useAsTitle: "organisation",
+    defaultColumns: ["organisation", "role", "name", "permission"],
   },
   access: { read: readPermittedOrAll },
   hooks: { afterChange: [revalidateSite] },
   orderable: true,
   fields: [
     { name: "quote", type: "textarea", required: true, localized: true },
-    { name: "name", type: "text", required: true },
+    {
+      name: "name",
+      type: "text",
+      admin: {
+        description:
+          "Leave empty for a quote from a certificate; the role and organisation then stand in.",
+      },
+    },
     { name: "role", type: "text", required: true, localized: true },
     { name: "organisation", type: "text", required: true },
     {
@@ -34,7 +41,7 @@ export const testimonials: CollectionConfig = {
       admin: {
         position: "sidebar",
         description:
-          "Tick only once the person has agreed to their quote, name and role being shown (PRODUCT.md).",
+          "Tick only once the person has agreed to their quote, name and role being shown, or the quote is from a work completion certificate (PRODUCT.md).",
       },
     },
     {

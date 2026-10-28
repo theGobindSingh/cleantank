@@ -77,6 +77,7 @@ export const hi: Dictionary = {
     play: "क्लाइंट लोगो चलाएँ",
   },
   credentials: {
+    certificate: "प्रमाणपत्र, {year}",
     view: "प्रमाणपत्र देखें",
     close: "बंद करें",
     firm: "पंजीकृत फ़र्म",

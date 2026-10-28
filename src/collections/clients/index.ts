@@ -40,13 +40,33 @@ export const clients: CollectionConfig = {
       },
     },
     {
-      name: "certificate",
-      type: "upload",
-      relationTo: "media",
+      name: "certificates",
+      type: "array",
+      labels: { singular: "Certificate", plural: "Certificates" },
       admin: {
         description:
-          "Work completion certificate. Public, but not shown on the band.",
+          "Work completion certificates, newest last. Shown in the client list while showClientCertificates in src/site.ts is on, never on the band. Blur officials' names, signatures and personal contacts, and every amount (values, costs, rates), before uploading.",
       },
+      fields: [
+        { name: "file", type: "upload", relationTo: "media", required: true },
+        {
+          name: "date",
+          type: "date",
+          required: true,
+          admin: {
+            date: { pickerAppearance: "dayOnly" },
+            description:
+              "When the work was completed; the issue date if the certificate gives none.",
+          },
+        },
+        {
+          name: "work",
+          type: "text",
+          required: true,
+          localized: true,
+          admin: { description: "The work certified, in one sentence." },
+        },
+      ],
     },
     {
       name: "cleared",

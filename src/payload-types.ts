@@ -236,7 +236,7 @@ export interface HeroBlock {
     | {
         label: string;
         /**
-         * A path such as /contact. The language prefix is added for you.
+         * A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.
          */
         href: string;
         id?: string | null;
@@ -339,11 +339,14 @@ export interface Testimonial {
   id: number;
   _order?: string | null;
   quote: string;
-  name: string;
+  /**
+   * Leave empty for a quote from a certificate; the role and organisation then stand in.
+   */
+  name?: string | null;
   role: string;
   organisation: string;
   /**
-   * Tick only once the person has agreed to their quote, name and role being shown (PRODUCT.md).
+   * Tick only once the person has agreed to their quote, name and role being shown, or the quote is from a work completion certificate (PRODUCT.md).
    */
   permission?: boolean | null;
   /**
@@ -367,7 +370,7 @@ export interface PageIntroBlock {
     | {
         label: string;
         /**
-         * A path such as /contact. The language prefix is added for you.
+         * A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.
          */
         href: string;
         id?: string | null;
@@ -461,7 +464,7 @@ export interface CtaBandBlock {
     | {
         label: string;
         /**
-         * A path such as /contact. The language prefix is added for you.
+         * A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.
          */
         href: string;
         id?: string | null;
@@ -551,9 +554,22 @@ export interface Client {
    */
   logo?: (number | null) | Media;
   /**
-   * Work completion certificate. Public, but not shown on the band.
+   * Work completion certificates, newest last. Shown in the client list while showClientCertificates in src/site.ts is on, never on the band. Blur officials' names, signatures and personal contacts, and every amount (values, costs, rates), before uploading.
    */
-  certificate?: (number | null) | Media;
+  certificates?:
+    | {
+        file: number | Media;
+        /**
+         * When the work was completed; the issue date if the certificate gives none.
+         */
+        date: string;
+        /**
+         * The work certified, in one sentence.
+         */
+        work: string;
+        id?: string | null;
+      }[]
+    | null;
   /**
    * Tick only with the client's permission or documentation (INFO-BANK §7).
    */
@@ -959,7 +975,14 @@ export interface ClientsSelect<T extends boolean = true> {
   name?: T;
   category?: T;
   logo?: T;
-  certificate?: T;
+  certificates?:
+    | T
+    | {
+        file?: T;
+        date?: T;
+        work?: T;
+        id?: T;
+      };
   cleared?: T;
   updatedAt?: T;
   createdAt?: T;

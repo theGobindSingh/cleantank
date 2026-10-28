@@ -80,6 +80,7 @@ export const en = {
   },
   credentials: {
     view: "View certificate",
+    certificate: "Certificate, {year}",
     close: "Close",
     firm: "Registered firm",
     firmValue: "{name}, Kanpur, Uttar Pradesh",

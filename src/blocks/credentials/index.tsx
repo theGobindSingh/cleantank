@@ -1,11 +1,11 @@
 import type { CredentialsBlock } from "@/payload-types";
 import { site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
+import DocumentDialog from "@components/document-dialog";
 import { H2, P } from "@components/html";
 import Link from "@components/link";
 import { getDictionary, type Locale } from "@i18n";
 import type { ReactNode } from "react";
-import DocumentDialog from "./document-dialog";
 
 interface CredentialsProps extends CredentialsBlock {
   locale: Locale;

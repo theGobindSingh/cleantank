@@ -2,6 +2,7 @@
 
 import Button from "@components/button";
 import { iconButtonStyles } from "@components/button/styles";
+import type { InteractionVariant } from "@components/button/types";
 import { useLenis } from "lenis/react";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
@@ -15,6 +16,9 @@ interface DocumentDialogProps {
   height: number;
   openLabel: string;
   closeLabel: string;
+  // Shown in the dialog's top bar, beside the close button.
+  caption?: string | null | undefined;
+  variant?: InteractionVariant | undefined;
 }
 
 /**
@@ -28,6 +32,8 @@ const DocumentDialog = ({
   height,
   openLabel,
   closeLabel,
+  caption,
+  variant = "outlined",
 }: DocumentDialogProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const lenis = useLenis();
@@ -50,7 +56,7 @@ const DocumentDialog = ({
 
   return (
     <>
-      <Button variant="outlined" onClick={handleOpen}>
+      <Button variant={variant} onClick={handleOpen}>
         {openLabel}
       </Button>
       {/* eslint-disable-next-line jsx-a11y-x/click-events-have-key-events, jsx-a11y-x/no-noninteractive-element-interactions -- the scrim click is a pointer shortcut; Escape and the close button cover keyboards */}
@@ -61,7 +67,12 @@ const DocumentDialog = ({
         onClick={handleScrimClick}
         className="m-auto max-h-[90dvh] w-[min(90vw,56rem)] max-w-none overflow-hidden rounded-sm border border-border bg-surface p-0 text-fg backdrop:bg-primary-900/60"
       >
-        <div className="flex justify-end border-b border-border p-2">
+        <div className="flex items-center justify-end gap-4 border-b border-border p-2">
+          {caption && (
+            <p className="me-auto ps-2 text-(length:--fs-small) text-pretty text-fg-muted">
+              {caption}
+            </p>
+          )}
           <button
             type="button"
             aria-label={closeLabel}

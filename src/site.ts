@@ -7,6 +7,9 @@ export const site = {
   // Off until launch: Sentry and PostHog (and so the consent banner) stay
   // paused even with their keys set. docs/LAUNCH.md lists what to check first.
   isLive: false,
+  // Off for now (owner's call, 28 Oct 2026): the about page's client list
+  // hides the work completion certificates. They stay in Payload.
+  showClientCertificates: false,
   name: "Clean Tank Services",
   // Brand lines, always written exactly like this.
   descriptor: "Scientific & Mechanized Water Tank Cleaning",

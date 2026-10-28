@@ -45,13 +45,16 @@ const QuoteCard = ({ quote, name, caption }: QuoteCardProps): ReactNode => {
   );
 };
 
+// A quote from a certificate has no name, so the role takes its place.
 const renderQuote = (item: Testimonial) => {
   return (
     <QuoteCard
       key={item.id}
       quote={item.quote}
-      name={item.name}
-      caption={`${item.role}, ${item.organisation}`}
+      name={item.name ?? item.role}
+      caption={
+        item.name ? `${item.role}, ${item.organisation}` : item.organisation
+      }
     />
   );
 };
