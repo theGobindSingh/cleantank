@@ -51,8 +51,8 @@ const Typography = () => {
           </P>
           <P>
             P body · Walls, floor and roof are cleaned with a high-pressure
-            water jet of up to 250&nbsp;bar, subject to site and equipment. The
-            customer gets a Cleaning Certificate and a dated sticker.
+            water jet of 150 to 250&nbsp;bar, depending on the tank and the
+            work. The customer gets a Cleaning Certificate and a dated sticker.
           </P>
           <P $size="small" className="text-fg-muted">
             P small, fg-muted · Subject to location, manpower and operational

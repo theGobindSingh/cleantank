@@ -32,7 +32,7 @@ How often to clean depends on the organisation (hospitals about every 3 months, 
 The process is the product. Always show five steps, in this order, with these names (they match the images in `public/assets/images/process/`):
 
 1. De-watering: water removed with mechanical pumps.
-2. High-pressure cleaning: walls, floor and roof cleaned with a high-pressure water jet (up to 250 bar, subject to site and equipment).
+2. High-pressure cleaning: walls, floor and roof cleaned with a high-pressure water jet at 150 to 250 bar. Always state it as a range, "depending on the tank and the work": different machines are used for different tanks and jobs (owner's call, 28 Oct 2026).
 3. Sludge & water removal: with an industrial vacuum.
 4. Disinfection: the Clean Tank agent, a food-grade, non-toxic antibacterial agent (owner's call, 26 Oct 2026). Call it "Clean Tank agent"; never name the product.
 5. UV treatment: marked "where applicable".
@@ -47,8 +47,10 @@ The site serves three groups, all equally important. Each gets its own dedicated
 
 Individual homeowners and families with their own tank. This group is new for the business. Often a joint decision, triggered by dirt, smell, insects or a long gap since the last cleaning. They want the process explained simply and they worry whether the chemicals are safe for drinking water. They find the service through Google, referrals and social media, and many think in Hindi or Punjabi. Warm tone, WhatsApp first.
 
-- Service area for homes: Chandigarh, the tri-city (Chandigarh, Mohali, Panchkula) and anywhere within 20 km of it (owner's call, 23 Oct 2026). Never promise home service anywhere else; new cities open as franchise partners join.
+- Service area for homes: the tri-city as one area, and anywhere within 20 km of its edge (owner's calls, 23 and 28 Oct 2026). The tri-city is Chandigarh, Mohali and Panchkula, with Zirakpur, Kharar and New Chandigarh, which have grown into them. The page says this in one line and shows a rough map of the area, and asks people outside the obvious core to call or WhatsApp to confirm; it lists no towns. Never promise home service anywhere else; new cities open as franchise partners join.
 - No prices yet. Leave a marked placeholder where a price would go; pricing, booking and better forms come later.
+- After the cleaning, the family can use the tank again straight away (owner's call, 28 Oct 2026). Don't describe how it is refilled; homes fill their tanks in different ways.
+- The homes page may show client logos and names, the same as the other pages.
 
 ### Organisations (`/organisations`)
 
