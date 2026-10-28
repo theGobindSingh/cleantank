@@ -10,6 +10,7 @@ import { hero } from "@/blocks/hero/config";
 import { pageIntro } from "@/blocks/page-intro/config";
 import { processBlock } from "@/blocks/process/config";
 import { ruledList } from "@/blocks/ruled-list/config";
+import { serviceArea } from "@/blocks/service-area/config";
 import { story } from "@/blocks/story/config";
 import { testimonialsBlock } from "@/blocks/testimonials/config";
 import { trustBand } from "@/blocks/trust-band/config";
@@ -88,6 +89,7 @@ export const pages: CollectionConfig = {
         founder,
         credentials,
         clientList,
+        serviceArea,
       ],
     },
   ],

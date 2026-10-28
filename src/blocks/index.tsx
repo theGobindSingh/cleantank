@@ -12,6 +12,7 @@ import Hero from "./hero";
 import PageIntro from "./page-intro";
 import ProcessSection from "./process";
 import RuledList from "./ruled-list";
+import ServiceArea from "./service-area";
 import Story from "./story";
 import Testimonials from "./testimonials";
 import TrustBand from "./trust-band";
@@ -68,6 +69,10 @@ const Blocks = ({ blocks, locale }: BlocksProps) => {
       case "clientList":
         return (
           <ClientList key={block.id ?? index} {...block} locale={locale} />
+        );
+      case "serviceArea":
+        return (
+          <ServiceArea key={block.id ?? index} {...block} locale={locale} />
         );
     }
   };

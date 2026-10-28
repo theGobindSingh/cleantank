@@ -210,6 +210,7 @@ export interface Page {
     | FounderBlock
     | CredentialsBlock
     | ClientListBlock
+    | ServiceAreaBlock
   )[];
   updatedAt: string;
   createdAt: string;
@@ -539,6 +540,53 @@ export interface ClientListBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceAreaBlock".
+ */
+export interface ServiceAreaBlock {
+  heading: string;
+  /**
+   * Leave a blank line between paragraphs.
+   */
+  text: string;
+  /**
+   * Labels on the rough map. The drawing itself is fixed in code.
+   */
+  map: {
+    chandigarh: string;
+    mohali: string;
+    panchkula: string;
+    /**
+     * The label on the dashed line, e.g. 20 km.
+     */
+    radius: string;
+    /**
+     * Under the map; also what screen readers hear in its place.
+     */
+    caption: string;
+  };
+  /**
+   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   */
+  actions?:
+    | {
+        label: string;
+        /**
+         * A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.
+         */
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Tick to alternate with the section above.
+   */
+  isSubtle?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'serviceArea';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "clients".
  */
 export interface Client {
@@ -747,6 +795,7 @@ export interface PagesSelect<T extends boolean = true> {
         founder?: T | FounderBlockSelect<T>;
         credentials?: T | CredentialsBlockSelect<T>;
         clientList?: T | ClientListBlockSelect<T>;
+        serviceArea?: T | ServiceAreaBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -963,6 +1012,33 @@ export interface ClientListBlockSelect<T extends boolean = true> {
   heading?: T;
   text?: T;
   anchor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServiceAreaBlock_select".
+ */
+export interface ServiceAreaBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  map?:
+    | T
+    | {
+        chandigarh?: T;
+        mohali?: T;
+        panchkula?: T;
+        radius?: T;
+        caption?: T;
+      };
+  actions?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  isSubtle?: T;
   id?: T;
   blockName?: T;
 }
