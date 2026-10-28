@@ -7,6 +7,13 @@ export const pa: Dictionary = {
     description: "ਸਾਨੂੰ ਇਹ ਪੰਨਾ ਨਹੀਂ ਮਿਲਿਆ।",
     home: "ਹੋਮ ਪੇਜ 'ਤੇ ਜਾਓ",
   },
+  underDevelopment: {
+    code: "ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ",
+    title: "ਇਹ ਪੰਨਾ ਹਾਲੇ ਤਿਆਰ ਹੋ ਰਿਹਾ ਹੈ",
+    description:
+      "ਤਦ ਤੱਕ ਕਿਸੇ ਵੀ ਜਾਣਕਾਰੀ ਲਈ ਸਾਨੂੰ ਕਾਲ ਕਰੋ ਜਾਂ WhatsApp 'ਤੇ ਸੁਨੇਹਾ ਭੇਜੋ।",
+    contact: "ਸੰਪਰਕ ਕਰੋ",
+  },
   error: {
     code: "ਗਲਤੀ",
     title: "ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ",

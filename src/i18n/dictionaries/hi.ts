@@ -7,6 +7,13 @@ export const hi: Dictionary = {
     description: "हमें यह पेज नहीं मिला।",
     home: "होम पेज पर जाएँ",
   },
+  underDevelopment: {
+    code: "जल्द आ रहा है",
+    title: "यह पेज अभी तैयार हो रहा है",
+    description:
+      "तब तक किसी भी जानकारी के लिए हमें कॉल करें या WhatsApp पर संदेश भेजें।",
+    contact: "संपर्क करें",
+  },
   error: {
     code: "त्रुटि",
     title: "कुछ गड़बड़ हो गई",

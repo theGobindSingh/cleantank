@@ -1,6 +1,7 @@
 /*
  * Interface strings that must work without the CMS: error and 404 pages,
- * control labels, the holding contact page. Page content belongs in Payload.
+ * control labels, the holding contact and under-development pages. Page content
+ * belongs in Payload.
  */
 export const en = {
   notFound: {
@@ -8,6 +9,13 @@ export const en = {
     title: "Page not found",
     description: "We could not find that page.",
     home: "Go to home",
+  },
+  underDevelopment: {
+    code: "Coming soon",
+    title: "We are still building this page",
+    description:
+      "Call us or send a WhatsApp message for anything you need in the meantime.",
+    contact: "Contact us",
   },
   error: {
     code: "Error",
