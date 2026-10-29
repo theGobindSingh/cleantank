@@ -7,7 +7,7 @@ How code in this repo is shaped. Principles only — the code is the reference f
 - Everything on disk is `kebab-case`. Identifiers keep normal TS/React casing.
 - One folder per unit: `button/index.tsx`, plus `types.ts`, `styles.ts` or helpers beside it when needed.
 - Shared components go in `src/components/`. Components used by one route live in that route's folder (`src/app/<route>/components/`). Promote a component to `src/components/` only when a second route needs it.
-- `src/app` has two root layouts in route groups: `(frontend)/[lang]` for the site and `(payload)` for the admin. Every site page lives under `[lang]` (see Languages). `(frontend)` itself holds only `icon.svg` and `opengraph-image.tsx`. The `src/app` root holds only files that cover both: `global-not-found.tsx`, `global-error.tsx`, `robots.ts` and `sitemap.ts`. Keep route files thin: compose, don't implement. Shared UI goes in `src/components`, fonts in `src/styles`.
+- `src/app` has two root layouts in route groups: `(frontend)/[lang]` for the site and `(payload)` for the admin. Every site page lives under `[lang]` (see Languages). `(frontend)` itself holds only the favicon (`icon.svg`) and `apple-icon.png`; `public/favicon.ico` is the same mark for crawlers. The social preview image is `[lang]/opengraph-image.tsx`: it has to sit beside the layout that sets `openGraph`, or that object drops the image. It draws with the static fonts in `public/assets/fonts`, since `next/font` and variable fonts don't work there. The `src/app` root holds only files that cover both: `global-not-found.tsx`, `global-error.tsx`, `robots.ts` and `sitemap.ts`. Keep route files thin: compose, don't implement. Shared UI goes in `src/components`, fonts in `src/styles`.
 
 ## Code
 

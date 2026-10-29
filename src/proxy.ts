@@ -71,6 +71,6 @@ export const config = {
   // Skip the admin, the API, Next internals, metadata images, the analytics and
   // error-tracking proxies (/ingest, /monitoring) and any file with an extension.
   matcher: [
-    "/((?!admin|api|_next|opengraph-image|ingest|monitoring|.*\\..*).*)",
+    "/((?!admin|api|_next|ingest|monitoring|.*opengraph-image|.*\\..*).*)",
   ],
 };
