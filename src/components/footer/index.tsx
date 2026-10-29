@@ -1,4 +1,4 @@
-import { site } from "@/site";
+import { shownOffices, site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { P, Span } from "@components/html";
 import Link from "@components/link";
@@ -10,11 +10,6 @@ import CookieSettings from "./cookie-settings";
 interface FooterProps {
   locale: Locale;
 }
-
-// Owner's call: the footer leaves out the registered office address.
-const isNotRegisteredOffice = (office: (typeof site.offices)[number]) => {
-  return office.label !== "Regd. Office";
-};
 
 // The build year; pages are prerendered, so this is fixed per deploy.
 const YEAR = new Date().getFullYear();
@@ -130,7 +125,7 @@ const Footer = ({ locale }: FooterProps) => {
             />
           </ul>
         </nav>
-        {site.offices.filter(isNotRegisteredOffice).map(renderOffice)}
+        {shownOffices.map(renderOffice)}
       </div>
       <P $size="caption" className="text-fg-muted">
         <span lang="en">

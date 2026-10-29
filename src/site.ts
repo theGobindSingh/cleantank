@@ -54,3 +54,10 @@ export const site = {
     certificate: null as { src: string; width: number; height: number } | null,
   },
 };
+
+// Owner's call: the site leaves out the registered office (Kanpur); it stays here for records.
+const isNotRegisteredOffice = (office: (typeof site.offices)[number]) => {
+  return office.label !== "Regd. Office";
+};
+
+export const shownOffices = site.offices.filter(isNotRegisteredOffice);

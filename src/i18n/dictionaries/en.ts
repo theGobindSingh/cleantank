@@ -29,13 +29,19 @@ export const en = {
   },
   contact: {
     title: "Contact",
+    intro:
+      "Call, send a WhatsApp message or write to us. For a price, tell us your area and the size of your tank.",
     call: "Call",
+    callHint: "Talk to us about a cleaning or an AMC.",
     whatsapp: "WhatsApp",
+    whatsappHint:
+      "The chat opens with a short form. Fill it in and send it, and we will give you a price.",
     // Pre-filled in WhatsApp chats opened from the site: a short form, so the first message can be quoted.
     whatsappText:
       "Hello, I would like a price for cleaning my water tank.\nArea:\nTank size (litres):\nOverhead or underground:",
     email: "Email",
-    offices: "Offices",
+    emailHint: "For quotations, documents and anything in writing.",
+    offices: "Office",
   },
   consent: {
     text: "This site uses cookies to understand how visitors use it, so we can improve it. Nothing is stored unless you agree.",
