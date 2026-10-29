@@ -2,7 +2,7 @@ import { site } from "@/site";
 import { H2, P } from "@components/html";
 import Link from "@components/link";
 import type { Dictionary } from "@i18n";
-import { formatPhone } from "@utils/phone";
+import { formatPhone, telHref, whatsappHref } from "@utils/phone";
 import { tw } from "@utils/tw";
 import type { ReactNode } from "react";
 
@@ -33,7 +33,7 @@ export const OfficeCell = ({ office }: { office: Office }) => {
     >
       <CellHeading>{office.label}</CellHeading>
       <P $size="small">{office.address}</P>
-      <Link href={`tel:+${office.phone}`} className={LIST_LINK}>
+      <Link href={telHref(office.phone)} className={LIST_LINK}>
         {formatPhone(office.phone)}
       </Link>
     </address>
@@ -43,10 +43,10 @@ export const OfficeCell = ({ office }: { office: Office }) => {
 /** Call, WhatsApp and email from src/site.ts. */
 export const ContactCell = ({ labels }: { labels: Dictionary["contact"] }) => {
   const rows: [string, string, string][] = [
-    [labels.call, `tel:+${site.phone}`, formatPhone(site.phone)],
+    [labels.call, telHref(site.phone), formatPhone(site.phone)],
     [
       labels.whatsapp,
-      `https://wa.me/${site.whatsapp}`,
+      whatsappHref(site.whatsapp, labels.whatsappText),
       formatPhone(site.whatsapp),
     ],
     [labels.email, `mailto:${site.email}`, site.email],

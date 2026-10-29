@@ -1,7 +1,7 @@
 import Blocks from "@/blocks";
 import Link from "@components/link";
 import StatusPage from "@components/status-page";
-import { getDictionary, localeAlternates, localePath, toLocale } from "@i18n";
+import { getDictionary, localePath, pageAlternates, toLocale } from "@i18n";
 import config from "@payload-config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -69,10 +69,7 @@ export const generateMetadata = async ({
       robots: { index: false, follow: true },
     }),
     ...(page?.metaDescription && { description: page.metaDescription }),
-    alternates: {
-      canonical: localePath(toLocale(lang), path),
-      languages: localeAlternates(path),
-    },
+    alternates: pageAlternates(toLocale(lang), path),
   };
 };
 

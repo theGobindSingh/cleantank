@@ -51,6 +51,14 @@ export const localeAlternates = (
   return { ...entries, "x-default": path };
 };
 
+/** Metadata `alternates` for a page: its canonical URL in `locale` and the `hreflang` set. */
+export const pageAlternates = (locale: Locale, path: string) => {
+  return {
+    canonical: localePath(locale, path),
+    languages: localeAlternates(path),
+  };
+};
+
 /**
  * Our best language for an `Accept-Language` header, by the browser's own
  * ranking: "pa-IN,hi;q=0.9,en;q=0.8" is "pa". English when none match.

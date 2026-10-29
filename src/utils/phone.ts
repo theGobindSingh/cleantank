@@ -7,3 +7,8 @@ export const formatPhone = (digits: string): string => {
 export const whatsappHref = (digits: string, text: string): string => {
   return `https://wa.me/${digits}?text=${encodeURIComponent(text)}`;
 };
+
+/** A `tel:` link to `digits` (country code first, no plus). */
+export const telHref = (digits: string): string => {
+  return `tel:+${digits}`;
+};

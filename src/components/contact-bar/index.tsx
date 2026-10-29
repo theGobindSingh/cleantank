@@ -2,7 +2,7 @@ import { site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import Link from "@components/link";
 import type { Dictionary } from "@i18n";
-import { whatsappHref } from "@utils/phone";
+import { telHref, whatsappHref } from "@utils/phone";
 
 interface ContactBarProps {
   labels: Dictionary["contact"];
@@ -18,7 +18,7 @@ const ContactBar = ({ labels }: ContactBarProps) => {
       className="grid grid-cols-2 gap-3"
     >
       <Link
-        href={`tel:+${site.phone}`}
+        href={telHref(site.phone)}
         variant="filled"
         className="justify-center"
       >

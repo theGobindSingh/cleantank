@@ -1,5 +1,5 @@
 import Blocks from "@/blocks";
-import { localeAlternates, localePath, toLocale } from "@i18n";
+import { pageAlternates, toLocale } from "@i18n";
 import config from "@payload-config";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -10,10 +10,7 @@ export const generateMetadata = async ({
 }: PageProps<"/[lang]">): Promise<Metadata> => {
   const locale = toLocale((await params).lang);
   return {
-    alternates: {
-      canonical: localePath(locale, "/"),
-      languages: localeAlternates("/"),
-    },
+    alternates: pageAlternates(locale, "/"),
   };
 };
 

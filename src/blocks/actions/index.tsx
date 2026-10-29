@@ -1,7 +1,7 @@
 import { site } from "@/site";
 import Link from "@components/link";
 import { getDictionary, localePath, type Locale } from "@i18n";
-import { whatsappHref } from "@utils/phone";
+import { telHref, whatsappHref } from "@utils/phone";
 import { tw } from "@utils/tw";
 
 export interface Action {
@@ -24,7 +24,7 @@ const toHref = (href: string, locale: Locale): string => {
       getDictionary(locale).contact.whatsappText,
     );
   }
-  if (href === "call") return `tel:+${site.phone}`;
+  if (href === "call") return telHref(site.phone);
   return href.startsWith("/") ? localePath(locale, href) : href;
 };
 
