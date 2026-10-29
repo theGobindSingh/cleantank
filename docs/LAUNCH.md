@@ -59,3 +59,4 @@ The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this l
 - [ ] Set `site.isLive` to `true` in `src/site.ts` and update the "paused" note in docs/CONVENTIONS.md (Analytics and errors).
 - [ ] `pnpm build`, `pnpm test` and `pnpm test:e2e` pass.
 - [ ] After deploy: `robots.txt` and `sitemap.xml` list the pages in all three languages; submit the sitemap to Google Search Console.
+- [ ] Every item in the checklist in docs/AEO-GEO.md is ticked, except those marked "after launch": structured data, FAQ answers, the AI crawler policy, the Google Business Profile and Bing.
