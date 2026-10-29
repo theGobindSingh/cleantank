@@ -5,9 +5,9 @@ import type {
   Media,
 } from "@/payload-types";
 import { site } from "@/site";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import DocumentDialog from "@components/document-dialog";
-import { H2, H3, P } from "@components/html";
+import { H3 } from "@components/html";
+import Section from "@components/section";
 import { getDictionary, type Locale } from "@i18n";
 import config from "@payload-config";
 import { tw } from "@utils/tw";
@@ -114,16 +114,7 @@ const ClientList = async ({
   };
 
   return (
-    <CommonFullWidthWrapper
-      wrapperProps={anchor ? { id: anchor } : {}}
-      className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24"
-    >
-      <div className="flex flex-col gap-4">
-        <H2 $margin="0">{heading}</H2>
-        {text && (
-          <P className="max-w-[60ch] text-pretty text-fg-muted">{text}</P>
-        )}
-      </div>
+    <Section heading={heading} text={text} anchor={anchor}>
       <ul
         className={tw(
           // a short last row stretches its last cell, so no row ends in an empty cell
@@ -134,7 +125,7 @@ const ClientList = async ({
       >
         {categories.map(renderCategory)}
       </ul>
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 

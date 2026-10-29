@@ -3,22 +3,14 @@ import type { ServiceAreaBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { H2, P } from "@components/html";
 import Link from "@components/link";
+import Paragraphs from "@components/paragraphs";
 import type { Locale } from "@i18n";
-import { toParagraphs } from "@utils/paragraphs";
 import { tw } from "@utils/tw";
 import AreaMap from "./map";
 
 interface ServiceAreaProps extends ServiceAreaBlock {
   locale: Locale;
 }
-
-const renderParagraph = (paragraph: string) => {
-  return (
-    <P key={paragraph} $margin="0" className="text-pretty">
-      {paragraph}
-    </P>
-  );
-};
 
 /**
  * The area in words with its actions in seven columns, the rough map framed in
@@ -39,7 +31,7 @@ const ServiceArea = ({
     >
       <div className="flex max-w-[60ch] flex-col gap-4 lg:col-span-7">
         <H2 $margin="0 0 0.25em 0">{heading}</H2>
-        {toParagraphs(text).map(renderParagraph)}
+        <Paragraphs text={text} />
         <Actions actions={actions} locale={locale} className="pt-2" />
       </div>
       <figure className="flex flex-col gap-3 self-start lg:col-span-5">

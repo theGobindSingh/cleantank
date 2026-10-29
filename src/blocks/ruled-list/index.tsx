@@ -1,6 +1,6 @@
 import type { RuledListBlock } from "@/payload-types";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2, H3, P } from "@components/html";
+import { H3, P } from "@components/html";
+import Section from "@components/section";
 import { tw } from "@utils/tw";
 
 type Item = RuledListBlock["items"][number];
@@ -33,17 +33,7 @@ const RuledList = ({
   anchor,
 }: RuledListBlock) => {
   return (
-    <CommonFullWidthWrapper
-      wrapperClassName={tw(isSubtle && "bg-bg-subtle")}
-      wrapperProps={anchor ? { id: anchor } : {}}
-      className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24"
-    >
-      <div className="flex flex-col gap-4">
-        <H2 $margin="0">{heading}</H2>
-        {text && (
-          <P className="max-w-[60ch] text-pretty text-fg-muted">{text}</P>
-        )}
-      </div>
+    <Section heading={heading} text={text} isSubtle={isSubtle} anchor={anchor}>
       <ul
         className={tw(
           // an odd last cell spans the row, so no row ends in an empty cell
@@ -59,7 +49,7 @@ const RuledList = ({
           {note}
         </P>
       )}
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 

@@ -1,7 +1,8 @@
 import type { AudiencesBlock } from "@/payload-types";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2, H3, P } from "@components/html";
+import { H3, P } from "@components/html";
+import { iconProps } from "@components/icon";
 import Link from "@components/link";
+import Section from "@components/section";
 import { localePath, type Locale } from "@i18n";
 import { ArrowRightIcon } from "lucide-react";
 
@@ -32,25 +33,18 @@ const Audiences = ({ heading, doors, locale }: AudiencesProps) => {
           className="mt-3 inline-flex items-center gap-2 self-start font-semibold after:absolute after:inset-0 after:content-['']"
         >
           {door.linkLabel}
-          <ArrowRightIcon
-            aria-hidden="true"
-            className="size-4"
-            strokeWidth={2}
-            strokeLinecap="square"
-            strokeLinejoin="miter"
-          />
+          <ArrowRightIcon {...iconProps} strokeWidth={2} className="size-4" />
         </Link>
       </li>
     );
   };
 
   return (
-    <CommonFullWidthWrapper className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24">
-      <H2 $margin="0">{heading}</H2>
+    <Section heading={heading}>
       <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
         {doors.map(renderDoor)}
       </ul>
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 

@@ -1,6 +1,5 @@
 import type { ProcessBlock } from "@/payload-types";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2 } from "@components/html";
+import Section from "@components/section";
 import { getDictionary, type Locale } from "@i18n";
 import config from "@payload-config";
 import { getPayload } from "payload";
@@ -34,8 +33,7 @@ const ProcessSection = async ({
   );
 
   return (
-    <CommonFullWidthWrapper className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24">
-      <H2 $margin="0">{heading}</H2>
+    <Section heading={heading}>
       {detailed ? (
         <>
           <nav aria-label={labels.index}>{track}</nav>
@@ -44,7 +42,7 @@ const ProcessSection = async ({
       ) : (
         track
       )}
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 

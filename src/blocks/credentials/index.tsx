@@ -1,9 +1,8 @@
 import type { CredentialsBlock } from "@/payload-types";
 import { site } from "@/site";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import DocumentDialog from "@components/document-dialog";
-import { H2, P } from "@components/html";
 import Link from "@components/link";
+import Section from "@components/section";
 import { getDictionary, type Locale } from "@i18n";
 import type { ReactNode } from "react";
 
@@ -98,20 +97,11 @@ const Credentials = ({ heading, text, locale }: CredentialsProps) => {
   };
 
   return (
-    <CommonFullWidthWrapper
-      wrapperClassName="bg-bg-subtle"
-      className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24"
-    >
-      <div className="flex flex-col gap-4">
-        <H2 $margin="0">{heading}</H2>
-        {text && (
-          <P className="max-w-[60ch] text-pretty text-fg-muted">{text}</P>
-        )}
-      </div>
+    <Section heading={heading} text={text} isSubtle>
       <dl className="max-w-5xl border-t-2 border-border-strong">
         {rows.map(renderRow)}
       </dl>
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 

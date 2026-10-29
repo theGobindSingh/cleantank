@@ -1,9 +1,12 @@
+import PageIntro from "@/blocks/page-intro";
 import { shownOffices, site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H1, H2, H3, P } from "@components/html";
+import { H3, P } from "@components/html";
+import { iconProps } from "@components/icon";
 import Link from "@components/link";
-import { getDictionary, localeAlternates, localePath, toLocale } from "@i18n";
-import { formatPhone, whatsappHref } from "@utils/phone";
+import Section from "@components/section";
+import { getDictionary, pageAlternates, toLocale } from "@i18n";
+import { formatPhone, telHref, whatsappHref } from "@utils/phone";
 import type { LucideIcon } from "lucide-react";
 import { MailIcon, MessageCircleIcon, PhoneIcon } from "lucide-react";
 import type { Metadata } from "next";
@@ -14,10 +17,7 @@ export const generateMetadata = async ({
   const locale = toLocale((await params).lang);
   return {
     title: getDictionary(locale).contact.title,
-    alternates: {
-      canonical: localePath(locale, "/contact"),
-      languages: localeAlternates("/contact"),
-    },
+    alternates: pageAlternates(locale, "/contact"),
   };
 };
 
@@ -41,13 +41,7 @@ const renderChannel = ({ label, hint, href, value, Icon }: Channel) => {
       className="relative flex flex-col gap-3 bg-surface p-6 outline-1 -outline-offset-1 outline-transparent has-[a:hover]:outline-border-strong md:p-10"
     >
       <P $size="caption" $margin="0" className={LABEL}>
-        <Icon
-          aria-hidden="true"
-          className="size-5"
-          strokeWidth={1.85}
-          strokeLinecap="square"
-          strokeLinejoin="miter"
-        />
+        <Icon {...iconProps} className="size-5" />
         {label}
       </P>
       {/* the link's ::after covers the cell, so the whole card is clickable */}
@@ -74,7 +68,7 @@ const renderOffice = (office: Office) => {
         {office.label}
       </H3>
       <P className="max-w-[40ch] text-pretty">{office.address}</P>
-      <Link href={`tel:+${office.phone}`} className="self-start">
+      <Link href={telHref(office.phone)} className="self-start">
         {formatPhone(office.phone)}
       </Link>
     </address>
@@ -93,7 +87,7 @@ const ContactPage = async ({ params }: PageProps<"/[lang]/contact">) => {
     {
       label: contact.call,
       hint: contact.callHint,
-      href: `tel:+${site.phone}`,
+      href: telHref(site.phone),
       value: formatPhone(site.phone),
       Icon: PhoneIcon,
     },
@@ -115,29 +109,21 @@ const ContactPage = async ({ params }: PageProps<"/[lang]/contact">) => {
 
   return (
     <main>
-      <CommonFullWidthWrapper className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24">
-        <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-3">
-            <H1 $margin="0">{contact.title}</H1>
-            <span aria-hidden="true" className="block h-[3px] w-12 bg-marker" />
-          </div>
-          <P $size="body-l" className="max-w-[60ch] text-pretty text-fg-muted">
-            {contact.intro}
-          </P>
-        </div>
+      <PageIntro heading={contact.title} text={contact.intro} locale={locale} />
+      <CommonFullWidthWrapper className="pt-10 pb-16 md:pt-12 md:pb-20 lg:pb-24">
         <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
           {channels.map(renderChannel)}
         </ul>
       </CommonFullWidthWrapper>
-      <CommonFullWidthWrapper
-        wrapperClassName="border-t border-border bg-bg-subtle"
-        className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24"
+      <Section
+        heading={contact.offices}
+        isSubtle
+        wrapperClassName="border-t border-border"
       >
-        <H2 $margin="0">{contact.offices}</H2>
         <div className="grid gap-px overflow-hidden rounded-xs border border-border bg-border">
           {shownOffices.map(renderOffice)}
         </div>
-      </CommonFullWidthWrapper>
+      </Section>
     </main>
   );
 };

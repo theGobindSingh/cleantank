@@ -1,5 +1,6 @@
 import type { Page } from "@/payload-types";
 import type { Locale } from "@i18n";
+import type { ComponentType } from "react";
 import Audiences from "./audiences";
 import ClientList from "./client-list";
 import ClientsBand from "./clients-band";
@@ -24,60 +25,37 @@ interface BlocksProps {
 }
 
 type Block = Page["layout"][number];
+type BlockType = Block["blockType"];
+type BlockComponent<T extends BlockType> = ComponentType<
+  Extract<Block, { blockType: T }> & { locale: Locale }
+>;
+
+// One component per block type; a new block type fails the build until it is added here.
+const COMPONENTS: { [T in BlockType]: BlockComponent<T> } = {
+  audiences: Audiences,
+  hero: Hero,
+  process: ProcessSection,
+  testimonials: Testimonials,
+  trustBand: TrustBand,
+  pageIntro: PageIntro,
+  ruledList: RuledList,
+  compareGallery: CompareGallery,
+  faq: Faq,
+  ctaBand: CtaBand,
+  clientsBand: ClientsBand,
+  story: Story,
+  founder: Founder,
+  credentials: Credentials,
+  clientList: ClientList,
+  serviceArea: ServiceArea,
+  priceList: PriceList,
+};
 
 /** Renders a page's layout, one component per block type. */
 const Blocks = ({ blocks, locale }: BlocksProps) => {
   const renderBlock = (block: Block, index: number) => {
-    switch (block.blockType) {
-      case "audiences":
-        return <Audiences key={block.id ?? index} {...block} locale={locale} />;
-      case "hero":
-        return <Hero key={block.id ?? index} {...block} locale={locale} />;
-      case "process":
-        return (
-          <ProcessSection key={block.id ?? index} {...block} locale={locale} />
-        );
-      case "testimonials":
-        return (
-          <Testimonials key={block.id ?? index} {...block} locale={locale} />
-        );
-      case "trustBand":
-        return <TrustBand key={block.id ?? index} {...block} />;
-      case "pageIntro":
-        return <PageIntro key={block.id ?? index} {...block} locale={locale} />;
-      case "ruledList":
-        return <RuledList key={block.id ?? index} {...block} />;
-      case "compareGallery":
-        return (
-          <CompareGallery key={block.id ?? index} {...block} locale={locale} />
-        );
-      case "faq":
-        return <Faq key={block.id ?? index} {...block} />;
-      case "ctaBand":
-        return <CtaBand key={block.id ?? index} {...block} locale={locale} />;
-      case "clientsBand":
-        return (
-          <ClientsBand key={block.id ?? index} {...block} locale={locale} />
-        );
-      case "story":
-        return <Story key={block.id ?? index} {...block} />;
-      case "founder":
-        return <Founder key={block.id ?? index} {...block} />;
-      case "credentials":
-        return (
-          <Credentials key={block.id ?? index} {...block} locale={locale} />
-        );
-      case "clientList":
-        return (
-          <ClientList key={block.id ?? index} {...block} locale={locale} />
-        );
-      case "serviceArea":
-        return (
-          <ServiceArea key={block.id ?? index} {...block} locale={locale} />
-        );
-      case "priceList":
-        return <PriceList key={block.id ?? index} {...block} locale={locale} />;
-    }
+    const Component = COMPONENTS[block.blockType] as BlockComponent<BlockType>;
+    return <Component key={block.id ?? index} {...block} locale={locale} />;
   };
 
   return blocks.map(renderBlock);

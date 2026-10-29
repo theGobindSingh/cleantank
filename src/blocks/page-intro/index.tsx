@@ -4,7 +4,10 @@ import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { H1, P } from "@components/html";
 import type { Locale } from "@i18n";
 
-interface PageIntroProps extends PageIntroBlock {
+interface PageIntroProps extends Pick<
+  PageIntroBlock,
+  "heading" | "text" | "actions"
+> {
   locale: Locale;
 }
 

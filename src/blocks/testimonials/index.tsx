@@ -1,7 +1,7 @@
 import type { Testimonial, TestimonialsBlock } from "@/payload-types";
 import { site } from "@/site";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2, P } from "@components/html";
+import { P } from "@components/html";
+import Section from "@components/section";
 import { getDictionary, type Locale } from "@i18n";
 import type { ReactNode } from "react";
 
@@ -81,14 +81,13 @@ const Testimonials = ({ heading, items, locale }: TestimonialsProps) => {
   };
 
   return (
-    <CommonFullWidthWrapper className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24">
-      <H2 $margin="0">{heading}</H2>
+    <Section heading={heading}>
       <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
         {showPlaceholders
           ? PLACEHOLDER_KEYS.map(renderPlaceholder)
           : shown.map(renderQuote)}
       </ul>
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 

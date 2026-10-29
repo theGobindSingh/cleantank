@@ -1,16 +1,8 @@
 import type { FounderBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2, P, Span } from "@components/html";
-import { toParagraphs } from "@utils/paragraphs";
+import { H2, Span } from "@components/html";
+import Paragraphs from "@components/paragraphs";
 import Image from "next/image";
-
-const renderParagraph = (paragraph: string) => {
-  return (
-    <P key={paragraph} $margin="0" className="text-pretty">
-      {paragraph}
-    </P>
-  );
-};
 
 /**
  * A stone section: the bio in seven columns and the cut-out portrait in five,
@@ -33,7 +25,7 @@ const Founder = ({ role, name, bio, portrait }: FounderBlock) => {
           {role}
         </Span>
         <H2 $margin="0 0 0.25em 0">{name}</H2>
-        {toParagraphs(bio).map(renderParagraph)}
+        <Paragraphs text={bio} />
       </div>
       {photo?.url && (
         <Image

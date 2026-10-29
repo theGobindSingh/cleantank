@@ -1,10 +1,9 @@
 import { toImage } from "@/blocks/to-image";
 import type { CompareGalleryBlock } from "@/payload-types";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import CompareSlider from "@components/compare-slider";
-import { H2, P } from "@components/html";
+import { P } from "@components/html";
+import Section from "@components/section";
 import { getDictionary, type Locale } from "@i18n";
-import { tw } from "@utils/tw";
 
 interface CompareGalleryProps extends CompareGalleryBlock {
   locale: Locale;
@@ -53,20 +52,11 @@ const CompareGallery = ({
   };
 
   return (
-    <CommonFullWidthWrapper
-      wrapperClassName={tw(isSubtle && "bg-bg-subtle")}
-      className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24"
-    >
-      <div className="flex flex-col gap-4">
-        <H2 $margin="0">{heading}</H2>
-        {text && (
-          <P className="max-w-[60ch] text-pretty text-fg-muted">{text}</P>
-        )}
-      </div>
+    <Section heading={heading} text={text} isSubtle={isSubtle}>
       <div className="grid gap-x-6 gap-y-10 md:grid-cols-2">
         {items.map(renderItem)}
       </div>
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 
