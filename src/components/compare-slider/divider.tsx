@@ -1,3 +1,4 @@
+import { iconProps } from "@components/icon";
 import { tw } from "@utils/tw";
 import { ChevronsLeftRightIcon } from "lucide-react";
 
@@ -19,12 +20,7 @@ const Divider = ({ handleClassName }: { handleClassName: string }) => {
           handleClassName,
         )}
       >
-        <ChevronsLeftRightIcon
-          className="size-5"
-          strokeWidth={1.85}
-          strokeLinecap="square"
-          strokeLinejoin="miter"
-        />
+        <ChevronsLeftRightIcon {...iconProps} className="size-5" />
       </span>
     </>
   );

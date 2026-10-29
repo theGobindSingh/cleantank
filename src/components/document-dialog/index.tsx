@@ -3,6 +3,7 @@
 import Button from "@components/button";
 import { iconButtonStyles } from "@components/button/styles";
 import type { InteractionVariant } from "@components/button/types";
+import { iconProps } from "@components/icon";
 import { useLenis } from "lenis/react";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
@@ -79,13 +80,7 @@ const DocumentDialog = ({
             onClick={handleClose}
             className={iconButtonStyles}
           >
-            <XIcon
-              aria-hidden="true"
-              className="size-5"
-              strokeWidth={1.85}
-              strokeLinecap="square"
-              strokeLinejoin="miter"
-            />
+            <XIcon {...iconProps} className="size-5" />
           </button>
         </div>
         <div

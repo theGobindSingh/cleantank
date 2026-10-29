@@ -1,6 +1,7 @@
 "use client";
 
 import { iconButtonStyles } from "@components/button/styles";
+import { iconProps } from "@components/icon";
 import { PauseIcon, PlayIcon } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
@@ -9,13 +10,6 @@ interface MarqueeProps {
   playLabel: string;
   children: ReactNode;
 }
-
-const ICON_PROPS = {
-  "aria-hidden": true,
-  strokeWidth: 1.85,
-  strokeLinecap: "square",
-  strokeLinejoin: "miter",
-} as const;
 
 /** Holds the scrolling track and the button that stops it (WCAG 2.2.2). */
 const Marquee = ({ pauseLabel, playLabel, children }: MarqueeProps) => {
@@ -38,9 +32,9 @@ const Marquee = ({ pauseLabel, playLabel, children }: MarqueeProps) => {
         className={`${iconButtonStyles} shrink-0 motion-reduce:hidden`}
       >
         {isPaused ? (
-          <PlayIcon {...ICON_PROPS} className="size-5" />
+          <PlayIcon {...iconProps} className="size-5" />
         ) : (
-          <PauseIcon {...ICON_PROPS} className="size-5" />
+          <PauseIcon {...iconProps} className="size-5" />
         )}
       </button>
     </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { iconProps } from "@components/icon";
 import Link from "@components/link";
 import {
   localeCookie,
@@ -20,13 +21,6 @@ interface LanguageSwitcherProps {
   /** Where the list opens, e.g. "right-0" to line it up with the button's right edge. */
   listClassName?: string | undefined;
 }
-
-const ICON_PROPS = {
-  "aria-hidden": true,
-  strokeWidth: 2,
-  strokeLinecap: "square",
-  strokeLinejoin: "miter",
-} as const;
 
 /**
  * A dropdown of EN / हिंदी / ਪੰਜਾਬੀ, each named in its own script. No flags.
@@ -94,10 +88,11 @@ const LanguageSwitcher = ({
         aria-label={`${label}: ${localeNames[locale]}`}
         className="relative flex h-9 cursor-pointer list-none items-center gap-1.5 rounded-sm border border-border-control px-2 text-fg before:absolute before:-inset-1 before:content-[''] hover:border-border-strong [&::-webkit-details-marker]:hidden"
       >
-        <LanguagesIcon {...ICON_PROPS} className="size-4" />
+        <LanguagesIcon {...iconProps} strokeWidth={2} className="size-4" />
         <span lang={locale}>{localeNames[locale]}</span>
         <ChevronDownIcon
-          {...ICON_PROPS}
+          {...iconProps}
+          strokeWidth={2}
           className="size-4 group-open:rotate-180"
         />
       </summary>

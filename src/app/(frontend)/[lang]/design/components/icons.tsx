@@ -1,4 +1,5 @@
 import { P, Span } from "@components/html";
+import { iconProps } from "@components/icon";
 import {
   Droplets,
   FileCheck,
@@ -29,11 +30,9 @@ const renderIcon = ([Icon, label]: [LucideIcon, string]) => {
     return (
       <Icon
         key={size}
-        aria-hidden="true"
+        {...iconProps}
         size={size}
         strokeWidth={stroke}
-        strokeLinecap="square"
-        strokeLinejoin="miter"
         className="text-heading"
       />
     );

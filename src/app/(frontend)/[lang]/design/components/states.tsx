@@ -1,4 +1,5 @@
 import { H3, P, Span } from "@components/html";
+import { iconProps } from "@components/icon";
 import {
   CircleAlert,
   CircleCheck,
@@ -49,12 +50,7 @@ const renderAlert = (state: State) => {
       role="note"
       className={`flex gap-3 rounded-sm border p-4 ${STYLE[state]}`}
     >
-      <Icon
-        aria-hidden="true"
-        className="size-5 shrink-0"
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-      />
+      <Icon {...iconProps} className="size-5 shrink-0" />
       <div className="flex flex-col gap-0.5">
         <Span $size="small" $weight="700">
           {title}
@@ -102,12 +98,7 @@ const Form = (scheme: Scheme) => {
           $size="small"
           className="flex items-center gap-1.5 text-error"
         >
-          <CircleAlert
-            aria-hidden="true"
-            className="size-4"
-            strokeLinecap="square"
-            strokeLinejoin="miter"
-          />
+          <CircleAlert {...iconProps} strokeWidth={2} className="size-4" />
           Enter a 10-digit mobile number.
         </Span>
       </div>

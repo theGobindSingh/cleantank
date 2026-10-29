@@ -1,6 +1,7 @@
 import type { FaqBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { H2, P } from "@components/html";
+import { iconProps } from "@components/icon";
 import { PlusIcon } from "lucide-react";
 
 type Item = FaqBlock["items"][number];
@@ -11,11 +12,8 @@ const renderItem = (item: Item, index: number) => {
       <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-(length:--fs-h4) leading-snug font-semibold text-heading [&::-webkit-details-marker]:hidden">
         {item.question}
         <PlusIcon
-          aria-hidden="true"
+          {...iconProps}
           className="mt-1 size-5 shrink-0 transition-transform duration-150 group-open:rotate-45"
-          strokeWidth={1.85}
-          strokeLinecap="square"
-          strokeLinejoin="miter"
         />
       </summary>
       <P className="max-w-[68ch] pb-6 text-pretty text-fg-muted">
