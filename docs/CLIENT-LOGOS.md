@@ -1,6 +1,6 @@
 # Client logos still needed
 
-The clients band shows only clients with an SVG logo. These clients from INFO-BANK §7 are in Payload, cleared and listed by name on the about page, but have no logo yet, so the band leaves them out. This doesn't block launch. When an SVG arrives, upload it as the client's logo under Clients in the admin and remove the name from this list. Names are spelled exactly as in INFO-BANK.
+The clients band shows only clients with an SVG logo. These clients from INFO-BANK §7 are in Payload, cleared and listed by name on the about page, but have no logo yet, so the band leaves them out. This doesn't block launch. When an SVG arrives, upload it as the client's logo under Clients in the admin and remove the name from this list. Status lives in Track Suru, project `CT`, with one task per group. Names are spelled exactly as in INFO-BANK.
 
 - Government: LIC of India, UPSIDC, ALIMCO
 - Healthcare: Regency Hospital, Krishna Hospital, Sohana Hospital

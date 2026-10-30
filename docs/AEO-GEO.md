@@ -98,7 +98,7 @@ Neither PostHog nor Search Console is live yet, so nobody will know whether any 
 
 ## Checklist
 
-Tick items here as they're done, in the same commit as the work. docs/LAUNCH.md asks for this checklist to be complete before going live; items marked "after launch" can wait.
+This list defines what must be true. Status lives in Track Suru, project `CT` (https://tracksuru.letmecome.in/p/CT), so the boxes here stay unticked. docs/LAUNCH.md asks for this checklist to be complete before going live; items marked "after launch" can wait.
 
 ### Structured data
 

@@ -1,6 +1,6 @@
 # Launch checklist
 
-Work through this before the site goes public. Sentry and PostHog stay paused until the last section flips `site.isLive` in `src/site.ts`. Tick items in this file as they're done, in the same commit as the work.
+Work through this before the site goes public. Sentry and PostHog stay paused until the last section flips `site.isLive` in `src/site.ts`. This list defines what must be true at launch. Status lives in Track Suru, project `CT` (https://tracksuru.letmecome.in/p/CT), so the boxes here stay unticked.
 
 The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this list mentions a deadline or duty under the Act or the DPDP Rules 2025, confirm the exact wording with the lawyer; don't take it from here.
 

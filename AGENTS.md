@@ -54,6 +54,7 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - Work in the main checkout on `master`, one task at a time; no worktrees or branches.
 - Commit as soon as the work passes the checks, small and one concern each, without waiting for approval.
 - Push to `master` only after the user approves.
+- All work tracking lives in Track Suru, project `CT` (https://tracksuru.letmecome.in/p/CT), through the `track-suru` MCP server. Find or create the issue under its epic before starting and set it In Progress. Set it Done when it's committed, and file follow-ups there.
 
 ## Every code change
 
@@ -71,6 +72,7 @@ Use the `human-writing` skill whenever you write content people will read: UI co
 
 - Playwright MCP is a project dependency, configured for Claude Code (`.mcp.json`, pre-approved in `.claude/settings.json`) and opencode (`opencode.jsonc`). Use it to check UI changes in a real browser. If it reports a missing browser, ask the user to run `pnpm browser:install`.
 - Before writing code against a library, framework or CLI, fetch its current docs with the Context7 CLI (`npx ctx7@latest`) — see the `find-docs` skill. Don't rely on memory for APIs.
+- `track-suru` is the MCP server for the work tracker. It's configured per machine, and its token never goes in the repo.
 - Claude Code replies in the terse `caveman` output style (`.claude/output-styles/caveman.md`, set in `.claude/settings.json`). Switch it in `/config`.
 - Skills live in `.agents/skills` (linked to `.claude/skills`). If a skill relevant to the task is available — here or in your environment — use it.
 
