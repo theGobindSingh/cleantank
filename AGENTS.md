@@ -44,7 +44,7 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - Never read, print or commit `.env` files or secrets. Ask the user to set them; document new variables in `.env.example`.
 - When a change makes any doc wrong, update that doc in the same change.
 - Never credit Claude, Anthropic or any AI in commits or PRs: no `Co-Authored-By` trailers, no "Generated with" lines. `.husky/commit-msg` strips Claude and Anthropic ones anyway.
-- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Until the site is live (`isLive` in `src/site.ts` is false), the owner has approved migrations and content writes without asking; after launch, ask first.
+- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Until the site is live (`isLive` in `src/site.ts` is false), the owner has approved migrations and content writes without asking; after launch, ask first. The `content-updater` subagent never needs approval to seed or update Payload content, before or after launch.
 
 ## Deciding and committing
 
@@ -72,6 +72,7 @@ Use the `human-writing` skill whenever you write content people will read: UI co
 
 - Playwright MCP is a project dependency, configured for Claude Code (`.mcp.json`, pre-approved in `.claude/settings.json`) and opencode (`opencode.jsonc`). Use it to check UI changes in a real browser. If it reports a missing browser, ask the user to run `pnpm browser:install`.
 - Before writing code against a library, framework or CLI, fetch its current docs with the Context7 CLI (`npx ctx7@latest`) — see the `find-docs` skill. Don't rely on memory for APIs.
+- `content-updater` (`.claude/agents/content-updater.md`) is the Opus subagent for content: point it at a piece of content and it writes English, Hindi and Punjabi and saves them to Payload.
 - `track-suru` is the MCP server for the work tracker. It's configured per machine, and its token never goes in the repo.
 - Claude Code replies in the terse `caveman` output style (`.claude/output-styles/caveman.md`, set in `.claude/settings.json`). Switch it in `/config`.
 - Skills live in `.agents/skills` (linked to `.claude/skills`). If a skill relevant to the task is available — here or in your environment — use it.

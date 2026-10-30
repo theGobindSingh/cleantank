@@ -1,4 +1,11 @@
 {
   "outputStyle": "caveman",
-  "enabledMcpjsonServers": ["playwright"]
+  "enabledMcpjsonServers": ["playwright"],
+  "permissions": {
+    "allow": [
+      "Bash(pnpm payload run scripts/*)",
+      "Bash(rm scripts/content-*.ts)",
+      "Bash(python3 .claude/skills/human-writing/scripts/*)"
+    ]
+  }
 }
