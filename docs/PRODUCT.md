@@ -37,7 +37,7 @@ The process is the product. Always show five steps, in this order, with these na
 4. Disinfection: the Clean Tank agent, a food-grade, non-toxic antibacterial agent (owner's call, 26 Oct 2026). Call it "Clean Tank agent"; never name the product.
 5. UV treatment: marked "where applicable".
 
-No job duration is published, for any step or tank size (owner's call). The old 6-step version is retired. After the service the customer gets a Cleaning Certificate and a Cleaning Date Sticker on the tank with the cleaning date and the next due date. Follow-up comes about a week before that date. The system recommends and the customer decides.
+The track on the home and homes pages uses one plain line and one benefit per step, in words a homeowner uses. It avoids the word "safe", which would need the qualifier below, and leaves the pressure figure to the process page's equipment row. No job duration is published, for any step or tank size (owner's call). The old 6-step version is retired. After the service the customer gets a Cleaning Certificate and a Cleaning Date Sticker on the tank with the cleaning date and the next due date. Follow-up comes about a week before that date. The system recommends and the customer decides.
 
 ## Audiences
 

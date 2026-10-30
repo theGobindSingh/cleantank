@@ -311,6 +311,10 @@ export interface AudiencesBlock {
 export interface ProcessBlock {
   heading: string;
   /**
+   * Words or phrases from the heading to show in coral, separated by commas. Not used on a detailed block, which keeps a plain heading.
+   */
+  highlight?: string | null;
+  /**
    * Also show each step in full, with its photo, purpose and equipment, and link the track to them. For the process page.
    */
   detailed?: boolean | null;
@@ -961,6 +965,7 @@ export interface AudiencesBlockSelect<T extends boolean = true> {
  */
 export interface ProcessBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   detailed?: T;
   id?: T;
   blockName?: T;
@@ -1296,6 +1301,10 @@ export interface Process {
     title: string;
     text: string;
     /**
+     * What the customer gets from the step, in one short line. Shown in the track on the home and homes pages. Optional.
+     */
+    benefit?: string | null;
+    /**
      * Why the step matters, shown on the process page. Optional.
      */
     purpose?: string | null;
@@ -1323,6 +1332,7 @@ export interface ProcessSelect<T extends boolean = true> {
     | {
         title?: T;
         text?: T;
+        benefit?: T;
         purpose?: T;
         equipment?: T;
         image?: T;

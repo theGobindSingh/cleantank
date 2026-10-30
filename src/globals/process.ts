@@ -25,6 +25,15 @@ export const processGlobal: GlobalConfig = {
         { name: "title", type: "text", required: true, localized: true },
         { name: "text", type: "textarea", required: true, localized: true },
         {
+          name: "benefit",
+          type: "text",
+          localized: true,
+          admin: {
+            description:
+              "What the customer gets from the step, in one short line. Shown in the track on the home and homes pages. Optional.",
+          },
+        },
+        {
           name: "purpose",
           type: "textarea",
           localized: true,

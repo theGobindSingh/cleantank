@@ -12,6 +12,15 @@ export const processBlock: Block = {
       localized: true,
     },
     {
+      name: "highlight",
+      type: "text",
+      localized: true,
+      admin: {
+        description:
+          "Words or phrases from the heading to show in coral, separated by commas. Not used on a detailed block, which keeps a plain heading.",
+      },
+    },
+    {
       name: "detailed",
       type: "checkbox",
       admin: {
