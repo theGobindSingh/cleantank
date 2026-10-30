@@ -260,6 +260,10 @@ export interface HeroBlock {
 export interface ValuePropBlock {
   heading: string;
   /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: health
+   */
+  highlight?: string | null;
+  /**
    * Leave a blank line between paragraphs.
    */
   text: string;
@@ -920,6 +924,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
  */
 export interface ValuePropBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   image?: T;
   href?: T;
