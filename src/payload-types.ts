@@ -222,6 +222,10 @@ export interface Page {
  */
 export interface HeroBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   text: string;
   /**
    * The tank before cleaning.
@@ -874,6 +878,7 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface HeroBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   before?: T;
   after?: T;

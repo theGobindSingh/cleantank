@@ -7,6 +7,15 @@ export const hero: Block = {
   interfaceName: "HeroBlock",
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    {
+      name: "highlight",
+      type: "text",
+      localized: true,
+      admin: {
+        description:
+          "Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy",
+      },
+    },
     { name: "text", type: "textarea", required: true, localized: true },
     {
       type: "row",
