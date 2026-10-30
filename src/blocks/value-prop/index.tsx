@@ -7,36 +7,23 @@ import { H2 } from "@components/html";
 import Link from "@components/link";
 import Paragraphs from "@components/paragraphs";
 import { localePath, type Locale } from "@i18n";
-import { tw } from "@utils/tw";
 import Image from "next/image";
 
 interface ValuePropProps extends ValuePropBlock {
   locale: Locale;
 }
 
-const renderPhoto = (
-  photo: CompareImage,
-  _index: number,
-  photos: CompareImage[],
-) => {
-  const isPair = photos.length === 2;
+const renderPhoto = (photo: CompareImage) => {
   return (
     <div
       key={photo.src}
-      className={tw(
-        "relative overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:aspect-auto",
-        isPair ? "aspect-4/5" : "aspect-3/2",
-      )}
+      className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:h-full"
     >
       <Image
         src={photo.src}
         alt={photo.alt}
         fill
-        sizes={
-          isPair
-            ? "(min-width: 1024px) 20vw, 45vw"
-            : "(min-width: 1024px) 20vw, 90vw"
-        }
+        sizes="(min-width: 1024px) 15vw, 45vw"
         className="object-cover"
       />
     </div>
@@ -46,10 +33,12 @@ const renderPhoto = (
 /**
  * The promise under a large statement headline with an optional button.
  * From `lg` up the text column is a third of the screen and the photo sits at
- * the right edge, a fifth of the section wide and as tall as the text; the body and button never pass the headline's right edge. Below
- * that the column is as wide as the headline text and the photo follows it.
+ * the right edge, as tall as the text and half as wide as it is tall (1:2);
+ * the body and button never pass the headline's right edge. Below that the
+ * column is as wide as the headline text and the photos follow it, 1:2, each
+ * half of a row at most 28rem wide.
  * An optional second photo sits left of the first at the same size, 12 px
- * apart; below `lg` the two share a row at 4:5.
+ * apart.
  * The words listed in `highlight` show in accent 600 (accent 500 in dark mode).
  */
 const ValueProp = ({
@@ -66,16 +55,8 @@ const ValueProp = ({
   const second = toImage(secondImage);
   // Left to right.
   const photos = main && second ? [second, main] : main ? [main] : [];
-  const isPair = photos.length === 2;
   return (
-    <CommonFullWidthWrapper
-      className={tw(
-        "grid gap-10 py-16 md:py-20 lg:gap-10 lg:py-24",
-        isPair
-          ? "lg:grid-cols-[33.333vw_1fr_calc(40%+0.75rem)]"
-          : "lg:grid-cols-[33.333vw_1fr_20%]",
-      )}
-    >
+    <CommonFullWidthWrapper className="grid gap-10 py-16 md:py-20 lg:grid-cols-[33.333vw_minmax(2.5rem,1fr)_auto] lg:gap-x-0 lg:py-24">
       <div className="flex max-w-[calc(var(--fs-statement)*4.5)] flex-col gap-4 lg:max-w-none">
         <H2
           $size="statement"
@@ -102,9 +83,7 @@ const ValueProp = ({
         )}
       </div>
       {photos.length > 0 && (
-        <div
-          className={tw("grid gap-3 lg:col-start-3", isPair && "grid-cols-2")}
-        >
+        <div className="grid max-w-md grid-cols-2 gap-3 lg:col-start-3 lg:flex lg:max-w-none">
           {photos.map(renderPhoto)}
         </div>
       )}
