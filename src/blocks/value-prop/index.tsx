@@ -17,7 +17,7 @@ const renderPhoto = (photo: CompareImage) => {
   return (
     <div
       key={photo.src}
-      className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:h-full"
+      className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:h-full lg:min-w-0"
     >
       <Image
         src={photo.src}
@@ -33,7 +33,8 @@ const renderPhoto = (photo: CompareImage) => {
 /**
  * The promise under a large statement headline with an optional button.
  * From `lg` up the text column is a third of the screen and the photo sits at
- * the right edge, as tall as the text and half as wide as it is tall (1:2);
+ * the right edge, as tall as the text and half as wide as it is tall (1:2),
+ * narrower only if a tall text column would push it past the edge;
  * the body and button never pass the headline's right edge. Below that the
  * column is as wide as the headline text and the photos follow it, 1:2, each
  * half of a row at most 28rem wide.
@@ -56,7 +57,7 @@ const ValueProp = ({
   // Left to right.
   const photos = main && second ? [second, main] : main ? [main] : [];
   return (
-    <CommonFullWidthWrapper className="grid gap-10 py-16 md:py-20 lg:grid-cols-[33.333vw_minmax(2.5rem,1fr)_auto] lg:gap-x-0 lg:py-24">
+    <CommonFullWidthWrapper className="grid gap-10 py-16 md:py-20 lg:grid-cols-[33.333vw_minmax(2.5rem,1fr)_minmax(0,auto)] lg:gap-x-0 lg:py-24">
       <div className="flex max-w-[calc(var(--fs-statement)*4.5)] flex-col gap-4 lg:max-w-none">
         <H2
           $size="statement"
