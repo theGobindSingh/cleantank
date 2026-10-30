@@ -8,6 +8,15 @@ export const valueProp: Block = {
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
     {
+      name: "highlight",
+      type: "text",
+      localized: true,
+      admin: {
+        description:
+          "Words or phrases from the heading to show in coral, separated by commas. For example: health",
+      },
+    },
+    {
       name: "text",
       type: "textarea",
       required: true,
