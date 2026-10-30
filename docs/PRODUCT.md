@@ -67,7 +67,7 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 
 ### Shared home page (`/`)
 
-What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, 15+ years, client logos and testimonials. Then three clear doors: homes, organisations and franchise, placed after the process and the client logos (owner's call). Detail lives on the dedicated pages, not here.
+What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, 15+ years, client logos and testimonials. Then three clear doors: homes, organisations and franchise, placed after the process and the client logos (owner's call). Right after the hero, the value proposition ties a clean tank to the family's health and links on to the process. Detail lives on the dedicated pages, not here.
 
 ### All groups
 
