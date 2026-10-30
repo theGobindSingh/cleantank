@@ -80,7 +80,7 @@ Fluid between 360 and 1280 px, ratio 1.2. The `--fs-*` token is the `$size` name
 | Token | Size px (360 to 1280) | `clamp()` | Style |
 |---|---|---|---|
 | `display` (hero only) | 39.81 up, then 112 from `lg` | `clamp(2.488rem, 5vw, 7rem)` below `lg`, fixed `7rem` from `lg` up | heading face, 78%, 700, uppercase, +0.01em, line height 1.00 |
-| `statement` (value proposition headline) | 40 to 96 below `lg`, then 7.4vw (76 at 1024, 142 at 1920) | `clamp(2.5rem, 19vw, 6rem)` below `lg`, `7.4vw` from `lg` up | same as h2 but line height 0.85 (set on the heading with `$lineHeight`); sized so the longest line of "Your health comes first." is 4.5em wide |
+| `statement` (value proposition headline) | 40 to 96 below `lg`, then 7.4vw (76 at 1024, 142 at 1920) | `clamp(2.5rem, 19vw, 6rem)` below `lg`, `7.4vw` from `lg` up | same as h2 but line height 0.85 (a `leading-[0.85]` class, so the Hindi and Punjabi heading leading still wins); sized so the longest line of "Your health comes first." is 4.5em wide |
 | `h1` | 33.18 to 37.32 | `clamp(2.074rem, 1.972rem + 0.451vw, 2.333rem)` | same as display |
 | `h2` | 27.65 to 31.10 | `clamp(1.728rem, 1.643rem + 0.376vw, 1.944rem)` | same, line height 1.02 |
 | `h3` | 23.04 to 25.92 | `clamp(1.44rem, 1.37rem + 0.313vw, 1.62rem)` | same, line height 1.05 |
@@ -97,7 +97,7 @@ Fluid between 360 and 1280 px, ratio 1.2. The `--fs-*` token is the `$size` name
 Hindi and Punjabi:
 
 - Anek Devanagari and Anek Gurmukhi, at 100% width, with no caps and no letter-spacing ever. `defaults.css` enforces this on anything inside `lang="hi"` or `lang="pa"`, and it beats utilities like `uppercase`.
-- Indic headings are 700 at the same px size as the Latin one. Line height: body 1.65 (hi) and 1.60 (pa), headings 1.35 (hi) and 1.30 (pa). Indic measure 35 to 60 characters.
+- Indic headings are 700 at the same px size as the Latin one. Line height: body 1.65 (hi) and 1.60 (pa), headings 1.35 (hi) and 1.30 (pa), highlighted words inside them included. Set a Latin heading's own line height with a class, not `$lineHeight`: the inline style would beat the Indic one. Indic measure 35 to 60 characters.
 - Plex Mono has no Indic glyphs, so an Indic label falls back to Anek at the same size.
 - Mixed lines ("Tank साफ करवाना है"): keep each word in its own script and wrap the Indic part in `lang="hi"` or `lang="pa"`. On a Hindi or Punjabi page, wrap Latin words that should keep their caps (the brand name, reference codes) in `lang="en"`.
 - Digits are Western Arabic (0 to 9) in all three languages.

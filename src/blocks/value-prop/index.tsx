@@ -60,9 +60,9 @@ const ValueProp = ({
       <div className="flex max-w-[calc(var(--fs-statement)*4.5)] flex-col gap-4 lg:max-w-none">
         <H2
           $size="statement"
-          $lineHeight="0.85"
           $margin="0 0 0.25em 0"
-          className="text-balance"
+          // a class, not $lineHeight, so the Hindi and Punjabi heading leading in defaults.css wins
+          className="leading-[0.85] text-balance wrap-break-word"
         >
           <Highlight
             text={heading}
