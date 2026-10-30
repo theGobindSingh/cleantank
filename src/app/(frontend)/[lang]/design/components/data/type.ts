@@ -15,6 +15,12 @@ export const TYPE_SCALE: ScaleStep[] = [
     face: "heading",
   },
   {
+    token: "statement",
+    use: "Standard section header, in two lines at line height 0.85",
+    sample: "Our cleaning process",
+    face: "heading",
+  },
+  {
     token: "h1",
     use: "Page title",
     sample: "Scientific tank cleaning",
