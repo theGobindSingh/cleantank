@@ -41,7 +41,7 @@ export const en = {
       "Hello, I would like a price for cleaning my water tank.\nArea:\nTank size (litres):\nOverhead or underground:",
     email: "Email",
     emailHint: "For quotations, documents and anything in writing.",
-    offices: "Office",
+    offices: "Office.",
   },
   consent: {
     text: "This site uses cookies to understand how visitors use it, so we can improve it. Nothing is stored unless you agree.",
