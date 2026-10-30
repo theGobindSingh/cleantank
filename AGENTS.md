@@ -44,7 +44,7 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - Never read, print or commit `.env` files or secrets. Ask the user to set them; document new variables in `.env.example`.
 - When a change makes any doc wrong, update that doc in the same change.
 - Never credit Claude, Anthropic or any AI in commits or PRs: no `Co-Authored-By` trailers, no "Generated with" lines. `.husky/commit-msg` strips Claude and Anthropic ones anyway.
-- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Don't run `pnpm migrate` against a database without asking; it changes shared data.
+- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Until the site is live (`isLive` in `src/site.ts` is false), the owner has approved migrations and content writes without asking; after launch, ask first.
 
 ## Deciding and committing
 
