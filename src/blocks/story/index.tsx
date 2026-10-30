@@ -1,8 +1,8 @@
 import { toImage } from "@/blocks/to-image";
 import type { StoryBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2 } from "@components/html";
 import Paragraphs from "@components/paragraphs";
+import SectionHeadline from "@components/section-headline";
 import Image from "next/image";
 
 /**
@@ -13,9 +13,9 @@ const Story = ({ heading, text, image }: StoryBlock) => {
   const photo = toImage(image);
   return (
     <CommonFullWidthWrapper className="grid gap-10 py-16 md:py-20 lg:grid-cols-12 lg:gap-6 lg:py-24">
-      <div className="flex max-w-[68ch] flex-col gap-4 lg:col-span-7">
-        <H2 $margin="0 0 0.25em 0">{heading}</H2>
-        <Paragraphs text={text} />
+      <div className="flex flex-col gap-4 lg:col-span-7">
+        <SectionHeadline heading={heading} />
+        <Paragraphs text={text} className="max-w-[68ch] text-pretty" />
       </div>
       {photo && (
         <div className="relative aspect-3/2 self-start overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">

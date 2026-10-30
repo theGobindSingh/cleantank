@@ -1,9 +1,10 @@
 import Actions from "@/blocks/actions";
 import type { ServiceAreaBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2, P } from "@components/html";
+import { P } from "@components/html";
 import Link from "@components/link";
 import Paragraphs from "@components/paragraphs";
+import SectionHeadline from "@components/section-headline";
 import type { Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import AreaMap from "./map";
@@ -29,9 +30,9 @@ const ServiceArea = ({
       wrapperClassName={tw(isSubtle && "bg-bg-subtle")}
       className="grid gap-10 py-16 md:py-20 lg:grid-cols-12 lg:gap-6 lg:py-24"
     >
-      <div className="flex max-w-[60ch] flex-col gap-4 lg:col-span-7">
-        <H2 $margin="0 0 0.25em 0">{heading}</H2>
-        <Paragraphs text={text} />
+      <div className="flex flex-col gap-4 lg:col-span-7">
+        <SectionHeadline heading={heading} />
+        <Paragraphs text={text} className="max-w-[60ch] text-pretty" />
         <Actions actions={actions} locale={locale} className="pt-2" />
       </div>
       <figure className="flex flex-col gap-3 self-start lg:col-span-5">

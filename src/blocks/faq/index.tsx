@@ -1,7 +1,7 @@
 import type { FaqBlock } from "@/payload-types";
-import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2, P } from "@components/html";
+import { P } from "@components/html";
 import { iconProps } from "@components/icon";
+import Section from "@components/section";
 import { PlusIcon } from "lucide-react";
 
 type Item = FaqBlock["items"][number];
@@ -26,12 +26,11 @@ const renderItem = (item: Item, index: number) => {
 /** Plain questions and answers as native `details`, so they work without JS. */
 const Faq = ({ heading, items }: FaqBlock) => {
   return (
-    <CommonFullWidthWrapper className="flex flex-col gap-6 py-16 md:gap-8 md:py-20 lg:py-24">
-      <H2 $margin="0">{heading}</H2>
+    <Section heading={heading}>
       <div className="max-w-[80ch] border-t border-border">
         {items.map(renderItem)}
       </div>
-    </CommonFullWidthWrapper>
+    </Section>
   );
 };
 

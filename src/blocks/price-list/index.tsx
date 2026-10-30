@@ -1,8 +1,9 @@
 import Actions from "@/blocks/actions";
 import type { PriceListBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { H2, P } from "@components/html";
+import { P } from "@components/html";
 import Paragraphs from "@components/paragraphs";
+import SectionHeadline from "@components/section-headline";
 import { getDictionary, type Locale } from "@i18n";
 import { toParagraphs } from "@utils/paragraphs";
 import { tw } from "@utils/tw";
@@ -90,7 +91,7 @@ const PriceList = ({
     >
       <div className="flex flex-col gap-6 lg:col-span-7">
         <div className="flex flex-col gap-4">
-          <H2 $margin="0 0 0.25em 0">{heading}</H2>
+          <SectionHeadline heading={heading} />
           <Paragraphs text={text} className="max-w-[60ch] text-pretty" />
         </div>
         <table className="w-full max-w-160 border-collapse border border-border bg-surface">

@@ -14,8 +14,7 @@ interface ProcessSectionProps extends ProcessBlock {
  * The 5-step track on the page ground, with each step's number, name, line
  * and benefit, under the standard statement headline. The steps come from the
  * `process` global. With `detailed` (the process page), the track becomes the
- * steps' index without the benefits, each step follows in full, and the
- * heading stays at H2 size so it doesn't outrank the page's H1.
+ * steps' index without the benefits and each step follows in full.
  */
 const ProcessSection = async ({
   heading,
@@ -35,7 +34,7 @@ const ProcessSection = async ({
   );
 
   return (
-    <Section heading={heading} isStatement={!detailed} highlight={highlight}>
+    <Section heading={heading} highlight={highlight}>
       {detailed ? (
         <>
           <nav aria-label={labels.index}>{track}</nav>

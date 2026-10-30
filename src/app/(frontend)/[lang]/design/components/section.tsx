@@ -1,4 +1,5 @@
-import { H2, P } from "@components/html";
+import { P } from "@components/html";
+import SectionHeadline from "@components/section-headline";
 import type { ReactNode } from "react";
 
 interface SectionProps {
@@ -19,14 +20,14 @@ const Section = ({ id, number, title, intro, children }: SectionProps) => {
       className="scroll-mt-4 border-t border-border bg-bg py-16 even:bg-bg-subtle md:py-20 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1200px] flex-col gap-10 px-4 md:px-8 lg:px-10">
-        <header className="flex max-w-[68ch] flex-col gap-3">
+        <header className="flex flex-col gap-3">
           <span className="font-mono text-(length:--fs-caption) font-medium tracking-widest text-fg-muted uppercase">
             {index}&nbsp;&nbsp;REF CT-DS-{index}
           </span>
-          <H2 id={`${id}-title`} $margin="0">
-            {title}
-          </H2>
-          <P className="text-fg-muted">{intro}</P>
+          <div id={`${id}-title`}>
+            <SectionHeadline heading={title} />
+          </div>
+          <P className="max-w-[68ch] text-fg-muted">{intro}</P>
         </header>
         {children}
       </div>
