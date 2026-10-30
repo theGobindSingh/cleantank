@@ -17,6 +17,7 @@ import * as migration_20261028_172219_price_list_block from './20261028_172219_p
 import * as migration_20261030_153216_hero_highlight from './20261030_153216_hero_highlight';
 import * as migration_20261030_155423_value_prop_block from './20261030_155423_value_prop_block';
 import * as migration_20261030_170357_value_prop_highlight from './20261030_170357_value_prop_highlight';
+import * as migration_20261030_170745_value_prop_second_image from './20261030_170745_value_prop_second_image';
 
 export const migrations = [
   {
@@ -112,6 +113,11 @@ export const migrations = [
   {
     up: migration_20261030_170357_value_prop_highlight.up,
     down: migration_20261030_170357_value_prop_highlight.down,
-    name: '20261030_170357_value_prop_highlight'
+    name: '20261030_170357_value_prop_highlight',
+  },
+  {
+    up: migration_20261030_170745_value_prop_second_image.up,
+    down: migration_20261030_170745_value_prop_second_image.down,
+    name: '20261030_170745_value_prop_second_image'
   },
 ];

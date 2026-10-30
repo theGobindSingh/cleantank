@@ -269,6 +269,10 @@ export interface ValuePropBlock {
   text: string;
   image: number | Media;
   /**
+   * Optional. Shown left of the main image, at the same size.
+   */
+  secondImage?: (number | null) | Media;
+  /**
    * Optional. A site path, such as /process. Shown only with a link label.
    */
   href?: string | null;
@@ -927,6 +931,7 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
   highlight?: T;
   text?: T;
   image?: T;
+  secondImage?: T;
   href?: T;
   linkLabel?: T;
   id?: T;

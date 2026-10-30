@@ -1,6 +1,6 @@
 import type { Block } from "payload";
 
-/** The core promise under the hero: a heading, a short paragraph, a photo and an optional link onward. */
+/** The core promise under the hero: a heading, a short paragraph, one or two photos and an optional link onward. */
 export const valueProp: Block = {
   slug: "valueProp",
   interfaceName: "ValuePropBlock",
@@ -24,6 +24,15 @@ export const valueProp: Block = {
       admin: { description: "Leave a blank line between paragraphs." },
     },
     { name: "image", type: "upload", relationTo: "media", required: true },
+    {
+      name: "secondImage",
+      type: "upload",
+      relationTo: "media",
+      admin: {
+        description:
+          "Optional. Shown left of the main image, at the same size.",
+      },
+    },
     {
       type: "row",
       fields: [
