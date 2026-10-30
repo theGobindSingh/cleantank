@@ -8,3 +8,13 @@ export const toImage = (
   if (!media || typeof media === "number" || !media.url) return null;
   return { src: media.url, alt: media.alt };
 };
+
+/** A photo slot from `imageSlotFields`: the URL wins over the upload. */
+export const toSlotImage = (
+  media: number | Media | null | undefined,
+  url: string | null | undefined,
+  alt: string | null | undefined,
+): CompareImage | null => {
+  if (url) return { src: url, alt: alt ?? "" };
+  return toImage(media);
+};
