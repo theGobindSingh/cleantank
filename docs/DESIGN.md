@@ -80,7 +80,7 @@ Fluid between 360 and 1280 px, ratio 1.2. The `--fs-*` token is the `$size` name
 | Token | Size px (360 to 1280) | `clamp()` | Style |
 |---|---|---|---|
 | `display` (hero only) | 39.81 up, then 112 from `lg` | `clamp(2.488rem, 5vw, 7rem)` below `lg`, fixed `7rem` from `lg` up | heading face, 78%, 700, uppercase, +0.01em, line height 1.00 |
-| `statement` (value proposition headline) | 40 to 96 below `lg`, then 7.4vw (76 at 1024, 142 at 1920) | `clamp(2.5rem, 19vw, 6rem)` below `lg`, `7.4vw` from `lg` up | same as h2 but line height 1.00; sized so the longest line of "Your health comes first." is 4.5em wide |
+| `statement` (value proposition headline) | 40 to 96 below `lg`, then 7.4vw (76 at 1024, 142 at 1920) | `clamp(2.5rem, 19vw, 6rem)` below `lg`, `7.4vw` from `lg` up | same as h2 but line height 0.85 (set on the heading with `$lineHeight`); sized so the longest line of "Your health comes first." is 4.5em wide |
 | `h1` | 33.18 to 37.32 | `clamp(2.074rem, 1.972rem + 0.451vw, 2.333rem)` | same as display |
 | `h2` | 27.65 to 31.10 | `clamp(1.728rem, 1.643rem + 0.376vw, 1.944rem)` | same, line height 1.02 |
 | `h3` | 23.04 to 25.92 | `clamp(1.44rem, 1.37rem + 0.313vw, 1.62rem)` | same, line height 1.05 |

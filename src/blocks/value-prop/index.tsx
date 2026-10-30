@@ -31,7 +31,7 @@ const ValueProp = ({
       <div className="flex max-w-[calc(var(--fs-statement)*4.5)] flex-col gap-4 lg:max-w-none">
         <H2
           $size="statement"
-          $lineHeight="1"
+          $lineHeight="0.85"
           $margin="0 0 0.25em 0"
           className="text-balance"
         >
