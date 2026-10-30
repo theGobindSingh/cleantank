@@ -3,6 +3,7 @@ import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
 /** Keys of the `--fs-*` scale in globals.css. */
 export type TextSizeToken =
   | "display"
+  | "statement"
   | "h1"
   | "h2"
   | "h3"
