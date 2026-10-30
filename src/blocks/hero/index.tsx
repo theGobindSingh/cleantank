@@ -5,18 +5,36 @@ import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import CompareSlider from "@components/compare-slider";
 import { H1 } from "@components/html";
 import { getDictionary, type Locale } from "@i18n";
+import { toHighlightParts, type HighlightPart } from "@utils/highlight";
 
 interface HeroProps extends HeroBlock {
   locale: Locale;
 }
 
+const renderPart = ({ text, isHighlight }: HighlightPart, index: number) => {
+  return isHighlight ? (
+    <span key={index} className="text-accent-300">
+      {text}
+    </span>
+  ) : (
+    text
+  );
+};
+
 /**
  * Heading and up to two actions over the before/after comparison, which
  * fills the hero. The slider's scrim keeps the text readable: from `lg` up
  * the text sits on the left, below that at the bottom, with the drag handle
- * above it.
+ * above it. The words listed in `highlight` show in accent 300.
  */
-const Hero = ({ heading, before, after, actions, locale }: HeroProps) => {
+const Hero = ({
+  heading,
+  highlight,
+  before,
+  after,
+  actions,
+  locale,
+}: HeroProps) => {
   const { compare } = getDictionary(locale);
   const beforeImage = toImage(before);
   const afterImage = toImage(after);
@@ -49,7 +67,7 @@ const Hero = ({ heading, before, after, actions, locale }: HeroProps) => {
     >
       <div className="flex flex-col gap-6 py-10 lg:w-7/12 lg:py-24 lg:pr-10">
         <H1 $size="display" $margin="0" className="max-w-[11ch]">
-          {heading}
+          {toHighlightParts(heading, highlight).map(renderPart)}
         </H1>
         {/* <P $size="body-l" className="max-w-[50ch] text-pretty">
           {text}

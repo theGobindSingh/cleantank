@@ -14,6 +14,7 @@ import * as migration_20261028_114430_service_area_block from './20261028_114430
 import * as migration_20261028_132838_client_certificates from './20261028_132838_client_certificates';
 import * as migration_20261028_142411_testimonial_name_optional from './20261028_142411_testimonial_name_optional';
 import * as migration_20261028_172219_price_list_block from './20261028_172219_price_list_block';
+import * as migration_20261030_153216_hero_highlight from './20261030_153216_hero_highlight';
 
 export const migrations = [
   {
@@ -94,6 +95,11 @@ export const migrations = [
   {
     up: migration_20261028_172219_price_list_block.up,
     down: migration_20261028_172219_price_list_block.down,
-    name: '20261028_172219_price_list_block'
+    name: '20261028_172219_price_list_block',
+  },
+  {
+    up: migration_20261030_153216_hero_highlight.up,
+    down: migration_20261030_153216_hero_highlight.down,
+    name: '20261030_153216_hero_highlight'
   },
 ];
