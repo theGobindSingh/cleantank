@@ -67,9 +67,9 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 
 ### Shared home page (`/`)
 
-What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, client logos and testimonials. Detail lives on the dedicated pages, not here.
+What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, 15+ years, client logos and testimonials. Detail lives on the dedicated pages, not here.
 
-Top to bottom (owner's call): the hero; the value proposition, which ties a clean tank to the family's health and links on to the process; the process; Let's get started, the three doors to homes, organisations and franchise; our clients; testimonials; the footer. The track record strip, with its 15+ years figure, stays off this page and remains on the other pages that use it (owner's list, 31 Oct 2026).
+Top to bottom (owner's call): the hero; the value proposition, which ties a clean tank to the family's health and links on to the process; the process; Let's get started, the three doors to homes, organisations and franchise; our clients; the track record strip, with its 15+ years figure; testimonials; the footer.
 
 ### All groups
 
