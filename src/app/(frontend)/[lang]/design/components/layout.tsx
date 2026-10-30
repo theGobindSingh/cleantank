@@ -33,7 +33,7 @@ const RADII = [
     "rounded-xs",
   ],
   ["rounded-sm", "4 px", "Buttons, inputs, cards, alerts", "rounded-sm"],
-  ["rounded-image", "6 px", "Image frames", "rounded-image"],
+  ["rounded-image", "6 px", "Image frames, audience doors", "rounded-image"],
 ];
 
 const renderRadius = ([name, value, use, className]: string[]) => {

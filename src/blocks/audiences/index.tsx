@@ -13,24 +13,26 @@ interface AudiencesProps extends AudiencesBlock {
 type Door = AudiencesBlock["doors"][number];
 
 /**
- * The gateway's three doors as cells of a ruled grid; each cell's link covers
- * the whole cell and leads to its audience's page. Three columns from `lg` up, stacked below.
+ * The gateway's three doors as separate navy cards; each card's link covers
+ * the whole card and leads to its audience's page. Three columns from `lg` up,
+ * with each card's title, line and link on shared rows; stacked below.
  */
 const Audiences = ({ heading, highlight, doors, locale }: AudiencesProps) => {
   const renderDoor = (door: Door, index: number) => {
     return (
       <li
         key={door.id ?? index}
-        className="relative flex flex-col gap-3 bg-surface p-6 outline-1 -outline-offset-1 outline-transparent has-[a:hover]:outline-border-strong md:p-10"
+        data-surface="band"
+        className="relative grid gap-3 rounded-image p-6 outline-1 -outline-offset-1 outline-transparent has-[a:hover]:outline-border-strong has-[a:hover]:[--color-band:var(--color-primary-600)] md:p-10 lg:row-span-3 lg:grid-rows-subgrid dark:outline-border"
       >
         <H3 $size="h3" $margin="0">
           {door.title}
         </H3>
-        <P className="grow text-pretty text-fg-muted">{door.text}</P>
-        {/* the link's ::after covers the cell, so the whole card is clickable */}
+        <P className="text-pretty text-fg-muted">{door.text}</P>
+        {/* the link's ::after covers the card, so the whole card is clickable */}
         <Link
           href={localePath(locale, door.href)}
-          className="mt-3 inline-flex items-center gap-2 self-start font-semibold after:absolute after:inset-0 after:content-['']"
+          className="mt-3 inline-flex items-center gap-2 justify-self-start font-semibold after:absolute after:inset-0 after:content-['']"
         >
           {door.linkLabel}
           <ArrowRightIcon {...iconProps} strokeWidth={2} className="size-4" />
@@ -41,7 +43,7 @@ const Audiences = ({ heading, highlight, doors, locale }: AudiencesProps) => {
 
   return (
     <Section heading={heading} highlight={highlight}>
-      <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
+      <ul className="grid gap-4 md:gap-6 lg:grid-cols-3 lg:gap-y-3">
         {doors.map(renderDoor)}
       </ul>
     </Section>
