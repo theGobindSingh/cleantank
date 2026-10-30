@@ -3,23 +3,13 @@ import { toImage } from "@/blocks/to-image";
 import type { HeroBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import CompareSlider from "@components/compare-slider";
+import Highlight from "@components/highlight";
 import { H1 } from "@components/html";
 import { getDictionary, type Locale } from "@i18n";
-import { toHighlightParts, type HighlightPart } from "@utils/highlight";
 
 interface HeroProps extends HeroBlock {
   locale: Locale;
 }
-
-const renderPart = ({ text, isHighlight }: HighlightPart, index: number) => {
-  return isHighlight ? (
-    <span key={index} className="text-accent-500">
-      {text}
-    </span>
-  ) : (
-    text
-  );
-};
 
 /**
  * Heading and up to two actions over the before/after comparison, which
@@ -67,7 +57,11 @@ const Hero = ({
     >
       <div className="flex flex-col gap-6 py-10 lg:w-7/12 lg:py-24 lg:pr-10">
         <H1 $size="display" $margin="0" className="max-w-[11ch]">
-          {toHighlightParts(heading, highlight).map(renderPart)}
+          <Highlight
+            text={heading}
+            highlight={highlight}
+            className="text-accent-500"
+          />
         </H1>
         {/* <P $size="body-l" className="max-w-[50ch] text-pretty">
           {text}
