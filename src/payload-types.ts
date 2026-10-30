@@ -196,6 +196,7 @@ export interface Page {
   metaDescription?: string | null;
   layout: (
     | HeroBlock
+    | ValuePropBlock
     | AudiencesBlock
     | ProcessBlock
     | TrustBandBlock
@@ -251,6 +252,26 @@ export interface HeroBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ValuePropBlock".
+ */
+export interface ValuePropBlock {
+  heading: string;
+  /**
+   * Leave a blank line between paragraphs.
+   */
+  text: string;
+  image: number | Media;
+  /**
+   * Optional. A site path, such as /process. Shown only with a link label.
+   */
+  href?: string | null;
+  linkLabel?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'valueProp';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -852,6 +873,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         hero?: T | HeroBlockSelect<T>;
+        valueProp?: T | ValuePropBlockSelect<T>;
         audiences?: T | AudiencesBlockSelect<T>;
         process?: T | ProcessBlockSelect<T>;
         trustBand?: T | TrustBandBlockSelect<T>;
@@ -889,6 +911,19 @@ export interface HeroBlockSelect<T extends boolean = true> {
         href?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ValuePropBlock_select".
+ */
+export interface ValuePropBlockSelect<T extends boolean = true> {
+  heading?: T;
+  text?: T;
+  image?: T;
+  href?: T;
+  linkLabel?: T;
   id?: T;
   blockName?: T;
 }

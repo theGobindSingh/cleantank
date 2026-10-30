@@ -18,6 +18,7 @@ import ServiceArea from "./service-area";
 import Story from "./story";
 import Testimonials from "./testimonials";
 import TrustBand from "./trust-band";
+import ValueProp from "./value-prop";
 
 interface BlocksProps {
   blocks: Page["layout"];
@@ -49,6 +50,7 @@ const COMPONENTS: { [T in BlockType]: BlockComponent<T> } = {
   clientList: ClientList,
   serviceArea: ServiceArea,
   priceList: PriceList,
+  valueProp: ValueProp,
 };
 
 /** Renders a page's layout, one component per block type. */

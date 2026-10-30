@@ -15,6 +15,7 @@ import { serviceArea } from "@/blocks/service-area/config";
 import { story } from "@/blocks/story/config";
 import { testimonialsBlock } from "@/blocks/testimonials/config";
 import { trustBand } from "@/blocks/trust-band/config";
+import { valueProp } from "@/blocks/value-prop/config";
 import type { Page } from "@/payload-types";
 import { revalidatePath } from "next/cache";
 import type { CollectionAfterChangeHook, CollectionConfig } from "payload";
@@ -76,6 +77,7 @@ export const pages: CollectionConfig = {
       required: true,
       blocks: [
         hero,
+        valueProp,
         audiences,
         processBlock,
         trustBand,
