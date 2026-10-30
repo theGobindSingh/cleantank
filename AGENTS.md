@@ -51,7 +51,9 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - Decide on your own from these docs and INFO-BANK. Ask the user only when the docs are silent, contradict each other or no longer match the code. Write the answer into the right doc so nobody has to ask again.
 - The user co-owns the business; their decisions are final on brand, copy and claims.
 - Don't run the test suites after every change. Show the result and ask the user whether they want changes; make them and ask again. Run `pnpm test` and `pnpm test:e2e` only once the user says there's nothing more. Lint and type checks while working are fine.
-- Don't commit as you go. When the work is done and passes the checks, list the commits you propose (message and files, small and one concern each) and wait. Commit and push to `master` only after the user approves. If they ask for changes instead, make them and propose again.
+- Do each task in its own git worktree under `~/Programming/ct-worktrees/`: `git worktree add ~/Programming/ct-worktrees/<name> -b <name>`. Run `pnpm install` there and link the env file with `ln -s ~/Programming/ct/.env .env`; don't read it.
+- Commit in the worktree, small and one concern each. When the work passes the checks, merge the branch into local `master` without waiting for approval, resolve any conflicts, then remove the worktree and branch. If uncommitted changes in the main checkout block the merge, stop and ask the user.
+- Push to `master` only after the user approves.
 
 ## Every code change
 
