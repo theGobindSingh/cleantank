@@ -38,7 +38,7 @@ const CompareGallery = ({
           beforeLabel={compare.before}
           afterLabel={compare.after}
           isInline
-          className="aspect-4/3 rounded-sm outline-1 -outline-offset-1 outline-grey-200"
+          className="aspect-4/3 rounded-image outline-1 -outline-offset-1 outline-grey-200"
         />
         {item.caption && (
           <figcaption>

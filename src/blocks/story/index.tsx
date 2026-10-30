@@ -18,7 +18,7 @@ const Story = ({ heading, text, image }: StoryBlock) => {
         <Paragraphs text={text} className="max-w-[68ch] text-pretty" />
       </div>
       {photo && (
-        <div className="relative aspect-3/2 self-start overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">
+        <div className="relative aspect-3/2 self-start overflow-hidden rounded-image outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">
           <Image
             src={photo.src}
             alt={photo.alt}

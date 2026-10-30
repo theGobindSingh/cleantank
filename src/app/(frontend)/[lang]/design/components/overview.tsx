@@ -7,7 +7,7 @@ const NEVER = [
   "Cartoon bacteria, mascots or 3D tanks",
   "Red or orange urgency badges, starbursts, seals or shields",
   "Countdowns, discount badges, festive offers",
-  "Pills or any radius above 4 px",
+  "Pills or any radius above 4 px (6 px on image frames)",
   "Tricolour layouts or festival motifs",
   "Fake ISO or approval marks",
 ];

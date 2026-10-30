@@ -32,12 +32,8 @@ const RADII = [
     "Step nodes, checkboxes, grid containers",
     "rounded-xs",
   ],
-  [
-    "rounded-sm",
-    "4 px",
-    "Buttons, inputs, cards, alerts, image frames",
-    "rounded-sm",
-  ],
+  ["rounded-sm", "4 px", "Buttons, inputs, cards, alerts", "rounded-sm"],
+  ["rounded-image", "6 px", "Image frames", "rounded-image"],
 ];
 
 const renderRadius = ([name, value, use, className]: string[]) => {
@@ -77,14 +73,14 @@ const renderColumn = (column: number) => {
   );
 };
 
-/** Breakpoints, the column grid, spacing steps and the three radii. */
+/** Breakpoints, the column grid, spacing steps and the four radii. */
 const Layout = () => {
   return (
     <Section
       id="layout"
       number={12}
       title="Layout, spacing and shape"
-      intro="Content is at most 1800 px wide on a 4, 8 or 12 column grid. Spacing uses Tailwind's 4 px unit restricted to the brand steps. Corners are square or nearly square; nothing is rounder than 4 px, and there are no shadows."
+      intro="Content is at most 1800 px wide on a 4, 8 or 12 column grid. Spacing uses Tailwind's 4 px unit restricted to the brand steps. Corners are square or nearly square; nothing is rounder than 4 px except image frames at 6 px, and there are no shadows."
     >
       <div className="grid gap-8 lg:grid-cols-2">
         <Breakpoints />
@@ -135,13 +131,13 @@ const Layout = () => {
           label="Before and after cleaning"
           beforeLabel="Before"
           afterLabel="After"
-          className="aspect-3/2 w-full max-w-2xl rounded-sm"
+          className="aspect-3/2 w-full max-w-2xl rounded-image"
         />
       </div>
 
       <div className="flex flex-col gap-3">
         <H3 $margin="0">Radius</H3>
-        <div className="grid gap-6 sm:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {RADII.map(renderRadius)}
         </div>
       </div>
