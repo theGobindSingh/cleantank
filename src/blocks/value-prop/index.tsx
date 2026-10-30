@@ -22,7 +22,7 @@ const renderPhoto = (photo: CompareImage) => {
         src={photo.src}
         alt={photo.alt}
         fill
-        sizes="(min-width: 1024px) 15vw, 45vw"
+        sizes="(min-width: 1024px) 30vw, 65vw"
         className="object-cover"
       />
     </div>
