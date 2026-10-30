@@ -69,7 +69,7 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 
 What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, client logos and testimonials. Detail lives on the dedicated pages, not here.
 
-Top to bottom (owner's call): the hero; the value proposition, which ties a clean tank to the family's health and links on to the process; the process; Get started, the three doors to homes, organisations and franchise; our clients; testimonials; the footer. The track record strip, with its 15+ years figure, stays off this page and remains on the other pages that use it (owner's list, 31 Oct 2026).
+Top to bottom (owner's call): the hero; the value proposition, which ties a clean tank to the family's health and links on to the process; the process; Let's get started, the three doors to homes, organisations and franchise; our clients; testimonials; the footer. The track record strip, with its 15+ years figure, stays off this page and remains on the other pages that use it (owner's list, 31 Oct 2026).
 
 ### All groups
 
@@ -91,7 +91,7 @@ Navigation (at most seven items in the header): Home, For Homes, For Organisatio
 
 Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner", and for WhatsApp and phone buttons "Get a Price on WhatsApp" and "Call Us" (28 Oct 2026, for `/homes`). Never "Submit" or "Book now".
 
-Languages: English at `/`, Hindi at `/hi`, Punjabi at `/pa`. Routing, fonts, Payload locales and the interface strings for all three are in place. Whoever adds or changes English content writes the Hindi and Punjabi versions in the same change; no review is needed before they go live. If a translation is still missing, the page shows English with a short note, never a half-translation. Hindi and Punjabi sentences end with the danda (।).
+Languages: English at `/`, Hindi at `/hi`, Punjabi at `/pa`. Routing, fonts, Payload locales and the interface strings for all three are in place. Whoever adds or changes English content writes the Hindi and Punjabi versions in the same change; no review is needed before they go live. If a translation is still missing, the page shows English with a short note, never a half-translation. Hindi and Punjabi sentences end with the danda (।); a question ends with a question mark.
 
 Page content, client lists and franchise figures go into Payload, not into components. Site-wide constants (name, brand lines, URL, phone, WhatsApp, email, offices, GSTIN) live in `src/site.ts`, so one edit changes them everywhere.
 
