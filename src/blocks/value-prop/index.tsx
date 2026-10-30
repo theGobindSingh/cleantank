@@ -16,7 +16,7 @@ interface ValuePropProps extends ValuePropBlock {
 
 const renderPhoto = (
   photo: CompareImage,
-  index: number,
+  _index: number,
   photos: CompareImage[],
 ) => {
   const isPair = photos.length === 2;
@@ -26,7 +26,6 @@ const renderPhoto = (
       className={tw(
         "relative overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:aspect-auto",
         isPair ? "aspect-4/5" : "aspect-3/2",
-        index === 0 ? "lg:col-start-3" : "lg:col-start-4",
       )}
     >
       <Image
@@ -49,8 +48,8 @@ const renderPhoto = (
  * From `lg` up the text column is a third of the screen and the photo sits at
  * the right edge, a fifth of the section wide and as tall as the text; the body and button never pass the headline's right edge. Below
  * that the column is as wide as the headline text and the photo follows it.
- * An optional second photo sits left of the first at the same size; below `lg`
- * the two share a row at 4:5.
+ * An optional second photo sits left of the first at the same size, 12 px
+ * apart; below `lg` the two share a row at 4:5.
  * The words listed in `highlight` show in accent 600 (accent 500 in dark mode).
  */
 const ValueProp = ({
@@ -65,7 +64,7 @@ const ValueProp = ({
 }: ValuePropProps) => {
   const main = toImage(image);
   const second = toImage(secondImage);
-  // Left to right; grid auto-placement needs column 3 before column 4.
+  // Left to right.
   const photos = main && second ? [second, main] : main ? [main] : [];
   const isPair = photos.length === 2;
   return (
@@ -73,7 +72,7 @@ const ValueProp = ({
       className={tw(
         "grid gap-10 py-16 md:py-20 lg:gap-10 lg:py-24",
         isPair
-          ? "lg:grid-cols-[33.333vw_1fr_20%_20%]"
+          ? "lg:grid-cols-[33.333vw_1fr_calc(40%+0.75rem)]"
           : "lg:grid-cols-[33.333vw_1fr_20%]",
       )}
     >
@@ -103,7 +102,9 @@ const ValueProp = ({
         )}
       </div>
       {photos.length > 0 && (
-        <div className={tw("grid gap-4 lg:contents", isPair && "grid-cols-2")}>
+        <div
+          className={tw("grid gap-3 lg:col-start-3", isPair && "grid-cols-2")}
+        >
           {photos.map(renderPhoto)}
         </div>
       )}
