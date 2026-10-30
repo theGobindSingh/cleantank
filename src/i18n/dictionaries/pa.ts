@@ -67,7 +67,7 @@ export const pa: Dictionary = {
     gemSeller: "ਰਜਿਸਟਰਡ ਵਿਕਰੇਤਾ",
     links: {
       whyChooseUs: "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
-      clients: "ਸਾਡੇ ਗਾਹਕ",
+      clients: "ਸਾਡੇ ਕਲਾਇੰਟ",
       privacy: "ਪਰਦੇਦਾਰੀ ਨੀਤੀ",
       terms: "ਨਿਯਮ ਅਤੇ ਸ਼ਰਤਾਂ",
     },

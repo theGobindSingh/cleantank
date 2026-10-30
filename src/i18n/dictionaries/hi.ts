@@ -67,7 +67,7 @@ export const hi: Dictionary = {
     gemSeller: "पंजीकृत विक्रेता",
     links: {
       whyChooseUs: "हमें क्यों चुनें",
-      clients: "हमारे ग्राहक",
+      clients: "हमारे क्लाइंट",
       privacy: "गोपनीयता नीति",
       terms: "नियम और शर्तें",
     },
