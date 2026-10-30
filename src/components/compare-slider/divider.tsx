@@ -1,6 +1,6 @@
 import { iconProps } from "@components/icon";
 import { tw } from "@utils/tw";
-import { ChevronsLeftRightIcon } from "lucide-react";
+import { EqualIcon } from "lucide-react";
 
 /**
  * The visible line and drag handle at `--split`. Rendered right after the
@@ -16,11 +16,16 @@ const Divider = ({ handleClassName }: { handleClassName: string }) => {
       <span
         aria-hidden="true"
         className={tw(
-          "pointer-events-none absolute left-(--split) flex size-11 -translate-x-1/2 items-center justify-center rounded-xs border-2 border-white bg-primary-900 text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-white",
+          "pointer-events-none absolute left-(--split) flex h-11 w-4 -translate-x-1/2 items-center justify-center rounded-sm bg-white text-primary-900 group-active:text-primary-600 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-white",
           handleClassName,
         )}
       >
-        <ChevronsLeftRightIcon {...iconProps} className="size-5" />
+        {/* Lucide has no plain two-bar icon; a turned equals sign draws one */}
+        <EqualIcon
+          {...iconProps}
+          strokeWidth={2}
+          className="size-3.5 rotate-90"
+        />
       </span>
     </>
   );

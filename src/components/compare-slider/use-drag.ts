@@ -31,7 +31,7 @@ export const useDrag = (
     root.setPointerCapture(event.pointerId);
     pendingRef.current = null;
     isDraggingRef.current = true;
-    inputRef.current?.focus({ preventScroll: true });
+    inputRef.current?.focus({ preventScroll: true, focusVisible: false });
     onMove(positionAt(root, event.clientX));
   };
 
@@ -70,7 +70,7 @@ export const useDrag = (
   const onPointerUp = (event: PointerEvent<HTMLElement>) => {
     const root = rootRef.current;
     if (root && pendingRef.current) {
-      inputRef.current?.focus({ preventScroll: true });
+      inputRef.current?.focus({ preventScroll: true, focusVisible: false });
       onMove(positionAt(root, event.clientX));
     }
     onPointerCancel();

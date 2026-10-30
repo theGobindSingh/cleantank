@@ -135,7 +135,7 @@ const CompareSlider = ({
       ref={rootRef}
       {...dragHandlers}
       className={tw(
-        "relative cursor-ew-resize touch-pan-y overflow-hidden bg-primary-900 select-none",
+        "group relative cursor-ew-resize touch-pan-y overflow-hidden bg-primary-900 select-none",
         className,
       )}
       style={
