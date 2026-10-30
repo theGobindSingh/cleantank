@@ -64,6 +64,8 @@ Use the `ponytail` skill at level `full` (project default; `lite` or `ultra` onl
 
 Use the `human-writing` skill whenever you write content people will read: UI copy, metadata, docs, READMEs, commit messages and PR descriptions.
 
+To change, seed or translate site content, hand it to the `content-updater` subagent (`.claude/agents/content-updater.md`), Opus. Tell it which content and what should change; it writes English, Hindi and Punjabi and saves them to Payload. Use it for any page, block, global, client or testimonial text, rather than writing Payload content yourself. Schema and code changes stay with you: finish those first, then send it the content.
+
 ## Done means
 
 `pnpm build` passes with no lint errors and `pnpm test` passes. After UI or routing changes, `pnpm test:e2e` passes too. If they can't, report the full error output instead of marking the task complete.
@@ -72,7 +74,6 @@ Use the `human-writing` skill whenever you write content people will read: UI co
 
 - Playwright MCP is a project dependency, configured for Claude Code (`.mcp.json`, pre-approved in `.claude/settings.json`) and opencode (`opencode.jsonc`). Use it to check UI changes in a real browser. If it reports a missing browser, ask the user to run `pnpm browser:install`.
 - Before writing code against a library, framework or CLI, fetch its current docs with the Context7 CLI (`npx ctx7@latest`) — see the `find-docs` skill. Don't rely on memory for APIs.
-- `content-updater` (`.claude/agents/content-updater.md`) is the Opus subagent for content: point it at a piece of content and it writes English, Hindi and Punjabi and saves them to Payload.
 - `track-suru` is the MCP server for the work tracker. It's configured per machine, and its token never goes in the repo.
 - Claude Code replies in the terse `caveman` output style (`.claude/output-styles/caveman.md`, set in `.claude/settings.json`). Switch it in `/config`.
 - Skills live in `.agents/skills` (linked to `.claude/skills`). If a skill relevant to the task is available — here or in your environment — use it.
