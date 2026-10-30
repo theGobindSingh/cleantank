@@ -39,7 +39,7 @@ const renderPhoto = (photo: CompareImage) => {
  * half of a row at most 28rem wide.
  * An optional second photo sits left of the first at the same size, 12 px
  * apart.
- * The words listed in `highlight` show in accent 600 (accent 500 in dark mode).
+ * The words listed in `highlight` show in accent 500 in every mode.
  */
 const ValueProp = ({
   heading,
@@ -67,7 +67,7 @@ const ValueProp = ({
           <Highlight
             text={heading}
             highlight={highlight}
-            className="text-accent-600 dark:text-accent-500"
+            className="text-accent-500"
           />
         </H2>
         <Paragraphs text={text} />
