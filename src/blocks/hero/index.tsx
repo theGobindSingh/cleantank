@@ -13,7 +13,7 @@ interface HeroProps extends HeroBlock {
 
 const renderPart = ({ text, isHighlight }: HighlightPart, index: number) => {
   return isHighlight ? (
-    <span key={index} className="text-accent-300">
+    <span key={index} className="text-accent-500">
       {text}
     </span>
   ) : (
@@ -25,7 +25,7 @@ const renderPart = ({ text, isHighlight }: HighlightPart, index: number) => {
  * Heading and up to two actions over the before/after comparison, which
  * fills the hero. The slider's scrim keeps the text readable: from `lg` up
  * the text sits on the left, below that at the bottom, with the drag handle
- * above it. The words listed in `highlight` show in accent 300.
+ * above it. The words listed in `highlight` show in accent 500.
  */
 const Hero = ({
   heading,
