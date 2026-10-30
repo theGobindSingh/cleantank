@@ -54,8 +54,8 @@ interface CompareSliderProps {
 }
 
 /**
- * Two aligned photos: after left of a divider the visitor drags, before
- * right of it (owner's call), the before photo clipped at the divider. A
+ * Two aligned photos: before left of a divider the visitor drags, after
+ * right of it (owner's call), the after photo clipped at the divider. A
  * transparent native range input does the work, so pointer, touch and arrow
  * keys all behave as a slider; the visible handle mirrors its focus.
  */
@@ -143,8 +143,8 @@ const CompareSlider = ({
       }
     >
       <Image
-        src={after.src}
-        alt={after.alt}
+        src={before.src}
+        alt={before.alt}
         fill
         {...imageProps}
         onLoad={countLoad}
@@ -152,8 +152,8 @@ const CompareSlider = ({
         className="object-cover"
       />
       <Image
-        src={before.src}
-        alt={before.alt}
+        src={after.src}
+        alt={after.alt}
         fill
         {...imageProps}
         onLoad={countLoad}
@@ -170,7 +170,7 @@ const CompareSlider = ({
         value={rounded}
         onChange={handleChange}
         aria-label={label}
-        aria-valuetext={`${afterLabel} ${rounded}%, ${beforeLabel} ${100 - rounded}%`}
+        aria-valuetext={`${beforeLabel} ${rounded}%, ${afterLabel} ${100 - rounded}%`}
         className="peer pointer-events-none absolute inset-0 size-full opacity-0"
       />
       <Divider handleClassName={handleClassName} />
