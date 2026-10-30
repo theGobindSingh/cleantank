@@ -2,11 +2,9 @@ import { toImage } from "@/blocks/to-image";
 import type { ValuePropBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { H2 } from "@components/html";
-import { iconProps } from "@components/icon";
 import Link from "@components/link";
 import Paragraphs from "@components/paragraphs";
 import { localePath, type Locale } from "@i18n";
-import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 
 interface ValuePropProps extends ValuePropBlock {
@@ -14,9 +12,9 @@ interface ValuePropProps extends ValuePropBlock {
 }
 
 /**
- * The promise under a large statement headline with an optional text link.
+ * The promise under a large statement headline with an optional button.
  * From `lg` up the text column is a third of the screen and the photo sits at
- * the right edge, a fifth of the section wide and as tall as the text; the body and link never pass the headline's right edge. Below
+ * the right edge, a fifth of the section wide and as tall as the text; the body and button never pass the headline's right edge. Below
  * that the column is as wide as the headline text and the photo follows it.
  */
 const ValueProp = ({
@@ -43,10 +41,11 @@ const ValueProp = ({
         {href && linkLabel && (
           <Link
             href={localePath(locale, href)}
-            className="mt-2 inline-flex items-center gap-2 self-start font-semibold"
+            variant="filled"
+            color="accent"
+            className="mt-2 self-start"
           >
             {linkLabel}
-            <ArrowRightIcon {...iconProps} strokeWidth={2} className="size-4" />
           </Link>
         )}
       </div>

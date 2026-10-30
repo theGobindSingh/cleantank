@@ -2,9 +2,9 @@ import type { ButtonHTMLAttributes } from "react";
 
 export type InteractionVariant = "filled" | "outlined" | "text";
 export type InteractionSize = "sm" | "md" | "lg";
-/** Accent is a marker only, never a button, so it isn't offered here. */
+/** Accent is a marker; its one button is the value proposition's (owner's call). */
 export type ColorFamily =
-  "primary" | "grey" | "success" | "caution" | "info" | "error";
+  "primary" | "accent" | "grey" | "success" | "caution" | "info" | "error";
 
 export interface InteractionProps {
   variant?: InteractionVariant | undefined;
