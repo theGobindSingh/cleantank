@@ -33,10 +33,6 @@ interface CompareSliderProps {
   wideStart?: number | undefined;
   /** Where the intro glides to from `lg` up before settling on `wideStart`. Defaults to 15 past it. */
   widePeak?: number | undefined;
-  /** Edge the photos are cropped towards when the frame cuts their top and bottom. */
-  cropEdge?: "top" | "bottom" | undefined;
-  /** How far in from `cropEdge` the photos sit, in percent of the cropped-off height. */
-  cropOffset?: number | undefined;
   /** Vertical position of the drag handle, so it can clear text laid over the photos. */
   handleClassName?: string | undefined;
   /**
@@ -57,7 +53,10 @@ interface CompareSliderProps {
  * Two aligned photos: before left of a divider the visitor drags, after
  * right of it (owner's call), the after photo clipped at the divider. A
  * transparent native range input does the work, so pointer, touch and arrow
- * keys all behave as a slider; the visible handle mirrors its focus.
+ * keys all behave as a slider; the visible handle mirrors its focus. Both
+ * photos are anchored at the bottom-right corner, so whatever the frame's
+ * shape, that corner stays in view and only the other edges are cropped
+ * (owner's call).
  */
 const CompareSlider = ({
   before,
@@ -67,8 +66,6 @@ const CompareSlider = ({
   afterLabel,
   wideStart = 0,
   widePeak,
-  cropEdge = "bottom",
-  cropOffset = 10,
   handleClassName = "bottom-4",
   scrimColor,
   isInline = false,
@@ -125,9 +122,6 @@ const CompareSlider = ({
   };
   const dragHandlers = useDrag(rootRef, inputRef, moveTo);
   const rounded = Math.round(position);
-  const imageStyle = {
-    objectPosition: `left 50% ${cropEdge} ${cropOffset}%`,
-  };
   const imageProps = isInline ? INLINE_IMAGE : HERO_IMAGE;
 
   return (
@@ -148,8 +142,7 @@ const CompareSlider = ({
         fill
         {...imageProps}
         onLoad={countLoad}
-        style={imageStyle}
-        className="object-cover"
+        className="object-cover object-bottom-right"
       />
       <Image
         src={after.src}
@@ -157,8 +150,7 @@ const CompareSlider = ({
         fill
         {...imageProps}
         onLoad={countLoad}
-        style={imageStyle}
-        className="object-cover [clip-path:inset(0_0_0_var(--split))]"
+        className="object-cover object-bottom-right [clip-path:inset(0_0_0_var(--split))]"
       />
       {scrimColor && <Scrim />}
       {/* keyboard and screen readers only; the root handles pointers */}
