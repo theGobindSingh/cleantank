@@ -28,6 +28,13 @@
   --fs-ref: clamp(0.6875rem, 0.663rem + 0.109vw, 0.75rem);
 }
 
+/* desktop (lg): the hero heading stops scaling */
+@media (min-width: 1024px) {
+  :root {
+    --fs-display: 7rem;
+  }
+}
+
 @theme static {
   /* Indic fonts follow the Latin one, so each script picks its own face */
   --font-sans:

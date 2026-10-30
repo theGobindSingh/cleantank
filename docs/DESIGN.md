@@ -79,7 +79,7 @@ Fluid between 360 and 1280 px, ratio 1.2. The `--fs-*` token is the `$size` name
 
 | Token | Size px (360 to 1280) | `clamp()` | Style |
 |---|---|---|---|
-| `display` (hero only) | 39.81 to 53.75 | `clamp(2.488rem, 2.077rem + 1.515vw, 3.359rem)` | heading face, 78%, 700, uppercase, +0.01em, line height 1.00 |
+| `display` (hero only) | 39.81 up, then 112 from `lg` | `clamp(2.488rem, 5vw, 7rem)` below `lg`, fixed `7rem` from `lg` up | heading face, 78%, 700, uppercase, +0.01em, line height 1.00 |
 | `h1` | 33.18 to 37.32 | `clamp(2.074rem, 1.972rem + 0.451vw, 2.333rem)` | same as display |
 | `h2` | 27.65 to 31.10 | `clamp(1.728rem, 1.643rem + 0.376vw, 1.944rem)` | same, line height 1.02 |
 | `h3` | 23.04 to 25.92 | `clamp(1.44rem, 1.37rem + 0.313vw, 1.62rem)` | same, line height 1.05 |
