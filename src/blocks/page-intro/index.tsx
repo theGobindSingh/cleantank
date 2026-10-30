@@ -19,7 +19,12 @@ const PageIntro = ({ heading, text, actions, locale }: PageIntroProps) => {
   return (
     <CommonFullWidthWrapper className="flex flex-col gap-6 pt-16 md:pt-20 lg:pt-24">
       <div className="flex flex-col gap-3">
-        <H1 $margin="0" className="max-w-[20ch]">
+        <H1
+          $size="statement"
+          $margin="0"
+          // a class, not $lineHeight, so the Hindi and Punjabi heading leading in defaults.css wins
+          className="max-w-[20ch] leading-[0.85] wrap-break-word"
+        >
           {heading}
         </H1>
         <span aria-hidden="true" className="block h-[3px] w-12 bg-marker" />

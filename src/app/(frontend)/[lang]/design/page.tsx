@@ -65,7 +65,11 @@ const DesignPage = () => {
             <span className="font-mono text-(length:--fs-ref) font-medium tracking-widest text-marker-text uppercase">
               00&nbsp;&nbsp;REF CT-DS
             </span>
-            <H1 $size="display" $margin="0">
+            <H1
+              $size="statement"
+              $margin="0"
+              className="leading-[0.85] wrap-break-word"
+            >
               Design system
             </H1>
             <span aria-hidden="true" className="block h-[3px] w-12 bg-marker" />
