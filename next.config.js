@@ -46,7 +46,22 @@ const nextConfig = {
   poweredByHeader: false,
   allowedDevOrigins: [process.env.DEV_SERVER_ORIGIN].filter(Boolean),
   images: {
-    remotePatterns: [],
+    // Stock photos (@utils/stock-photo). Browsers get them from /_next/image,
+    // so the CSP needs no entry for these hosts.
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/photo-*",
+      },
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+        port: "",
+        pathname: "/photos/**",
+      },
+    ],
     // 75 is the default; 100 is for the hero's before and after photos.
     qualities: [75, 100],
     // Payload serves uploads from its API; /design shows images from public/.
