@@ -24,7 +24,12 @@ interface Row {
  * The facts come from src/site.ts, shared with the footer; only the heading
  * and line are in Payload.
  */
-const Credentials = ({ heading, text, locale }: CredentialsProps) => {
+const Credentials = ({
+  heading,
+  highlight,
+  text,
+  locale,
+}: CredentialsProps) => {
   const { credentials: labels } = getDictionary(locale);
   const { iso } = site;
 
@@ -97,7 +102,7 @@ const Credentials = ({ heading, text, locale }: CredentialsProps) => {
   };
 
   return (
-    <Section heading={heading} text={text} isSubtle>
+    <Section heading={heading} highlight={highlight} text={text} isSubtle>
       <dl className="max-w-5xl border-t-2 border-border-strong">
         {rows.map(renderRow)}
       </dl>

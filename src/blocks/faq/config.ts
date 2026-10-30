@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** Questions and answers, each opening on its own. */
@@ -7,6 +8,7 @@ export const faq: Block = {
   labels: { singular: "Questions", plural: "Questions" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     {
       name: "items",
       type: "array",

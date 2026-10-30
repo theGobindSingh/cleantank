@@ -45,6 +45,7 @@ const renderNote = (paragraph: string) => {
  */
 const PriceList = ({
   heading,
+  highlight,
   text,
   tiers,
   discounts,
@@ -91,7 +92,7 @@ const PriceList = ({
     >
       <div className="flex flex-col gap-6 lg:col-span-7">
         <div className="flex flex-col gap-4">
-          <SectionHeadline heading={heading} />
+          <SectionHeadline heading={heading} highlight={highlight} />
           <Paragraphs text={text} className="max-w-[60ch] text-pretty" />
         </div>
         <table className="w-full max-w-160 border-collapse border border-border bg-surface">

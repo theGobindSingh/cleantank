@@ -1,5 +1,6 @@
 import type { Client, ClientsBandBlock, Media } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
+import Highlight from "@components/highlight";
 import { H2 } from "@components/html";
 import { getDictionary, type Locale } from "@i18n";
 import config from "@payload-config";
@@ -38,7 +39,11 @@ const renderClient = (client: Client) => {
  * past (owner's call). Logos are SVG, served as uploaded. Clients without a
  * logo stay out; with none, the band is not rendered.
  */
-const ClientsBand = async ({ heading, locale }: ClientsBandProps) => {
+const ClientsBand = async ({
+  heading,
+  highlight,
+  locale,
+}: ClientsBandProps) => {
   const { clients: labels } = getDictionary(locale);
   const payload = await getPayload({ config });
   const { docs } = await payload.find({
@@ -61,7 +66,11 @@ const ClientsBand = async ({ heading, locale }: ClientsBandProps) => {
         $margin="0"
         className="shrink-0 font-mono tracking-widest text-fg-muted uppercase"
       >
-        {heading}
+        <Highlight
+          text={heading}
+          highlight={highlight}
+          className="text-accent-500"
+        />
       </H2>
       <Marquee pauseLabel={labels.pause} playLabel={labels.play}>
         <div className="min-w-0 grow overflow-hidden mask-x-from-90% mask-x-to-100% motion-reduce:overflow-x-auto">

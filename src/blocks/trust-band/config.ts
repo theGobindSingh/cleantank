@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** The secondary emphasis band of key figures: years, ISO, reach. */
@@ -13,6 +14,7 @@ export const trustBand: Block = {
       localized: true,
       admin: { description: "A short label above the figures." },
     },
+    highlightField,
     {
       name: "figures",
       type: "array",

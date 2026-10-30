@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** Before/after comparisons of different tanks, side by side. */
@@ -10,6 +11,7 @@ export const compareGallery: Block = {
   },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     { name: "text", type: "textarea", localized: true },
     {
       name: "items",

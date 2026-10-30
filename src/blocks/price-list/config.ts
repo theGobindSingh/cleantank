@@ -1,5 +1,6 @@
 import { actionsField } from "@/blocks/actions/config";
 import { anchorField } from "@/blocks/anchor";
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** Published prices by tank size, with multi-tank discounts, GST and a calculator. */
@@ -9,6 +10,7 @@ export const priceList: Block = {
   labels: { singular: "Price list", plural: "Price lists" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     {
       name: "text",
       type: "textarea",

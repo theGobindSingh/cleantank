@@ -19,6 +19,7 @@ interface ServiceAreaProps extends ServiceAreaBlock {
  */
 const ServiceArea = ({
   heading,
+  highlight,
   text,
   map,
   actions,
@@ -31,7 +32,7 @@ const ServiceArea = ({
       className="grid gap-10 py-16 md:py-20 lg:grid-cols-12 lg:gap-6 lg:py-24"
     >
       <div className="flex flex-col gap-4 lg:col-span-7">
-        <SectionHeadline heading={heading} />
+        <SectionHeadline heading={heading} highlight={highlight} />
         <Paragraphs text={text} className="max-w-[60ch] text-pretty" />
         <Actions actions={actions} locale={locale} className="pt-2" />
       </div>

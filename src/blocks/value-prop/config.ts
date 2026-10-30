@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** The core promise under the hero: a heading, a short paragraph, one or two photos and an optional link onward. */
@@ -7,15 +8,7 @@ export const valueProp: Block = {
   labels: { singular: "Value proposition", plural: "Value propositions" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
-    {
-      name: "highlight",
-      type: "text",
-      localized: true,
-      admin: {
-        description:
-          "Words or phrases from the heading to show in coral, separated by commas. For example: health",
-      },
-    },
+    highlightField,
     {
       name: "text",
       type: "textarea",

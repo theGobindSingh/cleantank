@@ -18,6 +18,7 @@ type Item = CompareGalleryBlock["items"][number];
  */
 const CompareGallery = ({
   heading,
+  highlight,
   text,
   items,
   isSubtle,
@@ -52,7 +53,12 @@ const CompareGallery = ({
   };
 
   return (
-    <Section heading={heading} text={text} isSubtle={isSubtle}>
+    <Section
+      heading={heading}
+      highlight={highlight}
+      text={text}
+      isSubtle={isSubtle}
+    >
       <div className="grid gap-x-6 gap-y-10 md:grid-cols-2">
         {items.map(renderItem)}
       </div>

@@ -1,4 +1,5 @@
 import { anchorField } from "@/blocks/anchor";
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** A titled list of short points in ruled cells, such as what to prepare. */
@@ -8,6 +9,7 @@ export const ruledList: Block = {
   labels: { singular: "Ruled list", plural: "Ruled lists" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     { name: "text", type: "textarea", localized: true },
     {
       name: "items",

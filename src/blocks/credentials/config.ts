@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /**
@@ -11,6 +12,7 @@ export const credentials: Block = {
   labels: { singular: "Credentials", plural: "Credentials" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     { name: "text", type: "textarea", localized: true },
   ],
 };

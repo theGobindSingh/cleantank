@@ -33,6 +33,7 @@ const categoryId = (client: Client) => {
  */
 const ClientList = async ({
   heading,
+  highlight,
   text,
   anchor,
   locale,
@@ -114,7 +115,12 @@ const ClientList = async ({
   };
 
   return (
-    <Section heading={heading} text={text} anchor={anchor}>
+    <Section
+      heading={heading}
+      highlight={highlight}
+      text={text}
+      anchor={anchor}
+    >
       <ul
         className={tw(
           // a short last row stretches its last cell, so no row ends in an empty cell

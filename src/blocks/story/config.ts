@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** A heading over a few paragraphs of prose, with an optional photo beside them. */
@@ -7,6 +8,7 @@ export const story: Block = {
   labels: { singular: "Story", plural: "Stories" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     {
       name: "text",
       type: "textarea",

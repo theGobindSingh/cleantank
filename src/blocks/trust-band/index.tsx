@@ -1,5 +1,6 @@
 import type { TrustBandBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
+import Highlight from "@components/highlight";
 import { H2, P } from "@components/html";
 
 type Figure = TrustBandBlock["figures"][number];
@@ -28,7 +29,7 @@ const renderFigure = (figure: Figure, index: number) => {
  * each with a 1 px rule on its left. The label comes
  * first in the markup (dt, then dd) and shows under the figure.
  */
-const TrustBand = ({ heading, figures }: TrustBandBlock) => {
+const TrustBand = ({ heading, highlight, figures }: TrustBandBlock) => {
   return (
     <CommonFullWidthWrapper
       wrapperClassName="bg-secondary-bg"
@@ -39,7 +40,11 @@ const TrustBand = ({ heading, figures }: TrustBandBlock) => {
         $margin="0"
         className="font-mono tracking-widest text-fg-muted uppercase"
       >
-        {heading}
+        <Highlight
+          text={heading}
+          highlight={highlight}
+          className="text-accent-500"
+        />
       </H2>
       <dl className="grid gap-x-6 gap-y-8 md:grid-cols-2 md:gap-y-10 lg:grid-cols-4">
         {figures.map(renderFigure)}

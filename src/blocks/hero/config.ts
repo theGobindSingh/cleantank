@@ -1,4 +1,5 @@
 import { actionsField } from "@/blocks/actions/config";
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** The top of a page: heading, one line, up to two actions, over a before/after comparison. */
@@ -7,15 +8,7 @@ export const hero: Block = {
   interfaceName: "HeroBlock",
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
-    {
-      name: "highlight",
-      type: "text",
-      localized: true,
-      admin: {
-        description:
-          "Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy",
-      },
-    },
+    highlightField,
     { name: "text", type: "textarea", required: true, localized: true },
     {
       type: "row",

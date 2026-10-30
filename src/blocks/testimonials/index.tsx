@@ -63,7 +63,12 @@ const renderQuote = (item: Testimonial) => {
  * Up to three quotes in ruled cells, three columns from `lg` up. With no
  * quote picked it renders nothing, or before launch, marked placeholders.
  */
-const Testimonials = ({ heading, items, locale }: TestimonialsProps) => {
+const Testimonials = ({
+  heading,
+  highlight,
+  items,
+  locale,
+}: TestimonialsProps) => {
   const shown = (items ?? []).filter(isShown);
   const showPlaceholders = shown.length === 0 && !site.isLive;
   if (shown.length === 0 && !showPlaceholders) return null;
@@ -81,7 +86,7 @@ const Testimonials = ({ heading, items, locale }: TestimonialsProps) => {
   };
 
   return (
-    <Section heading={heading}>
+    <Section heading={heading} highlight={highlight}>
       <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
         {showPlaceholders
           ? PLACEHOLDER_KEYS.map(renderPlaceholder)

@@ -16,7 +16,7 @@ type Door = AudiencesBlock["doors"][number];
  * The gateway's three doors as cells of a ruled grid; each cell's link covers
  * the whole cell and leads to its audience's page. Three columns from `lg` up, stacked below.
  */
-const Audiences = ({ heading, doors, locale }: AudiencesProps) => {
+const Audiences = ({ heading, highlight, doors, locale }: AudiencesProps) => {
   const renderDoor = (door: Door, index: number) => {
     return (
       <li
@@ -40,7 +40,7 @@ const Audiences = ({ heading, doors, locale }: AudiencesProps) => {
   };
 
   return (
-    <Section heading={heading}>
+    <Section heading={heading} highlight={highlight}>
       <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
         {doors.map(renderDoor)}
       </ul>

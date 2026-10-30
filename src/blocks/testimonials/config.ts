@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** Up to three quotes from the `testimonials` collection. */
@@ -7,6 +8,7 @@ export const testimonialsBlock: Block = {
   labels: { singular: "Testimonials", plural: "Testimonials" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     {
       name: "items",
       type: "relationship",

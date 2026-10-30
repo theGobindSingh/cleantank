@@ -9,12 +9,12 @@ import Image from "next/image";
  * Prose under an H2 in seven columns, the photo framed in the other five from
  * `lg` up; below that the photo follows the text.
  */
-const Story = ({ heading, text, image }: StoryBlock) => {
+const Story = ({ heading, highlight, text, image }: StoryBlock) => {
   const photo = toImage(image);
   return (
     <CommonFullWidthWrapper className="grid gap-10 py-16 md:py-20 lg:grid-cols-12 lg:gap-6 lg:py-24">
       <div className="flex flex-col gap-4 lg:col-span-7">
-        <SectionHeadline heading={heading} />
+        <SectionHeadline heading={heading} highlight={highlight} />
         <Paragraphs text={text} className="max-w-[68ch] text-pretty" />
       </div>
       {photo && (

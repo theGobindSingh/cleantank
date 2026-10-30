@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** The three doors: Homes, Organisations and Franchise, each linking to its page. */
@@ -7,6 +8,7 @@ export const audiences: Block = {
   labels: { singular: "Audience doors", plural: "Audience doors" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     {
       name: "doors",
       type: "array",

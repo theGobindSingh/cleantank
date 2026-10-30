@@ -24,9 +24,9 @@ const renderItem = (item: Item, index: number) => {
 };
 
 /** Plain questions and answers as native `details`, so they work without JS. */
-const Faq = ({ heading, items }: FaqBlock) => {
+const Faq = ({ heading, highlight, items }: FaqBlock) => {
   return (
-    <Section heading={heading}>
+    <Section heading={heading} highlight={highlight}>
       <div className="max-w-[80ch] border-t border-border">
         {items.map(renderItem)}
       </div>

@@ -26,6 +26,7 @@ const renderItem = (item: Item, index: number) => {
  */
 const RuledList = ({
   heading,
+  highlight,
   text,
   items,
   note,
@@ -33,7 +34,13 @@ const RuledList = ({
   anchor,
 }: RuledListBlock) => {
   return (
-    <Section heading={heading} text={text} isSubtle={isSubtle} anchor={anchor}>
+    <Section
+      heading={heading}
+      highlight={highlight}
+      text={text}
+      isSubtle={isSubtle}
+      anchor={anchor}
+    >
       <ul
         className={tw(
           // an odd last cell spans the row, so no row ends in an empty cell

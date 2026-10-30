@@ -1,4 +1,5 @@
 import { actionsField } from "@/blocks/actions/config";
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** Where a service is offered, in words and on a rough map, with actions to confirm an address. */
@@ -8,6 +9,7 @@ export const serviceArea: Block = {
   labels: { singular: "Service area", plural: "Service areas" },
   fields: [
     { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
     {
       name: "text",
       type: "textarea",

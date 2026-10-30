@@ -1,3 +1,4 @@
+import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
 /** The grey band of client logos, from the cleared `clients`. */
@@ -13,5 +14,6 @@ export const clientsBand: Block = {
       localized: true,
       admin: { description: "A short label beside the logos." },
     },
+    highlightField,
   ],
 };

@@ -260,7 +260,7 @@ export interface HeroBlock {
 export interface ValuePropBlock {
   heading: string;
   /**
-   * Words or phrases from the heading to show in coral, separated by commas. For example: health
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
    */
   highlight?: string | null;
   /**
@@ -288,6 +288,10 @@ export interface ValuePropBlock {
 export interface AudiencesBlock {
   heading: string;
   /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
+  /**
    * Homes, Organisations, Franchise, in that order.
    */
   doors: {
@@ -311,7 +315,7 @@ export interface AudiencesBlock {
 export interface ProcessBlock {
   heading: string;
   /**
-   * Words or phrases from the heading to show in coral, separated by commas. Not used on a detailed block, which keeps a plain heading.
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
    */
   highlight?: string | null;
   /**
@@ -331,6 +335,10 @@ export interface TrustBandBlock {
    * A short label above the figures.
    */
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   /**
    * Only figures approved in INFO-BANK, such as 15+ years.
    */
@@ -352,6 +360,10 @@ export interface ClientsBandBlock {
    * A short label beside the logos.
    */
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'clientsBand';
@@ -362,6 +374,10 @@ export interface ClientsBandBlock {
  */
 export interface TestimonialsBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   /**
    * Pick up to three. Only quotes with permission can be picked, and the section stays hidden until one is.
    */
@@ -401,6 +417,10 @@ export interface Testimonial {
  */
 export interface PageIntroBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   text?: string | null;
   /**
    * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
@@ -425,6 +445,10 @@ export interface PageIntroBlock {
  */
 export interface RuledListBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   text?: string | null;
   items: {
     title: string;
@@ -453,6 +477,10 @@ export interface RuledListBlock {
  */
 export interface CompareGalleryBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   text?: string | null;
   /**
    * One tank each. Frame the before and after photos the same way.
@@ -480,6 +508,10 @@ export interface CompareGalleryBlock {
  */
 export interface FaqBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   items: {
     question: string;
     answer: string;
@@ -495,6 +527,10 @@ export interface FaqBlock {
  */
 export interface CtaBandBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   text?: string | null;
   /**
    * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
@@ -519,6 +555,10 @@ export interface CtaBandBlock {
  */
 export interface StoryBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   /**
    * Leave a blank line between paragraphs.
    */
@@ -556,6 +596,10 @@ export interface FounderBlock {
  */
 export interface CredentialsBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   text?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -567,6 +611,10 @@ export interface CredentialsBlock {
  */
 export interface ClientListBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   text?: string | null;
   /**
    * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
@@ -582,6 +630,10 @@ export interface ClientListBlock {
  */
 export interface ServiceAreaBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   /**
    * Leave a blank line between paragraphs.
    */
@@ -629,6 +681,10 @@ export interface ServiceAreaBlock {
  */
 export interface PriceListBlock {
   heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
   /**
    * Leave a blank line between paragraphs.
    */
@@ -947,6 +1003,7 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
  */
 export interface AudiencesBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   doors?:
     | T
     | {
@@ -976,6 +1033,7 @@ export interface ProcessBlockSelect<T extends boolean = true> {
  */
 export interface TrustBandBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   figures?:
     | T
     | {
@@ -992,6 +1050,7 @@ export interface TrustBandBlockSelect<T extends boolean = true> {
  */
 export interface ClientsBandBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   id?: T;
   blockName?: T;
 }
@@ -1001,6 +1060,7 @@ export interface ClientsBandBlockSelect<T extends boolean = true> {
  */
 export interface TestimonialsBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   items?: T;
   id?: T;
   blockName?: T;
@@ -1011,6 +1071,7 @@ export interface TestimonialsBlockSelect<T extends boolean = true> {
  */
 export interface PageIntroBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   actions?:
     | T
@@ -1028,6 +1089,7 @@ export interface PageIntroBlockSelect<T extends boolean = true> {
  */
 export interface RuledListBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   items?:
     | T
@@ -1048,6 +1110,7 @@ export interface RuledListBlockSelect<T extends boolean = true> {
  */
 export interface CompareGalleryBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   items?:
     | T
@@ -1067,6 +1130,7 @@ export interface CompareGalleryBlockSelect<T extends boolean = true> {
  */
 export interface FaqBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   items?:
     | T
     | {
@@ -1083,6 +1147,7 @@ export interface FaqBlockSelect<T extends boolean = true> {
  */
 export interface CtaBandBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   actions?:
     | T
@@ -1100,6 +1165,7 @@ export interface CtaBandBlockSelect<T extends boolean = true> {
  */
 export interface StoryBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   image?: T;
   id?: T;
@@ -1123,6 +1189,7 @@ export interface FounderBlockSelect<T extends boolean = true> {
  */
 export interface CredentialsBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   id?: T;
   blockName?: T;
@@ -1133,6 +1200,7 @@ export interface CredentialsBlockSelect<T extends boolean = true> {
  */
 export interface ClientListBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   anchor?: T;
   id?: T;
@@ -1144,6 +1212,7 @@ export interface ClientListBlockSelect<T extends boolean = true> {
  */
 export interface ServiceAreaBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   map?:
     | T
@@ -1171,6 +1240,7 @@ export interface ServiceAreaBlockSelect<T extends boolean = true> {
  */
 export interface PriceListBlockSelect<T extends boolean = true> {
   heading?: T;
+  highlight?: T;
   text?: T;
   tiers?:
     | T

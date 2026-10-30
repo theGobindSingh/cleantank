@@ -19,6 +19,7 @@ import * as migration_20261030_155423_value_prop_block from './20261030_155423_v
 import * as migration_20261030_170357_value_prop_highlight from './20261030_170357_value_prop_highlight';
 import * as migration_20261030_170745_value_prop_second_image from './20261030_170745_value_prop_second_image';
 import * as migration_20261030_194036_process_benefit_highlight from './20261030_194036_process_benefit_highlight';
+import * as migration_20261030_205012_heading_highlight from './20261030_205012_heading_highlight';
 
 export const migrations = [
   {
@@ -124,6 +125,11 @@ export const migrations = [
   {
     up: migration_20261030_194036_process_benefit_highlight.up,
     down: migration_20261030_194036_process_benefit_highlight.down,
-    name: '20261030_194036_process_benefit_highlight'
+    name: '20261030_194036_process_benefit_highlight',
+  },
+  {
+    up: migration_20261030_205012_heading_highlight.up,
+    down: migration_20261030_205012_heading_highlight.down,
+    name: '20261030_205012_heading_highlight'
   },
 ];
