@@ -267,11 +267,30 @@ export interface ValuePropBlock {
    * Leave a blank line between paragraphs.
    */
   text: string;
-  image: number | Media;
+  /**
+   * Upload the main image, or add its URL below.
+   */
+  image?: (number | null) | Media;
+  /**
+   * Optional. The image address of an Unsplash or Pexels photo. If an image is uploaded too, this URL is used.
+   */
+  imageUrl?: string | null;
+  /**
+   * What the photo at this URL shows, for screen readers. Left empty, the photo counts as decorative.
+   */
+  imageAlt?: string | null;
   /**
    * Optional. Shown left of the main image, at the same size.
    */
   secondImage?: (number | null) | Media;
+  /**
+   * Optional. The image address of an Unsplash or Pexels photo. If an image is uploaded too, this URL is used.
+   */
+  secondImageUrl?: string | null;
+  /**
+   * What the photo at this URL shows, for screen readers. Left empty, the photo counts as decorative.
+   */
+  secondImageAlt?: string | null;
   /**
    * Optional. A site path, such as /process. Shown only with a link label.
    */
@@ -991,7 +1010,11 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
   highlight?: T;
   text?: T;
   image?: T;
+  imageUrl?: T;
+  imageAlt?: T;
   secondImage?: T;
+  secondImageUrl?: T;
+  secondImageAlt?: T;
   href?: T;
   linkLabel?: T;
   id?: T;

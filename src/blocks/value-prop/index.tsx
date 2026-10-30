@@ -1,4 +1,4 @@
-import { toImage } from "@/blocks/to-image";
+import { toSlotImage } from "@/blocks/to-image";
 import type { ValuePropBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import type { CompareImage } from "@components/compare-slider";
@@ -47,13 +47,17 @@ const ValueProp = ({
   highlight,
   text,
   image,
+  imageUrl,
+  imageAlt,
   secondImage,
+  secondImageUrl,
+  secondImageAlt,
   href,
   linkLabel,
   locale,
 }: ValuePropProps) => {
-  const main = toImage(image);
-  const second = toImage(secondImage);
+  const main = toSlotImage(image, imageUrl, imageAlt);
+  const second = toSlotImage(secondImage, secondImageUrl, secondImageAlt);
   // Left to right.
   const photos = main && second ? [second, main] : main ? [main] : [];
   return (

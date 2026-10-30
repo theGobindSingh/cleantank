@@ -1,4 +1,5 @@
 import { highlightField } from "@/blocks/highlight";
+import { imageSlotFields } from "@/blocks/image-slot";
 import type { Block } from "payload";
 
 /** The core promise under the hero: a heading, a short paragraph, one or two photos and an optional link onward. */
@@ -16,16 +17,15 @@ export const valueProp: Block = {
       localized: true,
       admin: { description: "Leave a blank line between paragraphs." },
     },
-    { name: "image", type: "upload", relationTo: "media", required: true },
-    {
+    ...imageSlotFields({
+      name: "image",
+      required: true,
+      description: "Upload the main image, or add its URL below.",
+    }),
+    ...imageSlotFields({
       name: "secondImage",
-      type: "upload",
-      relationTo: "media",
-      admin: {
-        description:
-          "Optional. Shown left of the main image, at the same size.",
-      },
-    },
+      description: "Optional. Shown left of the main image, at the same size.",
+    }),
     {
       type: "row",
       fields: [
