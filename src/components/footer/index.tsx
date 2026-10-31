@@ -1,7 +1,8 @@
 import { shownOffices, site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { P, Span } from "@components/html";
+import { P } from "@components/html";
 import Link from "@components/link";
+import Logo from "@components/logo";
 import { getDictionary, localePath, type Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import { CELL, CellHeading, ContactCell, LIST_LINK, OfficeCell } from "./cells";
@@ -64,18 +65,8 @@ const Footer = ({ locale }: FooterProps) => {
     >
       <div className="grid gap-px overflow-hidden rounded-xs border border-border bg-border md:grid-cols-2 lg:grid-cols-12">
         <div className={tw(CELL, "md:col-span-2 lg:col-span-4")}>
-          <div lang="en" className="flex flex-col gap-1">
-            <Span
-              $size="h4"
-              $weight="700"
-              $lineHeight="1"
-              className="uppercase"
-            >
-              {site.name}
-            </Span>
-            <Span $size="caption" className="text-fg-muted">
-              {site.descriptor}
-            </Span>
+          <div lang="en">
+            <Logo className="block h-auto max-w-full" />
           </div>
           <P lang="en" $size="small">
             {site.endorsement}
