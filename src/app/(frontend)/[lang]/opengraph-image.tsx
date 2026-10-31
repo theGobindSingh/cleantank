@@ -1,4 +1,5 @@
 import { site } from "@/site";
+import { DESCRIPTOR_PATH, NAME_PATH } from "@components/logo/paths";
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -18,6 +19,9 @@ const COLORS = {
   bandMuted: "#bfcfe3",
 };
 
+// The text area's full width: the 1200 px card less 88 px padding on each side.
+const LOGO_WIDTH = 1024;
+
 // Static instances of the site fonts: satori can't use variable fonts or next/font.
 const loadFont = (file: string) => {
   return readFile(join(process.cwd(), "public/assets/fonts", file));
@@ -25,8 +29,7 @@ const loadFont = (file: string) => {
 
 /** Default social preview image, generated at build time. */
 const OpengraphImage = async () => {
-  const [heading, sans, mono] = await Promise.all([
-    loadFont("anek-latin-condensed-700.ttf"),
+  const [sans, mono] = await Promise.all([
     loadFont("anek-latin-500.ttf"),
     loadFont("ibm-plex-mono-500.ttf"),
   ]);
@@ -62,29 +65,23 @@ const OpengraphImage = async () => {
         >
           {site.endorsement}
         </div>
-        <div
-          style={{
-            marginTop: 12,
-            fontFamily: "Anek Condensed",
-            fontSize: 124,
-            lineHeight: 1,
-            textTransform: "uppercase",
-            color: COLORS.fg,
-          }}
+        <svg
+          viewBox="0 0 236 38"
+          width={LOGO_WIDTH}
+          height={(LOGO_WIDTH * 38) / 236}
+          style={{ marginTop: 24 }}
         >
-          {site.name}
-        </div>
+          <path d={NAME_PATH} fill={COLORS.fg} />
+          <path d={DESCRIPTOR_PATH} fill={COLORS.muted} />
+        </svg>
         <div
           style={{
-            marginTop: 28,
+            marginTop: 36,
             width: 120,
             height: 8,
             background: COLORS.marker,
           }}
         />
-        <div style={{ marginTop: 28, fontSize: 44, color: COLORS.muted }}>
-          {site.descriptor}
-        </div>
       </div>
       <div
         style={{
@@ -112,7 +109,6 @@ const OpengraphImage = async () => {
     {
       ...size,
       fonts: [
-        { name: "Anek Condensed", data: heading, weight: 700 },
         { name: "Anek", data: sans, weight: 500 },
         { name: "Plex Mono", data: mono, weight: 500 },
       ],
