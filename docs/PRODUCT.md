@@ -77,7 +77,7 @@ The real competitor is the local plumber or labourer, and doing nothing. Never c
 
 Each group gets its own enquiry form, asking only what planning needs. Where submissions go is not decided yet (Google Forms was tried and dropped); until then `/contact` lists the phone, WhatsApp, email and the correspondence office (the Kanpur registered office is left out, owner's call). Channels are phone, WhatsApp, the website and the forms. Separate WhatsApp numbers, emails and lead handling per group are planned but not set up; until then everything uses the contacts in `src/site.ts`.
 
-Testimonials: the organisations' staff have praised the work; collect quotes with the person's name, role and permission before using them. Lines quoted word for word from the work completion certificates count as permitted (owner's call, 28 Oct 2026); they are credited to the signer's role and organisation, never the name. Add each under Clients, then Testimonials in the admin, tick "Permission to publish" with the date, and pick it in the home page's testimonials block, just above the track record strip. No Google Business profile yet (in progress).
+Testimonials: the organisations' staff have praised the work; collect quotes with the person's name, role and permission before using them. Lines quoted word for word from the work completion certificates count as permitted (owner's call, 28 Oct 2026); they are credited to the signer's role and organisation, never the name. Add each under Clients, then Testimonials in the admin, tick "Permission to publish" with the date, and pick it in the home page's testimonials block, just above the track record strip. No Google Business profile yet; it follows the launch (docs/AEO-GEO.md).
 
 ## Site structure
 

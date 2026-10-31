@@ -46,7 +46,7 @@ Build it as one small helper that turns`site` into JSON-LD objects, rendered as`
 
 ### 2. No Google Business Profile
 
-PRODUCT.md says the profile is in progress. For "near me" questions, Google's AI answers and Maps lean on the Business Profile more than on any website, and Gemini and ChatGPT both pull from map data for local queries. The name, address and phone on the profile must match`src/site.ts` character for character. Once it's live, its URL goes into`sameAs`.
+The owner's call (31 Oct 2026) is to finish the profile after the site is live: verifying the site in Search Console may verify the profile without a video, though Google doesn't guarantee it. For "near me" questions, Google's AI answers and Maps lean on the Business Profile more than on any website, and Gemini and ChatGPT both pull from map data for local queries. Set it up as a service area business with the address hidden, under the name Clean Tank Services. The name and phone on the profile must match`src/site.ts` character for character. Once it's live, its URL goes into`sameAs`.
 
 ### 3. FAQ answers have no schema
 
@@ -124,7 +124,7 @@ This list defines what must be true. Status lives in Track Suru, project `CT` (h
 
 ### Outside the site
 
-- [ ] The Google Business Profile is live and its name, address and phone match`src/site.ts` exactly.
+- [ ] After launch: the Google Business Profile is live as a service area business, and its name and phone match`src/site.ts` exactly.
 - [ ] The site is verified in Bing Webmaster Tools and the sitemap submitted. The business is on Bing Places.
 - [ ] Each social profile the business will keep up exists, matches`src/site.ts`, and is in`sameAs`.
 - [ ] After launch: JustDial and IndiaMART listings, with the same details.

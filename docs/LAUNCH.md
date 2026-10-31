@@ -60,4 +60,4 @@ The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this l
 - [ ] Fix the contrast of the value proposition button (white on accent 500, 2.88:1) and the heading highlights (accent 500 on white, 2.87:1, and lower on stone and secondary 100). Both fail WCAG AA and will fail the axe checks in `pnpm test:e2e`. See docs/DESIGN.md.
 - [ ] `pnpm build`, `pnpm test` and `pnpm test:e2e` pass.
 - [ ] After deploy: `robots.txt` and `sitemap.xml` list the pages in all three languages; submit the sitemap to Google Search Console.
-- [ ] Every item in the checklist in docs/AEO-GEO.md is done, except those marked "after launch". That includes structured data, FAQ answers, the AI crawler policy, the Google Business Profile and Bing.
+- [ ] Every item in the checklist in docs/AEO-GEO.md is done, except those marked "after launch". That includes structured data, FAQ answers, the AI crawler policy and Bing.
