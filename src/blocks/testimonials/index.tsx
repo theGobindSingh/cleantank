@@ -27,7 +27,7 @@ interface QuoteCardProps {
 
 const QuoteCard = ({ quote, name, caption }: QuoteCardProps): ReactNode => {
   return (
-    <li className="flex bg-surface p-6 md:p-10">
+    <li className="flex rounded-sm border border-border bg-surface p-6 md:p-10">
       <figure className="flex flex-col gap-6">
         <blockquote className="grow">
           <P $size="body-l" $margin="0" className="text-pretty">
@@ -60,7 +60,7 @@ const renderQuote = (item: Testimonial) => {
 };
 
 /**
- * Up to three quotes in ruled cells, three columns from `lg` up. With no
+ * Up to three quotes as separate cards, three columns from `lg` up. With no
  * quote picked it renders nothing, or before launch, marked placeholders.
  */
 const Testimonials = ({
@@ -87,7 +87,7 @@ const Testimonials = ({
 
   return (
     <Section heading={heading} highlight={highlight}>
-      <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
+      <ul className="grid gap-4 md:gap-6 lg:grid-cols-3">
         {showPlaceholders
           ? PLACEHOLDER_KEYS.map(renderPlaceholder)
           : shown.map(renderQuote)}
