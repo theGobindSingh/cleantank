@@ -1,7 +1,6 @@
-import { site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { Span } from "@components/html";
 import Link from "@components/link";
+import Logo from "@components/logo";
 import { getDictionary, localePath, type Locale } from "@i18n";
 import HeaderNav from "./nav";
 
@@ -28,23 +27,13 @@ const Header = ({ locale }: HeaderProps) => {
           theme: dictionary.theme.toggle,
         }}
         logo={
-          // lang="en" keeps the lockup in caps on Hindi and Punjabi pages
+          // lang="en": the logo's label is English on every page
           <Link
             href={localePath(locale, "/")}
             lang="en"
-            className="flex flex-col items-start gap-0.5 no-underline hover:no-underline"
+            className="block no-underline hover:no-underline"
           >
-            <Span
-              $size="h4"
-              $weight="700"
-              $lineHeight="1"
-              className="uppercase"
-            >
-              {site.name}
-            </Span>
-            <Span $size="caption" className="text-fg-muted">
-              {site.descriptor}
-            </Span>
+            <Logo className="block" />
           </Link>
         }
       />
