@@ -7,7 +7,7 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 ## Commands
 
 - `pnpm install` — install deps and create agent symlinks
-- `pnpm dev` — dev server. Agents never start it, or any other server, on their own. Use the one already running on port 3000. If it isn't up and you need one, ask the user. `pnpm test:e2e` starting its own server is the one exception
+- `pnpm dev` — dev server. Only one dev server runs at a time. Agents never start it, or any other server, on their own. Use the one already running on port 3000. If it isn't up and you need one, ask the user. `pnpm test:e2e` starting its own server is the one exception
 - `pnpm build` — auto-fixes lint, then builds; the main quality gate
 - `pnpm test` — unit tests (Vitest, `src/**/*.test.ts`)
 - `pnpm test:e2e` — builds, then runs the Playwright browser and axe accessibility tests in `e2e/`
