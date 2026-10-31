@@ -57,7 +57,7 @@ The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this l
 - [ ] `iso.certificate` in `src/site.ts` points to the ISO certificate image in `public/`.
 - [ ] `SITE_URL` is set to the production domain in Vercel; the domain serves HTTPS and the www and bare hosts redirect to one of them.
 - [ ] Set `site.isLive` to `true` in `src/site.ts` and update the "paused" note in docs/CONVENTIONS.md (Analytics and errors).
-- [ ] Fix the contrast of the heading highlights (accent 500 on white, 2.87:1, and lower on stone and secondary 100), which fail WCAG AA and will fail the axe checks in `pnpm test:e2e`. See docs/DESIGN.md.
+- [ ] Fix the contrast of the heading highlights (accent 500 on white, 2.87:1, and lower on stone and secondary 100), which fail WCAG AA. The axe checks in `pnpm test:e2e` let them through only above 50 px, so they fail on phones, where the `statement` size is 48 px. See docs/DESIGN.md.
 - [ ] `pnpm build`, `pnpm test` and `pnpm test:e2e` pass.
 - [ ] After deploy: `robots.txt` and `sitemap.xml` list the pages in all three languages; submit the sitemap to Google Search Console.
 - [ ] Every item in the checklist in docs/AEO-GEO.md is done, except those marked "after launch". That includes structured data, FAQ answers, the AI crawler policy and Bing.

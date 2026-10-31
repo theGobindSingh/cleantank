@@ -183,7 +183,7 @@ Never: bounce, overshoot, shake, pulse, parallax, scroll fly-ins, staggered card
 - Meaning never by color alone: state gets icon plus word, links get underlines, charts get direct labels.
 - No horizontal scroll at 320 px; works at 200% zoom.
 - `lang` on every page and on mixed-language fragments.
-- `pnpm test:e2e` checks every page with axe in both modes, and checks for sideways scroll at 320 px (see docs/CONVENTIONS.md, Testing).
+- `pnpm test:e2e` checks every page with axe in both modes, and checks for sideways scroll at 320 px (see docs/CONVENTIONS.md, Testing). Text over 50 px may fail colour contrast there (owner's call, 31 Oct 2026); all smaller text must pass.
 - Performance: LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1, initial JS ≤ 150 KB gzipped.
 
 ## Still open
