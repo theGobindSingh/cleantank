@@ -17,7 +17,7 @@ const Section = ({ id, number, title, intro, children }: SectionProps) => {
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className="scroll-mt-4 border-t border-border bg-bg py-16 even:bg-bg-subtle md:py-20 lg:py-24"
+      className="scroll-mt-4 border-t border-border bg-bg py-8 even:bg-bg-subtle md:py-10 lg:py-12"
     >
       <div className="mx-auto flex max-w-[1200px] flex-col gap-10 px-4 md:px-8 lg:px-10">
         <header className="flex flex-col gap-3">

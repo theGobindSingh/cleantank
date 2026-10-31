@@ -32,7 +32,7 @@ const Section = ({
     <CommonFullWidthWrapper
       wrapperClassName={tw(isSubtle && "bg-bg-subtle", wrapperClassName)}
       wrapperProps={anchor ? { id: anchor } : {}}
-      className="flex flex-col gap-10 py-16 md:gap-12 md:py-20 lg:py-24"
+      className="flex flex-col gap-10 py-8 md:gap-12 md:py-10 lg:py-12"
     >
       <div className="flex flex-col gap-4">
         <SectionHeadline heading={heading} highlight={highlight} />

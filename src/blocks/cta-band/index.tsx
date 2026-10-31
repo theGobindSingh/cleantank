@@ -20,7 +20,7 @@ const CtaBand = ({
   return (
     <CommonFullWidthWrapper
       wrapperProps={{ "data-surface": "band" }}
-      className="flex flex-col gap-6 py-16 md:py-20"
+      className="flex flex-col gap-6 py-8 md:py-10"
     >
       <H2 $margin="0" className="max-w-[24ch]">
         <Highlight

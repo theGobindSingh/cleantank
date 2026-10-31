@@ -16,9 +16,9 @@ const Founder = ({ role, name, bio, portrait }: FounderBlock) => {
   return (
     <CommonFullWidthWrapper
       wrapperClassName="bg-bg-subtle"
-      className="grid gap-10 pt-16 md:pt-20 lg:grid-cols-12 lg:gap-6 lg:pt-0"
+      className="grid gap-10 pt-8 md:pt-10 lg:grid-cols-12 lg:gap-6 lg:pt-0"
     >
-      <div className="flex flex-col gap-4 lg:col-span-7 lg:col-start-6 lg:self-center lg:py-24">
+      <div className="flex flex-col gap-4 lg:col-span-7 lg:col-start-6 lg:self-center lg:py-12">
         <Span
           $size="ref"
           className="font-mono font-medium tracking-widest text-marker-text uppercase"
@@ -35,7 +35,7 @@ const Founder = ({ role, name, bio, portrait }: FounderBlock) => {
           width={photo.width ?? 900}
           height={photo.height ?? 1200}
           sizes="(min-width: 1024px) 35vw, (min-width: 768px) 60vw, 90vw"
-          className="h-auto w-full max-w-md self-end lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:max-w-none lg:pt-16"
+          className="h-auto w-full max-w-md self-end lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:max-w-none lg:pt-8"
         />
       )}
     </CommonFullWidthWrapper>

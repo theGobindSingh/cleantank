@@ -33,7 +33,7 @@ const TrustBand = ({ heading, highlight, figures }: TrustBandBlock) => {
   return (
     <CommonFullWidthWrapper
       wrapperClassName="bg-secondary-bg"
-      className="flex flex-col gap-10 py-16 md:py-20"
+      className="flex flex-col gap-10 py-8 md:py-10"
     >
       <H2
         $size="ref"

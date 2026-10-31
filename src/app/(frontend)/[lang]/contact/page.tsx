@@ -110,7 +110,7 @@ const ContactPage = async ({ params }: PageProps<"/[lang]/contact">) => {
   return (
     <main>
       <PageIntro heading={contact.title} text={contact.intro} locale={locale} />
-      <CommonFullWidthWrapper className="pt-10 pb-16 md:pt-12 md:pb-20 lg:pb-24">
+      <CommonFullWidthWrapper className="pt-6 pb-8 md:pb-10 lg:pb-12">
         <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
           {channels.map(renderChannel)}
         </ul>

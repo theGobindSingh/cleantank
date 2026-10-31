@@ -29,7 +29,7 @@ const ServiceArea = ({
   return (
     <CommonFullWidthWrapper
       wrapperClassName={tw(isSubtle && "bg-bg-subtle")}
-      className="grid gap-10 py-16 md:py-20 lg:grid-cols-12 lg:gap-6 lg:py-24"
+      className="grid gap-10 py-8 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12"
     >
       <div className="flex flex-col gap-4 lg:col-span-7">
         <SectionHeadline heading={heading} highlight={highlight} />

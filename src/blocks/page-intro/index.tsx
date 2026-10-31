@@ -24,7 +24,7 @@ const PageIntro = ({
   locale,
 }: PageIntroProps) => {
   return (
-    <CommonFullWidthWrapper className="flex flex-col gap-6 pt-16 md:pt-20 lg:pt-24">
+    <CommonFullWidthWrapper className="flex flex-col gap-6 pt-8 md:pt-10 lg:pt-12">
       <div className="flex flex-col gap-3">
         <H1
           $size="statement"

@@ -62,8 +62,8 @@ const Breakpoints = () => {
         </table>
       </div>
       <P $size="small" className="text-fg-muted">
-        Margins 16, 32 and 40 px; gutters 16 then 24 px. Section gaps 64, 80 and
-        96 px. The tables here follow the table rule: navy header row in mono
+        Margins 16, 32 and 40 px; gutters 16 then 24 px. Section gaps 32, 40 and
+        48 px. The tables here follow the table rule: navy header row in mono
         caps, 1 px lines, numbers right-aligned in tabular figures, no zebra
         stripes.
       </P>
