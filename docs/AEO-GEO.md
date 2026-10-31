@@ -34,7 +34,7 @@ The site has no JSON-LD on any page. This is the largest gap. Structured data is
 
 What to add:
 
--`Organization` on every page, in the language layout: name,`legalName` (Gobind Galaxy), URL, logo, description, email, telephone,`foundingDate` 2008, and`sameAs` once profiles exist (gap 4). Read every value from`src/site.ts`.
+-`Organization` on every page, in the language layout: name,`legalName` (Gobind Galaxy), URL, logo (`/ct-logo-mark.svg` on the site URL), description, email, telephone,`foundingDate` 2008, and`sameAs` once profiles exist (gap 4). Read every value from`src/site.ts`.
 -`LocalBusiness` on the home pages and`/contact`. Use the Kharar correspondence office as the address. The Kanpur registered office is left off the site (owner's call), so it stays out of the markup too.`areaServed` lists the Tricity cities from the service-area block. Add opening hours only once the owner confirms them. The schema.org type:`LocalBusiness` is safe; check whether a more specific subtype fits before picking one.
 -`Service` on`/homes`,`/process` and the other audience pages: service type "Water tank cleaning", the provider, the area served. Add`offers` with prices only if they match the price list block exactly.
 -`BreadcrumbList` on inner pages.
