@@ -35,20 +35,20 @@ export const interactionStyles = ({
  * Primary keeps the defaults in button.css, which follow dark mode and navy
  * bands. Other families pass both sets of stops; button.css picks one by mode:
  * 700 / 600 / 800 with a white label on light grounds, 300 / 200 / 100 with a
- * navy label in dark mode and bands. Accent is the one exception: 500 / 600 / 700
+ * navy label in dark mode and bands. Accent is the one exception: 600 / 500 / 700
  * with a white label everywhere.
  */
 export const colorStyleVars = (color: ColorFamily): CSSProperties => {
   if (color === "primary") return {};
   if (color === "accent") {
-    // owner's call: accent 500 fill, white label, same in every mode (fails contrast; to fix before launch)
+    // owner's call: accent 600 fill, white label, same in every mode (the accent 500 hover fails contrast)
     return {
-      "--c-light": "var(--color-accent-500)",
-      "--c-light-hover": "var(--color-accent-600)",
+      "--c-light": "var(--color-accent-600)",
+      "--c-light-hover": "var(--color-accent-500)",
       "--c-light-active": "var(--color-accent-700)",
       "--c-light-on": "var(--color-white)",
-      "--c-dark": "var(--color-accent-500)",
-      "--c-dark-hover": "var(--color-accent-600)",
+      "--c-dark": "var(--color-accent-600)",
+      "--c-dark-hover": "var(--color-accent-500)",
       "--c-dark-active": "var(--color-accent-700)",
       "--c-dark-on": "var(--color-white)",
     } as CSSProperties;
