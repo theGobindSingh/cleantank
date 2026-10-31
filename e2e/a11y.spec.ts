@@ -13,8 +13,8 @@ const tags = [
 ];
 const themes = ["light", "dark"] as const;
 
-// Owner's call: text bigger than this may fail colour contrast. Everything else must pass.
-const contrastExemptFontSize = 50;
+// Owner's call: text this size or bigger may fail colour contrast. Everything else must pass.
+const contrastExemptFontSize = 48;
 
 type Violations = Awaited<ReturnType<AxeBuilder["analyze"]>>["violations"];
 type Violation = Violations[number];
@@ -33,7 +33,7 @@ const isExemptNode = async (page: Page, node: ViolationNode) => {
   // axe nests the target for frames and shadow DOM; those get no exemption
   if (typeof selector !== "string" || nested.length > 0) return false;
   const fontSize = await page.locator(selector).evaluate(readFontSize);
-  return fontSize > contrastExemptFontSize;
+  return fontSize >= contrastExemptFontSize;
 };
 
 const dropExemptNodes = async (page: Page, violation: Violation) => {
@@ -90,12 +90,12 @@ for (const path of [...pages, ...missingPages]) {
 
 const lowContrast = "color: #999; background: #fff";
 
-test("the contrast exemption covers only text over 50px", async ({ page }) => {
+test("the contrast exemption covers only text from 48px", async ({ page }) => {
   await page.setContent(`
     <html lang="en"><title>Test</title><body>
       <main>
-        <p id="big" style="${lowContrast}; font-size: 51px">Big</p>
-        <p id="limit" style="${lowContrast}; font-size: 50px">Limit</p>
+        <p id="big" style="${lowContrast}; font-size: 48px">Big</p>
+        <p id="small" style="${lowContrast}; font-size: 47px">Small</p>
         <img src="" />
       </main>
     </body></html>
@@ -103,10 +103,10 @@ test("the contrast exemption covers only text over 50px", async ({ page }) => {
   const { violations } = await new AxeBuilder({ page }).analyze();
   const remaining = await withoutExemptNodes(page, violations);
   const contrast = remaining.find(isContrastViolation);
-  expect(contrast?.nodes.map(toTarget)).toEqual([["#limit"]]);
+  expect(contrast?.nodes.map(toTarget)).toEqual([["#small"]]);
   expect(remaining.some(isImageAltViolation)).toBe(true);
 
-  await page.locator("#limit").evaluate(removeElement);
+  await page.locator("#small").evaluate(removeElement);
   const { violations: onlyBig } = await new AxeBuilder({ page }).analyze();
   const rest = await withoutExemptNodes(page, onlyBig);
   expect(rest.some(isContrastViolation)).toBe(false);

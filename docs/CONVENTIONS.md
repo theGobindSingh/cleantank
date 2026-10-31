@@ -65,7 +65,7 @@ An inline script in the root layout's `<head>` adds `<meta name="color-scheme">`
 
 - Unit tests sit beside the code as `<name>.test.ts` and run with Vitest (`pnpm test`). Write one for logic with branches: helpers, parsers, `src/proxy.ts`.
 - Browser tests live in `e2e/` and run with Playwright against a production build (`pnpm test:e2e`), on a desktop and a phone viewport. They cover routing, the theme toggle, keyboard focus and sideways scroll at 320 px.
-- `e2e/a11y.spec.ts` runs axe (WCAG 2.2 A and AA plus best practices) on every page in every language, in light and dark mode, and fails on any violation. The one exception is colour contrast on text over 50 px (computed font size), which it lets through (owner's call, 31 Oct 2026). Add each new route to `e2e/pages.ts` so it gets checked.
+- `e2e/a11y.spec.ts` runs axe (WCAG 2.2 A and AA plus best practices) on every page in every language, in light and dark mode, and fails on any violation. The one exception is colour contrast on text of 48 px or more (computed font size), which it lets through (owner's call, 1 Nov 2026). Add each new route to `e2e/pages.ts` so it gets checked.
 - ESLint (`@webadeva/eslint-config`) runs the `jsx-a11y-x` rules on JSX, so `pnpm lint` and `pnpm build` catch static problems like missing alt text or labels. axe checks the rendered page.
 - axe finds only part of what WCAG asks. Still check new UI by keyboard alone and at 200% zoom.
 
