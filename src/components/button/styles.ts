@@ -61,7 +61,7 @@ export const colorStyleVars = (color: ColorFamily): CSSProperties => {
     "--c-dark": `var(--color-${color}-300)`,
     "--c-dark-hover": `var(--color-${color}-200)`,
     "--c-dark-active": `var(--color-${color}-100)`,
-    "--c-dark-on": "var(--color-white)",
+    "--c-dark-on": "var(--color-primary-700)",
   } as CSSProperties;
 };
 
