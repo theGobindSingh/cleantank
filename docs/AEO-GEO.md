@@ -63,6 +63,8 @@ Engines check what the site says against other sources before they recommend a b
 - Listings on JustDial and IndiaMART, which rank for Indian local service queries and are cited by AI answers.
 - Mentions from clients: a housing society newsletter, a hospital's vendor page, a local news piece. One real mention beats ten directory listings.
 
+The domain lapsed and was bought back (registered again on 16 Sep 2026), so links to the older site may be gone. Search Console will show what's left.
+
 Every one of these uses the same name, address and phone as`src/site.ts`. Mismatches split the business into several weaker entities.
 
 ### 5. No`llms.txt`
@@ -77,14 +79,14 @@ Every one of these uses the same name, address and phone as`src/site.ts`. Mismat
 
 The sitemap has five routes. Generative engines reward pages that answer one specific question in depth, and the questions people ask about water tanks are specific: how often to clean an overhead tank in Chandigarh, whether a Sintex tank can be cleaned without draining it, what the white layer at the bottom is, whether bleaching powder is safe. Each could be a short guide in all three languages, with the answer in the first paragraph and a link to the relevant service page.
 
-This needs a new collection (guides or posts) and owner-approved facts for each one. It's the biggest long-term opportunity on this list, but it's content work, not a launch blocker. The checklist below only asks for a decision.
+This needs a new collection (guides or posts) and owner-approved facts for each one. It's the biggest long-term opportunity on this list, but it's content work, not a launch blocker. Decided on 31 Oct 2026: yes, but later, after the more pressing work.
 
 ### 8. AI crawler policy isn't written down
 
-The site lets every AI crawler in because`robots.ts` allows`*`. For a business that wants engines to recommend it, that's right. But it should be a decision, recorded here, so nobody blocks the bots later without knowing the cost. The decision has two parts:
+The site lets every AI crawler in because`robots.ts` allows`*`. For a business that wants engines to recommend it, that's right. Decided on 31 Oct 2026: allow them all, training crawlers included. The user wants AI engines encouraged, so nobody should block these bots. For the record, the two groups are:
 
 - Search and answer crawlers (OAI-SearchBot, PerplexityBot, ClaudeBot's search use, Googlebot): allow. Blocking them takes us out of their answers.
-- Training crawlers (GPTBot, Google-Extended, CCBot): allowing them puts our pages in future model training. That helps the brand be known, and the copy is public anyway. Blocking them doesn't affect Google Search. The owner decides.
+- Training crawlers (GPTBot, Google-Extended, CCBot): allowing them puts our pages in future model training. That helps the brand be known, and the copy is public anyway. Blocking them doesn't affect Google Search.
 
 Check each crawler's current user-agent name in its vendor's docs before writing rules for it; the names change.
 
