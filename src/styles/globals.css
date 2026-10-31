@@ -16,8 +16,8 @@
 
 :root {
   /* type scale: fluid between 360 and 1280 px, ratio 1.2 */
-  --fs-display: clamp(2.488rem, 5vw, 7rem);
   --fs-statement: clamp(3rem, 6vw, 7.5rem);
+  --fs-display: calc(var(--fs-statement) * 1.125);
   --fs-h1: clamp(2.074rem, 1.972rem + 0.451vw, 2.333rem);
   --fs-h2: clamp(1.728rem, 1.643rem + 0.376vw, 1.944rem);
   --fs-h3: clamp(1.44rem, 1.37rem + 0.313vw, 1.62rem);
@@ -27,13 +27,6 @@
   --fs-small: clamp(0.875rem, 0.851rem + 0.109vw, 0.938rem);
   --fs-caption: clamp(0.75rem, 0.726rem + 0.109vw, 0.813rem);
   --fs-ref: clamp(0.6875rem, 0.663rem + 0.109vw, 0.75rem);
-}
-
-/* desktop (lg): the hero heading stops scaling */
-@media (min-width: 1024px) {
-  :root {
-    --fs-display: 7rem;
-  }
 }
 
 @theme static {
