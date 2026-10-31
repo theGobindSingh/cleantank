@@ -33,7 +33,8 @@ const Hero = ({
     <CommonFullWidthWrapper
       wrapperProps={{ "data-surface": "band" }}
       isContainerCenter={false}
-      wrapperClassName="relative flex-col items-center justify-end min-h-[calc(90svh-var(--header-height)-var(--contact-bar-height))] lg:justify-center lg:min-h-[calc(65svh-var(--header-height))] [--color-band:var(--color-primary-900)]"
+      // no margin above a block with its own background: page ground would show as a strip
+      wrapperClassName="relative mb-8 flex-col items-center justify-end min-h-[calc(90svh-var(--header-height)-var(--contact-bar-height))] lg:justify-center lg:min-h-[calc(65svh-var(--header-height))] md:mb-10 lg:mb-12 [&:has(+[class*=bg-])]:mb-0 [--color-band:var(--color-primary-900)]"
       // pointer events pass through to the comparison, except on the buttons
       className="pointer-events-none relative z-10"
       afterContainer={
