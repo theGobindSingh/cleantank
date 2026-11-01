@@ -100,7 +100,7 @@ Hindi and Punjabi:
 - Indic headings are 700 at the same px size as the Latin one. Line height: body 1.65 (hi) and 1.60 (pa), headings 1.35 (hi) and 1.30 (pa), highlighted words inside them included. Set a Latin heading's own line height with a class, not `$lineHeight`: the inline style would beat the Indic one. Indic measure 35 to 60 characters.
 - Plex Mono has no Indic glyphs, so an Indic label falls back to Anek at the same size.
 - Mixed lines ("Tank साफ करवाना है"): keep each word in its own script and wrap the Indic part in `lang="hi"` or `lang="pa"`. On a Hindi or Punjabi page, wrap Latin words that should keep their caps (the brand name, reference codes) in `lang="en"`.
-- Digits are Western Arabic (0 to 9) in all three languages.
+- Digits are Western Arabic (0 to 9) in all three languages on the site. Hindi and Punjabi visiting cards use Devanagari and Gurmukhi digits (see docs/ref/INFO-BANK.md).
 
 Numbers: Indian grouping (`20,00,000`), a non-breaking space before units (`20,000 L`, `250 bar`), `₹` with no space, tabular figures in tables and records. Dates as "03 Oct 2026". Phone as "+91 94535 17514".
 
