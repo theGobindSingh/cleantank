@@ -43,7 +43,7 @@ The site is in English, Hindi and Punjabi (`src/i18n/config.ts`). English has no
 
 ## Theme
 
-An inline script in the root layout's `<head>` adds `<meta name="color-scheme">` before the page paints: the saved choice from localStorage, otherwise light. The OS preference is ignored, so the site is light until the visitor picks dark. CSS keys dark mode off that meta tag with `:root:has(...)`. Pages stay static because the server never reads the theme. It's an injected meta tag because React owns `<html>`, and any attribute change there before hydration causes a mismatch. `@utils/theme` holds that script and the helpers for changing the theme; reuse them rather than re-implementing.
+An inline script in the root layout's `<head>` adds `<meta name="color-scheme">` before the page paints: the saved choice from localStorage, otherwise light. The OS preference is ignored, so the site is light unless dark was saved. The header toggle is hidden for now, so visitors can't pick dark. CSS keys dark mode off that meta tag with `:root:has(...)`. Pages stay static because the server never reads the theme. It's an injected meta tag because React owns `<html>`, and any attribute change there before hydration causes a mismatch. `@utils/theme` holds that script and the helpers for changing the theme; reuse them rather than re-implementing.
 
 ## Pages, SEO and security
 
@@ -64,7 +64,7 @@ An inline script in the root layout's `<head>` adds `<meta name="color-scheme">`
 ## Testing
 
 - Unit tests sit beside the code as `<name>.test.ts` and run with Vitest (`pnpm test`). Write one for logic with branches: helpers, parsers, `src/proxy.ts`.
-- Browser tests live in `e2e/` and run with Playwright against a production build (`pnpm test:e2e`), on a desktop and a phone viewport. They cover routing, the theme toggle, keyboard focus and sideways scroll at 320 px.
+- Browser tests live in `e2e/` and run with Playwright against a production build (`pnpm test:e2e`), on a desktop and a phone viewport. They cover routing, the saved theme, keyboard focus and sideways scroll at 320 px.
 - `e2e/a11y.spec.ts` runs axe (WCAG 2.2 A and AA plus best practices) on every page in every language, in light and dark mode, and fails on any violation. The one exception is colour contrast on text of 48 px or more (computed font size), which it lets through (owner's call, 1 Nov 2026). Add each new route to `e2e/pages.ts` so it gets checked.
 - ESLint (`@webadeva/eslint-config`) runs the `jsx-a11y-x` rules on JSX, so `pnpm lint` and `pnpm build` catch static problems like missing alt text or labels. axe checks the rendered page.
 - axe finds only part of what WCAG asks. Still check new UI by keyboard alone and at 200% zoom.

@@ -1,10 +1,14 @@
 import { expect, test, type ConsoleMessage, type Page } from "@playwright/test";
 import { missingPages, pages } from "./pages";
 
-// Below xl the theme toggle and language links sit in the header menu.
+// Below lg the language links sit in the header menu.
 const openMenu = async (page: Page) => {
   const menu = page.getByRole("button", { name: "Menu" });
   if (await menu.isVisible()) await menu.click();
+};
+
+const saveDark = () => {
+  localStorage.setItem("theme", "dark");
 };
 
 const langOf = (path: string) => {
@@ -87,8 +91,8 @@ test("switching language keeps the theme and logs no errors", async ({
 
   await page.emulateMedia({ colorScheme: "light" });
   await page.goto("/");
+  await page.evaluate(saveDark);
   await openMenu(page);
-  await page.getByRole("button", { name: /theme/i }).click();
   await page.getByLabel("Language: EN").click();
   await page.getByRole("link", { name: "ਪੰਜਾਬੀ" }).click();
   await page.waitForURL("**/pa");
@@ -108,20 +112,6 @@ test("light is the default even when the OS prefers dark", async ({ page }) => {
     "content",
     "light",
   );
-});
-
-test("the theme toggle switches theme and is remembered", async ({ page }) => {
-  await page.emulateMedia({ colorScheme: "light" });
-  await page.goto("/");
-  const scheme = page.locator('meta[name="color-scheme"]');
-  await expect(scheme).toHaveAttribute("content", "light");
-
-  await openMenu(page);
-  await page.getByRole("button", { name: /theme/i }).click();
-  await expect(scheme).toHaveAttribute("content", "dark");
-
-  await page.reload();
-  await expect(scheme).toHaveAttribute("content", "dark");
 });
 
 test("keyboard focus is visible", async ({ page }) => {

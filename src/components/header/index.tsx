@@ -8,7 +8,7 @@ interface HeaderProps {
   locale: Locale;
 }
 
-/** Fixed navy band holding the one nav: logo, links, language and theme. */
+/** Fixed navy band holding the one nav: logo, links and language. */
 const Header = ({ locale }: HeaderProps) => {
   const dictionary = getDictionary(locale);
 
@@ -24,7 +24,6 @@ const Header = ({ locale }: HeaderProps) => {
         labels={{
           ...dictionary.header,
           language: dictionary.language.label,
-          theme: dictionary.theme.toggle,
         }}
         logo={
           // lang="en": the logo's label is English on every page

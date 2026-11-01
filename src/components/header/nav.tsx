@@ -3,7 +3,6 @@
 import { iconButtonStyles } from "@components/button/styles";
 import LanguageSwitcher from "@components/language-switcher";
 import Link from "@components/link";
-import ThemeToggle from "@components/theme-toggle";
 import { localePath, type Dictionary, type Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import { useLenis } from "lenis/react";
@@ -17,7 +16,6 @@ interface HeaderNavProps {
   links: Dictionary["header"]["links"];
   labels: Dictionary["header"] & {
     language: string;
-    theme: string;
   };
 }
 
@@ -156,7 +154,6 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
             label={labels.language}
             listClassName="left-0 lg:right-0 lg:left-auto"
           />
-          <ThemeToggle label={labels.theme} />
         </div>
       </div>
     </nav>
