@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clean Tank Price Brief</title>
+<style>
+:root {
+  --blue: #1E5BB8;
+  --navy: #1B1F5E;
+  --green: #3DAA35;
+  --yellow: #FFD500;
+  --bg: #F6F7FA;
+  --surface: #FFFFFF;
+  --text: #1A1C2B;
+  --muted: #5A5F73;
+  --line: #DCE0E9;
+  --heading: var(--navy);
+  --link: var(--blue);
+  --cheaper-bg: #E3F4E1;
+  --cheaper-fg: #1F6B1A;
+  --same-bg: #E2EBFA;
+  --same-fg: #17468F;
+  --dearer-bg: #FFF4B8;
+  --dearer-fg: #5C4A00;
+  --open-bg: #FFF4B8;
+  --open-fg: #5C4A00;
+  --decided-bg: #E3F4E1;
+  --decided-fg: #1F6B1A;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1226;
+    --surface: #171B36;
+    --text: #E6E8F1;
+    --muted: #A3A8BE;
+    --line: #2D3252;
+    --heading: #CBD5F6;
+    --link: #8FB3F0;
+    --cheaper-bg: #183A1C;
+    --cheaper-fg: #9BE093;
+    --same-bg: #1A2C52;
+    --same-fg: #A9C4F5;
+    --dearer-bg: #4A3F05;
+    --dearer-fg: #FFE45C;
+    --open-bg: #4A3F05;
+    --open-fg: #FFE45C;
+    --decided-bg: #183A1C;
+    --decided-fg: #9BE093;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1226;
+  --surface: #171B36;
+  --text: #E6E8F1;
+  --muted: #A3A8BE;
+  --line: #2D3252;
+  --heading: #CBD5F6;
+  --link: #8FB3F0;
+  --cheaper-bg: #183A1C;
+  --cheaper-fg: #9BE093;
+  --same-bg: #1A2C52;
+  --same-fg: #A9C4F5;
+  --dearer-bg: #4A3F05;
+  --dearer-fg: #FFE45C;
+  --open-bg: #4A3F05;
+  --open-fg: #FFE45C;
+  --decided-bg: #183A1C;
+  --decided-fg: #9BE093;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+main, header.top, footer {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+header.top { padding-top: 2.5rem; }
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+h1, h2, h3 { color: var(--heading); line-height: 1.25; }
+h1 { font-size: 2rem; margin: 0.25rem 0 0.5rem; }
+h2 {
+  font-size: 1.375rem;
+  margin: 2.75rem 0 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+h3 { font-size: 1.0625rem; margin: 1.75rem 0 0.5rem; }
+p, ul, ol { max-width: 65ch; }
+p { margin: 0 0 0.9rem; }
+ul, ol { padding-left: 1.25rem; margin: 0 0 1rem; }
+li { margin-bottom: 0.35rem; }
+a { color: var(--link); }
+.lede { color: var(--muted); max-width: 60ch; }
+.note { color: var(--muted); font-size: 0.9375rem; }
+
+.summary {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+  padding: 1rem 1.25rem 0.5rem;
+  margin: 1.5rem 0 0;
+}
+.summary h2 { border: 0; margin: 0 0 0.5rem; padding: 0; font-size: 1.125rem; }
+.summary ul { padding-left: 1.1rem; }
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+caption {
+  text-align: left;
+  padding: 0.75rem 0.9rem 0.25rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+th, td {
+  padding: 0.55rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+thead th {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+tbody th { font-weight: 600; white-space: nowrap; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+td.ours { font-weight: 600; }
+td small { display: block; color: var(--muted); font-size: 0.8125rem; }
+
+.chip {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  vertical-align: 0.05em;
+}
+.chip.cheaper { background: var(--cheaper-bg); color: var(--cheaper-fg); }
+.chip.same { background: var(--same-bg); color: var(--same-fg); }
+.chip.dearer { background: var(--dearer-bg); color: var(--dearer-fg); }
+.chip.decided { background: var(--decided-bg); color: var(--decided-fg); }
+.chip.open { background: var(--open-bg); color: var(--open-fg); }
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  padding-bottom: 2.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+footer ul { padding-left: 1.1rem; }
+
+@media (max-width: 30rem) {
+  body { font-size: 1rem; }
+  h1 { font-size: 1.625rem; }
+  th, td { padding: 0.5rem 0.65rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <p class="eyebrow">For the owners</p>
+  <h1>Clean Tank price brief</h1>
+  <p class="lede">What we charge homes, what others in the Tricity and across India charge, and where we stand at each tank size. Plain words, real figures, and a clear line between what is decided and what is not.</p>
+
+  <section class="summary" aria-labelledby="minute">
+    <h2 id="minute">In one minute</h2>
+    <ul>
+      <li>A normal 1,000 L home tank costs ₹800 with us before tax, or ₹944 with 18% GST. Urban Company charges ₹949. We are level.</li>
+      <li>Small underground tanks are where we are clearly cheaper: ₹1,180 for 2,000 L, against Urban Company's ₹1,699 plus helper charges.</li>
+      <li>Our weak spot is the 5,000 L overhead tank, at ₹1,652 with GST, about 47% above the typical price across India. We have decided to lower it. The new figure is not set.</li>
+      <li>Cheap local offers start at ₹399 to ₹500, usually with no tank size and less work. We will always be above them, and we should not chase them.</li>
+      <li>GST hurts us quietly. No rival says whether its price includes tax, and small operators may not charge it at all.</li>
+      <li>Nobody publishes a real Tricity price for societies or institutions. Government jobs go to the lowest bidder.</li>
+      <li>Nobody has phoned a competitor yet. Every rival figure here is a price shown online, not a price someone paid.</li>
+    </ul>
+  </section>
+</header>
+
+<main>
+
+<h2 id="ours">1. Our price list for homes</h2>
+<p>This is the owner's list of 28 October 2026. It is for homes only. The price goes by tank size alone, per tank, and covers the whole tank. Overhead, underground, plastic and concrete tanks all cost the same.</p>
+
+<div class="table-wrap">
+<table>
+  <caption>Home price per tank</caption>
+  <thead>
+    <tr><th scope="col">Tank size</th><th scope="col" class="num">Price before tax</th><th scope="col" class="num">With 18% GST</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Up to 500 L</th><td class="num">₹600</td><td class="num">₹708</td></tr>
+    <tr><th scope="row">Up to 1,000 L</th><td class="num">₹800</td><td class="num">₹944</td></tr>
+    <tr><th scope="row">Up to 2,000 L</th><td class="num">₹1,000</td><td class="num">₹1,180</td></tr>
+    <tr><th scope="row">Up to 5,000 L</th><td class="num">₹1,400</td><td class="num">₹1,652</td></tr>
+    <tr><th scope="row">Up to 10,000 L</th><td class="num">₹2,000</td><td class="num">₹2,360</td></tr>
+    <tr><th scope="row">10,001 to 30,000 L</th><td class="num">₹0.20 a litre</td><td class="num">₹0.236 a litre</td></tr>
+    <tr><th scope="row">Above 30,000 L</th><td class="num">₹0.13 a litre</td><td class="num">₹0.153 a litre</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>The rules around the list</h3>
+<ul>
+  <li>GST at 18% goes on top. The rate is confirmed. The calculator on the website shows the price before tax first, then adds the tax.</li>
+  <li>More tanks in one visit cost less, for tanks up to 30,000 L: 2 or 3 tanks get 10% off, 4 or more get 20% off. Above 30,000 L the discount can be discussed.</li>
+  <li>The price drops at 30,000 L on purpose. Above that size the lower rate applies to the whole tank, so a 30,000 L tank costs ₹6,000 and a 30,001 L tank costs ₹3,900. The owner confirmed this is intended.</li>
+  <li>The price is the same everywhere we serve homes: the Tricity and up to 20 km around it.</li>
+  <li>A really hard-to-reach tank may cost a small extra. The customer is told before the visit. No rival publishes a figure for this either.</li>
+  <li>Housing societies, institutions, companies and government get no public price list. They get a quote, because the price depends on the work, the tank sizes, the place and the site.</li>
+  <li>AMC means annual maintenance contract: a yearly deal where we clean on a fixed schedule, remind the customer before each visit and keep the records. Our AMC pages can explain how it works, how often we visit and what paperwork comes with it, but the rupees stay on quote.</li>
+  <li>Franchise has no public price list either. The franchise investment figures in INFO-BANK are a separate matter and are not covered here.</li>
+</ul>
+
+<h3>A few worked bills</h3>
+<div class="table-wrap">
+<table>
+  <caption>What a family would pay</caption>
+  <thead>
+    <tr><th scope="col">Job</th><th scope="col" class="num">Before tax</th><th scope="col" class="num">With GST</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">One 1,000 L tank</th><td class="num">₹800</td><td class="num">₹944</td></tr>
+    <tr><th scope="row">Two 1,000 L tanks, 10% off</th><td class="num">₹1,440</td><td class="num">₹1,699</td></tr>
+    <tr><th scope="row">1,000 L overhead and 5,000 L sump, 10% off</th><td class="num">₹1,980</td><td class="num">₹2,336</td></tr>
+    <tr><th scope="row">One 15,000 L tank</th><td class="num">₹3,000</td><td class="num">₹3,540</td></tr>
+    <tr><th scope="row">One 50,000 L tank</th><td class="num">₹6,500</td><td class="num">₹7,670</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="who">2. Who we are compared with</h2>
+<p>About 70 local businesses clean tanks in the Tricity. Very few show a price. These are the ones that matter for price.</p>
+<ul>
+  <li><strong>Urban Company.</strong> The national booking app. It sells tank cleaning in the Tricity at one fixed price in Chandigarh, Mohali, Panchkula, Zirakpur and Kharar. It only cleans tanks up to 6,000 L. Underground jobs cost extra if helpers are needed, at "market rates" with no figure. The ₹99 visit fee is waived on orders above ₹499.</li>
+  <li><strong>Guga Aviation.</strong> Sector 37, Chandigarh. It has the fullest price card, and its price includes water testing and a certificate. It offers 20% off a first booking. Whether it really works in the Tricity is not proven.</li>
+  <li><strong>CleanerKart.</strong> ₹699 a tank up to 1,000 L, in Chandigarh, Mohali, Panchkula, Zirakpur and Kalka. The customer supplies the disinfectant and the water, it does not serve Kharar, and it has no Google Maps listing. It is a smaller job than ours.</li>
+  <li><strong>Cheap "from" prices.</strong> From ₹399 in a Facebook ad (500 to 2,000 L), from ₹499 at Grace and Fixomes, from ₹500 at ServiceSutra. None says what size the price is for, except the ad.</li>
+  <li><strong>Typical price across India.</strong> The middle figure from about a dozen city and national price cards (Delhi, Gurugram, Bengaluru, Mumbai, Pune and others). Most of these firms do not work in the Tricity, so this is a yardstick only.</li>
+  <li><strong>The local plumber or labourer.</strong> The rival our own product docs name first. No source gives a real Tricity figure for this work.</li>
+</ul>
+<p class="note">Welco, Shree Balaji, A-One and Wazara lead Google Maps here but publish no price. One Welco customer wrote that they paid a fixed ₹1,500 for an underground tank of unknown size and found it "a bit expensive". That is one review, so treat it as a hint.</p>
+
+<h2 id="stand">3. Where we stand, size by size</h2>
+<p>We compare our price with GST, because that is what the family pays. Rival prices are what their pages show. None of them says whether GST is included. The chip compares us first with what a Tricity family can actually book (Urban Company and Guga), then with the typical price across India.</p>
+
+<div class="table-wrap">
+<table>
+  <caption>Overhead tanks</caption>
+  <thead>
+    <tr>
+      <th scope="col">Size</th>
+      <th scope="col" class="num">Us, before tax</th>
+      <th scope="col" class="num">Us, with GST</th>
+      <th scope="col" class="num">Urban Company</th>
+      <th scope="col" class="num">Guga</th>
+      <th scope="col" class="num">Typical in India</th>
+      <th scope="col">Where we stand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">500 L</th><td class="num">₹600</td><td class="num ours">₹708</td>
+      <td class="num">₹949<small>smallest size is up to 1,000 L</small></td><td class="num">₹999</td><td class="num">₹700</td>
+      <td><span class="chip cheaper">Cheaper</span><small>₹241 under Urban Company; same as typical</small></td>
+    </tr>
+    <tr>
+      <th scope="row">1,000 L</th><td class="num">₹800</td><td class="num ours">₹944</td>
+      <td class="num">₹949</td><td class="num">₹1,499</td><td class="num">₹779</td>
+      <td><span class="chip same">Same</span><small>₹5 under Urban Company; 21% above typical</small></td>
+    </tr>
+    <tr>
+      <th scope="row">2,000 L</th><td class="num">₹1,000</td><td class="num ours">₹1,180</td>
+      <td class="num">₹1,149</td><td class="num">₹1,999</td><td class="num">₹1,074</td>
+      <td><span class="chip same">Same</span><small>₹31 over Urban Company; 10% above typical</small></td>
+    </tr>
+    <tr>
+      <th scope="row">5,000 L</th><td class="num">₹1,400</td><td class="num ours">₹1,652</td>
+      <td class="num">Not sold</td><td class="num">₹2,999</td><td class="num">₹1,125</td>
+      <td><span class="chip dearer">Dearer</span><small>47% above typical; to be lowered</small></td>
+    </tr>
+    <tr>
+      <th scope="row">10,000 L</th><td class="num">₹2,000</td><td class="num ours">₹2,360</td>
+      <td class="num">Not sold</td><td class="num">₹4,999</td><td class="num">₹2,549</td>
+      <td><span class="chip same">Same</span><small>7% under typical; half of Guga</small></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<ul>
+  <li>Before tax, we are under Urban Company at every size both of us sell. If Urban Company adds 18% at checkout, its ₹949 becomes ₹1,120 and its ₹1,149 becomes ₹1,356, and we are well under both. Nobody knows yet whether it does.</li>
+  <li>Loft tanks: Urban Company charges ₹1,249 up to 1,000 L and ₹1,449 up to 2,000 L. We charge no extra for a loft, so we are ₹305 and ₹269 cheaper there with GST.</li>
+  <li>Guga's 20% first-booking offer takes its 500 L price to ₹799. That is still above our ₹708.</li>
+  <li>CleanerKart's ₹699 up to 1,000 L is ₹245 under our ₹944, but the customer supplies the disinfectant and water.</li>
+  <li>At 5,000 L, the 47% gap is against metro price cards that do not serve the Tricity. Against other yardsticks the gap is smaller: HomeTriangle, a national site, shows ₹1,499 for 3,000 to 6,000 L, and ServiceSutra's price guide gives ₹1,500 to ₹1,800 for 3,000 to 5,000 L. Our ₹1,652 sits inside that guide.</li>
+</ul>
+
+<div class="table-wrap">
+<table>
+  <caption>Underground tanks (sumps)</caption>
+  <thead>
+    <tr>
+      <th scope="col">Size</th>
+      <th scope="col" class="num">Us, before tax</th>
+      <th scope="col" class="num">Us, with GST</th>
+      <th scope="col" class="num">Urban Company</th>
+      <th scope="col" class="num">Guga</th>
+      <th scope="col" class="num">Typical in India</th>
+      <th scope="col">Where we stand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">2,000 L</th><td class="num">₹1,000</td><td class="num ours">₹1,180</td>
+      <td class="num">₹1,699<small>plus helpers</small></td><td class="num">₹2,499</td><td class="num">₹1,699</td>
+      <td><span class="chip cheaper">Cheaper</span><small>₹519 under Urban Company before helpers</small></td>
+    </tr>
+    <tr>
+      <th scope="row">5,000 L</th><td class="num">₹1,400</td><td class="num ours">₹1,652</td>
+      <td class="num">₹1,899<small>plus helpers</small></td><td class="num">₹3,499</td><td class="num">₹1,950</td>
+      <td><span class="chip cheaper">Cheaper</span><small>₹247 under Urban Company</small></td>
+    </tr>
+    <tr>
+      <th scope="row">6,000 L</th><td class="num">₹2,000</td><td class="num ours">₹2,360</td>
+      <td class="num">₹1,899<small>plus helpers</small></td><td class="num">No price</td><td class="num">No figure</td>
+      <td><span class="chip dearer">Dearer</span><small>₹461 over Urban Company before helpers</small></td>
+    </tr>
+    <tr>
+      <th scope="row">10,000 L</th><td class="num">₹2,000</td><td class="num ours">₹2,360</td>
+      <td class="num">Not sold</td><td class="num">₹4,999</td><td class="num">₹1,949</td>
+      <td><span class="chip same">Same</span><small>21% above typical; level with HomeTriangle's ₹2,399</small></td>
+    </tr>
+    <tr>
+      <th scope="row">15,000 L</th><td class="num">₹3,000</td><td class="num ours">₹3,540</td>
+      <td class="num">Not sold</td><td class="num">No price</td><td class="num">₹1,750</td>
+      <td><span class="chip dearer">Dearer</span><small>about double typical; under HomeTriangle's ₹3,949</small></td>
+    </tr>
+    <tr>
+      <th scope="row">20,000 L</th><td class="num">₹4,000</td><td class="num ours">₹4,720</td>
+      <td class="num">Not sold</td><td class="num">₹7,999</td><td class="num">₹2,400</td>
+      <td><span class="chip dearer">Dearer</span><small>about double typical; well under Guga</small></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Every firm with a sized price card charges more for underground tanks than for overhead ones. We do not. That makes us strong on small sumps. The 6,000 L row is the one gap: it falls just inside our 10,000 L band, while Urban Company's top sump size stops at 6,000 L. For big sumps, the typical figures come from metro cards in Bengaluru, Mumbai and Pune that look too cheap to be a full machine job. Few homes have tanks this big.</p>
+
+<div class="table-wrap">
+<table>
+  <caption>Bigger tanks</caption>
+  <thead>
+    <tr>
+      <th scope="col">Size</th>
+      <th scope="col" class="num">Us, before tax</th>
+      <th scope="col" class="num">Us, with GST</th>
+      <th scope="col">Other figures</th>
+      <th scope="col">Where we stand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">25,000 L</th><td class="num">₹5,000</td><td class="num ours">₹5,900</td>
+      <td>Omkar, Pune: ₹2,500 to ₹3,500</td>
+      <td><span class="chip dearer">Dearer</span></td>
+    </tr>
+    <tr>
+      <th scope="row">30,000 L</th><td class="num">₹6,000</td><td class="num ours">₹7,080</td>
+      <td>Government rate book, worked out: about ₹5,006, tax included</td>
+      <td><span class="chip dearer">Dearer</span></td>
+    </tr>
+    <tr>
+      <th scope="row">50,000 L</th><td class="num">₹6,500</td><td class="num ours">₹7,670</td>
+      <td>Omkar, Pune: ₹4,500 to ₹6,500</td>
+      <td><span class="chip dearer">Dearer</span></td>
+    </tr>
+    <tr>
+      <th scope="row">1,00,000 L</th><td class="num">₹13,000</td><td class="num ours">₹15,340</td>
+      <td>Government rate book, worked out: about ₹11,030, tax included</td>
+      <td><span class="chip dearer">Dearer</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="note">Very few price cards go above 20,000 L, so this table is thin. The rate-book figures are the research team's own sums on plain box-shaped tanks, not real bids.</p>
+
+<h3>Several tanks at once</h3>
+<p>Our 10% for 2 or 3 tanks is weaker than some rivals for two tanks of the same size, and better for an overhead tank plus a sump. Two 1,000 L tanks cost ₹1,699 with GST with us, against ₹1,099 to ₹1,299 at KaamGenie in Gurugram, which charges ₹400 to ₹600 for each extra tank. A 1,000 L overhead plus a 5,000 L sump costs ₹2,336 with us, inside KaamGenie Delhi's ₹2,200 to ₹3,000 for the same pair.</p>
+
+<h2 id="cheap">4. The cheapest offers and the plumber</h2>
+<p>We will always be dearer than these. The research advises against chasing them.</p>
+<ul>
+  <li>The cheapest public offers here are ₹399 (a Facebook ad, 500 to 2,000 L), ₹499 (Grace, Fixomes, homeserivces.in) and ₹500 (ServiceSutra). Nothing shows what the ₹399 includes.</li>
+  <li>A plumber or labourer probably charges ₹200 to ₹500 a tank, or ₹500 to ₹700 for a day's work. These figures come from other cities, a Mohali OLX ad at ₹500, and directory listings. No neutral Tricity source exists.</li>
+  <li>Against a ₹500 job, our ₹708 is about 1.4 times the price and our ₹944 about 1.9 times. Against a plumber taking half a day, our bigger sump prices are much closer.</li>
+  <li>Our own rules say we never criticise plumbers or labourers, and the website never names a rival or prints a price comparison.</li>
+</ul>
+
+<h3>The GST problem</h3>
+<p>A firm only has to register for GST above ₹20 lakh a year in sales. That is about 2,500 jobs at ₹800, or 7 a day, so a small one-van operator probably does not charge GST. A rival's ₹800 is then the final price, while ours becomes ₹944. No rival page in any round says whether its price includes GST. CleanerKart comes closest with "the price you book is the price you pay". The other side: one Tricity advertiser, Good Life Future, sells on giving a proper GST bill, so a real bill is a selling point for some buyers.</p>
+
+<h2 id="orgs">5. Societies, institutions and government</h2>
+<p>This is where the evidence is weakest. These buyers get private quotes, so almost nothing is public.</p>
+<ul>
+  <li>The only AMC prices published anywhere are KPS's yearly ranges: ₹6,000 to ₹15,000 for one building, ₹15,000 to ₹50,000 for a society, and ₹30,000 to ₹1,00,000 for commercial sites. The same figures sit on its Gurugram, Pune and Mumbai pages, so they are a template, not a local price. AI search tools still repeat them.</li>
+  <li>As a sum only: a society with two 1,00,000 L tanks cleaned twice a year would pay ₹52,000 before tax at our home rate of ₹0.13 a litre, or ₹61,360 with GST. That is just above KPS's society range.</li>
+  <li>Directory listings on IndiaMART show ₹0.20 to ₹0.60 a litre and ₹1 a litre for societies. Google's AI answers repeat the ₹0.20 to ₹0.60 range often. These are listings in mixed units and cannot be read as tank prices.</li>
+  <li>Other cities give society AMC discounts of 15% to 25% (Delhi) and 20% to 30% (Bengaluru).</li>
+</ul>
+
+<h3>Government rates and tenders</h3>
+<p>Government buyers price from the Central rate book and pick the lowest bid. Rate-book figures already include GST.</p>
+<div class="table-wrap">
+<table>
+  <caption>Our home list against government estimates</caption>
+  <thead>
+    <tr><th scope="col">Tank</th><th scope="col" class="num">Us, before tax</th><th scope="col" class="num">Us, with GST</th><th scope="col">Government estimate, tax included</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">500 L</th><td class="num">₹600</td><td class="num">₹708</td><td>₹240 at Central University of Punjab's July 2026 rate</td></tr>
+    <tr><th scope="row">1,000 L</th><td class="num">₹800</td><td class="num">₹944</td><td>₹480 at the same rate</td></tr>
+    <tr><th scope="row">2,000 L</th><td class="num">₹1,000</td><td class="num">₹1,180</td><td>₹960 at the same rate</td></tr>
+    <tr><th scope="row">10,000 L</th><td class="num">₹2,000</td><td class="num">₹2,360</td><td>About ₹2,376 at the rate book's ₹84.85 per square metre</td></tr>
+    <tr><th scope="row">5,00,000 L</th><td class="num">₹65,000</td><td class="num">₹76,700</td><td>About ₹33,940 at the same rate</td></tr>
+  </tbody>
+</table>
+</div>
+<p>So our home list cannot double as a rate for big institutions. At 5 lakh litres it is about twice the rate book before tax, and more than twice with it. Around 10,000 L the two meet. The research also thinks our past bulk jobs were billed far under the home list, which the owner should check.</p>
+<ul>
+  <li>The Central University of Punjab's July 2026 estimate is the best nearby yardstick: ₹82.55 per square metre of inside surface for sumps and concrete tanks, ₹0.48 a litre for terrace tanks up to 2,000 L and ₹0.35 a litre above that.</li>
+  <li>Only one Tricity award with a winner is public. CCET, Sector 26, Chandigarh was estimated at ₹3,25,201 and won by a general contractor at ₹2,63,738, 18.9% under the estimate. An elevator firm came second.</li>
+  <li>NABI, Mohali: ₹5,70,896 for 3 years, tax included, for 12 cleans of the campus. That is about ₹47,575 a clean.</li>
+  <li>Panjab University: ₹3,40,000 for underground tanks and ₹4,75,000 for overhead tanks in houses, in 2024. Both were advertised again and again at the same estimate. Its tenders ask for contractors on approved lists such as PWD, CPWD, MES or CHB. BSNL enlistment is not on that list, so the owner should check whether we qualify.</li>
+  <li>Other recent Tricity jobs: about ₹1 lakh at the Punjab and Haryana High Court, ₹3.83 lakh for MC Chandigarh's Jandpur raw water tank, ₹7.67 lakh at IISER Mohali with sewage plants included, and ₹35 lakh at MES 3 BRD with pipe work included.</li>
+  <li>A quote that includes GST gives up 15.25% of the price to tax. Some government and school work may be free of GST, but rulings are split and a CA must sign off first.</li>
+</ul>
+
+<h2 id="decisions">6. What is decided and what is not</h2>
+<div class="table-wrap">
+<table>
+  <caption>Price decisions</caption>
+  <thead>
+    <tr><th scope="col">Question</th><th scope="col">State</th><th scope="col">Where it stands</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Home price list</th><td><span class="chip decided">Decided</span></td><td>Owner's list, 28 Oct 2026.</td></tr>
+    <tr><th scope="row">GST at 18% on top</th><td><span class="chip decided">Decided</span></td><td>Rate confirmed from official texts.</td></tr>
+    <tr><th scope="row">Calculator shows the price before tax first</th><td><span class="chip decided">Decided</span></td><td>Owner's call, 31 Oct 2026. The first research round had suggested leading with the price including tax.</td></tr>
+    <tr><th scope="row">Price drop at 30,000 L</th><td><span class="chip decided">Decided</span></td><td>Intentional, owner's call, 31 Oct 2026. The first round had called it a mistake.</td></tr>
+    <tr><th scope="row">Same price in every town</th><td><span class="chip decided">Decided</span></td><td>Rivals do the same: no price changed by town in any round.</td></tr>
+    <tr><th scope="row">AMC prices</th><td><span class="chip decided">Decided</span></td><td>How it works goes on the site; the rupees stay on quote. Owner's call, 31 Oct 2026.</td></tr>
+    <tr><th scope="row">Prices for organisations and franchise</th><td><span class="chip decided">Decided</span></td><td>Quote only.</td></tr>
+    <tr><th scope="row">New 5,000 L price (CT-291)</th><td><span class="chip open">Open</span></td><td>We will lower it from ₹1,400 before tax. The figure is not set. Change it in INFO-BANK and the website together.</td></tr>
+    <tr><th scope="row">Real phone quotes (CT-284)</th><td><span class="chip open">Open</span></td><td>Call about 10 firms in Mohali, Panchkula and Kharar, plus a plumber, for a 1,000 L overhead tank. Ask the final price, whether GST is in it, and what the job includes.</td></tr>
+    <tr><th scope="row">GST for Punjab and Chandigarh work (CT-286)</th><td><span class="chip open">Open</span></td><td>Our GSTIN starts with 09, the Uttar Pradesh code. Ask the CA whether jobs here need a separate registration, and whether any government or school work can be GST free.</td></tr>
+    <tr><th scope="row">Our GSTIN itself (CT-292)</th><td><span class="chip open">Open</span></td><td>The number in our records has 13 characters; a GSTIN has 15. The owner must check it against the certificate before it goes on any bill or page.</td></tr>
+    <tr><th scope="row">Does Urban Company's ₹949 include tax?</th><td><span class="chip open">Open</span></td><td>Its cart shows no tax line, but its terms say charges are "subject to applicable taxes". A real booking or a call would settle it.</td></tr>
+    <tr><th scope="row">Charge more for sumps and concrete tanks?</th><td><span class="chip open">Open</span></td><td>Not raised with the owner. The research says this is where the market pays more than our list, but it would end the simple "price by size alone" rule.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Help for the 5,000 L choice</h3>
+<p>The research did not recommend a figure. These examples only show where a new price would land. Any new figure must stay between the ₹1,000 of the 2,000 L size and the ₹2,000 of the 10,000 L size. The same band covers underground tanks from 2,001 to 5,000 L, where we are already cheaper than Urban Company, so a cut widens that lead too.</p>
+<div class="table-wrap">
+<table>
+  <caption>Example new prices for up to 5,000 L</caption>
+  <thead>
+    <tr><th scope="col" class="num">Before tax</th><th scope="col" class="num">With GST</th><th scope="col">Against the yardsticks</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">₹1,400 (today)</td><td class="num">₹1,652</td><td>Inside ServiceSutra's ₹1,500 to ₹1,800; above HomeTriangle's ₹1,499; 47% above typical ₹1,125</td></tr>
+    <tr><td class="num">₹1,300</td><td class="num">₹1,534</td><td>Near the bottom of ServiceSutra's range; just above HomeTriangle</td></tr>
+    <tr><td class="num">₹1,250</td><td class="num">₹1,475</td><td>Just under HomeTriangle and ServiceSutra</td></tr>
+    <tr><td class="num">₹1,200</td><td class="num">₹1,416</td><td>Under both; still 26% above typical</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="sure">7. How sure we are</h2>
+<p>All three research rounds ran on 31 October 2026. Nobody phoned or booked anything, so no price here was heard from a seller or paid by us.</p>
+<ul>
+  <li><strong>Read live on the seller's own page.</strong> Urban Company (checked in five towns), Guga, CleanerKart, Grace, ServiceSutra, KPS. These are solid as listed prices.</li>
+  <li><strong>Seen only in search results or directories.</strong> IndiaMART, Justdial and OLX figures such as ₹700 a day, ₹350, ₹0.60 a litre and the ₹500 OLX ad. Weak.</li>
+  <li><strong>A firm's own "typical cost" guide.</strong> KaamGenie, KBS, ServiceSutra's guide, AR. Marketing ranges, not prices you can book.</li>
+  <li><strong>Worked out or guessed.</strong> The typical-in-India figures (a middle value from thin samples, very thin above 2,000 L), the plumber's price, whether small firms charge GST, and the government figures for box-shaped tanks.</li>
+</ul>
+
+<h3>Where the sources disagree</h3>
+<p>The owner's own run from Kharar is the newest and the only one that read Google Search, Justdial and IndiaMART. Where it disagrees, trust it.</p>
+<ul>
+  <li>Fixomes "from ₹499": the first two rounds saw it; the Kharar run found no price in its copy of the page. Unresolved.</li>
+  <li>Sized price cards in the Tricity: the second round said only two (Urban Company and Guga). The Kharar run added CleanerKart for one size.</li>
+  <li>Urban Company's 2,000 L overhead and 5,000 L sump prices were unreadable in the first round. The second round read ₹1,149 and ₹1,899.</li>
+  <li>Safaiwale's ₹600, ₹700 and ₹800 were first reported as a Chandigarh list. They come from a template page for Vasundhara. Its Chandigarh page shows no price.</li>
+  <li>Favorz's ₹245 turned out to be a placeholder used on every service on its site. Dropped.</li>
+  <li>Mr Service Expert's ₹500 and ₹600 are on a national template. Not local evidence.</li>
+  <li>HomeTriangle's prices are hidden behind a city list with no Chandigarh in it. Used as a national yardstick only.</li>
+  <li>Guga's first-booking discount: one round worked it out on the 1,000 L price (about ₹1,199), the Kharar run on the 500 L price (₹799). Both are above our price for the same size.</li>
+  <li>Typical prices moved a little between rounds: 2,000 L overhead from ₹1,050 to ₹1,074, 5,000 L sump from ₹2,000 to ₹1,950. No verdict changed.</li>
+</ul>
+
+</main>
+
+<footer>
+  <p>Prepared 2 November 2026 from the research in docs/research. Rounds used, oldest first:</p>
+  <ul>
+    <li>competitors-prices: the first study, 31 October 2026, from a Mumbai server.</li>
+    <li>local-recheck: the browser recheck, 31 October 2026, set to Tricity locations but still on a Mumbai connection.</li>
+    <li>pc-run: the owner's run from Kharar, 31 October 2026. The newest round.</li>
+  </ul>
+  <p>Our own figures come from docs/ref/INFO-BANK.md (Home prices) and docs/PRODUCT.md. Private contract values are left out on purpose.</p>
+</footer>
+
+</body>
+</html>
