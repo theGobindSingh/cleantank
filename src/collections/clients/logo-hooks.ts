@@ -1,0 +1,102 @@
+import type { Client } from "@/payload-types";
+import { extensions } from "@utils/image-file";
+import type {
+  CollectionAfterChangeHook,
+  CollectionAfterDeleteHook,
+  CollectionBeforeChangeHook,
+  PayloadRequest,
+} from "payload";
+import { downloadLogo } from "./logo";
+
+const idOf = (logo: Client["fetchedLogo"] | undefined) => {
+  return typeof logo === "object" ? (logo?.id ?? null) : (logo ?? null);
+};
+
+const deleteMedia = async (req: PayloadRequest, id: number | null) => {
+  if (!id) return;
+  try {
+    await req.payload.delete({ collection: "media", id, req });
+  } catch (error) {
+    req.payload.logger.warn({ err: error }, `Could not delete media ${id}`);
+  }
+};
+
+/**
+ * Copies the logo link into media when it is new or changed, or when the
+ * build's refresh sets `context.refetchLogo`; unchanged bytes keep the copy.
+ * A failed fetch keeps the previous copy and never blocks the save.
+ */
+export const fetchLogo: CollectionBeforeChangeHook<Client> = async ({
+  data,
+  originalDoc,
+  req,
+  context,
+}) => {
+  const link =
+    (data.logoUrl === undefined
+      ? originalDoc?.logoUrl
+      : data.logoUrl
+    )?.trim() ?? "";
+  const previousId = idOf(originalDoc?.fetchedLogo);
+  if (!link) {
+    return {
+      ...data,
+      fetchedLogo: null,
+      fetchedLogoHash: null,
+      logoFetchError: null,
+    };
+  }
+  const isChanged = link !== originalDoc?.logoUrl || !previousId;
+  if (!isChanged && !context.refetchLogo) return data;
+
+  try {
+    const logo = await downloadLogo(link);
+    if (previousId && logo.hash === originalDoc?.fetchedLogoHash) {
+      return { ...data, logoUrl: link, logoFetchError: null };
+    }
+    const name = data.name ?? originalDoc?.name ?? "client";
+    const slug = name.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-");
+    const media = await req.payload.create({
+      collection: "media",
+      data: { alt: name },
+      file: {
+        data: logo.data,
+        mimetype: logo.mimetype,
+        name: `${slug}-logo.${extensions[logo.mimetype]}`,
+        size: logo.data.byteLength,
+      },
+      req,
+    });
+    return {
+      ...data,
+      logoUrl: link,
+      fetchedLogo: media.id,
+      fetchedLogoHash: logo.hash,
+      logoFetchError: null,
+    };
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    const day = new Date().toISOString().slice(0, 10);
+    return { ...data, logoFetchError: `${day}: ${reason}` };
+  }
+};
+
+/** Deletes the fetched copy a save replaced or cleared. */
+export const deleteReplacedLogo: CollectionAfterChangeHook<Client> = async ({
+  doc,
+  previousDoc,
+  req,
+}) => {
+  const previousId = idOf(previousDoc.fetchedLogo);
+  if (previousId !== idOf(doc.fetchedLogo)) await deleteMedia(req, previousId);
+  return doc;
+};
+
+/** Deletes a deleted client's fetched copy; an uploaded logo stays in media. */
+export const deleteFetchedLogo: CollectionAfterDeleteHook<Client> = async ({
+  doc,
+  req,
+}) => {
+  await deleteMedia(req, idOf(doc.fetchedLogo));
+  return doc;
+};

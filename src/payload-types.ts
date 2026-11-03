@@ -781,7 +781,20 @@ export interface Client {
   name: string;
   category: number | ClientCategory;
   /**
-   * SVG only. Without one the client is left out of the band. No State Emblem of India.
+   * Paste the address of the logo image (SVG, PNG, JPEG or WebP, up to 2 MB). On save, and again on every deploy, the site copies it into Media; visitors never load it from the client's server. The copy wins over an uploaded logo. With neither, the client stays off the band. No State Emblem of India.
+   */
+  logoUrl?: string | null;
+  /**
+   * The last copy attempt failed, so the band keeps the previous copy or the uploaded logo. Fix the link and save again.
+   */
+  logoFetchError?: string | null;
+  /**
+   * Set by the site from the link above. Clear the link to remove it.
+   */
+  fetchedLogo?: (number | null) | Media;
+  fetchedLogoHash?: string | null;
+  /**
+   * Fallback for when there is no link: upload an SVG, PNG, JPEG or WebP. Used only if no copy from a link exists.
    */
   logo?: (number | null) | Media;
   /**
@@ -1308,6 +1321,10 @@ export interface ClientsSelect<T extends boolean = true> {
   _order?: T;
   name?: T;
   category?: T;
+  logoUrl?: T;
+  logoFetchError?: T;
+  fetchedLogo?: T;
+  fetchedLogoHash?: T;
   logo?: T;
   certificates?:
     | T

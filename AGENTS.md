@@ -14,7 +14,7 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 - `pnpm lint` / `pnpm lint:fix` — Prettier + ESLint on `src/` and `e2e/`
 - `pnpm payload` — Payload CLI (type and import-map generation), on the direct database URL
 - `pnpm migrate:create <name>` / `pnpm migrate` — create and run database migrations (Neon Postgres; schema push is off)
-- `pnpm vercel-build` — what Vercel runs on deploy: `pnpm migrate`, then `pnpm build`
+- `pnpm vercel-build` — what Vercel runs on deploy: `pnpm migrate`, then `pnpm logos:refresh` (refetches client logo links; never fails the deploy), then `pnpm build`
 
 ## Where things live
 
@@ -28,7 +28,7 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 - `src/site.ts` — site-wide constants and the one source for the facts the code uses: name, brand lines, URL, contacts, offices, GSTIN, Udyam, ISO details, and `isLive`, which keeps Sentry and PostHog paused until launch
 - `src/instrumentation.ts`, `src/instrumentation-client.ts` — Sentry and PostHog start-up (see docs/CONVENTIONS.md, Analytics and errors)
 - `e2e/` — Playwright browser and accessibility tests; `e2e/pages.ts` lists the pages they visit
-- `docs/` — product, design and convention docs (below), and `docs/LAUNCH.md`, the checklist to finish before going live. `docs/AEO-GEO.md` covers answer and generative engine optimization, with its own pre-launch checklist. `docs/CLIENT-LOGOS.md` lists the clients waiting for an SVG logo before they can join the clients band. `docs/ref/INFO-BANK.md` holds the other owner-approved facts and points to `src/site.ts` for the rest; nothing else in `docs/ref/` is used. `docs/research/seo-tools/` holds the SEO, AEO and GEO tools research, `docs/research/competitors-prices/` the Tricity competitor and price research, `docs/research/local-recheck/` the browser recheck of both, `docs/research/pc-run/` the owner's run from Kharar, the only round that read Google Search, Justdial and IndiaMART, `docs/research/price-list.html` a plain price brief for the owners drawn from those three rounds, and `docs/research/visiting-cards/` how premium visiting cards are made and what can be printed in India
+- `docs/` — product, design and convention docs (below), and `docs/LAUNCH.md`, the checklist to finish before going live. `docs/AEO-GEO.md` covers answer and generative engine optimization, with its own pre-launch checklist. `docs/CLIENT-LOGOS.md` lists the clients waiting for a logo before they can join the clients band. `docs/ref/INFO-BANK.md` holds the other owner-approved facts and points to `src/site.ts` for the rest; nothing else in `docs/ref/` is used. `docs/research/seo-tools/` holds the SEO, AEO and GEO tools research, `docs/research/competitors-prices/` the Tricity competitor and price research, `docs/research/local-recheck/` the browser recheck of both, `docs/research/pc-run/` the owner's run from Kharar, the only round that read Google Search, Justdial and IndiaMART, `docs/research/price-list.html` a plain price brief for the owners drawn from those three rounds, and `docs/research/visiting-cards/` how premium visiting cards are made and what can be printed in India
 
 Discover the rest from the code; path aliases are in `tsconfig.json`.
 

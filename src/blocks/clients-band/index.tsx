@@ -16,9 +16,9 @@ interface ClientsBandProps extends ClientsBandBlock {
 // Seconds per client, so a longer list scrolls at the same speed.
 const SECONDS_PER_CLIENT = 3;
 
-// The query only returns clients with a logo, so `logo` is populated here.
+// The query only returns clients with a logo; the copy from the link wins.
 const renderClient = (client: Client) => {
-  const logo = client.logo as Media;
+  const logo = (client.fetchedLogo ?? client.logo) as Media;
   return (
     <li key={client.id} className="flex h-10 shrink-0 items-center md:h-14">
       <Image
@@ -26,7 +26,8 @@ const renderClient = (client: Client) => {
         alt={client.name}
         width={logo.width ?? 160}
         height={logo.height ?? 56}
-        unoptimized
+        // next/image would turn an SVG into a raster
+        unoptimized={logo.mimeType === "image/svg+xml"}
         loading="eager"
         className="h-10 w-auto max-w-36 object-contain md:h-14 md:max-w-48"
       />
@@ -36,8 +37,9 @@ const renderClient = (client: Client) => {
 
 /**
  * A grey band with a short label and the logos of cleared clients scrolling
- * past (owner's call). Logos are SVG, served as uploaded. Clients without a
- * logo stay out; with none, the band is not rendered.
+ * past (owner's call). Logos are copied into media from a link or uploaded;
+ * rasters go through image optimization. Clients without a logo stay out;
+ * with none, the band is not rendered.
  */
 const ClientsBand = async ({
   heading,
@@ -48,7 +50,10 @@ const ClientsBand = async ({
   const payload = await getPayload({ config });
   const { docs } = await payload.find({
     collection: "clients",
-    where: { cleared: { equals: true }, logo: { exists: true } },
+    where: {
+      cleared: { equals: true },
+      or: [{ fetchedLogo: { exists: true } }, { logo: { exists: true } }],
+    },
     sort: "_order",
     pagination: false,
   });
