@@ -4,6 +4,7 @@ import type {
   CollectionAfterChangeHook,
   CollectionAfterDeleteHook,
   CollectionBeforeChangeHook,
+  Payload,
   PayloadRequest,
 } from "payload";
 import { downloadLogo } from "./logo";
@@ -21,11 +22,14 @@ const deleteMedia = async (req: PayloadRequest, id: number | null) => {
   }
 };
 
-const LOGO_FOLDER = "Client logos";
+export const LOGO_FOLDER = "Client logos";
 
-/** The top-level media folder fetched logos go in, created on first use. */
-const logoFolderId = async (req: PayloadRequest) => {
-  const { docs } = await req.payload.find({
+/** The top-level media folder client logos go in, created on first use. */
+export const logoFolderId = async (
+  payload: Payload,
+  req: Partial<PayloadRequest> = {},
+) => {
+  const { docs } = await payload.find({
     collection: "payload-folders",
     where: { name: { equals: LOGO_FOLDER }, folder: { exists: false } },
     limit: 1,
@@ -33,7 +37,7 @@ const logoFolderId = async (req: PayloadRequest) => {
     req,
   });
   if (docs[0]) return docs[0].id;
-  const folder = await req.payload.create({
+  const folder = await payload.create({
     collection: "payload-folders",
     data: { name: LOGO_FOLDER, folderType: ["media"] },
     req,
@@ -78,7 +82,7 @@ export const fetchLogo: CollectionBeforeChangeHook<Client> = async ({
     const slug = name.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-");
     const media = await req.payload.create({
       collection: "media",
-      data: { alt: name, folder: await logoFolderId(req) },
+      data: { alt: name, folder: await logoFolderId(req.payload, req) },
       file: {
         data: logo.data,
         mimetype: logo.mimetype,
@@ -115,7 +119,7 @@ export const fileUploadedLogo: CollectionAfterChangeHook<Client> = async ({
       depth: 0,
       req,
     });
-    const folder = await logoFolderId(req);
+    const folder = await logoFolderId(req.payload, req);
     if (media.folder !== folder) {
       await req.payload.update({
         collection: "media",
