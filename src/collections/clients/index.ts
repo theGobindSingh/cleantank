@@ -82,9 +82,8 @@ export const clients: CollectionConfig = {
       label: "Uploaded logo",
       filterOptions: { mimeType: { contains: "image/" } },
       admin: {
-        components: { Field: "/collections/clients/logo-field" },
         description:
-          "Fallback for when there is no link: upload an SVG, PNG, JPEG or WebP. Used only if no copy from a link exists. A new upload goes straight into the Client logos folder in Media; an image picked from Media moves there on save.",
+          "Fallback for when there is no link: upload an SVG, PNG, JPEG or WebP. Used only if no copy from a link exists. On save the image moves to the Client logos folder in Media.",
       },
     },
     {
