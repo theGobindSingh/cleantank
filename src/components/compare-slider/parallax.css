@@ -1,8 +1,8 @@
 /*
  * The hero photos' scroll parallax (owner's call; docs/DESIGN.md, Motion).
  * The frame names a view timeline that starts once its top passes under the
- * fixed header, and both photos slide down 20% of the frame by the time its
- * bottom does, so they scroll at 80% of the page's speed. The strip this opens
+ * fixed header, and both photos slide down 35% of the frame by the time its
+ * bottom does, so they scroll at 65% of the page's speed. The strip this opens
  * at the top is always under the header or above the screen. No parallax
  * under reduced motion or without scroll-driven animations.
  */
@@ -25,6 +25,6 @@
 
 @keyframes parallax {
   to {
-    transform: translateY(20%);
+    transform: translateY(35%);
   }
 }
