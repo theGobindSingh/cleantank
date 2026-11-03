@@ -83,7 +83,7 @@ const SPECS = [
   "Hover 110 ms. Filled steps one stop lighter on hover and darker when pressed; outlined adds an 8% and 14% tint.",
   "Primary follows the mode and band by itself: navy with a white label on light grounds, white with a navy label in dark mode and in bands.",
   "One filled button per viewport. Labels from the approved list: Get a Service Quote, Explore Our Services, Send an Enquiry, Become a Franchise Partner. Never Submit, Book now, arrows or exclamation marks.",
-  "No accent buttons and no secondary buttons: the color prop doesn't accept them.",
+  "Accent fills only the value proposition button and the price list's filled button; its 500 hover fails contrast (2.88:1). No secondary buttons: the color prop doesn't accept them.",
 ];
 
 const renderSpec = (spec: string) => {

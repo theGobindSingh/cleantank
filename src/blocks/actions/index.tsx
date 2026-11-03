@@ -14,6 +14,8 @@ interface ActionsProps {
   actions: Action[] | null | undefined;
   locale: Locale;
   className?: string;
+  /** Fills the first button in accent; only the price list uses it (user's call, 4 Nov 2026). */
+  isAccent?: boolean;
 }
 
 // `whatsapp` and `call` read the number from src/site.ts, so the CMS never repeats it.
@@ -29,7 +31,7 @@ const toHref = (href: string, locale: Locale): string => {
 };
 
 /** A block's buttons: the first filled, the second outlined, full width on phones. */
-const Actions = ({ actions, locale, className }: ActionsProps) => {
+const Actions = ({ actions, locale, className, isAccent }: ActionsProps) => {
   if (!actions || actions.length === 0) return null;
 
   const renderAction = (action: Action, index: number) => {
@@ -39,6 +41,7 @@ const Actions = ({ actions, locale, className }: ActionsProps) => {
         key={action.id ?? index}
         href={href}
         variant={index === 0 ? "filled" : "outlined"}
+        color={index === 0 && isAccent ? "accent" : "primary"}
         size="md"
         className="w-full justify-center md:w-auto"
       >

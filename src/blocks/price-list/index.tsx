@@ -103,7 +103,7 @@ const PriceList = ({
           gstPercent={gst}
           labels={labels}
         />
-        <Actions actions={actions} locale={locale} />
+        <Actions actions={actions} locale={locale} isAccent />
       </div>
       <div className="flex flex-col gap-6 lg:col-span-7">
         {/* the wrapper draws the edge and rounds it; a collapsed table can't */}
