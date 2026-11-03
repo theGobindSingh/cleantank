@@ -20,7 +20,7 @@ Each page has its own`metaTitle` and`metaDescription` in Payload, and each langu
 
 The copy is a good base. The process page answers what buyers ask: how often to clean, what goes into the tank, what to do before the visit and what you get after it.`/homes` covers the price, the service area with a map, and when to clean. These are the questions people type into ChatGPT.
 
-The content rules help too. INFO-BANK limits the claims to facts the owner approved, and the site avoids ratings, "guaranteed" and superlatives it can't back. Engines are increasingly wary of pages that oversell, and a page with checkable facts (since 2008, GSTIN, Udyam number, ISO 9001:2015 with the certificate number) is easier to trust.
+The content rules help too. INFO-BANK limits the claims to facts the owner approved, and the site avoids ratings, "guaranteed" and superlatives it can't back. Engines are increasingly wary of pages that oversell, and a page with checkable facts (since 2008, GSTIN, Udyam number, the ISO certificate and its number, all from `src/site.ts`) is easier to trust.
 
 ## Gaps
 
