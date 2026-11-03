@@ -53,7 +53,7 @@ const MiniPage = (scheme: Scheme) => {
             Card on surface
           </Span>
           <Span $size="caption" className="text-fg-muted">
-            Muted text, 1 px border edge, radius 4 px.
+            Muted text, 1 px border edge, radius 6 px.
           </Span>
         </div>
       </div>

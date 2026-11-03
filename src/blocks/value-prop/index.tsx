@@ -17,7 +17,7 @@ const renderPhoto = (photo: CompareImage) => {
   return (
     <div
       key={photo.src}
-      className="relative aspect-1/2 overflow-hidden rounded-image outline-1 -outline-offset-1 outline-grey-200 lg:h-full lg:min-w-0"
+      className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:h-full lg:min-w-0"
     >
       <Image
         src={photo.src}

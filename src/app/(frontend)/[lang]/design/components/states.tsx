@@ -117,13 +117,13 @@ const States = () => {
       id="states"
       number={10}
       title="Status and forms"
-      intro="Success, caution, info and error are for status only, and always come with an icon and a word: colour is never the only signal. Alerts are radius 4 px with a 1 px state border, the state fill, a 20 px icon and a bold title. In dark mode the fill becomes navy 700 and the text and border step to 300."
+      intro="Success, caution, info and error are for status only, and always come with an icon and a word: colour is never the only signal. Alerts are radius 6 px with a 1 px state border, the state fill, a 20 px icon and a bold title. In dark mode the fill becomes navy 700 and the text and border step to 300."
     >
       <SchemePair render={Alerts} />
       <div className="flex flex-col gap-4">
         <H3 $margin="0">Inputs</H3>
         <P $size="small" className="max-w-[68ch] text-fg-muted">
-          48 px tall, radius 4 px, 1 px border-control edge on surface, 16 px
+          48 px tall, radius 6 px, 1 px border-control edge on surface, 16 px
           text. The label sits above in the label style and says required or
           optional in words. An error adds a 2 px error border, an icon and a
           message tied with aria-invalid and aria-describedby. Never disable the

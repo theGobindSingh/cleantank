@@ -79,7 +79,7 @@ const renderFamily = (color: ColorFamily) => {
 
 const SPECS = [
   "Heights: sm 44 px (dense desktop tables only), md 48 px (default), lg 56 px (the hero).",
-  "Anek 700, uppercase, +0.06em; 14 px, 16 px at lg. Padding 0 24 px (16 at sm, 32 at lg), min width 120 px, radius 4 px.",
+  "Anek 700, uppercase, +0.06em; 14 px, 16 px at lg. Padding 0 24 px (16 at sm, 32 at lg), min width 120 px, radius 6 px.",
   "Hover 110 ms. Filled steps one stop lighter on hover and darker when pressed; outlined adds an 8% and 14% tint.",
   "Primary follows the mode and band by itself: navy with a white label on light grounds, white with a navy label in dark mode and in bands.",
   "One filled button per viewport. Labels from the approved list: Get a Service Quote, Explore Our Services, Send an Enquiry, Become a Franchise Partner. Never Submit, Book now, arrows or exclamation marks.",

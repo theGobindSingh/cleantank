@@ -32,8 +32,12 @@ const RADII = [
     "Step nodes, checkboxes, grid containers",
     "rounded-xs",
   ],
-  ["rounded-sm", "4 px", "Buttons, inputs, cards, alerts", "rounded-sm"],
-  ["rounded-image", "6 px", "Image frames, audience doors", "rounded-image"],
+  [
+    "rounded-sm",
+    "6 px",
+    "Buttons, inputs, cards, alerts, image frames, audience doors",
+    "rounded-sm",
+  ],
 ];
 
 const renderRadius = ([name, value, use, className]: string[]) => {
@@ -80,7 +84,7 @@ const Layout = () => {
       id="layout"
       number={12}
       title="Layout, spacing and shape"
-      intro="Content is at most 1800 px wide on a 4, 8 or 12 column grid. Spacing uses Tailwind's 4 px unit restricted to the brand steps. Corners are square or nearly square; nothing is rounder than 4 px except image frames at 6 px, and there are no shadows."
+      intro="Content is at most 1800 px wide on a 4, 8 or 12 column grid. Spacing uses Tailwind's 4 px unit restricted to the brand steps. Corners are square or nearly square; nothing is rounder than 6 px, and there are no shadows."
     >
       <div className="grid gap-8 lg:grid-cols-2">
         <Breakpoints />
@@ -131,7 +135,7 @@ const Layout = () => {
           label="Before and after cleaning"
           beforeLabel="Before"
           afterLabel="After"
-          className="aspect-3/2 w-full max-w-2xl rounded-image"
+          className="aspect-3/2 w-full max-w-2xl rounded-sm"
         />
       </div>
 

@@ -52,12 +52,11 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1440px;
 
-  /* radius is 0, 2 and 4, plus 6 for image frames and the audience doors; there are no shadows */
+  /* radius is 0, 2 and 6 (user's call, 4 Nov 2026); there are no shadows */
   --radius-*: initial;
   --radius-none: 0;
   --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-image: 6px;
+  --radius-sm: 6px;
   --shadow-*: initial;
 
   /* only brand colors exist: Tailwind's palette is removed */

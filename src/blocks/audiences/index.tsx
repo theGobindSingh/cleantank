@@ -23,7 +23,7 @@ const Audiences = ({ heading, highlight, doors, locale }: AudiencesProps) => {
       <li
         key={door.id ?? index}
         data-surface="band"
-        className="relative grid gap-3 rounded-image p-6 outline-1 -outline-offset-1 outline-transparent has-[a:hover]:outline-border-strong has-[a:hover]:[--color-band:var(--color-primary-600)] md:p-10 lg:row-span-3 lg:grid-rows-subgrid dark:outline-border"
+        className="relative grid gap-3 rounded-sm p-6 outline-1 -outline-offset-1 outline-transparent has-[a:hover]:outline-border-strong has-[a:hover]:[--color-band:var(--color-primary-600)] md:p-10 lg:row-span-3 lg:grid-rows-subgrid dark:outline-border"
       >
         <H3 $size="h3" $margin="0">
           {door.title}

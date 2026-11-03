@@ -34,7 +34,7 @@ const Details = ({ steps, labels }: DetailsProps) => {
         className="grid scroll-mt-6 gap-6 border-t border-border pt-10 md:gap-10 lg:grid-cols-12"
       >
         {image?.url && (
-          <div className="relative aspect-3/2 overflow-hidden rounded-image outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">
+          <div className="relative aspect-3/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">
             <Image
               src={image.url}
               alt={image.alt}
