@@ -24,4 +24,6 @@ export const media: CollectionConfig = {
   hooks: { beforeOperation: [sanitizeSvgUpload] },
   fields: [{ name: "alt", type: "text", required: true, localized: true }],
   upload: true,
+  // Payload Folders (beta): the admin gets a By Folder view, folder create, rename, delete and move.
+  folders: true,
 };
