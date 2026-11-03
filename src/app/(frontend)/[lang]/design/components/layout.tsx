@@ -121,11 +121,11 @@ const Layout = () => {
         </P>
         <CompareSlider
           before={{
-            src: "/assets/images/compare/dirty.png",
+            src: "/api/media/file/ct-photo-tank-before-v03.png",
             alt: "A concrete tank before cleaning",
           }}
           after={{
-            src: "/assets/images/compare/clean.png",
+            src: "/api/media/file/ct-photo-tank-after-v03.png",
             alt: "The same tank after cleaning",
           }}
           label="Before and after cleaning"

@@ -29,7 +29,7 @@ How often to clean depends on the organisation; INFO-BANK §4 has the examples a
 
 ### The 5-step process
 
-The process is the product. Always show five steps, in this order, with these names (they match the images in `public/assets/images/process/`):
+The process is the product. Always show five steps, in this order, with these names (they match the process step images in Payload media):
 
 1. De-watering: water removed with mechanical pumps.
 2. High-pressure cleaning: walls, floor and roof cleaned with a high-pressure water jet at the pressure range in INFO-BANK §12 (Jet pressure). Always state it as a range, "depending on the tank and the work": different machines are used for different tanks and jobs (owner's call, 28 Oct 2026).
@@ -159,7 +159,7 @@ Get a lawyer to review it before it goes live. docs/LAUNCH.md turns this list in
 ## Avoid
 
 - Looking like a generic cleaning company, a plumber's flyer or a trade-show standee.
-- Fear and shock: dead animals, filthy-tank close-ups as scare tactics, disease talk. The before/after images in `public/assets/images/compare/` are evidence, so show them calmly.
+- Fear and shock: dead animals, filthy-tank close-ups as scare tactics, disease talk. The before/after tank and wall photos in Payload media are evidence, so show them calmly.
 - Sales pressure: countdowns, limited slots, discount badges, festive offers.
 - Corporate distance or claims to be international.
 - Attacks on competitors.

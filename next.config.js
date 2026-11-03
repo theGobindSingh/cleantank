@@ -64,7 +64,7 @@ const nextConfig = {
     ],
     // 75 is the default; 100 is for the hero's before and after photos.
     qualities: [75, 100],
-    // Payload serves uploads from its API; /design shows images from public/.
+    // Payload serves uploads from its API; the rest come from public/.
     localPatterns: [
       { pathname: "/api/media/file/**" },
       { pathname: "/assets/images/**" },
