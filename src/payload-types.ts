@@ -827,7 +827,7 @@ export interface Client {
   fetchedLogo?: (number | null) | Media;
   fetchedLogoHash?: string | null;
   /**
-   * Fallback for when there is no link: upload an SVG, PNG, JPEG or WebP. Used only if no copy from a link exists.
+   * Fallback for when there is no link: upload an SVG, PNG, JPEG or WebP. Used only if no copy from a link exists. On save the image moves to the Client logos folder in Media.
    */
   logo?: (number | null) | Media;
   /**

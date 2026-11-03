@@ -101,6 +101,35 @@ export const fetchLogo: CollectionBeforeChangeHook<Client> = async ({
   }
 };
 
+/** Files the uploaded or picked logo in Client logos if it sits elsewhere. */
+export const fileUploadedLogo: CollectionAfterChangeHook<Client> = async ({
+  doc,
+  req,
+}) => {
+  const id = idOf(doc.logo);
+  if (!id) return doc;
+  try {
+    const media = await req.payload.findByID({
+      collection: "media",
+      id,
+      depth: 0,
+      req,
+    });
+    const folder = await logoFolderId(req);
+    if (media.folder !== folder) {
+      await req.payload.update({
+        collection: "media",
+        id,
+        data: { folder },
+        req,
+      });
+    }
+  } catch (error) {
+    req.payload.logger.warn({ err: error }, `Could not file media ${id}`);
+  }
+  return doc;
+};
+
 /** Deletes the fetched copy a save replaced or cleared. */
 export const deleteReplacedLogo: CollectionAfterChangeHook<Client> = async ({
   doc,

@@ -1,6 +1,11 @@
 import type { CollectionConfig } from "payload";
 import { revalidateSite } from "../revalidate-site";
-import { deleteFetchedLogo, deleteReplacedLogo, fetchLogo } from "./logo-hooks";
+import {
+  deleteFetchedLogo,
+  deleteReplacedLogo,
+  fetchLogo,
+  fileUploadedLogo,
+} from "./logo-hooks";
 
 const allowPublicRead = () => {
   return true;
@@ -21,7 +26,7 @@ export const clients: CollectionConfig = {
   access: { read: allowPublicRead },
   hooks: {
     beforeChange: [fetchLogo],
-    afterChange: [deleteReplacedLogo, revalidateSite],
+    afterChange: [deleteReplacedLogo, fileUploadedLogo, revalidateSite],
     afterDelete: [deleteFetchedLogo],
   },
   orderable: true,
@@ -78,7 +83,7 @@ export const clients: CollectionConfig = {
       filterOptions: { mimeType: { contains: "image/" } },
       admin: {
         description:
-          "Fallback for when there is no link: upload an SVG, PNG, JPEG or WebP. Used only if no copy from a link exists.",
+          "Fallback for when there is no link: upload an SVG, PNG, JPEG or WebP. Used only if no copy from a link exists. On save the image moves to the Client logos folder in Media.",
       },
     },
     {
