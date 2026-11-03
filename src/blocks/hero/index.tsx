@@ -50,6 +50,7 @@ const Hero = ({
             widePeak={85}
             handleClassName="top-[22%] lg:top-auto lg:bottom-4"
             scrimColor="var(--color-accent-950)"
+            hasParallax
             // ! beats the slider's own `relative`, so it fills the hero
             className="absolute! inset-0"
           />

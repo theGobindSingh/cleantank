@@ -99,9 +99,11 @@ const Motion = () => {
         The one sequence is the 5-step band: it plays once when half in view,
         nodes fading in 120 ms apart, then the Level Line draws in 240 ms. Never
         bounce, overshoot, shake, pulse, parallax, scroll fly-ins, staggered
-        card lists, count-up numbers, carousels, shimmer or autoplay. With
-        reduced motion turned on, defaults.css cuts every transition to nothing,
-        and these squares jump instead of slide.
+        card lists, count-up numbers, carousels, shimmer or autoplay. The hero
+        photos are the one exception to parallax (owner's call): they scroll at
+        80% of the page's speed, and stay put under reduced motion. With reduced
+        motion turned on, defaults.css cuts every transition to nothing, and
+        these squares jump instead of slide.
       </P>
     </Section>
   );

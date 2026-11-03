@@ -1,0 +1,30 @@
+/*
+ * The hero photos' scroll parallax (owner's call; docs/DESIGN.md, Motion).
+ * The frame names a view timeline that starts once its top passes under the
+ * fixed header, and both photos slide down 20% of the frame by the time its
+ * bottom does, so they scroll at 80% of the page's speed. The strip this opens
+ * at the top is always under the header or above the screen. No parallax
+ * under reduced motion or without scroll-driven animations.
+ */
+@utility parallax-frame {
+  view-timeline: --hero-photos block;
+  view-timeline-inset: var(--header-height) 0;
+}
+
+@utility parallax-photo {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: parallax linear both;
+      /* Firefox skips a scroll-driven animation with no duration */
+      animation-duration: 1ms;
+      animation-timeline: --hero-photos;
+      animation-range: exit-crossing;
+    }
+  }
+}
+
+@keyframes parallax {
+  to {
+    transform: translateY(20%);
+  }
+}

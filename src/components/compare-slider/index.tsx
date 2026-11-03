@@ -46,6 +46,8 @@ interface CompareSliderProps {
    * divider centred, photos lazy-loaded at about half the screen width.
    */
   isInline?: boolean | undefined;
+  /** Photos scroll slower than the page as it scrolls away (parallax.css). For the hero only. */
+  hasParallax?: boolean | undefined;
   className?: string | undefined;
 }
 
@@ -69,6 +71,7 @@ const CompareSlider = ({
   handleClassName = "bottom-4",
   scrimColor,
   isInline = false,
+  hasParallax = false,
   className,
 }: CompareSliderProps) => {
   const [position, setPosition] = useState(isInline ? NARROW_START : 0);
@@ -123,6 +126,10 @@ const CompareSlider = ({
   const dragHandlers = useDrag(rootRef, inputRef, moveTo);
   const rounded = Math.round(position);
   const imageProps = isInline ? INLINE_IMAGE : HERO_IMAGE;
+  const photoClassName = tw(
+    "object-cover object-bottom-right",
+    hasParallax && "parallax-photo",
+  );
 
   return (
     <div
@@ -130,6 +137,7 @@ const CompareSlider = ({
       {...dragHandlers}
       className={tw(
         "group relative cursor-ew-resize touch-pan-y overflow-hidden bg-primary-900 select-none",
+        hasParallax && "parallax-frame",
         className,
       )}
       style={
@@ -142,7 +150,7 @@ const CompareSlider = ({
         fill
         {...imageProps}
         onLoad={countLoad}
-        className="object-cover object-bottom-right"
+        className={photoClassName}
       />
       <Image
         src={after.src}
@@ -150,7 +158,7 @@ const CompareSlider = ({
         fill
         {...imageProps}
         onLoad={countLoad}
-        className="object-cover object-bottom-right [clip-path:inset(0_0_0_var(--split))]"
+        className={tw(photoClassName, "[clip-path:inset(0_0_0_var(--split))]")}
       />
       {scrimColor && <Scrim />}
       {/* keyboard and screen readers only; the root handles pointers */}
