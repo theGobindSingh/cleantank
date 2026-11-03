@@ -127,7 +127,7 @@ Safe to state:
 - Established 2008, "15+ years".
 - "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Never "accredited", "internationally recognised", UKAS or IAF.
 - Operating states: Punjab, Delhi, Uttar Pradesh, Himachal Pradesh, Madhya Pradesh, Jharkhand, Maharashtra.
-- GSTIN 09LFS1473F5ZU.
+- GSTIN 09ALFPS1473F5ZU.
 - The LIC tank story happened in Kanpur.
 
 Needs a document before use: biodegradable, eco-friendly, how long the treatment lasts, the CPWD DSR listing (exact edition and item), the "60% of diseases are water-borne" figure, the Delhi Railway Station story.

@@ -6,14 +6,14 @@ Clean Tank appeared on none of the 61 generic Google pages and none of the 21 Bi
 
 Evidence: [notes/audit.md](notes/audit.md) checks the numbers. [notes/insight.md](notes/insight.md) reads what they mean. The raw zip stays out of the repo.
 
-## One fact needs the owner before launch
+## One fact needed the owner (settled)
 
 The GSTIN in `src/site.ts:40` and INFO-BANK §1, `09LFS1473F5ZU`, has 13 characters. A GSTIN has 15. INFO-BANK §1 gives the PAN as `ALFPS1473F`, and the middle of the published number is that PAN with the `A` and `P` missing.
 
 - Restoring them gives `09ALFPS1473F5ZU`, which passes the GSTIN check digit.
 - IndiaMART's "Gobind Galaxy, Kanpur" profile shows `09ALFPS1473F3ZW`, which also passes.
 
-INFO-BANK §12 rules the 13-character value correct, so this is a contradiction for the owner to settle from the GST certificate. It stays off public pages until then. Tracked in CT-292.
+Settled 3 Nov 2026: the owner confirmed `09ALFPS1473F5ZU`. INFO-BANK and `src/site.ts` now carry it (CT-292).
 
 ## What Google shows
 

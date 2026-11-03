@@ -136,7 +136,7 @@ Wrong or confusing facts:
 - 004 also shows: an IndiaMART profile "Gobind Galaxy, Kanpur - Laundry Washing Machine and Washing Machine" and two Tenderkart profiles. 99 says no listing exists; true of Google and Justdial, but there is an IndiaMART listing with the wrong category.
 - Maps "Gobind Galaxy" resolves to Gobind Electronics, Kharar. Confirmed. Earlier report said the same.
 
-**GSTIN flag, outside the brief but important.** `src/site.ts` and INFO-BANK give `09LFS1473F5ZU`, 13 characters. A GSTIN has 15: state code, 10-character PAN, entity digit, Z, check character. INFO-BANK's own PAN is ALFPS1473F. Inserting it gives `09ALFPS1473F5ZU`, and that string passes the standard GSTIN check-digit calculation (I computed U). The IndiaMART snippet in 004 shows `09ALFPS1473F3ZW`, which also passes and has the same PAN with entity digit 3. So the published value looks truncated by two letters, and a second registration may exist. INFO-BANK rules the 13-character form "correct", so this needs the owner's eye.
+**GSTIN flag, outside the brief but important.** `src/site.ts` and INFO-BANK give `09LFS1473F5ZU`, 13 characters. A GSTIN has 15: state code, 10-character PAN, entity digit, Z, check character. INFO-BANK's own PAN is ALFPS1473F. Inserting it gives `09ALFPS1473F5ZU`, and that string passes the standard GSTIN check-digit calculation (I computed U). The IndiaMART snippet in 004 shows `09ALFPS1473F3ZW`, which also passes and has the same PAN with entity digit 3. So the published value looks truncated by two letters, and a second registration may exist. INFO-BANK rules the 13-character form "correct", so this needs the owner's eye. Settled 3 Nov 2026: the owner confirmed `09ALFPS1473F5ZU`.
 
 Maps listing: none. `map-brand-cleantankservicesk` and `-c` return 50 rows each with no Clean Tank row. No Sponsored text. No knowledge panel on 001 to 005.
 
@@ -383,7 +383,7 @@ Recommendation: commit 10 only as theme counts plus paraphrase, keep `raw/` out 
 - Meta delivery regions.
 - Whether AR and Good Life Future have a business link.
 - Whether "Clean Tank", Maloya Colony or "Govind Galaxy", Kanpur is the firm's.
-- Which GSTIN is real.
+- Which GSTIN is real. Settled 3 Nov 2026: `09ALFPS1473F5ZU` (owner).
 - Whether any price includes GST.
 - Whether Fixomes still shows ₹499 in a place this capture missed; images were not checked.
 - 25 tender rows, 21 trends, 26 autocomplete and 12 to 13 directory rows were not recomputed in depth. The IndiaMART ₹0.60 rows for Fixomes and Aaa were seen in raw; the ₹0.20 Panchkula row's price and seller are present, its "Hospital" label was not traced.

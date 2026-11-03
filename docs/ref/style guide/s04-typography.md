@@ -136,7 +136,7 @@ Interim text-only lockup (email signatures, plain documents only; s02 overrides)
 | ₹ | Before the number, no space, never "Rs" in UI | ₹3 to 8 lakh |
 | Negatives, percent | True minus U+2212; no space before % | −5 · 3.5% |
 | Phone | +91, then 5 + 5 grouping, only numbers in INFO-BANK §1 | +91 94535 17514 |
-| GSTIN, certificate no. | Mono, no spaces, `white-space: nowrap` | GSTIN 09LFS1473F5ZU |
+| GSTIN, certificate no. | Mono, no spaces, `white-space: nowrap` | GSTIN 09ALFPS1473F5ZU |
 | Date in prose, invoices, UI | DD Mon YYYY, two-digit day, English three-letter month, no comma | 03 Oct 2026 |
 | Date on records (sticker, certificate, job card) | Same source text, shown in capitals by CSS in Plex Mono (`value`) or Anek wdth 78 (`data-l`) | 03 OCT 2026 |
 | Date in Hindi or Punjabi running prose | Month may be written in script | 03 अक्टूबर 2026 |

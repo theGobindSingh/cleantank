@@ -175,7 +175,7 @@ Claims that recur:
 What Clean Tank could honestly beat, from INFO-BANK:
 
 - ISO 9001:2015 with certificate number and expiry: no other site read shows ISO at all. Keep the Q2A wording. AEO-GEO's "no ISO claim" in schema is a separate call.
-- GSTIN, PAN, Udyam, GeM: no rival read shows them. GSTIN needs checking first (section 8).
+- GSTIN, PAN, Udyam, GeM: no rival read shows them. GSTIN checked: `09ALFPS1473F5ZU` (owner, 3 Nov 2026).
 - 2008 and paperwork: Busy Bucket 2020, Fixomes 4+ years. Not universal: Tricity Water Tank Cleaning is given as "since 1998" (046) and "over two decades" (017), tricitydrycleaner "20 years", Darshan Singh 20+ years.
 - Named institutional clients with certificates: AIIMS, IIT Ropar, NIT Jalandhar, BSNL Chandigarh, and hospitals. No rival shows anything like this, and overviews on hospital and commercial queries have nothing to quote. Certificates are hidden for now by owner's call.
 - 150 to 250 bar stated: the only other pressure in view is Tots' 150 and Guga's "150+".
@@ -246,7 +246,7 @@ Conflicts and stale items:
 
 | Item on old site | Against |
 |---|---|
-| GSTIN 09LFS1473F5ZU | Same as INFO-BANK and `src/site.ts:40`, but it is 13 characters. A GSTIN is 15 (2 state + 10 PAN + 3). Its PAN part reads LFS1473F, while INFO-BANK's PAN is ALFPS1473F. IndiaMART shows 09ALFPS1473F3ZW (004), 15 characters with the PAN inside. INFO-BANK §12 calls variants wrong, so this needs the owner to check the registration certificate before it goes on any site or schema |
+| GSTIN 09LFS1473F5ZU | Same as INFO-BANK and `src/site.ts:40`, but it is 13 characters. A GSTIN is 15 (2 state + 10 PAN + 3). Its PAN part reads LFS1473F, while INFO-BANK's PAN is ALFPS1473F. IndiaMART shows 09ALFPS1473F3ZW (004), 15 characters with the PAN inside. INFO-BANK §12 calls variants wrong, so this needs the owner to check the registration certificate before it goes on any site or schema. Settled 3 Nov 2026: `09ALFPS1473F5ZU` |
 | "up to 250 bar" | Ruling: 150 to 250 bar, always a range |
 | "biodegradable, eco-friendly", "Govt-approved laboratory certification" | Ruling: need the document; website wording is Clean Tank agent, food-grade, non-toxic |
 | "no fixed public price list" | Home price list, 28 Oct |
@@ -275,7 +275,7 @@ Checked in the repo: `/homes` price list is a server-rendered `<table>` with the
 ## Ranked actions
 
 1. Ship redirects and JSON-LD with the move. Strong.
-2. Owner checks GSTIN against the certificate before launch. Strong on format; which value is right is unknown.
+2. Owner checks GSTIN against the certificate before launch. Done 3 Nov 2026: `09ALFPS1473F5ZU`.
 3. Treat the Profile date as the main cost driver for overviews, and fill Justdial, IndiaMART and Sulekha with specific text at launch. Strong. Owner has set Profile after launch; listing text can go the same day.
 4. Put one plain price sentence per size near the table, in all three languages, plus the per-litre line. Strong that engines lack it, medium that they will use Clean Tank's.
 5. Build an AMC and society page with structure, visit counts in "2 to 4 times a year" wording, paperwork. Medium to strong.

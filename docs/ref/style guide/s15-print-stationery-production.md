@@ -139,7 +139,7 @@ Regd. Office: 109/122, Nehru Nagar, R.K. Nagar, Kanpur Nagar-208012, U.P.  |  94
 Correspondence & Sales Office: B-3/26, Jamuna Apartments, Ch-Kurali Highway, NH-5,
 Khanpur, Kharar, SAS Nagar-140301, Punjab  |  8699339947
 gobindgalaxy@gmail.com  |  admin@cleantankservices.com  |  www.cleantankservices.com
-GSTIN 09LFS1473F5ZU
+GSTIN 09ALFPS1473F5ZU
 ```
 
 The letterhead carries no ISO line and no tagline; ISO wording appears only on tender documents, brochures and the certificate (see 15.7). Franchise partners use the franchise letterhead variant: franchise lockup (15.6), partner details panel replacing the Correspondence line, central legal footer kept. DOCX build: Anek is installed as the static condensed-instance TTF for headings; PDF remains the source of truth (open item 20).
@@ -199,7 +199,7 @@ Never state a price, discount, equipment capacity or timeline that is not approv
 
 | Zone | Fields (mandatory ones to confirm) | Notes |
 |---|---|---|
-| Header band | Logo, supplier legal name Gobind Galaxy, address, GSTIN 09LFS1473F5ZU (Plex Mono) | Document heading "TAX INVOICE" is optional (Rule 46 does not require the words) |
+| Header band | Logo, supplier legal name Gobind Galaxy, address, GSTIN 09ALFPS1473F5ZU (Plex Mono) | Document heading "TAX INVOICE" is optional (Rule 46 does not require the words) |
 | 01 Meta (ruled grid) | INVOICE NO. (consecutive serial, up to 16 characters, letters, numbers, hyphen, slash), DATE, PLACE OF SUPPLY (state and code), REVERSE CHARGE (Yes or No) | Date format "03 Oct 2026" on invoices; mono caps "03 OCT 2026" is allowed in grid cells |
 | 02 Bill-to / ship-to | NAME, ADDRESS, STATE, RECIPIENT GSTIN if registered | JOB CARD REF cross-reference (`CT-JC-`) |
 | 03 Line table | DESCRIPTION, HSN or SAC code (4 digits up to ₹5 crore turnover, 6 above; CA to supply the code), QTY, UNIT, RATE, DISCOUNT, TAXABLE VALUE, CGST and SGST rate and amount, or IGST rate and amount | Service description names the tank and capacity. Stripe rows with Neutral 100 only if the printer holds it, else rules only |
@@ -298,7 +298,7 @@ Built as a separate artwork, not a converted colour ad. Black (K100 for text, li
 | Item | Spec |
 |---|---|
 | Shape | Rectangle 60 x 30 mm, corner radius 1.5 mm (square corners if the die maker allows; no round seals: s05 bans seal and badge shapes) |
-| Content | Wordmark (one-colour, 40 mm wide minimum), "Gobind Galaxy", GSTIN 09LFS1473F5ZU (Plex Mono), "Authorised Signatory" |
+| Content | Wordmark (one-colour, 40 mm wide minimum), "Gobind Galaxy", GSTIN 09ALFPS1473F5ZU (Plex Mono), "Authorised Signatory" |
 | Ink | Primary stamp ink (nearest to `#20334B`, verify on paper) or black |
 | Line weight | 0.4 mm minimum stroke (s02, verify with stamp maker); text 7 pt Latin minimum |
 | Use | Invoices, job cards, quotations; not on the Cleaning Certificate if the certificate carries a printed signature block |
@@ -436,7 +436,7 @@ TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 RULE 15.5:     Never print invoices, quotations or tender documents with claims, contacts or legal text outside the approved footer and ISO wording.
 CLASS:         MUST
 REASON:        Documented. Documents are evidence.
-EXACT SPEC:    Contacts only from INFO-BANK §1; ISO line exactly as brand-context; no "accredited"; GSTIN 09LFS1473F5ZU.
+EXACT SPEC:    Contacts only from INFO-BANK §1; ISO line exactly as brand-context; no "accredited"; GSTIN 09ALFPS1473F5ZU.
 EXAMPLE:       Tender cover lists ISO line with certificate number in Plex Mono.
 ANTI-EXAMPLE:  A footer with an old phone number or "internationally recognised".
 TEST:          Does every phone, email and address match INFO-BANK §1?

@@ -280,7 +280,7 @@ The sticker carries no ISO line (partial wording is not allowed and the full lin
 
 ## 10.20 Certificate data block
 
-The certificate is a test-report page: square corners, a Primary 700 title band, then a ruled field grid of two columns of key and value pairs, 1 px rules (`ct.color.border.rule`), 8 mm minimum row height. Labels Plex Mono 500 caps 8 pt above values; values Plex Mono 500 10 pt `tnum` for numbers, dates and codes (certificate number, GSTIN 09LFS1473F5ZU), Anek 400 10 pt for names and addresses. Reference code in the band (for example REF CT-CERT-nn, format Open).
+The certificate is a test-report page: square corners, a Primary 700 title band, then a ruled field grid of two columns of key and value pairs, 1 px rules (`ct.color.border.rule`), 8 mm minimum row height. Labels Plex Mono 500 caps 8 pt above values; values Plex Mono 500 10 pt `tnum` for numbers, dates and codes (certificate number, GSTIN 09ALFPS1473F5ZU), Anek 400 10 pt for names and addresses. Reference code in the band (for example REF CT-CERT-nn, format Open).
 
 Fields in order: certificate no.; customer and site address; tank type and capacity (20,000 L style); cleaning date; next due date (recommended, not a promise); process record (5 steps 01 to 05 in order, each Done, step 05 Done or Not applicable); technician and Authorised Service Provider, name and ID; Clean Tank contact (INFO-BANK §1 only). Footer lines at 8 pt: the exact ISO wording ("ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029.") and "Water quality also depends on source water, plumbing, tank condition and later maintenance, which are outside our service."
 

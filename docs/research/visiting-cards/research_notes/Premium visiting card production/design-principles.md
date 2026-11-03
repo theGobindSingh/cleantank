@@ -125,7 +125,7 @@ Four levels, only what the recipient acts on. ISO belongs on a card as a short e
 - The website's footer shows the ISO certificate and GSTIN together as a definition list, so a card can echo that one pattern at small scale.
 
 ### Gaps
-- The GSTIN on file, `09LFS1473F5ZU`, has 13 characters and already stands flagged as faulty in [docs/research/pc-run/report.md](../../pc-run/report.md). Do not print it until the owner supplies the correct number.
+- The GSTIN on file, `09LFS1473F5ZU`, has 13 characters and already stands flagged as faulty in [docs/research/pc-run/report.md](../../pc-run/report.md). Settled 3 Nov 2026: the owner gave `09ALFPS1473F5ZU`, which is safe to print.
 - I couldn't read the Q2A certification terms, so I can't say whether the certifier's own mark is allowed or required, or whether its wording rules differ.
 - ISO's own "Publicizing your ISO certification" page returned HTTP 403.
 

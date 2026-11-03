@@ -37,7 +37,7 @@ export const site = {
       phone: "918699339947",
     },
   ],
-  gstin: "09LFS1473F5ZU",
+  gstin: "09ALFPS1473F5ZU",
   // MSME (Udyam) registration of Gobind Galaxy.
   udyam: "UDYAM-UP-43-0011042",
   // Registered on GeM too; owner's call: never publish the seller ID, it goes to clients on request.
