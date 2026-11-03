@@ -328,7 +328,7 @@ In Hindi and Punjabi pages, write alt text in that language with `lang` set. The
 | Fields | Certificate number and dates in Plex Mono with slashed zero, selectable text, 7.5 pt minimum for refs and 9.5 pt for values (s04). |
 | Check | Run the Acrobat or PAC accessibility checker plus a screen reader read-through on the first template. |
 | Large-print | Offer an 18 pt body version of the certificate and service summary on request (APH says nothing below 18 pt is large print; RNIB says 16 pt or higher). |
-| Contacts | Only the phones, emails and addresses from brand-context. |
+| Contacts | Only the phones, email and addresses from `src/site.ts`. |
 | ISO line | Only the approved ISO wording, where the document is the right place for it. Never on the sticker. |
 
 ## 18.14 Print, signage and physical
@@ -419,7 +419,7 @@ reviewed in [month year].
 Known limits: [list any pages or PDFs not yet accessible].
 
 If something does not work for you, tell us and we will help directly:
-phone 9453517514 or 8699339947, or email admin@cleantankservices.com.
+phone [either phone] or email [site email], both from `src/site.ts`.
 You can also ask for a large-print or Hindi or Punjabi copy of your
 certificate. We aim to reply within [x] working days.
 ```

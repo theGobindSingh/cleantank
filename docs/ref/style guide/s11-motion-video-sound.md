@@ -294,11 +294,11 @@ Title cards are condensed caps on a plain ground, like a section header in a spe
 | Length | 4 s (100 frames) | 3 s (75 frames) |
 | Ground | White `#FFFFFF`, one clear frame (0.4 s) before text | Same |
 | Content | Lockup (CLEAN TANK SERVICES, descriptor, tagline), phones, website, one email | Lockup, one phone, website |
-| Contacts (brand-context only) | 9453517514, 8699339947; www.cleantankservices.com; admin@cleantankservices.com | 9453517514; www.cleantankservices.com |
+| Contacts (brand-context only) | Both phones and the email from `src/site.ts`; the website (INFO-BANK §1) | The main phone; the website |
 | Text | Contacts in IBM Plex Mono 500 (zero feature on), Primary 700 on white (12.83:1); one static 3 px accent Level Line under the lockup | Same |
 | In | `base` 150 ms `entrance` fade | Same |
 
-Digits are exactly as in the brand context; a space after the fifth digit (94535 17514) is allowed for legibility if s07 adopts a phone format (open). No other phone number, email or address appears on any end card. The ISO line is not on end cards by default; if used, only the exact wording (11.15). Franchise end cards use the Phase 9 lockup (Authorised Service Provider, [Franchisee Name] | [City / District]), with Clean Tank primary and the central contacts above. Local operator numbers are an open decision.
+Digits are exactly as in `src/site.ts`; a space after the fifth digit is allowed for legibility if s07 adopts a phone format (open). No other phone number, email or address appears on any end card. The ISO line is not on end cards by default; if used, only the exact wording (11.15). Franchise end cards use the Phase 9 lockup (Authorised Service Provider, [Franchisee Name] | [City / District]), with Clean Tank primary and the central contacts above. Local operator numbers are an open decision.
 
 ### Export
 
@@ -584,7 +584,7 @@ TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 RULE 11.10:    Get consent before filming anyone, and use only the contacts in the brand context on end cards.
 CLASS:         MUST
 REASON:        Responsible and Documented; DPDP Act 2023; accuracy.
-EXACT SPEC:    Written release per person; site permission; client names and logos only with permission. End card phones 9453517514 and 8699339947, www.cleantankservices.com, admin@cleantankservices.com.
+EXACT SPEC:    Written release per person; site permission; client names and logos only with permission. End card: both phones and the email from `src/site.ts`, and the website.
 EXAMPLE:       Release signed in Hindi by a customer before a sticker handover is filmed.
 ANTI-EXAMPLE:  A client hospital's logo in a video with no permission, or a franchisee's personal number on the end card.
 TEST:          Is there a release on file for every visible face and a permission for every named site? Does every contact match 11.6?
@@ -671,8 +671,8 @@ TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 | 12 | DPDP and release forms | Lawyer to confirm current rules, minors' consent and the release wording |
 | 13 | Client and site permissions | Written permission before any client name, logo or site appears (LIC, MES, BSNL, AIIMS, IIT Kanpur and others) |
 | 14 | Franchise end cards | Decide whether local operator phone numbers may appear beyond the central contacts |
-| 15 | Phone format on end card | Whether to group digits (94535 17514); decide with s04 and s07 |
-| 16 | ISO line in video | If used, only the exact wording: "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Never "accredited" |
+| 15 | Phone format on end card | Whether to group digits (5 + 5); decide with s04 and s07 |
+| 16 | ISO line in video | If used, only the ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`. Never "accredited" |
 | 17 | Claims that must not appear in video until evidenced | Clean Tank Agent properties (non-toxic, eco-friendly, 3-month effect), CPWD DSR inclusion, the "60% of diseases" stat, any WHO, FDA or government approval. Health or "safe" lines carry the qualifier: water quality also depends on source water, plumbing, tank condition and later maintenance, which are outside our service |
 | 18 | Origin story and dates | LIC Lucknow vs Kanpur and Delhi Railway Station 2006 to 08 must not appear in any video until confirmed |
 | 19 | Logo file sizes | Lottie 150 KB limit is an own starting value; confirm against real file and page weight |

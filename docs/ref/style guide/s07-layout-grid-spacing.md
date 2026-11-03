@@ -309,7 +309,7 @@ Print type uses s04 sizes (Latin 7 pt, Indic 8 pt minimum). Standee text must be
 | ?? ??? ????  (mono) | ?? ??? ???? (mono)   |  34
 | label Hindi/Punjabi | label Hindi/Punjabi  |
 +---------------------+----------------------+
-| 9453517514 | 8699339947      CERT. NO. (mono)|  17
+| [PHONE 1]  | [PHONE 2]       CERT. NO. (mono)|  17
 +--------------------------------------------+ 70
  Margin 5, 2 columns, 0.25 pt rules between cells.
  Dates written by hand or label-printed; serial code in mono.
@@ -347,7 +347,7 @@ One idea per card. Structure: primary title band, photo, mono footer. Accent onl
 | +---------------------------------+ |
 | 24                                  |
 | 1 px rule                           |
-| 9453517514  CLEANTANKSERVICES.COM   |  mono footer, neutral 600 / primary
+| [PHONE 1]   CLEANTANKSERVICES.COM   |  mono footer, neutral 600 / primary
 | [logo, bottom-left per 07.10]       |
 | 64                                  |
 +-------------------------------------+ 1350

@@ -92,7 +92,7 @@ Domain: www.cleantankservices.com. Section order is fixed by INFO-BANK; the nav 
 | 11 | Aims | White | Mantra: Knowledge. Discipline. Humility. Trust. |
 | 12 | Founder | Stone | Mr. Gurdev Singh; origin story hidden until the Lucknow or Kanpur question is settled |
 | 13 | Franchise | **Primary band (selected emphasis)** | [Become a Franchise Partner] as on-dark button; figures only on the franchise page, with disclaimer (13.18) |
-| 14 | Contact | White, ruled cells | Only phones, emails and addresses from INFO-BANK §1 |
+| 14 | Contact | White, ruled cells | Only phones, emails and addresses from `src/site.ts` |
 | 15 | Enquiry | Stone | Service / AMC / Franchise (13.10) |
 | | Footer | Primary band | 13.9 |
 
@@ -223,7 +223,7 @@ On-dark outline hover: fill White with Primary 700 label (12.83:1), active Neutr
 
 **Sticky mobile bar** (below 768 px). Height 64 px (8 px padding, 48 px buttons), White, 1 px `ct.color.border.rule` top rule, radius 0, flat. Two equal buttons, 8 px gap: **Call** (Primary, phone icon) and **WhatsApp** (Outline, official WhatsApp glyph unmodified, s10). Both labels in words. Which number each uses is Open (13.26). Safe-area inset respected (`env(safe-area-inset-bottom)`). Hidden while a text field is focused or the keyboard is open, and on the enquiry section. `scroll-padding-top` and `scroll-padding-bottom` of 88 px on the document so the bar never overlaps a focused control. The bar is a separate layer, not a second primary action.
 
-**Footer.** `ct.color.band` (Primary 700), White text (12.83:1), links White underlined, focus ring White, padding 64 px top. Laid out as ruled cells (1 px `primary.500` rules, band scope) with a mono ref tag `REF CT-WEB-FT` in Accent 400 (5.14:1). Content: reverse horizontal logo with descriptor; contacts from INFO-BANK §1 only (two phones, two emails, Regd. Kanpur (U.P.) and Correspondence/Sales Kharar, SAS Nagar (Punjab)); GSTIN `09ALFPS1473F5ZU` in Plex Mono caps; the **exact ISO line** (13.17); "An Initiative of Gobind Galaxy" endorsement in text only, 14 px, below the lockup (s02); links to Privacy and Terms; language switcher. The same contact block sits in the same place on every page (WCAG 3.2.6).
+**Footer.** `ct.color.band` (Primary 700), White text (12.83:1), links White underlined, focus ring White, padding 64 px top. Laid out as ruled cells (1 px `primary.500` rules, band scope) with a mono ref tag `REF CT-WEB-FT` in Accent 400 (5.14:1). Content: reverse horizontal logo with descriptor; contacts from `src/site.ts` only (the phone, WhatsApp, the email and `shownOffices`, which leaves out the Regd. Office); the GSTIN from `src/site.ts` in Plex Mono caps; the **exact ISO line** (13.17); the endorsement (`src/site.ts`) in text only, 14 px, below the lockup (s02); links to Privacy and Terms; language switcher. The same contact block sits in the same place on every page (WCAG 3.2.6).
 
 **Language switcher.** Three text options **EN / हिंदी / ਪੰਜਾਬੀ**, each labelled in its own script (Anek, since mono has no Indic), `lang` and `hreflang` set (`en`, `hi`, `pa`). 48 px button group; active option 700 with a 2 px White underline in bands (2 px Primary 700 on light). No flags, no IP redirect; remember the choice (first-party, no tracking). URLs `/`, `/hi/`, `/pa/` (proposed). Untranslated pages show English with a short note, never a half-translation. Native-speaker review before publication (s04).
 
@@ -280,19 +280,19 @@ Steps in order: Dewatering; High-pressure cleaning (jet up to 250 bar, subject t
 | Body | White `#FFFFFF`, text `#25282A` 16 px, line height 1.5 (Indic 1.65 and 1.60, s04); headline 24 px 700 caps in the heading stack, Primary 700 |
 | Detail table | Ruled: 1 px `#C7C6C1` cell rules, 1 px Primary 700 frame, radius 0; label column in mono caps 12 px `#65655F` (5.87:1), value column mono 600 14 px `#25282A`; row 48 px |
 | Button | Bulletproof (table-based, VML fallback in Outlook), **48 px** high, Primary 700 fill, White label (12.83:1), Anek-stack bold caps 14 px, +0.06em, radius 4 (square in Outlook Word engine), left or centred |
-| Footer | Stone `#F5F4F1` panel, 1 px rule above; **mono footer**: Plex Mono caps 12 px, `#65655F` (5.33:1): `CLEAN TANK SERVICES  |  REF CT-EM-nn`, then phone, email, address lines from INFO-BANK §1, and for reminders one unsubscribe line |
+| Footer | Stone `#F5F4F1` panel, 1 px rule above; **mono footer**: Plex Mono caps 12 px, `#65655F` (5.33:1): `CLEAN TANK SERVICES  |  REF CT-EM-nn`, then phone, email, address lines from `src/site.ts`, and for reminders one unsubscribe line |
 
 Font stacks (Anek and Plex Mono are not embedded in email): body `Arial, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Gurmukhi", "Nirmala UI", sans-serif`; headings `"Arial Narrow", Arial, "Noto Sans", sans-serif` in caps (Latin only); mono `"IBM Plex Mono", "Courier New", monospace`. Images at 2x, alt text on every image, never an image-only email, plain-text part always sent. HTML under 102 KB to avoid Gmail clipping (figure from Mailchimp and Litmus, not Google; verify). Email stays flat: no shadows, no gradients, no rounded images.
 
 **Dark mode.** Clients differ. The header band is Primary 700 so the reverse logo reads either way; no white-background-only logos on the body; text colours survive inversion; transparent PNGs get a 1 px safe edge; declare `color-scheme: light dark` and test Gmail iOS, Apple Mail and Outlook (Word engine on Windows desktop) for widths and buttons.
 
-**Signature.** Name, role, "Clean Tank Services", descriptor, one INFO-BANK §1 phone, admin@cleantankservices.com, www.cleantankservices.com; symbol 48 px or wordmark 120 px minimum (s02); no banners, quotes or stacked taglines. Franchise operators use the Phase 9 lockup.
+**Signature.** Name, role, "Clean Tank Services", descriptor, one phone and the email from `src/site.ts`, www.cleantankservices.com; symbol 48 px or wordmark 120 px minimum (s02); no banners, quotes or stacked taglines. Franchise operators use the Phase 9 lockup.
 
 **Transactional templates.**
 
 | Template | Trigger | Subject (max 60 characters) | Content fields |
 |---|---|---|---|
-| Booking confirmation `CT-EM-01` | Booking accepted | "Your tank cleaning is booked" | Detail table: name, site, tank type, capacity, date and time window, who to call (INFO-BANK §1), what to prepare (water supply off, access to the tank) |
+| Booking confirmation `CT-EM-01` | Booking accepted | "Your tank cleaning is booked" | Detail table: name, site, tank type, capacity, date and time window, who to call (`src/site.ts`), what to prepare (water supply off, access to the tank) |
 | Reminder `CT-EM-02` | About 1 week before due date | "Your tank cleaning is coming up" | Last cleaned date, recommended date (the one key figure, 3 px accent underline), one button [Get a Service Quote], sentence "If your tank is due for cleaning, we can help you plan the service." No pressure, one unsubscribe line |
 | Certificate delivery `CT-EM-03` | Job closed | "Your Cleaning Certificate" | Certificate number (mono), cleaning date, next recommended date, PDF attached, link to the record page, contact line |
 
@@ -323,7 +323,7 @@ Font stacks (Anek and Plex Mono are not embedded in email): body `Arial, "Noto S
 | Headline | Below the band, 48 px gap. Anek 700 caps, wdth 78, Primary 700, 64 px (56 px minimum), line-height 1.0, 3 lines maximum |
 | Key value | The date or number, Plex Mono 600 `tnum` 72 px, Neutral 900, with a 3 px, 48 px Accent 500 underline below it. One key figure per card |
 | Ruled field grid | Two columns, 1 px Primary 700 frame and 1 px Neutral 300 cell rules, radius 0. Label: Plex Mono 500 caps 28 px, Neutral 600 (5.87:1). Value: Anek 400 36 px minimum, Neutral 900 (14.83:1) |
-| Footer | 1 px Primary 700 rule, then mono caps 28 px minimum: INFO-BANK §1 numbers only, `CLEAN TANK SERVICES` |
+| Footer | 1 px Primary 700 rule, then mono caps 28 px minimum: `src/site.ts` numbers only, `CLEAN TANK SERVICES` |
 | Limits | Maximum 40 words. Card types: Booking confirmed, Reminder, Certificate delivered, Process explainer (5 ruled cells, step 05 dashed, "* Where applicable"). No navy full-bleed card |
 
 **The same details are repeated as text in the message** (images are not read aloud and not searchable). Hindi or Punjabi cards match the message language (Anek Devanagari or Gurmukhi 700 headline, wdth 100, no caps; mono labels replaced by Anek 500). Export PNG, 300 KB or less (verify); alt text where the app allows.
@@ -336,7 +336,7 @@ Name exactly "Clean Tank Services", no keywords or city appended (platform polic
 
 | Element | Rule |
 |---|---|
-| ISO | Only the exact line: "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Footer and Why Choose Us, set in a ruled cell with mono certificate number. Never "accredited", UKAS, IAF; no ISO logo or badge unless the certifying body supplies and permits one (Open) |
+| ISO | Only the ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`. Footer and Why Choose Us, set in a ruled cell with mono certificate number. Never "accredited", UKAS, IAF; no ISO logo or badge unless the certifying body supplies and permits one (Open) |
 | Client names and logos | Hidden until written permission for each client; spellings kept as separate entries; permission register in s19; shown as name rows in ruled cells, greyscale, no logos until recorded (s07 A5) |
 | Reviews and counts | No star rating, tank count or customer count until a source record exists; no review schema without real reviews |
 | Franchise figures | Only on the franchise page, with the disclaimer (13.18) |
@@ -453,7 +453,7 @@ TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 RULE 13.5:     Use the exact ISO wording or none; show client logos only with written permission.
 CLASS:         MUST
 REASON:        Documented: every trust element must be provable.
-EXACT SPEC:    "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Clientele section stays hidden until permission per client.
+EXACT SPEC:    The ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`. Clientele section stays hidden until permission per client.
 EXAMPLE:       Footer carries the full line at 14 px.
 ANTI-EXAMPLE:  "Internationally accredited ISO company" beside an unpermitted client logo.
 TEST:          Is the string character-identical, and is there a permission record per logo?

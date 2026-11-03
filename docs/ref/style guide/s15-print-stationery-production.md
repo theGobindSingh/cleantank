@@ -131,15 +131,14 @@ Two builds, same layout. **Pre-printed** (digital press, bleed 3 mm) carries ful
 | Footer band | Primary 700, 24 mm tall, flush to the bottom (pre-printed: to trim; office-print: bottom 8 mm inset). White reversed text, Anek 500 8 pt, leading 10 pt, 25 mm left margin. GSTIN in Plex Mono 500 8 pt reversed |
 | Rules between zones | None other than the band edges. Bands and the whitespace between them are the zoning |
 
-Footer content (exact, from brand-context and INFO-BANK §1; nothing else may be added):
+Footer content, in this order. Each value comes from `src/site.ts`, except the Gobind Galaxy email and the website, which are in INFO-BANK §1. Nothing else may be added:
 
 ```
-GOBIND GALAXY | An Initiative of Gobind Galaxy
-Regd. Office: 109/122, Nehru Nagar, R.K. Nagar, Kanpur Nagar-208012, U.P.  |  9453517514
-Correspondence & Sales Office: B-3/26, Jamuna Apartments, Ch-Kurali Highway, NH-5,
-Khanpur, Kharar, SAS Nagar-140301, Punjab  |  8699339947
-gobindgalaxy@gmail.com  |  admin@cleantankservices.com  |  www.cleantankservices.com
-GSTIN 09ALFPS1473F5ZU
+GOBIND GALAXY | [endorsement]
+Regd. Office: [Regd. Office address]  |  [its phone]
+Correspondence & Sales Office: [Punjab office address]  |  [its phone]
+[Gobind Galaxy email]  |  [site email]  |  [website]
+GSTIN [GSTIN]
 ```
 
 The letterhead carries no ISO line and no tagline; ISO wording appears only on tender documents, brochures and the certificate (see 15.7). Franchise partners use the franchise letterhead variant: franchise lockup (15.6), partner details panel replacing the Correspondence line, central legal footer kept. DOCX build: Anek is installed as the static condensed-instance TTF for headings; PDF remains the source of truth (open item 20).
@@ -150,9 +149,9 @@ Front: white. Primary 700 band 12 mm tall across the top, full bleed, with the w
 
 | Card | Front | Back | Contacts allowed |
 |---|---|---|---|
-| Technician | Band, logo, name, role "SERVICE TECHNICIAN", ID number `CT-TECH-[0000]` (Plex Mono), photo not printed | Primary, symbol, "Clean Tank, Healthy Life" in white | Company line 9453517514 only unless owner approves (open) |
+| Technician | Band, logo, name, role "SERVICE TECHNICIAN", ID number `CT-TECH-[0000]` (Plex Mono), photo not printed | Primary, symbol, "Clean Tank, Healthy Life" in white | The main phone (`src/site.ts`) only unless owner approves (open) |
 | Franchise partner | Band with franchise lockup (Authorised Service Provider, partner name, city or district) | Primary, wordmark, partner details | Partner's own number needs an owner ruling (open item 5, 15.19); brand-context lists no partner numbers |
-| Founder | Band, logo, "Mr. Gurdev Singh", "FOUNDER & CEO" | Primary, symbol | 8699339947, gobindgalaxy@gmail.com, www.cleantankservices.com |
+| Founder | Band, logo, "Mr. Gurdev Singh", "FOUNDER & CEO" | Primary, symbol | The Punjab office phone (`src/site.ts`), the Gobind Galaxy email (INFO-BANK §1), www.cleantankservices.com |
 
 No bilingual card at launch: add Hindi or Punjabi on the back at 8 pt minimum if a region needs it (later).
 
@@ -199,7 +198,7 @@ Never state a price, discount, equipment capacity or timeline that is not approv
 
 | Zone | Fields (mandatory ones to confirm) | Notes |
 |---|---|---|
-| Header band | Logo, supplier legal name Gobind Galaxy, address, GSTIN 09ALFPS1473F5ZU (Plex Mono) | Document heading "TAX INVOICE" is optional (Rule 46 does not require the words) |
+| Header band | Logo, supplier legal name Gobind Galaxy, address, GSTIN from `src/site.ts` (Plex Mono) | Document heading "TAX INVOICE" is optional (Rule 46 does not require the words) |
 | 01 Meta (ruled grid) | INVOICE NO. (consecutive serial, up to 16 characters, letters, numbers, hyphen, slash), DATE, PLACE OF SUPPLY (state and code), REVERSE CHARGE (Yes or No) | Date format "03 Oct 2026" on invoices; mono caps "03 OCT 2026" is allowed in grid cells |
 | 02 Bill-to / ship-to | NAME, ADDRESS, STATE, RECIPIENT GSTIN if registered | JOB CARD REF cross-reference (`CT-JC-`) |
 | 03 Line table | DESCRIPTION, HSN or SAC code (4 digits up to ₹5 crore turnover, 6 above; CA to supply the code), QTY, UNIT, RATE, DISCOUNT, TAXABLE VALUE, CGST and SGST rate and amount, or IGST rate and amount | Service description names the tank and capacity. Stripe rows with Neutral 100 only if the printer holds it, else rules only |
@@ -235,7 +234,7 @@ Readiness and closure items are proposed from Phase 10 and the persona (readines
 | Section styles | Numbered "01", "02.1" (Plex Mono 600, Accent 700) before each H1; H1 Primary 700 caps with a 1 pt Primary top rule across the column; H2 Primary caps; body Neutral 900; no decorative type. One Accent Level Line, 48 mm, on the cover only |
 | Tables | Header row Primary 700 with white Plex Mono 500 caps labels; rows white with Neutral 100 `#ECEBE7` banding (or rules only); 0.5 pt Neutral 300 rules (K30); numbers right-aligned in Plex Mono |
 | Required blocks | Company profile, the 5-step process diagram (as a Primary emphasis band, square numbered nodes 01 to 05, step 05 dashed with "* Where applicable"), capacities (domestic up to 20,000 L, commercial overhead up to 20,00,000 L, underground up to 1 crore L), documentation (certificate, dated sticker), quality statement, contacts |
-| ISO line (exact) | "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Never "accredited". Set 8 pt minimum, Plex Mono for the number |
+| ISO line (exact) | The ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`. Never "accredited". Set 8 pt minimum, Plex Mono for the number |
 | Client references | Only names listed in INFO-BANK, spelled as listed, and only after written permission from each client. Permission recorded in the reference log before print |
 | Page furniture | Footer: document title left, REF and page number right in Plex Mono caps 8 pt, over a 1 pt Primary rule |
 | Water-quality qualifier | Wherever "safe" or health appears: water quality also depends on source water, plumbing, tank condition and later maintenance, which are outside our service |
@@ -246,7 +245,7 @@ Collateral may use photography (s08: still, documentary, muted neutral grade, pe
 
 ### A5 flyer (148 x 210 mm)
 
-Margins 12 mm. Five elements maximum: headline, one line, process strip or one image, brand mark, one phone line first (9453517514). Layout: white ground, Primary 700 header band 22 mm with white lockup, condensed caps Primary headline 28 pt below, Accent Level Line 48 mm, a numbered 5-step strip of square outlined nodes (01 to 05, Plex Mono, step 05 dashed with "* Where applicable"), footer band with the phone line. No sun rays, no bokeh, no red badges, no yellow ground, no gradient, no rounded panels. Bilingual: English block, then Hindi or Punjabi block (s07.10), never side by side on A5.
+Margins 12 mm. Five elements maximum: headline, one line, process strip or one image, brand mark, one phone line first (the main phone, `src/site.ts`). Layout: white ground, Primary 700 header band 22 mm with white lockup, condensed caps Primary headline 28 pt below, Accent Level Line 48 mm, a numbered 5-step strip of square outlined nodes (01 to 05, Plex Mono, step 05 dashed with "* Where applicable"), footer band with the phone line. No sun rays, no bokeh, no red badges, no yellow ground, no gradient, no rounded panels. Bilingual: English block, then Hindi or Punjabi block (s07.10), never side by side on A5.
 
 ### DL brochure (297 x 210 mm flat, tri-fold, 99 mm panels)
 
@@ -256,7 +255,7 @@ Margins 12 mm. Five elements maximum: headline, one line, process strip or one i
 | Inside left | `01` Why tank cleaning matters, calm explanation with qualifier |
 | Inside centre | `02` The 5-step process diagram (s10, D1) as a Primary emphasis band |
 | Inside right | `03` Services, tank types, AMC "Never Miss Your Tank Cleaning Schedule" |
-| Back | Contacts from INFO-BANK §1 only, ISO line (exact), legal footer on a Primary footer band |
+| Back | Contacts from `src/site.ts` only, ISO line (exact), legal footer on a Primary footer band |
 
 10 mm from folds and edges. Fold-in panel is often 97 mm: confirm scoring with the vendor. Panels are separated by the fold and a 0.5 pt rule, not by boxes.
 
@@ -285,7 +284,7 @@ Disclaimer 8 pt minimum, Neutral 900, same page and same panel as the figures. N
 | Headline | "When was your water tank last cleaned?" Anek wdth 78, 700, caps, Primary, 60 to 80 pt on A3 (Hindi and Punjabi: Anek 700 at wdth 100, no case change) |
 | Line | One supporting sentence, for example "If your tank is due for cleaning, we can help you plan the service." |
 | Visual | One documentary photograph of a technician at work, square frame, or the 5-step diagram; no dirty-tank shock images |
-| Footer band | Primary 700 band 30 mm: lockup, phone 9453517514, website, QR (20 x 20 mm minimum, 4-module quiet zone, Primary on white tile, scan-tested on two phones) |
+| Footer band | Primary 700 band 30 mm: lockup, the main phone (`src/site.ts`), website, QR (20 x 20 mm minimum, 4-module quiet zone, Primary on white tile, scan-tested on two phones) |
 | Hindi / Punjabi | Separate version per language, same layout; draft headline Hindi "आपकी पानी की टंकी आखिरी बार कब साफ़ हुई थी?", Punjabi "ਤੁਹਾਡੀ ਪਾਣੀ ਦੀ ਟੈਂਕੀ ਆਖ਼ਰੀ ਵਾਰ ਕਦੋਂ ਸਾਫ਼ ਹੋਈ ਸੀ?" (wording to be checked by native speakers) |
 | Tone | No urgency words, no exclamation marks, no countdown. RWA decides; the poster only informs |
 
@@ -298,7 +297,7 @@ Built as a separate artwork, not a converted colour ad. Black (K100 for text, li
 | Item | Spec |
 |---|---|
 | Shape | Rectangle 60 x 30 mm, corner radius 1.5 mm (square corners if the die maker allows; no round seals: s05 bans seal and badge shapes) |
-| Content | Wordmark (one-colour, 40 mm wide minimum), "Gobind Galaxy", GSTIN 09ALFPS1473F5ZU (Plex Mono), "Authorised Signatory" |
+| Content | Wordmark (one-colour, 40 mm wide minimum), "Gobind Galaxy", the GSTIN from `src/site.ts` (Plex Mono), "Authorised Signatory" |
 | Ink | Primary stamp ink (nearest to `#20334B`, verify on paper) or black |
 | Line weight | 0.4 mm minimum stroke (s02, verify with stamp maker); text 7 pt Latin minimum |
 | Use | Invoices, job cards, quotations; not on the Cleaning Certificate if the certificate carries a printed signature block |
@@ -436,10 +435,10 @@ TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 RULE 15.5:     Never print invoices, quotations or tender documents with claims, contacts or legal text outside the approved footer and ISO wording.
 CLASS:         MUST
 REASON:        Documented. Documents are evidence.
-EXACT SPEC:    Contacts only from INFO-BANK §1; ISO line exactly as brand-context; no "accredited"; GSTIN 09ALFPS1473F5ZU.
+EXACT SPEC:    Contacts only from `src/site.ts`; ISO line exactly as docs/PRODUCT.md (Claims); no "accredited"; GSTIN from `src/site.ts`.
 EXAMPLE:       Tender cover lists ISO line with certificate number in Plex Mono.
 ANTI-EXAMPLE:  A footer with an old phone number or "internationally recognised".
-TEST:          Does every phone, email and address match INFO-BANK §1?
+TEST:          Does every phone, email and address match `src/site.ts`?
 EXCEPTION:     Partner details panel on franchise stationery, per owner ruling. Central brand owner.
 TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 ```
@@ -547,7 +546,7 @@ TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 - [ ] Headings in condensed caps, labels and refs in Plex Mono caps; Indic labels in Anek
 - [ ] No gradient, shadow, rounded panel or accent fill anywhere in the artwork
 - [ ] Annotated invoice layout with every GST field, CA sign-off date recorded
-- [ ] Letterhead footer checked against INFO-BANK §1
+- [ ] Letterhead footer checked against `src/site.ts`
 - [ ] Job card has readiness checks, 5-step tick boxes, closure checks
 - [ ] ISO line exact on tender, brochure and certificate
 - [ ] Franchise figures only with the disclaimer beside them
@@ -566,7 +565,7 @@ TIER / OWNER:  LOCK / Central brand owner (Gobind Galaxy)
 | 2 | Card trim 90 x 54 vs 89 x 51; corner 0 mm vs 1.5 mm | Vendor confirmation; owner confirms the 0 mm standard |
 | 3 | GST fields, SAC code, quotation wording, copy labels, e-invoicing status | CA sign-off |
 | 4 | Who invoices: Gobind Galaxy or franchise partner under own GSTIN | Owner ruling |
-| 5 | Contacts allowed on technician and partner cards | Owner ruling; brand-context lists only the two phones and two emails |
+| 5 | Contacts allowed on technician and partner cards | Owner ruling; `src/site.ts` and INFO-BANK §1 list only the two phones and two emails |
 | 6 | Job card readiness and closure items, final order | Operations lead |
 | 7 | Client references on tenders | Written permission per client |
 | 8 | Clean Tank Agent properties (non-toxic, eco-friendly, 3-month effect), CPWD DSR inclusion, "60% of diseases" stat, any government approval | Evidence before any print use; not used here |

@@ -99,7 +99,7 @@ A badge reads as a small spec card: primary title band, ruled field grid, mono v
 | Front layout | Primary 700 top band 12 mm with white horizontal logo (min 40 mm). Stone or white body. Photo 25 x 33 mm (3:4), corners 0 to 1.5 mm, 1 px neutral keyline, left. Ruled field grid on the right, 1 px neutral 300 rules, labels in Plex Mono 500 caps 6.5 pt ("NAME", "ROLE", "ID"). Name: Anek condensed 700 caps, 14 pt, Primary 700. Role "Service Technician" Anek 500, 9 pt. **ID code: IBM Plex Mono 600 caps, 8 pt**, tracking +0.08em. Employee ID format: open item |
 | Accent marker | Optional single 3 mm accent stripe under the navy band, or none. No other accent |
 | Franchise badge | Same layout. Line "Authorised Service Provider" under the logo and the district. Franchisee name 8 pt below technician name |
-| Back | Contacts from INFO-BANK §1 only (9453517514, 8699339947, www.cleantankservices.com), validity date in mono, return address (Kharar office). "Verify this technician" call line, no extra phone numbers |
+| Back | Contacts from `src/site.ts` only (both phones), and www.cleantankservices.com, validity date in mono, return address (Kharar office). "Verify this technician" call line, no extra phone numbers |
 | QR code | Optional, links to technician verification page at cleantankservices.com. Not live yet; open item |
 | Lanyard | Navy, 15 mm wide, "CLEAN TANK SERVICES" in white repeat, safety breakaway clip |
 | Replacement | Reissue yearly or on photo or role change. Lost badge deactivated at once |
@@ -120,7 +120,7 @@ Livery is a white body, one solid primary band, condensed-caps wordmark and mono
 | Panels | **Square corners** on every lettering panel, band end and plate. No rounded panels. A fixed 4 mm radius is allowed only if a sign maker cannot cut square |
 | Descriptor | "Scientific & Mechanized Water Tank Cleaning", Anek condensed 700 caps, X at least 40 mm, beneath the logo |
 | Reference line | Small mono line on the rear door or lower side: vehicle reference in IBM Plex Mono 600 caps, cap height 40 mm minimum, tracking +0.08em. Format (for example REF CT-VAN-NN) is an open item |
-| Contacts | Rear and rear side, IBM Plex Mono 600: 9453517514, 8699339947; www.cleantankservices.com. Cap height 40 mm minimum (60 recommended). No email, no extra numbers, no GSTIN. Franchise vehicle local phone: see open items |
+| Contacts | Rear and rear side, IBM Plex Mono 600: both phones from `src/site.ts`; www.cleantankservices.com. Cap height 40 mm minimum (60 recommended). No email, no extra numbers, no GSTIN. Franchise vehicle local phone: see open items |
 | Tagline | "Clean Tank, Healthy Life." rear only, cap height 80 mm |
 | Franchise | Same layout. Add "Authorised Service Provider" 60 mm cap height under the logo and "[Franchisee Name] | [City / District]" line at 40 mm cap height. Franchisee text never above or larger than CLEAN TANK |
 | Languages | Side near-side English; opposite side local language (Punjabi in Kharar region, Hindi in UP, Delhi, MP, Jharkhand, HP) per s02.14, same height as English. Marathi: native review first |
@@ -190,9 +190,9 @@ Offices: Regd. Kanpur (U.P.); Correspondence/Sales: Kharar, SAS Nagar (Punjab); 
 |---|---|
 | Fascia board | Powder-coated aluminium or ACP, flat Primary 700, **square corners**, horizontal logo with descriptor in white, X at least 120 mm for 15 m. Width 2400 to 3600 mm, height 600 mm (size to shopfront and local rules). Matte, no neon, no backlit accent. If lit: front-lit, warm-neutral 3000 to 4000 K, hours per local rules |
 | Fascia text | Name and descriptor only; local language line beneath at same height; "Authorised Service Provider" for franchise offices, cap height 50 mm min |
-| Door sign / hours | 300 x 100 mm plate, square, primary on white, hours and phone numbers (Plex Mono) from INFO-BANK §1 only |
+| Door sign / hours | 300 x 100 mm plate, square, primary on white, hours and phone numbers (Plex Mono) from `src/site.ts` only |
 | Wall graphic | White or stone wall, Primary 700 lower band, horizontal logo at least 400 mm wide. One 3 mm accent Level Line allowed at 1200 mm. Paint codes: pick at sample stage (open) |
-| Certificate wall | Frame ISO certificate: "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Display only the real certificate in a plain navy or white square frame, with a mono reference label beside it. Do not add seals or "accredited" |
+| Certificate wall | Frame the ISO certificate; caption it with the ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`. Display only the real certificate in a plain navy or white square frame, with a mono reference label beside it. Do not add seals or "accredited" |
 | Process wall (optional) | 5-step diagram (s10) 1800 x 600 mm: square numbered nodes "01" to "05", step 05 dashed with "* Where applicable" |
 | Franchise office | Same system, scaled; fascia and wall graphic from a central file; local sign maker works from the vendor pack |
 | Maintenance | Clean monthly; review fascia fade yearly; refresh every 5 to 7 years |
@@ -283,7 +283,7 @@ TIER / OWNER:  LOCK / Central brand owner and operations safety lead
 RULE 16.3:     Apply the van livery as white body, one solid Primary band, condensed-caps wordmark, mono reference and contact lines, and one thin accent Level Line stripe.
 CLASS:         MUST
 REASON:        Exact, Restrained, Documented: legible from 10 m and checkable.
-EXACT SPEC:    Primary band 350 to 450 mm; accent stripe 20 mm (25 mm max), accent under 3% of the side; X at least 80 mm (recommended 100); square panel corners; phones 9453517514 and 8699339947 in Plex Mono 600; matte or satin cast vinyl; no gradient, splash or ray.
+EXACT SPEC:    Primary band 350 to 450 mm; accent stripe 20 mm (25 mm max), accent under 3% of the side; X at least 80 mm (recommended 100); square panel corners; both phones from `src/site.ts` in Plex Mono 600; matte or satin cast vinyl; no gradient, splash or ray.
 EXAMPLE:       Kharar van with horizontal logo, Punjabi line on the far side, vehicle reference and two numbers at rear in mono.
 ANTI-EXAMPLE:  Rounded lettering panel, gradient band, "No. 1 Tank Cleaners" and a third phone number.
 TEST:          Logo readable at 10 m? Only two phones? Single stripe, under 3%? Square corners?
@@ -361,7 +361,7 @@ TIER / OWNER:  GUARD / Central brand owner
 | Keep vehicles clean and vinyl intact | Run a faded or peeling van |
 | Cut panels and boards square | Round panels, use pill shapes or add shadows |
 | Size signs by distance | Size by the mockup |
-| Put contacts only from INFO-BANK §1, set in mono | Add personal numbers |
+| Put contacts only from `src/site.ts`, set in mono | Add personal numbers |
 | Use matte, flat, solid navy | Use gloss, chrome, neon, bevel or gradient |
 | Show equipment with step names and asset codes | Add claims to equipment |
 | Display the real ISO certificate with approved wording | Add seals or "accredited" |
@@ -419,7 +419,7 @@ TIER / OWNER:  GUARD / Central brand owner
 3. Vinyl: accent UV fade test; RAL 5013 and 2012 matches; outdoor rating 3 to 5 years (verify with supplier).
 4. RTO and state vehicle advertising and colour-change rules; local signboard language rules (Maharashtra, Karnataka, Punjab, UP); landlord approvals.
 5. Safety SOP: PPE colours, standards (IS), reflective tape, confined-space coverall. Needs operations safety lead.
-6. Franchise vehicle phone numbers: INFO-BANK §1 lists only the two central numbers. Owner decision.
+6. Franchise vehicle phone numbers: `src/site.ts` lists only the two central numbers. Owner decision.
 7. Employee ID, vehicle reference, asset code and site-sign REF formats; verification page and QR. Examples in this doc are placeholders.
 8. Hindi and Punjabi sign text needs native review (s10.21).
 9. Equipment plates: model-neutral wording confirmed with real equipment; no performance claims.

@@ -185,9 +185,9 @@ Quote posts are not an archetype. A testimonial card exists only for a real, per
 | Banned words | best, #1, guaranteed, 100% bacteria-free, "kills all germs", "zero risk", "India's leading" (unless evidenced), any attack on plumbers or competitors |
 | Health lines | Any "safe", "healthy", "bacteria-free" or hygiene line carries: "Water quality also depends on source water, plumbing, tank condition and later maintenance, which are outside our service." On a creative it uses the P1H or P1HC zone (28 px minimum, Neutral 900, never in the band); if it cannot fit, the line is removed from the image and the claim goes in the caption with the qualifier |
 | Evidence-pending claims | Never on any creative until evidenced and approved: Clean Tank Agent properties (non-toxic, eco-friendly, 3-month effect), "60% of diseases" statistic, CPWD DSR inclusion, any WHO, FDA or government approval |
-| ISO | Only the exact line: "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Not on stickers (s10). Never "accredited" |
+| ISO | Only the ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`. Not on stickers (s10). Never "accredited" |
 | Numbers | ₹ before number, en-IN grouping (20,00,000 L), dates "03 Oct 2026", non-breaking space before units |
-| Contacts | Only 9453517514, 8699339947, gobindgalaxy@gmail.com, admin@cleantankservices.com, www.cleantankservices.com. One phone number per creative |
+| Contacts | Only the phones and email in `src/site.ts`, the Gobind Galaxy email and the website in INFO-BANK §1. One phone number per creative |
 | Emoji | None on creatives. None in captions at launch (open item) |
 | Origin story and early dates | Not used until verified (LIC Lucknow vs Kanpur, 2006 to 08). "In business since 2008" and "15+ years" are safe |
 
@@ -320,7 +320,7 @@ Label `RECORD / 02`. Headline: "A DATED STICKER STAYS ON THE TANK." Support: "Ev
 Label `ON SITE / 01`. Headline: "THE SAME FIVE STEPS ON EVERY JOB." Slot: a technician in pressed navy uniform checking equipment, working not posing, written release on file. Support: "[Name], Technician. Every technician follows the same five steps, on every job." The word "trained" is used only after the training programme is confirmed. No claims about years of experience unless recorded.
 
 **Example 5: Reminder, W1 WhatsApp card (monsoon).**
-White body. Label `SCHEDULE / 03`. Headline: "WHEN WAS YOUR TANK LAST CLEANED?" Body 36 px: "Monsoon is a good time to check your schedule. How often depends on the place: healthcare buildings often plan around every 3 months, schools around every 6. If your tank is due, we can help you plan the service." Contact cell: `CALL OR WHATSAPP` 9453517514. Hindi version headline: "आपकी टंकी की आख़िरी सफ़ाई कब हुई थी?" (P1I rules, native review before use).
+White body. Label `SCHEDULE / 03`. Headline: "WHEN WAS YOUR TANK LAST CLEANED?" Body 36 px: "Monsoon is a good time to check your schedule. How often depends on the place: healthcare buildings often plan around every 3 months, schools around every 6. If your tank is due, we can help you plan the service." Contact cell: `CALL OR WHATSAPP` and the WhatsApp number from `src/site.ts`. Hindi version headline: "आपकी टंकी की आख़िरी सफ़ाई कब हुई थी?" (P1I rules, native review before use).
 
 **Example 6: Franchise, P1F post and B1 banner.**
 Post label `NETWORK / 01`, headline "BUILD A STRUCTURED SERVICE BUSINESS IN YOUR DISTRICT" (8 words), support "A structured service business you can build in your district, with training and support.", three-row Authorised Service Provider footer. Banner B1 as 17.4. Post text: two lines on the network, link to the brochure, no figures in the image. If figures are quoted in the post, the full disclaimer follows in the same post. No money imagery.

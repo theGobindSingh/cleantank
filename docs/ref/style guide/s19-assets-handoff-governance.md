@@ -31,7 +31,7 @@ Scope. This pillar owns the asset library, file naming, formats, licences, hando
 | **Franchise partner** | Each Authorised Service Provider | Fills only the fields allowed in 19.11; asks before any local print | n/a |
 | **Vendors and agencies** | Printer, sign maker, embroiderer, photographer, web developer, agency | Work from the brief; send proofs; cannot approve their own work | Proof returned in 1 working day (ask) |
 
-Ladder: requester > asset steward (GUARD, FLEX) > central brand owner (LOCK, anything touching the logo, certificate, sticker, uniform, signage or franchise material) > for claims, the evidence check in 19.17. Ask by email to `admin@cleantankservices.com` or the brand channel the steward sets up (open item: channel not decided). Use only the contacts in INFO-BANK §1 on any file.
+Ladder: requester > asset steward (GUARD, FLEX) > central brand owner (LOCK, anything touching the logo, certificate, sticker, uniform, signage or franchise material) > for claims, the evidence check in 19.17. Ask by email to the site email in `src/site.ts` or the brand channel the steward sets up (open item: channel not decided). Use only the contacts in `src/site.ts` on any file.
 
 ## 19.3 Single source of truth and storage
 
@@ -342,7 +342,7 @@ Run on every external file before release. Pass mark: **all 5 critical items pas
 | 11 | ISO line uses the exact wording or does not appear | Yes |
 | 12 | Health or "safe" lines carry the water-quality qualifier | Yes |
 | 13 | No "best", "#1", "guaranteed", "100% bacteria-free"; no competitor attack | |
-| 14 | Contacts only those in INFO-BANK §1 (or approved local phone) | |
+| 14 | Contacts only those in `src/site.ts` (or approved local phone) | |
 | 15 | Imagery is real, consented, graded `ctd-v2`; people shown working, not posing; stock not on records or franchise items | |
 | 16 | Alt text present on informative images; live text in PDFs | |
 | 17 | File format matches use (19.8); file name follows 19.6; any reference code on the item matches the registry (19.6.1) | |
@@ -425,7 +425,7 @@ These apply to every vendor, agency, partner and tool. Copy them into every brie
 
 | Rule | Spec |
 |---|---|
-| ISO | Only: "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Never "accredited", "internationally recognised", UKAS, IAF |
+| ISO | Only the ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`. Never "accredited", "internationally recognised", UKAS, IAF |
 | Process | 5 steps only: Dewatering, High-pressure cleaning, Sludge & water removal, Disinfection (antibacterial), UV treatment (where applicable). Never the old 6-step or HCl version |
 | Health lines | Qualifier: water quality also depends on source water, plumbing, tank condition and later maintenance, which are outside our service |
 | Banned words | "100% bacteria-free", "guaranteed", "best", "#1"; attacks on competitors or local plumbers |
@@ -624,7 +624,7 @@ TIER / OWNER:  LOCK / Central brand owner
 | Audit and portal | Pass and Fail words beside every score; never colour alone |
 | This guide | Provide a tagged PDF of the guide itself and keep headings real |
 | Scripts | Native readers check Hindi and Punjabi before release. Test Anek Gurmukhi and Devanagari rendering in Word, Canva and print |
-| India | Dates `03 Oct 2026`; rupee sign before number with no space; en-IN grouping (20,00,000 L); phone numbers only from INFO-BANK §1; GSTIN in IBM Plex Mono |
+| India | Dates `03 Oct 2026`; rupee sign before number with no space; en-IN grouping (20,00,000 L); phone numbers only from `src/site.ts`; GSTIN in IBM Plex Mono |
 
 ## 19.25 Clean Tank Style on a Page (v2.0)
 
@@ -698,7 +698,7 @@ THEMES      light and dark (primary-based) · tokens: repo /tokens/ct.tokens.jso
 ACCESS      WCAG 2.2 AA · body 16 px min · focus ring 2 px Primary 700, 2 px offset, radius 4
             (white ring on bands) · state never by colour alone
 FRANCHISE   change only: Authorised Service Provider name, city line, approved local phone
-FILES       Drive: ct-brand/   Figma: Clean Tank Brand   ASK: admin@cleantankservices.com
+FILES       Drive: ct-brand/   Figma: Clean Tank Brand   ASK: site email (src/site.ts)
 ```
 
 ## 19.26 Launch quality gate (adapted)

@@ -129,14 +129,14 @@ Interim text-only lockup (email signatures, plain documents only; s02 overrides)
 |---|---|---|
 | Digits | Western Arabic 0 to 9 in all three languages | 20,00,000 L in a Hindi sentence |
 | Figure style | Lining by default (verify). Tabular (`tabular-nums lining-nums`) for capacities, dates, tables, forms, records. Proportional is fine in prose | table column aligns |
-| Slashed zero | `font-feature-settings: "zero"` on all IDs and code strings (Anek and Plex Mono both have `zero`) | Q2A-2026-0401T118011 |
+| Slashed zero | `font-feature-settings: "zero"` on all IDs and code strings (Anek and Plex Mono both have `zero`) | The ISO certificate number |
 | Grouping | Indian: `new Intl.NumberFormat("en-IN")` | 20,000 · 2,00,000 · 20,00,000 |
 | Capacity words | Digits on records; "lakh" and "crore" allowed in prose | "up to 20 lakh litres" |
 | Units | One non-breaking space (U+00A0) between number and unit. U+202F is absent from Anek. `L`, `bar`, `kg`, `m³` | 250 bar, 20,000 L |
 | ₹ | Before the number, no space, never "Rs" in UI | ₹3 to 8 lakh |
 | Negatives, percent | True minus U+2212; no space before % | −5 · 3.5% |
-| Phone | +91, then 5 + 5 grouping, only numbers in INFO-BANK §1 | +91 94535 17514 |
-| GSTIN, certificate no. | Mono, no spaces, `white-space: nowrap` | GSTIN 09ALFPS1473F5ZU |
+| Phone | +91, then 5 + 5 grouping, only numbers in `src/site.ts` | +91 XXXXX XXXXX |
+| GSTIN, certificate no. | Mono, no spaces, `white-space: nowrap` | The GSTIN from `src/site.ts` |
 | Date in prose, invoices, UI | DD Mon YYYY, two-digit day, English three-letter month, no comma | 03 Oct 2026 |
 | Date on records (sticker, certificate, job card) | Same source text, shown in capitals by CSS in Plex Mono (`value`) or Anek wdth 78 (`data-l`) | 03 OCT 2026 |
 | Date in Hindi or Punjabi running prose | Month may be written in script | 03 अक्टूबर 2026 |
@@ -278,9 +278,9 @@ Text sits on the scrim set in s08; contrast of white text against the worst phot
 | Label | NEXT CLEANING DUE (RECOMMENDED) | `label` |
 | Value | [DD MON YYYY, set per organisation] | `value` mono 600, 9 pt |
 | Ref | [serial or reference code, format to be set by owner] | `ref` mono 500, 7 pt |
-| Footer | +91 94535 17514 in mono; www.cleantankservices.com in Anek 400 sentence case | small, Neutral 900 |
+| Footer | The phone from `src/site.ts` in mono; www.cleantankservices.com in Anek 400 sentence case | small, Neutral 900 |
 
-**Cleaning Certificate:** primary title band with record title "CLEANING CERTIFICATE" (22 pt, wdth 78, 700, white), Hindi "सफ़ाई प्रमाणपत्र" and Punjabi "ਸਫ਼ਾਈ ਸਰਟੀਫਿਕੇਟ" beneath at the same size, Anek 700, white, no caps (native review pending). Below, a ruled 1 px field grid: label (mono 500 caps, Primary 700) over value (mono 600 caps, Neutral 900); reference code top right (`ref`); the five process steps as a numbered list at 10.5 pt with mono numerals 01 to 05; ISO line at 8 pt exactly as: "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." in sentence case, not capitalised; any "safe" or water-quality line carries the qualifier that water quality also depends on source water, plumbing, tank condition and later maintenance, outside our service.
+**Cleaning Certificate:** primary title band with record title "CLEANING CERTIFICATE" (22 pt, wdth 78, 700, white), Hindi "सफ़ाई प्रमाणपत्र" and Punjabi "ਸਫ਼ਾਈ ਸਰਟੀਫਿਕੇਟ" beneath at the same size, Anek 700, white, no caps (native review pending). Below, a ruled 1 px field grid: label (mono 500 caps, Primary 700) over value (mono 600 caps, Neutral 900); reference code top right (`ref`); the five process steps as a numbered list at 10.5 pt with mono numerals 01 to 05; ISO line at 8 pt, exactly the ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`, in sentence case, not capitalised; any "safe" or water-quality line carries the qualifier that water quality also depends on source water, plumbing, tank condition and later maintenance, outside our service.
 
 **WhatsApp card (image):** 1080 px canvas so text reads at about 300 px display width (verify). Heading condensed caps 72 px, 700, line 1.0, white on a primary band or Primary 700 on stone; body 48 px 400; label and ref mono 40 px minimum (about 11 px on screen); contacts mono 600, 44 px. English then Hindi or Punjabi stacked, same px, Indic uncapitalised.
 

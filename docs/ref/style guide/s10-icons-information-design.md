@@ -167,8 +167,8 @@ Source of truth for typography is s04: Anek Latin digits support `tnum`; Anek De
 | Pressure unit | bar, non-breaking space | up to 250 bar | Always with "up to" and "subject to site and equipment" |
 | Dates | `DD Mon YYYY`; on records shown in capitals by CSS | 03 Oct 2026 (record: 03 OCT 2026) | No numeric-only dates (03/10/2026 is ambiguous) |
 | Currency | ₹ before the figure, no space, en-IN grouping; lakh and crore in prose | ₹3 to 8 lakh | Franchise figures only from INFO-BANK §8 with the disclaimer beside them |
-| Phone | `+91` then 5 + 5 digit groups, Plex Mono | +91 94535 17514 | Numbers only from INFO-BANK §1 |
-| IDs and reference codes | IBM Plex Mono 500/600, caps | Q2A-2026-0401T118011; REF CT-PR-05 | Never wrap; never hyphen-break |
+| Phone | `+91` then 5 + 5 digit groups, Plex Mono | +91 XXXXX XXXXX | Numbers only from `src/site.ts` |
+| IDs and reference codes | IBM Plex Mono 500/600, caps | The ISO certificate number; REF CT-PR-05 | Never wrap; never hyphen-break |
 
 Formatter: use `Intl.NumberFormat('en-IN')` for full numbers (123456 gives 1,23,456). Do not use `notation: 'compact'` above 100 crore (it gives forms such as 150Cr); cap or use a custom formatter. Tested only in Node 22 and Chromium 141 per the blueprint, so spot check Firefox and Safari (verify before use).
 
@@ -280,9 +280,9 @@ The sticker carries no ISO line (partial wording is not allowed and the full lin
 
 ## 10.20 Certificate data block
 
-The certificate is a test-report page: square corners, a Primary 700 title band, then a ruled field grid of two columns of key and value pairs, 1 px rules (`ct.color.border.rule`), 8 mm minimum row height. Labels Plex Mono 500 caps 8 pt above values; values Plex Mono 500 10 pt `tnum` for numbers, dates and codes (certificate number, GSTIN 09ALFPS1473F5ZU), Anek 400 10 pt for names and addresses. Reference code in the band (for example REF CT-CERT-nn, format Open).
+The certificate is a test-report page: square corners, a Primary 700 title band, then a ruled field grid of two columns of key and value pairs, 1 px rules (`ct.color.border.rule`), 8 mm minimum row height. Labels Plex Mono 500 caps 8 pt above values; values Plex Mono 500 10 pt `tnum` for numbers, dates and codes (certificate number, GSTIN), Anek 400 10 pt for names and addresses. Reference code in the band (for example REF CT-CERT-nn, format Open).
 
-Fields in order: certificate no.; customer and site address; tank type and capacity (20,000 L style); cleaning date; next due date (recommended, not a promise); process record (5 steps 01 to 05 in order, each Done, step 05 Done or Not applicable); technician and Authorised Service Provider, name and ID; Clean Tank contact (INFO-BANK §1 only). Footer lines at 8 pt: the exact ISO wording ("ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029.") and "Water quality also depends on source water, plumbing, tank condition and later maintenance, which are outside our service."
+Fields in order: certificate no.; customer and site address; tank type and capacity (20,000 L style); cleaning date; next due date (recommended, not a promise); process record (5 steps 01 to 05 in order, each Done, step 05 Done or Not applicable); technician and Authorised Service Provider, name and ID; Clean Tank contact (`src/site.ts` only). Footer lines at 8 pt: the exact ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`, and "Water quality also depends on source water, plumbing, tank condition and later maintenance, which are outside our service."
 
 ## 10.21 Site wayfinding and signage pictograms
 

@@ -38,7 +38,7 @@ Not applicable to Clean Tank: retail barcode (EAN-13), MRP on pack, variant colo
 
 | Layer | Rule for the service kit |
 |---|---|
-| Lock | Logo version per item (14.2 and s02), primary title band, white ground, ruled field order, mono value style, ISO wording where allowed, qualifier text, type families, contact numbers from INFO-BANK §1 only. |
+| Lock | Logo version per item (14.2 and s02), primary title band, white ground, ruled field order, mono value style, ISO wording where allowed, qualifier text, type families, contact numbers from `src/site.ts` only. |
 | Flex | Customer and site data, dates, serial and certificate numbers, technician name and ID, franchise block text, language pair (English plus Hindi or Punjabi). |
 | Navigate | Item type is found by format and printed title ("CLEANING RECORD", "CLEANING CERTIFICATE"), never by colour alone. Language is shown by script, not colour. |
 | Scale | Sticker below 100 x 70 mm is not allowed. Equipment tags use the 50 x 25 mm layout or symbol only (min 8 mm, s02). A5 certificate summary is a later item, not a shrunk certificate. |
@@ -123,7 +123,7 @@ Margins 20 mm all sides, content width 170 mm, 6-column grid, 5 mm gutter. Squar
 | Process record | 122 to 152 | Section label "02 PROCESS RECORD" (mono), then the steps row 01 to 05 (below) | s06.2 |
 | Notes | 158 to 180 | Ruled box, 3 lines, sticker location and remarks, 10 pt | |
 | Sign-off | 186 to 212 | Signature box 55 x 20 mm, stamp box 45 x 20 mm, "STICKER FITTED: YES / NO" with two square checkboxes, 8 pt mono labels | |
-| Footer | 240 to 277 | 0.25 pt rule above; qualifier, ISO wording, GSTIN (INFO-BANK §1), endorsement, contacts, 8 pt | |
+| Footer | 240 to 277 | 0.25 pt rule above; qualifier, ISO wording, GSTIN (`src/site.ts`), endorsement, contacts, 8 pt | |
 
 Positions are starting points; confirm at proof.
 
@@ -135,7 +135,7 @@ Positions are starting points; confirm at proof.
 | 2 (18 mm) | CUSTOMER AND SITE ADDRESS, spans all three columns | | |
 | 3 (12 mm) | TANK TYPE | CAPACITY, en-IN style (`20,000 L`) | PO / WORK ORDER NO. (institutions; else blank) |
 | 4 (12 mm) | TECHNICIAN | TECH ID | AUTHORISED SERVICE PROVIDER ID (franchise only) |
-| 5 (12 mm) | STICKER SERIAL | STICKER LOCATION | CLEAN TANK CONTACT (INFO-BANK §1 only) |
+| 5 (12 mm) | STICKER SERIAL | STICKER LOCATION | CLEAN TANK CONTACT (`src/site.ts` only) |
 
 The same **3 px (1 pt on paper) Accent 500 underline marker** as on the sticker sits under the CERTIFICATE NO. value, value width, square ends. It is the only accent on the sheet.
 
@@ -159,7 +159,7 @@ Qualifier, in the footer, 8 pt, Neutral 700 `#4A4B48` (8.78:1 on White) or Graph
 
 ISO line, allowed on the certificate only, 8 pt, exactly:
 
-> ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029.
+> The ISO line from docs/PRODUCT.md (Claims), filled from `src/site.ts`.
 
 Never "accredited", "internationally recognised", UKAS or IAF. Never print "safe", "bacteria-free", "guaranteed" or "best". The certificate states what was done and when, not what the water will be.
 
@@ -208,7 +208,7 @@ Never "accredited", "internationally recognised", UKAS or IAF. Never print "safe
 | Card slot | None | Slit for visiting card 90 x 54 mm |
 | Contents | Certificate (A4, unfolded) | Certificate; space for the AMC reminder note if the customer takes AMC (content Open) |
 | Front line | "Your Cleaning Certificate" Anek 600 14 pt, Hindi or Punjabi beneath | Same, plus "Clean Tank, Healthy Life." 11 pt on the back |
-| Back | Contacts from INFO-BANK §1 only, 8 pt minimum | Same, plus franchise block when issued by a provider |
+| Back | Contacts from `src/site.ts` only, 8 pt minimum | Same, plus franchise block when issued by a provider |
 
 The folder never shows a photograph of a dirty tank, a droplet or a splash. The inside left panel may carry the Step Track (s06, s10) with exact labels, square nodes numbered 01 to 05, step 05 dashed.
 
@@ -238,7 +238,7 @@ Accent: at most one 1 mm marker line, never on or near the hazard block. Regulat
 | Manufacturer, packer or importer name and address | [Name, address] | Legal Metrology (Packaged Commodities) Rules, 2011 and amendments, if applicable |
 | Net quantity | [e.g. litres or kg]; numeral height by quantity: up to 200 g or ml, 1 mm; above 200 up to 500, 2 mm; above 500, 4 mm; blown or moulded 2, 4 and 6 mm (verify) | Same rules, Rule 7 |
 | Month and year of packing, batch no., expiry | [fields] | Same rules, product registration |
-| Customer care contact | Phone and email from INFO-BANK §1 only | Same rules |
+| Customer care contact | Phone and email from `src/site.ts` only | Same rules |
 | MRP | Only if sold at retail; otherwise "Not for retail sale" (confirm wording) | Same rules |
 | Hazard pictograms, signal words, statements | [per SDS] | Applicable chemical hazard labelling rules (compliance to identify) |
 | Product registration or licence number | [if the product category requires one] | Applicable regulator (compliance to identify) |
@@ -322,7 +322,7 @@ Rules: decals sit on flat panels, aligned, never on moving parts or vents; a tor
 | 2 | Brand and standards pack (printed summary of this guide's one-page sheet) | Short, not the full guide |
 | 3 | Documentation set: certificate shell stock, sticker set, folder | Same items technicians use |
 | 4 | Uniform and identification items | Only if the package includes them (Open) |
-| 5 | Contact and support card | Contacts from INFO-BANK §1 only |
+| 5 | Contact and support card | Contacts from `src/site.ts` only |
 
 A ruled "KIT CONTENTS" card (mono, numbered 01 to 05, square checkboxes) sits on top of layer 2 so the partner can check the box against the list.
 
@@ -548,7 +548,7 @@ TIER / OWNER:  GUARD / Central brand owner (Gobind Galaxy)
 |---|---|---|
 | 1 | Final logo route and artwork (no logo exists yet); until then band text stands in | Owner |
 | 2 | Sticker vinyl, laminate, adhesive grades and measured outdoor life; fade of the 1 mm accent line and thin mono text | Sticker vendor |
-| 3 | Which phone number prints on the sticker (9453517514 or 8699339947) | Owner |
+| 3 | Which phone number prints on the sticker (either phone in `src/site.ts`) | Owner |
 | 4 | Exact placement guidance on the tank, and a written replacement and removal rule | Owner and field team |
 | 5 | Certificate, sticker, asset and bag code formats and register ownership (placeholder idea: prefix, year, running number) | Owner |
 | 6 | Whether the ISO certificate scope covers Authorised Service Providers; whether the ISO line may appear on franchise certificates | Owner and certifier |
