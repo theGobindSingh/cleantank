@@ -362,7 +362,11 @@ export interface TrustBandBlock {
    * Only figures approved in INFO-BANK, such as 15+ years.
    */
   figures: {
-    value: string;
+    /**
+     * Pick the ISO standard to show the one in src/site.ts instead of typing it.
+     */
+    source: 'typed' | 'isoStandard';
+    value?: string | null;
     label: string;
     id?: string | null;
   }[];
@@ -1060,6 +1064,7 @@ export interface TrustBandBlockSelect<T extends boolean = true> {
   figures?:
     | T
     | {
+        source?: T;
         value?: T;
         label?: T;
         id?: T;

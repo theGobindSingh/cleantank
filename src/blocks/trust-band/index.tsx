@@ -1,4 +1,5 @@
 import type { TrustBandBlock } from "@/payload-types";
+import { site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import Highlight from "@components/highlight";
 import { H2, P } from "@components/html";
@@ -17,7 +18,7 @@ const renderFigure = (figure: Figure, index: number) => {
         </P>
       </dt>
       <dd className="order-first font-heading text-(length:--fs-h2) leading-none font-bold text-heading md:text-(length:--fs-h1)">
-        {figure.value}
+        {figure.source === "isoStandard" ? site.iso.standard : figure.value}
       </dd>
     </div>
   );

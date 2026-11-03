@@ -21,6 +21,7 @@ import * as migration_20261030_170745_value_prop_second_image from './20261030_1
 import * as migration_20261030_194036_process_benefit_highlight from './20261030_194036_process_benefit_highlight';
 import * as migration_20261030_205012_heading_highlight from './20261030_205012_heading_highlight';
 import * as migration_20261030_212213_value_prop_image_url from './20261030_212213_value_prop_image_url';
+import * as migration_20261103_110603_trust_band_figure_source from './20261103_110603_trust_band_figure_source';
 
 export const migrations = [
   {
@@ -136,6 +137,11 @@ export const migrations = [
   {
     up: migration_20261030_212213_value_prop_image_url.up,
     down: migration_20261030_212213_value_prop_image_url.down,
-    name: '20261030_212213_value_prop_image_url'
+    name: '20261030_212213_value_prop_image_url',
+  },
+  {
+    up: migration_20261103_110603_trust_band_figure_source.up,
+    down: migration_20261103_110603_trust_band_figure_source.down,
+    name: '20261103_110603_trust_band_figure_source'
   },
 ];
