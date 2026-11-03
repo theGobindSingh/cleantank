@@ -1,7 +1,7 @@
 import { H3, P, Span } from "@components/html";
 import Link from "@components/link";
-import { tw } from "@utils/tw";
-import { pad, stepId, type Step } from "./step";
+import StepMarker from "@components/step-marker";
+import { stepId, type Step } from "./step";
 
 interface TrackProps {
   steps: Step[];
@@ -24,22 +24,12 @@ const Track = ({ steps, whereApplicable, isLinked }: TrackProps) => {
         key={step.id ?? index}
         className="grid grid-cols-[auto_1fr] gap-x-4 lg:row-span-4 lg:grid-cols-1 lg:grid-rows-subgrid"
       >
-        <div
-          aria-hidden="true"
-          className="flex flex-col items-center lg:flex-row"
-        >
-          <span
-            className={tw(
-              "flex size-8 shrink-0 items-center justify-center rounded-xs border-2 border-primary font-mono text-(length:--fs-caption) font-semibold text-heading md:size-10",
-              isLast && "border-dashed",
-            )}
-          >
-            {pad(index + 1)}
-          </span>
-          {!isLast && (
-            <span className="w-0.5 flex-1 bg-primary lg:h-0.5 lg:w-auto" />
-          )}
-        </div>
+        <StepMarker
+          number={index + 1}
+          isLast={isLast}
+          isDashed={isLast}
+          isRowAtLg
+        />
         <div className="flex flex-col gap-2 pb-10 lg:contents lg:*:pr-6">
           <H3 $size="h4" $margin="0">
             {isLinked ? (

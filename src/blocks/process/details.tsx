@@ -1,6 +1,7 @@
 import { H3, P, Span } from "@components/html";
+import { pad } from "@utils/pad";
 import Image from "next/image";
-import { pad, stepId, type Step } from "./step";
+import { stepId, type Step } from "./step";
 
 interface DetailsLabels {
   step: string;
