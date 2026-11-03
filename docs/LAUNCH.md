@@ -53,7 +53,7 @@ The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this l
 
 - [ ] The home page testimonials block has real quotes with permission picked, or you accept that the section disappears: its placeholder cards stop showing once `isLive` is on.
 - [ ] All seven header pages exist; no nav link leads to a 404. Then remove the `_rsc=` exception in the language test in `e2e/site.spec.ts`.
-- [ ] Contacts, GSTIN and brand lines match INFO-BANK.
+- [ ] The owner has checked the facts in `src/site.ts`: contacts, offices, GSTIN, Udyam, ISO details and brand lines.
 - [ ] `iso.certificate` in `src/site.ts` points to the ISO certificate image in `public/`.
 - [ ] `SITE_URL` is set to the production domain in Vercel; the domain serves HTTPS and the www and bare hosts redirect to one of them.
 - [ ] Set `site.isLive` to `true` in `src/site.ts` and update the "paused" note in docs/CONVENTIONS.md (Analytics and errors).

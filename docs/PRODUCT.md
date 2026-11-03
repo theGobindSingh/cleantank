@@ -2,7 +2,7 @@
 
 What this site is, who it serves and what it may say. Agents read this before deciding pages, copy or structure.
 
-Facts, figures, legal text, contact details, client names and website-safe long copy come from `docs/ref/INFO-BANK.md`. When this file and INFO-BANK disagree on a fact, INFO-BANK wins.
+Facts the code uses (brand lines, contacts, offices, GSTIN, Udyam, ISO details) come from `src/site.ts`. Other facts, figures, legal text, client names and website-safe long copy come from `docs/ref/INFO-BANK.md`. When this file disagrees with either, the source wins.
 
 ## The business
 
@@ -10,9 +10,9 @@ Clean Tank Services does scientific and mechanized cleaning and disinfection of 
 
 Naming:
 
-- Brand: Clean Tank Services ("Clean Tank" in running text). Formal lockup: "CLEAN TANK SERVICES — An Initiative of GOBIND GALAXY".
-- Descriptor: "Scientific & Mechanized Water Tank Cleaning". It is not the tagline and the two are never swapped. "Mechanized" always takes a z.
-- Tagline: "Clean Tank, Healthy Life".
+- Brand: Clean Tank Services ("Clean Tank" in running text). Formal lockup: the name with the endorsement (`src/site.ts`).
+- Descriptor: `site.descriptor` in `src/site.ts`. It is not the tagline and the two are never swapped. "Mechanized" always takes a z.
+- Tagline: `site.tagline` in `src/site.ts`.
 - Franchise operators appear as "Authorised Service Provider" under the master brand, with their name and city in a text slot. They never become the primary brand and get no sub-brand.
 - Clients named "Kanha Galaxy" and "Kanak Galaxy" have nothing to do with Gobind Galaxy.
 
@@ -125,9 +125,9 @@ Never invent a certification, approval, lab result, health claim, client, statis
 Safe to state:
 
 - Established 2008, "15+ years".
-- "ISO 9001:2015 certified (Q2A-UK Certification Board), Certificate No. Q2A-2026-0401T118011, valid to 31 March 2029." Never "accredited", "internationally recognised", UKAS or IAF.
+- The ISO line: "{standard} certified ({issuer}), Certificate No. {number}, valid to {validTo}.", filled from `site.iso` in `src/site.ts` (the credentials block's `isoValue`). Never "accredited", "internationally recognised", UKAS or IAF.
 - Operating states: Punjab, Delhi, Uttar Pradesh, Himachal Pradesh, Madhya Pradesh, Jharkhand, Maharashtra.
-- GSTIN 09ALFPS1473F5ZU.
+- The GSTIN in `src/site.ts`.
 - The LIC tank story happened in Kanpur.
 
 Needs a document before use: biodegradable, eco-friendly, how long the treatment lasts, the CPWD DSR listing (exact edition and item), the "60% of diseases are water-borne" figure, the Delhi Railway Station story.
@@ -138,7 +138,7 @@ Franchise pages may use only these figures, with the financial disclaimer from I
 
 Clients have given permission to show their names and logos. The list is in INFO-BANK; keep its spellings. IIT Delhi is a client (INFO-BANK lists it under "IITs across India"), and its logo is in `public/assets/images/clients/institutional/`.
 
-Contact details come only from INFO-BANK §1, through `src/site.ts`. WhatsApp is +91 94535 17514 for now.
+Contact details come only from `src/site.ts`. WhatsApp uses the main phone number for now.
 
 ## Legal: DPDP Act
 

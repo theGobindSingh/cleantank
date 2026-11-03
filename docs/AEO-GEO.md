@@ -30,7 +30,7 @@ In order of impact. Each has an item in the checklist below.
 
 The site has no JSON-LD on any page. This is the largest gap. Structured data is how an engine learns, without guessing, that Clean Tank Services is a local business in Punjab that cleans water tanks, with this phone number and this service area.
 
-§13.19 of the style guide already specifies it: Organization and LocalBusiness JSON-LD from INFO-BANK facts only, with no rating and no ISO claim. It was never built.
+§13.19 of the style guide already specifies it: Organization and LocalBusiness JSON-LD from `src/site.ts` and INFO-BANK facts only, with no rating and no ISO claim. It was never built.
 
 What to add:
 
