@@ -40,8 +40,9 @@ const renderNote = (paragraph: string) => {
 };
 
 /**
- * Prices by tank size in a table, the multi-tank discounts and small print in
- * seven columns, the calculator in the other five from `lg` up; stacked below.
+ * The headline and intro across the top, then from `lg` up the calculator and
+ * buttons in five columns and the price table, discounts and small print in
+ * the other seven; stacked below, calculator first.
  */
 const PriceList = ({
   heading,
@@ -90,11 +91,21 @@ const PriceList = ({
       wrapperProps={anchor ? { id: anchor } : {}}
       className="grid gap-10 py-8 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12"
     >
+      <div className="flex flex-col gap-4 lg:col-span-12">
+        <SectionHeadline heading={heading} highlight={highlight} />
+        <Paragraphs text={text} className="max-w-[60ch] text-pretty" />
+      </div>
+      {/* before the prices on phones, beside them from lg up; the buttons follow the calculator */}
+      <div className="flex flex-col gap-6 self-start lg:col-span-5">
+        <Calculator
+          tiers={tiers}
+          discounts={rules}
+          gstPercent={gst}
+          labels={labels}
+        />
+        <Actions actions={actions} locale={locale} />
+      </div>
       <div className="flex flex-col gap-6 lg:col-span-7">
-        <div className="flex flex-col gap-4">
-          <SectionHeadline heading={heading} highlight={highlight} />
-          <Paragraphs text={text} className="max-w-[60ch] text-pretty" />
-        </div>
         <table className="w-full max-w-160 border-collapse border border-border bg-surface">
           <caption className="sr-only">{heading}</caption>
           <thead>
@@ -120,16 +131,6 @@ const PriceList = ({
           </div>
         )}
       </div>
-      {/* after the prices on phones, beside them from lg up; the buttons follow the calculator */}
-      <div className="self-start lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1">
-        <Calculator
-          tiers={tiers}
-          discounts={rules}
-          gstPercent={gst}
-          labels={labels}
-        />
-      </div>
-      <Actions actions={actions} locale={locale} className="lg:col-span-7" />
     </CommonFullWidthWrapper>
   );
 };
