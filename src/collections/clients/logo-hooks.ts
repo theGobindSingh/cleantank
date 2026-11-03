@@ -21,6 +21,26 @@ const deleteMedia = async (req: PayloadRequest, id: number | null) => {
   }
 };
 
+const LOGO_FOLDER = "Client logos";
+
+/** The top-level media folder fetched logos go in, created on first use. */
+const logoFolderId = async (req: PayloadRequest) => {
+  const { docs } = await req.payload.find({
+    collection: "payload-folders",
+    where: { name: { equals: LOGO_FOLDER }, folder: { exists: false } },
+    limit: 1,
+    depth: 0,
+    req,
+  });
+  if (docs[0]) return docs[0].id;
+  const folder = await req.payload.create({
+    collection: "payload-folders",
+    data: { name: LOGO_FOLDER, folderType: ["media"] },
+    req,
+  });
+  return folder.id;
+};
+
 /**
  * Copies the logo link into media when it is new or changed, or when the
  * build's refresh sets `context.refetchLogo`; unchanged bytes keep the copy.
@@ -58,7 +78,7 @@ export const fetchLogo: CollectionBeforeChangeHook<Client> = async ({
     const slug = name.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-");
     const media = await req.payload.create({
       collection: "media",
-      data: { alt: name },
+      data: { alt: name, folder: await logoFolderId(req) },
       file: {
         data: logo.data,
         mimetype: logo.mimetype,
