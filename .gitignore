@@ -58,3 +58,6 @@ CLAUDE.md
 
 # payload: local uploads (used when S3_BUCKET is empty)
 /media
+
+# Local scratch files
+.scratch/
