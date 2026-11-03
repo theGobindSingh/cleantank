@@ -1,4 +1,6 @@
+import { site } from "@/site";
 import { H2, H3, P, Span } from "@components/html";
+import { formatPhone } from "@utils/phone";
 import { TYPE_SCALE, type ScaleStep } from "./data";
 import Section from "./section";
 import TypeSample from "./type-sample";
@@ -13,7 +15,7 @@ const RULES = [
   "No italics anywhere (Anek has none). Emphasis is weight 600. No synthetic bold.",
   "Body measure 60 to 68 characters (45 to 75 allowed). Left-aligned, ragged right, never justified. Headings balance their lines; body text wraps pretty.",
   "Nothing below 12 px except the ref style. Curly quotes, no em dashes in brand copy, ranges written with to: ₹3 to 8 lakh.",
-  "Numbers: Indian grouping (20,00,000), a non-breaking space before units (20,000 L, 250 bar), ₹ with no space, tabular figures in tables. Dates as 03 Oct 2026, phones as +91 94535 17514.",
+  `Numbers: Indian grouping (20,00,000), a non-breaking space before units (20,000 L, 250 bar), ₹ with no space, tabular figures in tables. Dates as 03 Oct 2026, phones as ${formatPhone(site.phone)}.`,
 ];
 
 const renderRule = (rule: string) => {

@@ -1,5 +1,7 @@
+import { site } from "@/site";
 import { P, Span } from "@components/html";
 import Link from "@components/link";
+import { telHref } from "@utils/phone";
 import SchemePair from "./scheme-pair";
 import Section from "./section";
 
@@ -26,7 +28,7 @@ const LinkExamples = () => {
           </Link>
         </li>
         <li>
-          <Link href="tel:+919453517514">Phone link, same tab</Link>
+          <Link href={telHref(site.phone)}>Phone link, same tab</Link>
         </li>
         <li>
           <Link href="/design" native>
