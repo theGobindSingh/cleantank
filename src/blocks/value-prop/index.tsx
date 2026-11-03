@@ -7,6 +7,7 @@ import Paragraphs from "@components/paragraphs";
 import SectionHeadline from "@components/section-headline";
 import { localePath, type Locale } from "@i18n";
 import Image from "next/image";
+import List from "./list";
 
 interface ValuePropProps extends ValuePropBlock {
   locale: Locale;
@@ -40,12 +41,15 @@ const renderPhoto = (photo: CompareImage) => {
  * row at most 28rem wide.
  * An optional second photo sits left of the first at the same size, 12 px
  * apart.
+ * With `media` set to `list`, a numbered list takes the photos' place
+ * instead, at most 28rem wide.
  * The words listed in `highlight` show in accent 500 in every mode.
  */
 const ValueProp = ({
   heading,
   highlight,
   text,
+  media,
   image,
   imageUrl,
   imageAlt,
@@ -54,6 +58,7 @@ const ValueProp = ({
   secondImageAlt,
   href,
   linkLabel,
+  items,
   locale,
 }: ValuePropProps) => {
   const main = toSlotImage(image, imageUrl, imageAlt);
@@ -77,11 +82,13 @@ const ValueProp = ({
           </Link>
         )}
       </div>
-      {photos.length > 0 && (
-        <div className="grid max-w-md grid-cols-2 gap-3 lg:col-start-3 lg:flex lg:max-w-none">
-          {photos.map(renderPhoto)}
-        </div>
-      )}
+      {media === "list"
+        ? items && items.length > 0 && <List items={items} />
+        : photos.length > 0 && (
+            <div className="grid max-w-md grid-cols-2 gap-3 lg:col-start-3 lg:flex lg:max-w-none">
+              {photos.map(renderPhoto)}
+            </div>
+          )}
     </CommonFullWidthWrapper>
   );
 };

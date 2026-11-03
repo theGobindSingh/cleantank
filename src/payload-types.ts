@@ -301,6 +301,10 @@ export interface ValuePropBlock {
    */
   text: string;
   /**
+   * What sits beside the text.
+   */
+  media: 'photos' | 'list';
+  /**
    * Upload the main image, or add its URL below.
    */
   image?: (number | null) | Media;
@@ -324,6 +328,16 @@ export interface ValuePropBlock {
    * What the photo at this URL shows, for screen readers. Left empty, the photo counts as decorative.
    */
   secondImageAlt?: string | null;
+  items?:
+    | {
+        title: string;
+        /**
+         * One plain sentence under the title.
+         */
+        line: string;
+        id?: string | null;
+      }[]
+    | null;
   /**
    * Optional. A site path, such as /process. Shown only with a link label.
    */
@@ -1064,12 +1078,20 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
   heading?: T;
   highlight?: T;
   text?: T;
+  media?: T;
   image?: T;
   imageUrl?: T;
   imageAlt?: T;
   secondImage?: T;
   secondImageUrl?: T;
   secondImageAlt?: T;
+  items?:
+    | T
+    | {
+        title?: T;
+        line?: T;
+        id?: T;
+      };
   href?: T;
   linkLabel?: T;
   id?: T;
