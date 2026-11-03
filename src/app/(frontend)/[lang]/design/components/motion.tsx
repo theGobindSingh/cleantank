@@ -101,7 +101,7 @@ const Motion = () => {
         bounce, overshoot, shake, pulse, parallax, scroll fly-ins, staggered
         card lists, count-up numbers, carousels, shimmer or autoplay. The hero
         photos are the one exception to parallax (owner's call): they scroll at
-        65% of the page's speed, and stay put under reduced motion. With reduced
+        50% of the page's speed, and stay put under reduced motion. With reduced
         motion turned on, defaults.css cuts every transition to nothing, and
         these squares jump instead of slide.
       </P>
