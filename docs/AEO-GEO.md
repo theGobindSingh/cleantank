@@ -79,7 +79,7 @@ Every one of these uses the same name, address and phone as`src/site.ts`. Mismat
 
 The sitemap has five routes. Generative engines reward pages that answer one specific question in depth, and the questions people ask about water tanks are specific: how often to clean an overhead tank in Chandigarh, whether a Sintex tank can be cleaned without draining it, what the white layer at the bottom is, whether bleaching powder is safe. Each could be a short guide in all three languages, with the answer in the first paragraph and a link to the relevant service page.
 
-This needs a new collection (guides or posts) and owner-approved facts for each one. It's the biggest long-term opportunity on this list, but it's content work, not a launch blocker. Decided on 31 Oct 2026: yes, but later, after the more pressing work.
+This needs a new collection (guides or posts) and owner-approved facts for each one. It's the biggest long-term opportunity on this list, but it's content work, not a launch blocker. Decided on 31 Oct 2026: yes, but later, after the more pressing work. On 3 Nov 2026 the co-owner chose a blog (`/blog`, a `posts` collection) and picked the first post: how often a tank should be cleaned. It is the last item in the pipeline; Track Suru has it in the Blog area.
 
 ### 8. AI crawler policy isn't written down
 
