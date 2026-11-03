@@ -25,14 +25,14 @@ Naming:
 
 There is no public price list for organisations or franchise. Say prices depend on scope, capacity, location and site. AMC pages may publish the structure (visit frequency, paperwork, what the rate includes), but the rupees stay on quote (user's call, 31 Oct 2026). Homes get a published price list with a calculator (see Homes below).
 
-How often to clean depends on the organisation (hospitals about every 3 months, schools about every 6, general guidance 3 to 6 months). Never publish a single flat interval.
+How often to clean depends on the organisation; INFO-BANK §4 has the examples and the general guidance. Never publish a single flat interval.
 
 ### The 5-step process
 
 The process is the product. Always show five steps, in this order, with these names (they match the images in `public/assets/images/process/`):
 
 1. De-watering: water removed with mechanical pumps.
-2. High-pressure cleaning: walls, floor and roof cleaned with a high-pressure water jet at 150 to 250 bar. Always state it as a range, "depending on the tank and the work": different machines are used for different tanks and jobs (owner's call, 28 Oct 2026).
+2. High-pressure cleaning: walls, floor and roof cleaned with a high-pressure water jet at the pressure range in INFO-BANK §12 (Jet pressure). Always state it as a range, "depending on the tank and the work": different machines are used for different tanks and jobs (owner's call, 28 Oct 2026).
 3. Sludge & water removal: with an industrial vacuum.
 4. Disinfection: the Clean Tank agent, a food-grade, non-toxic antibacterial agent (owner's call, 26 Oct 2026). Call it "Clean Tank agent"; never name the product.
 5. UV treatment: marked "where applicable".
@@ -134,7 +134,7 @@ Needs a document before use: biodegradable, eco-friendly, how long the treatment
 
 Every "safe" or "bacteria-free" line carries the qualifier that water quality also depends on source water, plumbing, tank condition and upkeep after the service.
 
-Franchise pages may use only these figures, with the financial disclaimer from INFO-BANK §8 directly beside them: investment ₹3 to 8 lakh, royalty 3.5% per month as applicable to the model, indicative ROI 40% or above subject to actual performance, payback 4 to 6 months, office about 150 sq ft or home-based, 3-year agreement. Don't state what ROI or royalty is calculated on, what each model includes, or territory exclusivity. The retired franchise copy listed in INFO-BANK (guaranteed income, event offers, "06-stage", "Remember business is for PROFIT!") never appears.
+Franchise pages may use only these figures, with the financial disclaimer from INFO-BANK §8 directly beside them: the franchise business model table in INFO-BANK §8, with its qualifiers. Don't state what ROI or royalty is calculated on, what each model includes, or territory exclusivity. The retired franchise copy listed in INFO-BANK (guaranteed income, event offers, "06-stage", "Remember business is for PROFIT!") never appears.
 
 Clients have given permission to show their names and logos. The list is in INFO-BANK; keep its spellings. IIT Delhi is a client (INFO-BANK lists it under "IITs across India"), and its logo is in `public/assets/images/clients/institutional/`.
 
