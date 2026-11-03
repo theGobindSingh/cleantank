@@ -106,20 +106,23 @@ const PriceList = ({
         <Actions actions={actions} locale={locale} />
       </div>
       <div className="flex flex-col gap-6 lg:col-span-7">
-        <table className="w-full max-w-160 border-collapse border border-border bg-surface">
-          <caption className="sr-only">{heading}</caption>
-          <thead>
-            <tr className="bg-band text-white">
-              <th scope="col" className={tw(HEAD, "text-left")}>
-                {labels.size}
-              </th>
-              <th scope="col" className={tw(HEAD, "text-right")}>
-                {labels.price}
-              </th>
-            </tr>
-          </thead>
-          <tbody>{sorted.map(renderTier)}</tbody>
-        </table>
+        {/* the wrapper draws the edge and rounds it; a collapsed table can't */}
+        <div className="max-w-160 overflow-hidden rounded-sm border border-border bg-surface">
+          <table className="w-full border-collapse">
+            <caption className="sr-only">{heading}</caption>
+            <thead>
+              <tr className="bg-band text-white">
+                <th scope="col" className={tw(HEAD, "text-left")}>
+                  {labels.size}
+                </th>
+                <th scope="col" className={tw(HEAD, "text-right")}>
+                  {labels.price}
+                </th>
+              </tr>
+            </thead>
+            <tbody>{sorted.map(renderTier)}</tbody>
+          </table>
+        </div>
         {rules.length > 0 && (
           <ul className="flex flex-col gap-1 font-semibold">
             {rules.map(renderRule)}

@@ -35,7 +35,7 @@ const RADII = [
   [
     "rounded-sm",
     "6 px",
-    "Buttons, inputs, cards, alerts, image frames, audience doors",
+    "Buttons, inputs, cards, alerts, image frames, the price list",
     "rounded-sm",
   ],
 ];
