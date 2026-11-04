@@ -4,8 +4,6 @@ type Tier = PriceListBlock["tiers"][number];
 type Discount = NonNullable<PriceListBlock["discounts"]>[number];
 
 export interface Quote {
-  /** Tanks with a valid size, discounted or not. */
-  count: number;
   /** Tanks in a tier marked for discount: only these set the rate. */
   eligible: number;
   subtotal: number;
@@ -55,14 +53,12 @@ export const quote = (
   const sorted = sortTiers(tiers);
   let subtotal = 0;
   let discountable = 0;
-  let count = 0;
   let eligible = 0;
   for (const size of litres) {
     const tier = size > 0 ? tierFor(size, sorted) : undefined;
     if (!tier) continue;
     const price = tankPrice(size, tier);
     subtotal += price;
-    count += 1;
     if (!tier.discount) continue;
     discountable += price;
     eligible += 1;
@@ -76,7 +72,6 @@ export const quote = (
   const taxable = roundedSubtotal - discount;
   const gst = Math.round((taxable * gstPercent) / 100);
   return {
-    count,
     eligible,
     subtotal: roundedSubtotal,
     percent,
@@ -87,18 +82,17 @@ export const quote = (
 };
 
 /**
- * Which step of the discount strip a bill reaches: one per rule its eligible
- * tanks earn, so 0 (full price) while only big tanks are entered; -1 with no
- * valid tank yet.
+ * Which step of the discount strip `eligible` tanks reach: 0 for one tank, then
+ * one per rule earned; -1 with none, even when big tanks are entered.
  */
 export const reachedStep = (
-  { count, eligible }: Pick<Quote, "count" | "eligible">,
+  eligible: number,
   discounts: Discount[],
 ): number => {
   const isEarned = (rule: Discount) => {
     return eligible >= rule.tanks;
   };
-  return count === 0 ? -1 : discounts.filter(isEarned).length;
+  return eligible === 0 ? -1 : discounts.filter(isEarned).length;
 };
 
 const WHOLE = new Intl.NumberFormat("en-IN");

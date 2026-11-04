@@ -16,7 +16,6 @@ const DISCOUNTS = [
 describe("quote", () => {
   it("prices one tank by its tier and adds GST", () => {
     expect(quote([1000], TIERS, DISCOUNTS, 18)).toEqual({
-      count: 1,
       eligible: 1,
       subtotal: 800,
       percent: 0,
@@ -34,14 +33,13 @@ describe("quote", () => {
 
   it("takes the rate the eligible tanks earn, only off those tanks", () => {
     const five = quote([500, 500, 1000, 1000, 31000], TIERS, DISCOUNTS, 18);
-    expect(five).toMatchObject({ count: 5, eligible: 4, percent: 20 });
+    expect(five).toMatchObject({ eligible: 4, percent: 20 });
     expect(five.discount).toBe(560);
     expect(five.total).toBe(2800 + 4030 - 560 + 1129);
   });
 
   it("doesn't count tanks in a tier without discount towards the rate", () => {
     expect(quote([40000, 1000], TIERS, DISCOUNTS, 0)).toMatchObject({
-      count: 2,
       eligible: 1,
       percent: 0,
       discount: 0,
@@ -64,21 +62,16 @@ describe("quote", () => {
 });
 
 describe("reachedStep", () => {
-  const step = (count: number, eligible = count) => {
-    return reachedStep({ count, eligible }, DISCOUNTS);
-  };
-
-  it("marks no step without tanks, then one step per rule earned", () => {
-    expect(step(0)).toBe(-1);
-    expect(step(1)).toBe(0);
-    expect(step(3)).toBe(1);
-    expect(step(4)).toBe(2);
-    expect(step(9)).toBe(2);
+  it("marks no step without eligible tanks, then one step per rule earned", () => {
+    expect(reachedStep(0, DISCOUNTS)).toBe(-1);
+    expect(reachedStep(1, DISCOUNTS)).toBe(0);
+    expect(reachedStep(3, DISCOUNTS)).toBe(1);
+    expect(reachedStep(4, DISCOUNTS)).toBe(2);
+    expect(reachedStep(9, DISCOUNTS)).toBe(2);
   });
 
-  it("marks full price when only big tanks are entered", () => {
-    expect(step(2, 0)).toBe(0);
-    expect(step(5, 1)).toBe(0);
-    expect(step(5, 2)).toBe(1);
+  it("marks no step when only big tanks are entered", () => {
+    const bill = quote([40000, 40000], TIERS, DISCOUNTS, 0);
+    expect(reachedStep(bill.eligible, DISCOUNTS)).toBe(-1);
   });
 });
