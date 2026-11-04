@@ -128,6 +128,7 @@ export const hi: Dictionary = {
     calculator: "अपनी क़ीमत निकालें",
     tank: "टंकी {n} का साइज़ (लीटर में)",
     add: "एक और टंकी जोड़ें",
+    discuss: "{min}\u00a0लीटर से ज़्यादा: इस टंकी की छूट पर बात कर लेते हैं।",
     remove: "टंकी {n} हटाएँ",
     subtotal: "क़ीमत",
     discount: "छूट ({percent}%)",

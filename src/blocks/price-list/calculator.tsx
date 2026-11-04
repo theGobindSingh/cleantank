@@ -7,6 +7,7 @@ import type { Dictionary } from "@i18n";
 import { useState } from "react";
 import { discountSteps } from "./labels";
 import {
+  formatNumber,
   formatRupees,
   quote,
   reachedStep,
@@ -65,18 +66,22 @@ const Calculator = ({
     setTanks([...tanks, { key: last + 1, value: "" }]);
   };
 
-  const priceOf = (size: number) => {
-    const tier = size > 0 ? tierFor(size, sorted) : undefined;
-    return tier ? tankPrice(size, tier) : undefined;
-  };
-
   const renderTank = (tank: Tank, index: number) => {
+    const size = litres[index] ?? 0;
+    const tier = size > 0 ? tierFor(size, sorted) : undefined;
+    // the band starts above the one before it, as in the table's size labels
+    const min = tier && sorted[sorted.indexOf(tier) - 1]?.upTo;
     return (
       <TankRow
         key={tank.key}
         tank={tank}
         index={index}
-        price={priceOf(litres[index] ?? 0)}
+        price={tier ? tankPrice(size, tier) : undefined}
+        note={
+          tier && !tier.discount
+            ? labels.discuss.replace("{min}", formatNumber(min ?? 0))
+            : undefined
+        }
         canRemove={tanks.length > 1}
         labels={labels}
         onChange={handleChange}

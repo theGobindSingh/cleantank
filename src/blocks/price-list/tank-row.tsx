@@ -15,17 +15,23 @@ interface TankRowProps {
   tank: Tank;
   index: number;
   price: number | undefined;
+  /** Shown under the field when the tank's band has no set discount. */
+  note: string | undefined;
   canRemove: boolean;
   labels: Dictionary["prices"];
   onChange: (key: number, value: string) => void;
   onRemove: (key: number) => void;
 }
 
-/** One tank's size field, its price on the label line, and a remove button when there are others. */
+/**
+ * One tank's size field, its price on the label line, an optional note under
+ * it, and a remove button when there are others.
+ */
 const TankRow = ({
   tank,
   index,
   price,
+  note,
   canRemove,
   labels,
   onChange,
@@ -61,8 +67,14 @@ const TankRow = ({
         onChange={handleChange}
         inputMode="numeric"
         autoComplete="off"
+        aria-describedby={note ? `${id}-note` : undefined}
         className="h-12 w-full min-w-0 rounded-sm border border-border-control bg-surface px-3 text-(length:--fs-body) text-fg"
       />
+      {note && (
+        <p id={`${id}-note`} className="text-(length:--fs-small) text-fg-muted">
+          {note}
+        </p>
+      )}
       {canRemove && (
         <Button variant="text" onClick={handleRemove} className="self-start">
           {labels.remove.replace("{n}", n)}

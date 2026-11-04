@@ -128,6 +128,7 @@ export const pa: Dictionary = {
     calculator: "ਆਪਣੀ ਕੀਮਤ ਕੱਢੋ",
     tank: "ਟੈਂਕੀ {n} ਦਾ ਸਾਈਜ਼ (ਲੀਟਰ ਵਿੱਚ)",
     add: "ਇੱਕ ਹੋਰ ਟੈਂਕੀ ਜੋੜੋ",
+    discuss: "{min}\u00a0ਲੀਟਰ ਤੋਂ ਵੱਧ: ਇਸ ਟੈਂਕੀ ਦੀ ਛੋਟ ਬਾਰੇ ਗੱਲ ਕਰ ਲੈਂਦੇ ਹਾਂ।",
     remove: "ਟੈਂਕੀ {n} ਹਟਾਓ",
     subtotal: "ਕੀਮਤ",
     discount: "ਛੋਟ ({percent}%)",

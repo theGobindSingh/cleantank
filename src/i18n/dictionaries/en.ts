@@ -131,6 +131,7 @@ export const en = {
     calculator: "Work out your price",
     tank: "Tank {n} size in litres",
     add: "Add another tank",
+    discuss: "Over {min}\u00a0L: let's discuss the discount on this tank.",
     remove: "Remove tank {n}",
     subtotal: "Price",
     discount: "Discount ({percent}%)",
