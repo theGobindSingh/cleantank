@@ -71,7 +71,10 @@ const TankRow = ({
         className="h-12 w-full min-w-0 rounded-sm border border-border-control bg-surface px-3 text-(length:--fs-body) text-fg"
       />
       {note && (
-        <p id={`${id}-note`} className="text-(length:--fs-small) text-fg-muted">
+        <p
+          id={`${id}-note`}
+          className="text-(length:--fs-small) text-caution-800 dark:text-caution-200"
+        >
           {note}
         </p>
       )}
