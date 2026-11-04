@@ -1,5 +1,11 @@
 import { highlightField } from "@/blocks/highlight";
 import { imageSlotFields } from "@/blocks/image-slot";
+import {
+  BoldFeature,
+  FixedToolbarFeature,
+  InlineToolbarFeature,
+  lexicalEditor,
+} from "@payloadcms/richtext-lexical";
 import type { Block, Condition } from "payload";
 
 const showsPhotos: Condition = (_data, siblingData) => {
@@ -20,10 +26,21 @@ export const valueProp: Block = {
     highlightField,
     {
       name: "text",
-      type: "textarea",
+      type: "richText",
       required: true,
       localized: true,
-      admin: { description: "Leave a blank line between paragraphs." },
+      // Paragraphs and bold only: bold marks the key phrases for people who skim.
+      editor: lexicalEditor({
+        features: [
+          BoldFeature(),
+          FixedToolbarFeature(),
+          InlineToolbarFeature(),
+        ],
+      }),
+      admin: {
+        description:
+          "Press Enter for a new paragraph. Bold a few key phrases for people who skim.",
+      },
     },
     {
       name: "media",

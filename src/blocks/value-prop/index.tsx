@@ -3,7 +3,7 @@ import type { ValuePropBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import type { CompareImage } from "@components/compare-slider";
 import Link from "@components/link";
-import Paragraphs from "@components/paragraphs";
+import RichParagraphs from "@components/rich-paragraphs";
 import SectionHeadline from "@components/section-headline";
 import { localePath, type Locale } from "@i18n";
 import Image from "next/image";
@@ -43,7 +43,8 @@ const renderPhoto = (photo: CompareImage) => {
  * apart.
  * With `media` set to `list`, a numbered list takes the photos' place
  * instead, at most 28rem wide.
- * The words listed in `highlight` show in accent 500 in every mode.
+ * The words listed in `highlight` show in accent 500 in every mode, and bold
+ * phrases in the text in semibold.
  */
 const ValueProp = ({
   heading,
@@ -70,7 +71,10 @@ const ValueProp = ({
       <div className="flex flex-col gap-4 justify-self-start">
         <SectionHeadline heading={heading} highlight={highlight} />
         {/* contain-inline-size: the body takes the headline's width instead of setting it */}
-        <Paragraphs text={text} className="text-pretty contain-inline-size" />
+        <RichParagraphs
+          data={text}
+          className="text-pretty contain-inline-size"
+        />
         {href && linkLabel && (
           <Link
             href={localePath(locale, href)}
