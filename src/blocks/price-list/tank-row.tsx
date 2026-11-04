@@ -21,7 +21,7 @@ interface TankRowProps {
   onRemove: (key: number) => void;
 }
 
-/** One tank's size field, its price beside it, and a remove button when there are others. */
+/** One tank's size field, its price on the label line, and a remove button when there are others. */
 const TankRow = ({
   tank,
   index,
@@ -44,25 +44,25 @@ const TankRow = ({
   };
   return (
     <li className="flex flex-col gap-1.5">
-      <label
-        htmlFor={id}
-        className="font-mono text-(length:--fs-caption) font-medium tracking-[0.08em] uppercase"
-      >
-        {labels.tank.replace("{n}", n)}
-      </label>
-      <div className="flex items-center gap-3">
-        <input
-          id={id}
-          value={tank.value}
-          onChange={handleChange}
-          inputMode="numeric"
-          autoComplete="off"
-          className="h-12 w-full min-w-0 rounded-sm border border-border-control bg-surface px-3 text-(length:--fs-body) text-fg"
-        />
-        <span className="min-w-20 shrink-0 text-right font-mono whitespace-nowrap tabular-nums">
+      <div className="flex items-baseline justify-between gap-3">
+        <label
+          htmlFor={id}
+          className="font-mono text-(length:--fs-caption) font-medium tracking-[0.08em] uppercase"
+        >
+          {labels.tank.replace("{n}", n)}
+        </label>
+        <span className="shrink-0 font-mono whitespace-nowrap tabular-nums">
           {price === undefined ? "" : formatRupees(Math.round(price))}
         </span>
       </div>
+      <input
+        id={id}
+        value={tank.value}
+        onChange={handleChange}
+        inputMode="numeric"
+        autoComplete="off"
+        className="h-12 w-full min-w-0 rounded-sm border border-border-control bg-surface px-3 text-(length:--fs-body) text-fg"
+      />
       {canRemove && (
         <Button variant="text" onClick={handleRemove} className="self-start">
           {labels.remove.replace("{n}", n)}
