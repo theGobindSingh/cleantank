@@ -4,6 +4,8 @@ type Tier = PriceListBlock["tiers"][number];
 type Discount = NonNullable<PriceListBlock["discounts"]>[number];
 
 export interface Quote {
+  /** Tanks with a valid size, discounted or not. */
+  count: number;
   subtotal: number;
   percent: number;
   discount: number;
@@ -68,12 +70,24 @@ export const quote = (
   const taxable = roundedSubtotal - discount;
   const gst = Math.round((taxable * gstPercent) / 100);
   return {
+    count,
     subtotal: roundedSubtotal,
     percent,
     discount,
     gst,
     total: taxable + gst,
   };
+};
+
+/**
+ * Which step of the discount strip `count` tanks reach: 0 for one tank, then
+ * one per rule earned; -1 with no tanks yet.
+ */
+export const reachedStep = (count: number, discounts: Discount[]): number => {
+  const isEarned = (rule: Discount) => {
+    return count >= rule.tanks;
+  };
+  return count === 0 ? -1 : discounts.filter(isEarned).length;
 };
 
 const WHOLE = new Intl.NumberFormat("en-IN");

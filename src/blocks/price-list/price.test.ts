@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { quote } from "./price";
+import { quote, reachedStep } from "./price";
 
 const TIERS = [
   { upTo: 500, price: 600, per: "tank" as const, discount: true },
@@ -16,6 +16,7 @@ const DISCOUNTS = [
 describe("quote", () => {
   it("prices one tank by its tier and adds GST", () => {
     expect(quote([1000], TIERS, DISCOUNTS, 18)).toEqual({
+      count: 1,
       subtotal: 800,
       percent: 0,
       discount: 0,
@@ -32,6 +33,7 @@ describe("quote", () => {
 
   it("takes the rate the tank count earns, only off discountable tanks", () => {
     const four = quote([500, 500, 1000, 31000], TIERS, DISCOUNTS, 18);
+    expect(four.count).toBe(4);
     expect(four.percent).toBe(20);
     expect(four.discount).toBe(400);
     expect(four.total).toBe(Math.round(2000 + 4030 - 400) + 1013);
@@ -42,5 +44,15 @@ describe("quote", () => {
       percent: 0,
       total: 600,
     });
+  });
+});
+
+describe("reachedStep", () => {
+  it("marks no step without tanks, then one step per rule earned", () => {
+    expect(reachedStep(0, DISCOUNTS)).toBe(-1);
+    expect(reachedStep(1, DISCOUNTS)).toBe(0);
+    expect(reachedStep(3, DISCOUNTS)).toBe(1);
+    expect(reachedStep(4, DISCOUNTS)).toBe(2);
+    expect(reachedStep(9, DISCOUNTS)).toBe(2);
   });
 });
