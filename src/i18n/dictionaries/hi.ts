@@ -48,14 +48,18 @@ export const hi: Dictionary = {
   header: {
     nav: "मुख्य",
     menu: "मेन्यू",
+    solutions: "समाधान",
     links: {
-      home: "होम",
-      homes: "घरों के लिए",
-      organisations: "संस्थाओं के लिए",
-      franchise: "फ़्रैंचाइज़ी के लिए",
+      homes: "घर",
+      organisations: "संस्थाएँ",
       process: "प्रक्रिया",
       about: "हमारे बारे में",
       contact: "संपर्क",
+      franchise: "फ़्रैंचाइज़ी",
+    },
+    hints: {
+      homes: "आपके परिवार की टंकी के लिए",
+      organisations: "सोसाइटी, संस्थान, दफ़्तर और सरकार",
     },
   },
   footer: {
@@ -66,6 +70,7 @@ export const hi: Dictionary = {
     rights: "सर्वाधिकार सुरक्षित।",
     gemSeller: "पंजीकृत विक्रेता",
     links: {
+      home: "होम",
       whyChooseUs: "हमें क्यों चुनें",
       clients: "हमारे क्लाइंट",
       privacy: "गोपनीयता नीति",

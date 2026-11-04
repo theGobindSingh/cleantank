@@ -48,14 +48,18 @@ export const pa: Dictionary = {
   header: {
     nav: "ਮੁੱਖ",
     menu: "ਮੀਨੂ",
+    solutions: "ਹੱਲ",
     links: {
-      home: "ਹੋਮ",
-      homes: "ਘਰਾਂ ਲਈ",
-      organisations: "ਸੰਸਥਾਵਾਂ ਲਈ",
-      franchise: "ਫ਼ਰੈਂਚਾਇਜ਼ੀ ਲਈ",
+      homes: "ਘਰ",
+      organisations: "ਸੰਸਥਾਵਾਂ",
       process: "ਪ੍ਰਕਿਰਿਆ",
       about: "ਸਾਡੇ ਬਾਰੇ",
       contact: "ਸੰਪਰਕ",
+      franchise: "ਫ਼ਰੈਂਚਾਇਜ਼ੀ",
+    },
+    hints: {
+      homes: "ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਦੀ ਟੈਂਕੀ ਲਈ",
+      organisations: "ਸੁਸਾਇਟੀਆਂ, ਸੰਸਥਾਵਾਂ, ਦਫ਼ਤਰ ਅਤੇ ਸਰਕਾਰ",
     },
   },
   footer: {
@@ -66,6 +70,7 @@ export const pa: Dictionary = {
     rights: "ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।",
     gemSeller: "ਰਜਿਸਟਰਡ ਵਿਕਰੇਤਾ",
     links: {
+      home: "ਹੋਮ",
       whyChooseUs: "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
       clients: "ਸਾਡੇ ਕਲਾਇੰਟ",
       privacy: "ਪਰਦੇਦਾਰੀ ਨੀਤੀ",

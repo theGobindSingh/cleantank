@@ -8,18 +8,19 @@ import { tw } from "@utils/tw";
 import { useLenis } from "lenis/react";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import Solutions from "./solutions";
+import { isOnPage, ITEM_TYPE, MARKED } from "./styles";
 
 interface HeaderNavProps {
   locale: Locale;
   logo: ReactNode;
-  /** Keyed by route: `homes` links to /homes, `home` to /. */
-  links: Dictionary["header"]["links"];
   labels: Dictionary["header"] & {
     language: string;
   };
 }
 
 const FOCUSABLE = "a[href], button, summary";
+const PAGES = ["process", "about", "contact", "franchise"] as const;
 
 // Controls inside a closed language dropdown can't take focus.
 const isShown = (element: HTMLElement | null): element is HTMLElement => {
@@ -34,11 +35,12 @@ const isUrlSegment = (segment: string) => {
 /**
  * The header's one nav. The link panel (.site-menu, header.css) is an inline
  * row from `lg` up and a sidenav below it, opened and closed by one animated
- * burger button that stays above the panel. The route is read from
+ * burger button that stays above the panel. Solutions (solutions.tsx) opens
+ * its own panel from `lg` up. The route is read from
  * layout segments, not usePathname, so prerendered pages reached through the
  * proxy's rewrite hydrate without a mismatch.
  */
-const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
+const HeaderNav = ({ locale, logo, labels }: HeaderNavProps) => {
   const path = `/${useSelectedLayoutSegments().filter(isUrlSegment).join("/")}`;
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -51,7 +53,6 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
   const closeMenu = () => {
     setIsOpen(false);
   };
-
   // Escape closes and Tab cycles between the burger and the panel's controls,
   // as in a modal. Lenis drives the page scroll, so pause it while open.
   const holdWhileOpen = () => {
@@ -84,23 +85,17 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
   };
   useEffect(holdWhileOpen, [isOpen, lenis]);
 
-  const renderLink = ([key, label]: [string, string]) => {
-    const route = key === "home" ? "/" : `/${key}`;
-    const isCurrent = path === route || path.startsWith(`${route}/`);
+  const renderLink = (page: (typeof PAGES)[number]) => {
+    const isPage = isOnPage(path, page);
     return (
-      <li key={key}>
+      <li key={page}>
         <Link
-          href={localePath(locale, route)}
-          aria-current={isCurrent ? "page" : undefined}
+          href={localePath(locale, `/${page}`)}
+          aria-current={isPage ? "page" : undefined}
           onClick={closeMenu}
-          className={tw(
-            "flex min-h-12 items-center justify-start text-[0.875rem] font-bold tracking-[0.06em] uppercase underline-offset-8",
-            isCurrent
-              ? "decoration-marker decoration-[3px] hover:decoration-[3px]"
-              : "no-underline",
-          )}
+          className={tw(ITEM_TYPE, isPage ? MARKED : "no-underline")}
         >
-          {label}
+          {labels.links[page]}
         </Link>
       </li>
     );
@@ -145,7 +140,13 @@ const HeaderNav = ({ locale, logo, links, labels }: HeaderNavProps) => {
         className="site-menu"
       >
         <ul className="flex flex-col lg:flex-row lg:gap-5">
-          {Object.entries(links).map(renderLink)}
+          <Solutions
+            locale={locale}
+            path={path}
+            labels={labels}
+            onNavigate={closeMenu}
+          />
+          {PAGES.map(renderLink)}
         </ul>
         <div className="flex items-center gap-3">
           <LanguageSwitcher

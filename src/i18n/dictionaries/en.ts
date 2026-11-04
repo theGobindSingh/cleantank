@@ -51,14 +51,20 @@ export const en = {
   header: {
     nav: "Main",
     menu: "Menu",
+    solutions: "Solutions",
+    /** Order is the header's order; homes and organisations sit under Solutions. */
     links: {
-      home: "Home",
-      homes: "For Homes",
-      organisations: "For Organisations",
-      franchise: "For Franchise",
+      homes: "Homes",
+      organisations: "Organisations",
       process: "Process",
       about: "About",
       contact: "Contact",
+      franchise: "Franchise",
+    },
+    /** One line under each Solutions link. */
+    hints: {
+      homes: "For your family's tank",
+      organisations: "Societies, institutions, offices and government",
     },
   },
   footer: {
@@ -69,6 +75,7 @@ export const en = {
     rights: "All rights reserved.",
     gemSeller: "Registered seller",
     links: {
+      home: "Home",
       whyChooseUs: "Why Choose Us",
       clients: "Clients",
       privacy: "Privacy Policy",

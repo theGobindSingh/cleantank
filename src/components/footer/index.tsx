@@ -25,7 +25,7 @@ const Footer = ({ locale }: FooterProps) => {
   const { footer, header, contact } = getDictionary(locale);
 
   const sitemap: [string, string][] = [
-    ["/", header.links.home],
+    ["/", footer.links.home],
     ["/homes", header.links.homes],
     ["/organisations", header.links.organisations],
     ["/franchise", header.links.franchise],

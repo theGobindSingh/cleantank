@@ -20,7 +20,6 @@ const Header = ({ locale }: HeaderProps) => {
     >
       <HeaderNav
         locale={locale}
-        links={dictionary.header.links}
         labels={{
           ...dictionary.header,
           language: dictionary.language.label,

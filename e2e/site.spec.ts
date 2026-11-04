@@ -135,6 +135,17 @@ test("the header marks the current page", async ({ page }) => {
   ).toHaveAttribute("aria-current", "page");
 });
 
+test("Solutions marks the current page", async ({ page }) => {
+  await page.goto("/homes");
+  await openMenu(page);
+  const nav = page.getByRole("navigation", { name: "Main" });
+  // From lg up Homes sits in the Solutions disclosure; below it, in the sidenav.
+  const solutions = nav.getByRole("button", { name: "Solutions" });
+  if (await solutions.isVisible()) await solutions.click();
+  const homes = nav.getByRole("link", { name: "Homes" });
+  await expect(homes).toHaveAttribute("aria-current", "page");
+});
+
 test("the hero comparison moves with the arrow keys", async ({ page }) => {
   await page.goto("/");
   const slider = page.getByRole("slider");

@@ -105,3 +105,43 @@
     stroke-dashoffset: var(--middle-hidden-offset);
   }
 }
+
+/*
+ * The Solutions links (nav.tsx). Below lg they sit open in the sidenav,
+ * indented under their group label with a rule on the left. From lg up they
+ * are a disclosure panel under the Solutions button, shown while [data-open]
+ * is set; closed, visibility keeps them out of the tab order but in the HTML.
+ */
+@utility site-solutions {
+  @media (width < 64rem) {
+    margin-left: 0.25rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--color-border);
+  }
+
+  @media (width >= 64rem) {
+    position: absolute;
+    top: 100%;
+    left: -1rem;
+    z-index: 1;
+    width: 21rem;
+    padding: 0.25rem 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    translate: 0 -4px;
+    visibility: hidden;
+    transition:
+      opacity 150ms cubic-bezier(0.2, 0, 1, 0.9),
+      translate 150ms cubic-bezier(0.2, 0, 1, 0.9),
+      visibility 0s 150ms;
+
+    &[data-open] {
+      opacity: 1;
+      translate: 0 0;
+      visibility: visible;
+      transition-delay: 0s;
+      transition-timing-function: cubic-bezier(0, 0, 0.38, 0.9);
+    }
+  }
+}
