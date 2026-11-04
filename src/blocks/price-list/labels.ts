@@ -1,9 +1,9 @@
-import type { PriceListBlock } from "@/payload-types";
+import type { HomePrice } from "@/payload-types";
 import type { Dictionary } from "@i18n";
 import { formatNumber, formatRupees } from "./price";
 
-type Tier = PriceListBlock["tiers"][number];
-type Discount = NonNullable<PriceListBlock["discounts"]>[number];
+type Tier = HomePrice["tiers"][number];
+type Discount = NonNullable<HomePrice["discounts"]>[number];
 type Labels = Dictionary["prices"];
 
 // Each band starts one litre above the band before it.

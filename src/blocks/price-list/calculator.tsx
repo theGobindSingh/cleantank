@@ -1,6 +1,6 @@
 "use client";
 
-import type { PriceListBlock } from "@/payload-types";
+import type { HomePrice } from "@/payload-types";
 import Button from "@components/button";
 import { H3 } from "@components/html";
 import type { Dictionary } from "@i18n";
@@ -19,9 +19,9 @@ import Steps from "./steps";
 import TankRow, { type Tank } from "./tank-row";
 
 interface CalculatorProps {
-  tiers: PriceListBlock["tiers"];
+  tiers: HomePrice["tiers"];
   /** Sorted by tanks. */
-  discounts: NonNullable<PriceListBlock["discounts"]>;
+  discounts: NonNullable<HomePrice["discounts"]>;
   gstPercent: number;
   labels: Dictionary["prices"];
 }

@@ -103,9 +103,11 @@ export interface Config {
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'hi' | 'pa') | ('en' | 'hi' | 'pa')[];
   globals: {
     process: Process;
+    homePrices: HomePrice;
   };
   globalsSelect: {
     process: ProcessSelect<false> | ProcessSelect<true>;
+    homePrices: HomePricesSelect<false> | HomePricesSelect<true>;
   };
   locale: 'en' | 'hi' | 'pa';
   widgets: {
@@ -750,6 +752,9 @@ export interface ServiceAreaBlock {
  * via the `definition` "PriceListBlock".
  */
 export interface PriceListBlock {
+  /**
+   * The prices, discounts and GST are in the Home prices global, shared by every language.
+   */
   heading: string;
   /**
    * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
@@ -759,33 +764,6 @@ export interface PriceListBlock {
    * Leave a blank line between paragraphs.
    */
   text?: string | null;
-  /**
-   * One row per size band. Each band starts one litre above the band before it.
-   */
-  tiers: {
-    /**
-     * Leave empty on the last, open-ended band.
-     */
-    upTo?: number | null;
-    price: number;
-    per: 'tank' | 'litre';
-    discount?: boolean | null;
-    id?: string | null;
-  }[];
-  /**
-   * Each rate applies from its number of tanks until the next rate starts.
-   */
-  discounts?:
-    | {
-        tanks: number;
-        percent: number;
-        id?: string | null;
-      }[]
-    | null;
-  /**
-   * Added to the prices above in the calculator.
-   */
-  gst: number;
   /**
    * Small print under the prices. Leave a blank line between paragraphs.
    */
@@ -1343,23 +1321,6 @@ export interface PriceListBlockSelect<T extends boolean = true> {
   heading?: T;
   highlight?: T;
   text?: T;
-  tiers?:
-    | T
-    | {
-        upTo?: T;
-        price?: T;
-        per?: T;
-        discount?: T;
-        id?: T;
-      };
-  discounts?:
-    | T
-    | {
-        tanks?: T;
-        percent?: T;
-        id?: T;
-      };
-  gst?: T;
   note?: T;
   actions?:
     | T
@@ -1511,6 +1472,42 @@ export interface Process {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homePrices".
+ */
+export interface HomePrice {
+  id: number;
+  /**
+   * One row per size band. Each band starts one litre above the band before it.
+   */
+  tiers: {
+    /**
+     * Leave empty on the last, open-ended band.
+     */
+    upTo?: number | null;
+    price: number;
+    per: 'tank' | 'litre';
+    discount?: boolean | null;
+    id?: string | null;
+  }[];
+  /**
+   * Each rate applies from its number of tanks until the next rate starts.
+   */
+  discounts?:
+    | {
+        tanks: number;
+        percent: number;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Added to the prices above in the calculator.
+   */
+  gst: number;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "process_select".
  */
 export interface ProcessSelect<T extends boolean = true> {
@@ -1526,6 +1523,32 @@ export interface ProcessSelect<T extends boolean = true> {
         whereApplicable?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homePrices_select".
+ */
+export interface HomePricesSelect<T extends boolean = true> {
+  tiers?:
+    | T
+    | {
+        upTo?: T;
+        price?: T;
+        per?: T;
+        discount?: T;
+        id?: T;
+      };
+  discounts?:
+    | T
+    | {
+        tanks?: T;
+        percent?: T;
+        id?: T;
+      };
+  gst?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

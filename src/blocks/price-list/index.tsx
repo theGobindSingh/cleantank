@@ -1,12 +1,14 @@
 import Actions from "@/blocks/actions";
-import type { PriceListBlock } from "@/payload-types";
+import type { HomePrice, PriceListBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { P } from "@components/html";
 import Paragraphs from "@components/paragraphs";
 import SectionHeadline from "@components/section-headline";
 import { getDictionary, type Locale } from "@i18n";
+import config from "@payload-config";
 import { toParagraphs } from "@utils/paragraphs";
 import { tw } from "@utils/tw";
+import { getPayload } from "payload";
 import Calculator from "./calculator";
 import { priceParts, sizeLabel } from "./labels";
 import { sortTiers } from "./price";
@@ -15,8 +17,8 @@ interface PriceListProps extends PriceListBlock {
   locale: Locale;
 }
 
-type Tier = PriceListBlock["tiers"][number];
-type Discount = NonNullable<PriceListBlock["discounts"]>[number];
+type Tier = HomePrice["tiers"][number];
+type Discount = NonNullable<HomePrice["discounts"]>[number];
 
 const byTanks = (a: Discount, b: Discount) => {
   return a.tanks - b.tanks;
@@ -42,15 +44,13 @@ const renderNote = (paragraph: string) => {
 /**
  * The headline and intro across the top, then from `lg` up the calculator and
  * buttons in five columns and the price table and small print in the other
- * seven; stacked below, calculator first.
+ * seven; stacked below, calculator first. The figures come from the
+ * `homePrices` global, the same in every language.
  */
-const PriceList = ({
+const PriceList = async ({
   heading,
   highlight,
   text,
-  tiers,
-  discounts,
-  gst,
   note,
   actions,
   isSubtle,
@@ -58,6 +58,10 @@ const PriceList = ({
   locale,
 }: PriceListProps) => {
   const { prices: labels } = getDictionary(locale);
+  const payload = await getPayload({ config });
+  const { tiers, discounts, gst } = await payload.findGlobal({
+    slug: "homePrices",
+  });
   const sorted = sortTiers(tiers);
   const rules = [...(discounts ?? [])].sort(byTanks);
 

@@ -4,6 +4,7 @@ import { testimonials } from "@/collections/clients/testimonials";
 import { media } from "@/collections/media";
 import { pages } from "@/collections/pages";
 import { users } from "@/collections/users";
+import { homePrices } from "@/globals/home-prices";
 import { processGlobal } from "@/globals/process";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
@@ -31,7 +32,7 @@ export default buildConfig({
     importMap: { baseDir: dirname },
   },
   collections: [users, media, pages, clients, clientCategories, testimonials],
-  globals: [processGlobal],
+  globals: [processGlobal, homePrices],
   editor: lexicalEditor(),
   // Same codes as src/i18n/config.ts. Mark a field `localized: true` to translate it;
   // a missing translation falls back to English.

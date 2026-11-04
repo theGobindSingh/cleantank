@@ -1,7 +1,7 @@
-import type { PriceListBlock } from "@/payload-types";
+import type { HomePrice } from "@/payload-types";
 
-type Tier = PriceListBlock["tiers"][number];
-type Discount = NonNullable<PriceListBlock["discounts"]>[number];
+type Tier = HomePrice["tiers"][number];
+type Discount = NonNullable<HomePrice["discounts"]>[number];
 
 export interface Quote {
   /** Tanks in a tier marked for discount: only these set the rate. */
