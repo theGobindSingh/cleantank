@@ -93,7 +93,7 @@ const Calculator = ({
       {discounts.length > 0 && (
         <Steps
           steps={discountSteps(discounts, labels)}
-          reached={reachedStep(bill.count, discounts)}
+          reached={reachedStep(bill, discounts)}
           labels={labels}
         />
       )}
