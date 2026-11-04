@@ -130,7 +130,7 @@ export const en = {
     reached: "(your tanks)",
     calculator: "Work out your price",
     tank: "Tank {n} size in litres",
-    add: "Add a tank",
+    add: "Add another tank",
     remove: "Remove tank {n}",
     subtotal: "Price",
     discount: "Discount ({percent}%)",
