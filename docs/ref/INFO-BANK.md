@@ -154,6 +154,12 @@ Professional execution: trained technicians follow systematic procedures and use
 - Tanks are usually "either neglected or cleaned by inappropriate means like a local plumber or sweeper".
 - Water purifiers are ineffective unless input water is clean & filters maintained; a clean source extends purifier component life; water is also used for cooking, washing, bathing.
 
+### Cited health facts (checked 4 Nov 2026; usable on the site with the source named)
+
+- WHO drinking-water fact sheet (13 Sep 2023, <https://www.who.int/news-room/fact-sheets/detail/drinking-water>): "Microbiologically contaminated drinking water can transmit diseases such as diarrhoea, cholera, dysentery, typhoid and polio", and it causes "approximately 505 000 diarrhoeal deaths each year". The figure is worldwide, not India.
+- Mathura, May 2026 (Devdiscourse, 7 May 2026, <https://www.devdiscourse.com/article/health/3899271-contaminated-tank-causes-illness-in-housing-society>): more than a dozen residents of Krishna Lok Housing Society, children and older people among them, fell ill with diarrhoea after drinking water from an overhead tank. The first findings blamed irregular cleaning, and officials found bird droppings, monkey waste and insects in the tank. Name the city and month only, never the society, and keep the wording calm.
+- Cleaning interval for homes: use the 3 to 6 month range from §4. Guidance online, mostly from tank makers and cleaners, centres on every 6 months, sooner after the monsoon or with hard water. No Indian authority sets an official interval.
+
 ### Website-safe copy (preferred for the site)
 
 **About Clean Tank Services**

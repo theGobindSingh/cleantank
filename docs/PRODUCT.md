@@ -99,7 +99,7 @@ Page content, client lists and franchise figures go into Payload, not into compo
 
 The persona is "The Humble Expert": a Sage/Expert (about 70%) with some Caregiver (about 30%). Traits: knowledgeable, disciplined, humble, responsible, reassuring. Write like a specialist who wants the customer to understand the work, explaining technical detail simply instead of hiding it or making it sound complicated.
 
-- Calm and plain. No exclamation marks, no urgency, no fear.
+- Calm and plain. No exclamation marks, no urgency, no fear. One exception (user's call, 4 Nov 2026): the first value proposition on `/homes` gives a reason to act now. It uses the tank nobody sees, a "when was it last cleaned?" check, and real health risks, but only the cited facts in INFO-BANK §6, with the source named. It still never uses countdowns, invented deadlines, shock images or exclamation marks.
 - Formal and precise with institutions, warm with families, structured with franchise partners.
 - Words that fit: clean, scientific, process, professional, hygiene, treatment, method, system, properly, documented, specialist, care, trust.
 - Use carefully and only with evidence: health, safe, non-toxic, protection.
@@ -159,7 +159,7 @@ Get a lawyer to review it before it goes live. docs/LAUNCH.md turns this list in
 ## Avoid
 
 - Looking like a generic cleaning company, a plumber's flyer or a trade-show standee.
-- Fear and shock: dead animals, filthy-tank close-ups as scare tactics, disease talk. The before/after tank and wall photos in Payload media are evidence, so show them calmly.
+- Fear and shock: dead animals, filthy-tank close-ups as scare tactics, disease talk (except the cited facts in the `/homes` value proposition, see Voice). The before/after tank and wall photos in Payload media are evidence, so show them calmly.
 - Sales pressure: countdowns, limited slots, discount badges, festive offers.
 - Corporate distance or claims to be international.
 - Attacks on competitors.
