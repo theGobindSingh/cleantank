@@ -50,6 +50,7 @@ export const pa: Dictionary = {
     menu: "ਮੀਨੂ",
     solutions: "ਹੱਲ",
     links: {
+      home: "ਹੋਮ",
       homes: "ਘਰ",
       organisations: "ਸੰਸਥਾਵਾਂ",
       process: "ਪ੍ਰਕਿਰਿਆ",
@@ -70,7 +71,6 @@ export const pa: Dictionary = {
     rights: "ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।",
     gemSeller: "ਰਜਿਸਟਰਡ ਵਿਕਰੇਤਾ",
     links: {
-      home: "ਹੋਮ",
       whyChooseUs: "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
       clients: "ਸਾਡੇ ਕਲਾਇੰਟ",
       privacy: "ਪਰਦੇਦਾਰੀ ਨੀਤੀ",

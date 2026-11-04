@@ -50,6 +50,7 @@ export const hi: Dictionary = {
     menu: "मेन्यू",
     solutions: "समाधान",
     links: {
+      home: "होम",
       homes: "घर",
       organisations: "संस्थाएँ",
       process: "प्रक्रिया",
@@ -70,7 +71,6 @@ export const hi: Dictionary = {
     rights: "सर्वाधिकार सुरक्षित।",
     gemSeller: "पंजीकृत विक्रेता",
     links: {
-      home: "होम",
       whyChooseUs: "हमें क्यों चुनें",
       clients: "हमारे क्लाइंट",
       privacy: "गोपनीयता नीति",

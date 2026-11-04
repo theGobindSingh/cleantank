@@ -85,12 +85,14 @@ const HeaderNav = ({ locale, logo, labels }: HeaderNavProps) => {
   };
   useEffect(holdWhileOpen, [isOpen, lenis]);
 
-  const renderLink = (page: (typeof PAGES)[number]) => {
-    const isPage = isOnPage(path, page);
+  const renderLink = (page: (typeof PAGES)[number] | "home") => {
+    const route = page === "home" ? "/" : `/${page}`;
+    // Home is current on the home page only, not on every page below it.
+    const isPage = page === "home" ? path === "/" : isOnPage(path, page);
     return (
       <li key={page}>
         <Link
-          href={localePath(locale, `/${page}`)}
+          href={localePath(locale, route)}
           aria-current={isPage ? "page" : undefined}
           onClick={closeMenu}
           className={tw(ITEM_TYPE, isPage ? MARKED : "no-underline")}
@@ -140,6 +142,7 @@ const HeaderNav = ({ locale, logo, labels }: HeaderNavProps) => {
         className="site-menu"
       >
         <ul className="flex flex-col lg:flex-row lg:gap-5">
+          {renderLink("home")}
           <Solutions
             locale={locale}
             path={path}

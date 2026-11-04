@@ -52,8 +52,9 @@ export const en = {
     nav: "Main",
     menu: "Menu",
     solutions: "Solutions",
-    /** Order is the header's order; homes and organisations sit under Solutions. */
+    /** Header order; homes and organisations sit under Solutions. */
     links: {
+      home: "Home",
       homes: "Homes",
       organisations: "Organisations",
       process: "Process",
@@ -75,7 +76,6 @@ export const en = {
     rights: "All rights reserved.",
     gemSeller: "Registered seller",
     links: {
-      home: "Home",
       whyChooseUs: "Why Choose Us",
       clients: "Clients",
       privacy: "Privacy Policy",
