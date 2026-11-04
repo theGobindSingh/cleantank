@@ -25,6 +25,7 @@ import * as migration_20261103_110603_trust_band_figure_source from './20261103_
 import * as migration_20261103_112948_client_logo_link from './20261103_112948_client_logo_link';
 import * as migration_20261103_113730_media_folders from './20261103_113730_media_folders';
 import * as migration_20261103_174127_value_prop_list from './20261103_174127_value_prop_list';
+import * as migration_20261104_171328_home_prices_global from './20261104_171328_home_prices_global';
 
 export const migrations = [
   {
@@ -160,6 +161,11 @@ export const migrations = [
   {
     up: migration_20261103_174127_value_prop_list.up,
     down: migration_20261103_174127_value_prop_list.down,
-    name: '20261103_174127_value_prop_list'
+    name: '20261103_174127_value_prop_list',
+  },
+  {
+    up: migration_20261104_171328_home_prices_global.up,
+    down: migration_20261104_171328_home_prices_global.down,
+    name: '20261104_171328_home_prices_global'
   },
 ];
