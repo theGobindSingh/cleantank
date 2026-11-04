@@ -29,15 +29,40 @@ export const priceParts = (tier: Tier, labels: Labels) => {
   return { before, amount: formatRupees(tier.price), after };
 };
 
-export const discountLabel = (
-  rule: Discount,
-  next: Discount | undefined,
-  labels: Labels,
-) => {
-  const template = next
-    ? labels.discountRange.replace("{max}", String(next.tanks - 1))
-    : labels.discountFrom;
-  return template
-    .replace("{min}", String(rule.tanks))
-    .replace("{percent}", String(rule.percent));
+/** One cell of the discount strip: the tank count, then what it costs. */
+export interface Step {
+  tanks: string;
+  off: string;
+}
+
+const range = (min: number, max: number, labels: Labels) => {
+  return min === max
+    ? String(min)
+    : labels.stepRange
+        .replace("{min}", String(min))
+        .replace("{max}", String(max));
+};
+
+/**
+ * The strip's cells: full price below the first rule, then one per rule, each
+ * running until the next rule starts. `rules` are sorted by tanks.
+ */
+export const discountSteps = (rules: Discount[], labels: Labels): Step[] => {
+  const first = rules[0]?.tanks ?? 2;
+  const toStep = (rule: Discount, index: number) => {
+    const next = rules[index + 1];
+    return {
+      tanks: next
+        ? range(rule.tanks, next.tanks - 1, labels)
+        : labels.stepFrom.replace("{min}", String(rule.tanks)),
+      off: labels.percentOff.replace("{percent}", String(rule.percent)),
+    };
+  };
+  return [
+    {
+      tanks: first > 2 ? range(1, first - 1, labels) : labels.oneTank,
+      off: labels.fullPrice,
+    },
+    ...rules.map(toStep),
+  ];
 };

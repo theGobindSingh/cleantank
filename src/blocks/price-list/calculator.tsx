@@ -5,11 +5,21 @@ import Button from "@components/button";
 import { H3 } from "@components/html";
 import type { Dictionary } from "@i18n";
 import { useState } from "react";
-import { formatRupees, quote, sortTiers, tankPrice, tierFor } from "./price";
+import { discountSteps } from "./labels";
+import {
+  formatRupees,
+  quote,
+  reachedStep,
+  sortTiers,
+  tankPrice,
+  tierFor,
+} from "./price";
+import Steps from "./steps";
 import TankRow, { type Tank } from "./tank-row";
 
 interface CalculatorProps {
   tiers: PriceListBlock["tiers"];
+  /** Sorted by tanks. */
   discounts: NonNullable<PriceListBlock["discounts"]>;
   gstPercent: number;
   labels: Dictionary["prices"];
@@ -24,8 +34,8 @@ const toTankLitres = (tank: Tank) => {
 };
 
 /**
- * Tank sizes in, the bill out: each tank's price, the multi-tank discount, GST
- * and the total, updated as the visitor types.
+ * The discount steps, then tank sizes in and the bill out: each tank's price,
+ * the multi-tank discount, GST and the total, updated as the visitor types.
  */
 const Calculator = ({
   tiers,
@@ -80,6 +90,13 @@ const Calculator = ({
       <H3 $size="h4" $margin="0">
         {labels.calculator}
       </H3>
+      {discounts.length > 0 && (
+        <Steps
+          steps={discountSteps(discounts, labels)}
+          reached={reachedStep(bill.count, discounts)}
+          labels={labels}
+        />
+      )}
       <ul className="flex flex-col gap-5">{tanks.map(renderTank)}</ul>
       <Button variant="outlined" onClick={handleAdd} className="self-start">
         {labels.add}

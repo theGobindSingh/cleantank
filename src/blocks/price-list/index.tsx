@@ -8,7 +8,7 @@ import { getDictionary, type Locale } from "@i18n";
 import { toParagraphs } from "@utils/paragraphs";
 import { tw } from "@utils/tw";
 import Calculator from "./calculator";
-import { discountLabel, priceParts, sizeLabel } from "./labels";
+import { priceParts, sizeLabel } from "./labels";
 import { sortTiers } from "./price";
 
 interface PriceListProps extends PriceListBlock {
@@ -41,8 +41,8 @@ const renderNote = (paragraph: string) => {
 
 /**
  * The headline and intro across the top, then from `lg` up the calculator and
- * buttons in five columns and the price table, discounts and small print in
- * the other seven; stacked below, calculator first.
+ * buttons in five columns and the price table and small print in the other
+ * seven; stacked below, calculator first.
  */
 const PriceList = ({
   heading,
@@ -74,14 +74,6 @@ const PriceList = ({
           {price.after}
         </td>
       </tr>
-    );
-  };
-
-  const renderRule = (rule: Discount, index: number) => {
-    return (
-      <li key={rule.id ?? index}>
-        {discountLabel(rule, rules[index + 1], labels)}
-      </li>
     );
   };
 
@@ -123,11 +115,6 @@ const PriceList = ({
             <tbody>{sorted.map(renderTier)}</tbody>
           </table>
         </div>
-        {rules.length > 0 && (
-          <ul className="flex flex-col gap-1 font-semibold">
-            {rules.map(renderRule)}
-          </ul>
-        )}
         {note && (
           <div className="flex flex-col gap-2">
             {toParagraphs(note).map(renderNote)}
