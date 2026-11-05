@@ -20,6 +20,8 @@ export const site = {
   tagline: "Clean Tank, Healthy Life",
   endorsement: `An Initiative of ${legalName}`,
   legalName,
+  // The year Gobind Galaxy started (INFO-BANK §1); "15+ years" stays true.
+  established: 2008,
   description: `Scientific and mechanized cleaning and disinfection of water storage tanks for homes, housing societies, institutions and industry. An initiative of ${legalName}, Kanpur.`,
   // Set SITE_URL in production so canonical and social URLs are absolute.
   url: process.env.SITE_URL ?? "http://localhost:3000",
