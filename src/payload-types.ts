@@ -404,6 +404,19 @@ export interface ProcessBlock {
    * Also show each step in full, with its photo, purpose and equipment, and link the track to them. For the process page.
    */
   detailed?: boolean | null;
+  /**
+   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   */
+  actions?:
+    | {
+        label: string;
+        /**
+         * A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.
+         */
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'process';
@@ -1116,6 +1129,13 @@ export interface ProcessBlockSelect<T extends boolean = true> {
   heading?: T;
   highlight?: T;
   detailed?: T;
+  actions?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

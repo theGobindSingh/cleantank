@@ -1,3 +1,4 @@
+import Actions from "@/blocks/actions";
 import type { ProcessBlock } from "@/payload-types";
 import Section from "@components/section";
 import { getDictionary, type Locale } from "@i18n";
@@ -14,12 +15,14 @@ interface ProcessSectionProps extends ProcessBlock {
  * The 5-step track on the page ground, with each step's number, name, line
  * and benefit, under the standard statement headline. The steps come from the
  * `process` global. With `detailed` (the process page), the track becomes the
- * steps' index without the benefits and each step follows in full.
+ * steps' index without the benefits and each step follows in full. Optional
+ * buttons close the section, bottom left.
  */
 const ProcessSection = async ({
   heading,
   highlight,
   detailed,
+  actions,
   locale,
 }: ProcessSectionProps) => {
   const { process: labels } = getDictionary(locale);
@@ -43,6 +46,7 @@ const ProcessSection = async ({
       ) : (
         track
       )}
+      <Actions actions={actions} locale={locale} />
     </Section>
   );
 };

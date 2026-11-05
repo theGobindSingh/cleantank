@@ -1,3 +1,4 @@
+import { actionsField } from "@/blocks/actions/config";
 import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
@@ -21,5 +22,6 @@ export const processBlock: Block = {
           "Also show each step in full, with its photo, purpose and equipment, and link the track to them. For the process page.",
       },
     },
+    actionsField,
   ],
 };
