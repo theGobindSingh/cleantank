@@ -111,6 +111,10 @@ export const pa: Dictionary = {
     placeholderName: "ਨਾਮ",
     placeholderCaption: "ਅਹੁਦਾ, ਸੰਸਥਾ",
   },
+  hero: {
+    certified: "{standard} ਪ੍ਰਮਾਣਿਤ",
+    since: "{year} ਤੋਂ",
+  },
   compare: {
     label: "ਸਫ਼ਾਈ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ",
     before: "ਪਹਿਲਾਂ",

@@ -111,6 +111,10 @@ export const hi: Dictionary = {
     placeholderName: "नाम",
     placeholderCaption: "पद, संस्था",
   },
+  hero: {
+    certified: "{standard} प्रमाणित",
+    since: "{year} से",
+  },
   compare: {
     label: "सफ़ाई से पहले और बाद",
     before: "पहले",

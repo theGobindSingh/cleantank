@@ -116,6 +116,10 @@ export const en = {
     placeholderName: "Name",
     placeholderCaption: "Role, Organisation",
   },
+  hero: {
+    certified: "{standard} certified",
+    since: "Since {year}",
+  },
   compare: {
     label: "Before and after cleaning",
     before: "Before",
