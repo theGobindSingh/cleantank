@@ -234,3 +234,32 @@
   background-color: var(--color-band);
   color: var(--color-fg);
 }
+
+/*
+ * A band from lg up only (the hero, data-band-from="lg"). Below lg every role
+ * above is unset, so it inherits the page's own roles, in either mode.
+ */
+@media (width < 64rem) {
+  [data-surface="band"][data-band-from="lg"] {
+    --color-white: unset;
+
+    --color-fg: unset;
+    --color-fg-muted: unset;
+    --color-heading: unset;
+    --color-link: unset;
+    --color-link-hover: unset;
+    --color-border: unset;
+    --color-border-control: unset;
+    --color-border-strong: unset;
+    --color-primary: unset;
+    --color-primary-hover: unset;
+    --color-primary-active: unset;
+    --color-on-primary: unset;
+    --color-marker-text: unset;
+    --color-secondary: unset;
+    --color-focus: unset;
+
+    background-color: unset;
+    color: unset;
+  }
+}
