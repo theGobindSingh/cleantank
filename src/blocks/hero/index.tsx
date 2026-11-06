@@ -61,8 +61,8 @@ const Hero = ({
         )
       }
     >
-      <div className="flex flex-col gap-4 pt-6 lg:w-7/12 lg:gap-6 lg:py-24 lg:pr-10">
-        <H1 $size="display" $margin="0" className="max-w-[11ch]">
+      <div className="flex flex-col gap-4 pt-6 lg:w-7/12 lg:gap-6 lg:py-24">
+        <H1 $size="display" $margin="0">
           <Highlight
             text={heading}
             highlight={highlight}
