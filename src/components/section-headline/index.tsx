@@ -10,8 +10,8 @@ interface SectionHeadlineProps {
 
 /**
  * The standard section header: an H2 at the `statement` size, in two lines
- * split at the space nearest its middle, each its own block so the heading is
- * exactly as wide as its longer line.
+ * split at the space that best halves its width, each its own block so the
+ * heading is exactly as wide as its longer line.
  */
 const SectionHeadline = ({ heading, highlight }: SectionHeadlineProps) => {
   const renderLine = (line: string, index: number) => {

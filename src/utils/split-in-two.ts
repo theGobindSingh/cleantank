@@ -1,26 +1,30 @@
-const segmenter = new Intl.Segmenter();
+/** Marks drawn above or below a letter (most Hindi and Punjabi vowel signs, bindis) add no width. */
+const nonSpacingMark = /\p{Mn}/u;
 
-const toSegment = ({ segment }: Intl.SegmentData) => {
-  return segment;
+const takesRoom = (char: string) => {
+  return !nonSpacingMark.test(char);
 };
 
 /**
- * Splits `text` at the space nearest its middle, so it can be set as two even
- * lines; text with no space comes back whole. It counts graphemes, not code
- * units, so Hindi and Punjabi vowel signs don't skew the middle.
+ * Splits `text` at the space that best halves its width, so it can be set as
+ * two even lines; text with no space comes back whole. Width is the count of
+ * code points that take up room on the line, which tracks how wide Hindi and
+ * Punjabi words render far better than a grapheme count.
  */
 export const splitInTwo = (text: string): string[] => {
-  const graphemes = [...segmenter.segment(text)].map(toSegment);
-  const middle = graphemes.length / 2;
+  const chars = [...text];
+  const total = chars.filter(takesRoom).length;
   let best = -1;
-  for (const [index, grapheme] of graphemes.entries()) {
-    const isCloser =
-      best === -1 || Math.abs(index - middle) < Math.abs(best - middle);
-    if (grapheme === " " && isCloser) best = index;
+  let bestGap = Infinity;
+  let width = 0;
+  for (const [index, char] of chars.entries()) {
+    const gap = Math.abs(width - (total - width - 1));
+    if (char === " " && gap < bestGap) {
+      best = index;
+      bestGap = gap;
+    }
+    if (takesRoom(char)) width++;
   }
   if (best === -1) return [text];
-  return [
-    graphemes.slice(0, best).join(""),
-    graphemes.slice(best + 1).join(""),
-  ];
+  return [chars.slice(0, best).join(""), chars.slice(best + 1).join("")];
 };

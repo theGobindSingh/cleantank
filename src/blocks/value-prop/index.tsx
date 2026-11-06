@@ -32,9 +32,9 @@ const renderPhoto = (photo: CompareImage) => {
 
 /**
  * The promise under a large statement headline with an optional button.
- * The headline is set in two lines split at the space nearest its middle, and
- * the text column is as wide as the longer line: the body and button never
- * pass it. Below `lg` the text takes the full width instead.
+ * The headline is set in two lines split at the space that best halves its
+ * width, and the text column is as wide as the longer line: the body and
+ * button never pass it. Below `lg` the text takes the full width instead.
  * From `lg` up the photo sits at the right edge, as tall as the text and half
  * as wide as it is tall (1:2), narrower only if a tall text column would push
  * it past the edge. Below that the photos follow the text, 1:2, each half of a
