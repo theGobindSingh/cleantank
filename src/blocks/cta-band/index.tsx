@@ -1,15 +1,15 @@
 import Actions from "@/blocks/actions";
 import type { CtaBandBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import Highlight from "@components/highlight";
-import { H2, P } from "@components/html";
+import { P } from "@components/html";
+import SectionHeadline from "@components/section-headline";
 import type { Locale } from "@i18n";
 
 interface CtaBandProps extends CtaBandBlock {
   locale: Locale;
 }
 
-/** One of the page's emphasis bands: a heading, a line and its actions on navy. */
+/** One of the page's emphasis bands: the standard two-line heading, a line and its actions on navy. */
 const CtaBand = ({
   heading,
   highlight,
@@ -20,15 +20,9 @@ const CtaBand = ({
   return (
     <CommonFullWidthWrapper
       wrapperProps={{ "data-surface": "band" }}
-      className="flex flex-col gap-6 py-8 md:py-10"
+      className="flex flex-col gap-4 py-8 md:py-10 lg:py-12"
     >
-      <H2 $margin="0" className="max-w-[24ch]">
-        <Highlight
-          text={heading}
-          highlight={highlight}
-          className="text-accent-500"
-        />
-      </H2>
+      <SectionHeadline heading={heading} highlight={highlight} />
       {text && (
         <P $size="body-l" className="max-w-[60ch] text-pretty">
           {text}
