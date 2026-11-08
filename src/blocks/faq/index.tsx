@@ -1,7 +1,8 @@
 import type { FaqBlock } from "@/payload-types";
+import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { P } from "@components/html";
 import { iconProps } from "@components/icon";
-import Section from "@components/section";
+import SectionHeadline from "@components/section-headline";
 import { PlusIcon } from "lucide-react";
 
 type Item = FaqBlock["items"][number];
@@ -23,14 +24,21 @@ const renderItem = (item: Item, index: number) => {
   );
 };
 
-/** Plain questions and answers as native `details`, so they work without JS. */
+/**
+ * Plain questions and answers as native `details`, so they work without JS.
+ * From `lg` up the heading sits in the left five columns and the questions in
+ * the right seven; below that they stack.
+ */
 const Faq = ({ heading, highlight, items }: FaqBlock) => {
   return (
-    <Section heading={heading} highlight={highlight}>
-      <div className="max-w-[80ch] border-t border-border">
+    <CommonFullWidthWrapper className="grid gap-10 py-8 md:gap-12 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12">
+      <div className="lg:col-span-5">
+        <SectionHeadline heading={heading} highlight={highlight} />
+      </div>
+      <div className="max-w-[80ch] self-start border-t border-border lg:col-span-7">
         {items.map(renderItem)}
       </div>
-    </Section>
+    </CommonFullWidthWrapper>
   );
 };
 
