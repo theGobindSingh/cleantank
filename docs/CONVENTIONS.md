@@ -87,4 +87,4 @@ Until launch, the site is not on its domain: `https://www.cleantankservices.com`
 
 ## Git
 
-Work on `master`. Conventional Commits (`feat:`, `fix:`, `docs:`, …), checked by commitlint in `.husky/commit-msg`. Keep commits small, one concern each, so any one can be reverted alone. The same hook strips Claude and Anthropic co-author trailers. Commit `pnpm-lock.yaml`.
+Work on `master`. Conventional Commits (`feat:`, `fix:`, `docs:`, …), checked by commitlint in `.husky/commit-msg`; keep every body line at 100 characters or less so the first try passes. Make one commit at a time and stop if one is rejected; a script that carries on after a rejection sweeps every staged file into the next commit. Keep commits small, one concern each, so any one can be reverted alone. The same hook strips Claude and Anthropic co-author trailers. Commit `pnpm-lock.yaml`.
