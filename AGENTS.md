@@ -7,7 +7,7 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 ## Commands
 
 - `pnpm install` — install deps and create agent symlinks
-- `pnpm dev` — dev server. Only one dev server runs at a time. Agents never start it, or any other server, on their own. Use the one already running on port 3000. If it isn't up and you need one, ask the user. `pnpm test:e2e` starting its own server is the one exception
+- `pnpm dev` — dev server. Only one dev server runs at a time. Agents never start it, or any other server, on their own. Use the one already running on port 3000. If it isn't up and you need one, ask the user; never fall back to another port such as 3100. `pnpm test:e2e` starting its own server is the one exception. Repeat this rule in every brief that needs a browser, since a brief that says "start `pnpm dev`" wins in practice
 - `pnpm build` — auto-fixes lint, then builds; the main quality gate
 - `pnpm test` — unit tests (Vitest, `src/**/*.test.ts`)
 - `pnpm test:e2e` — builds, then runs the Playwright browser and axe accessibility tests in `e2e/`
@@ -45,17 +45,25 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - One source per fact: `src/site.ts` for facts the code uses, INFO-BANK for the rest. Docs point there instead of retyping values.
 - When a change makes any doc wrong, update that doc in the same change.
 - Never credit Claude, Anthropic or any AI in commits or PRs: no `Co-Authored-By` trailers, no "Generated with" lines. `.husky/commit-msg` strips Claude and Anthropic ones anyway.
-- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Until the site is live (`isLive` in `src/site.ts` is false), the owner has approved migrations and content writes without asking; after launch, ask first. The `content-updater` subagent never needs approval to seed or update Payload content, before or after launch.
+- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Until the site is live (`isLive` in `src/site.ts` is false), the owner has approved migrations and content writes without asking; after launch, ask first. State that approval in every brief that touches the database, so the auto-mode check sees it. Read before writing and leave other content unchanged. The `content-updater` subagent never needs approval to seed or update Payload content, before or after launch.
 
 ## Deciding and committing
 
 - Decide on your own from these docs and INFO-BANK. Ask the user only when the docs are silent, contradict each other or no longer match the code. Write the answer into the right doc so nobody has to ask again.
-- The user co-owns the business; their decisions are final on brand, copy and claims.
-- Don't run the test suites after every change. Show the result and ask the user whether they want changes; make them and ask again. Run `pnpm test` and `pnpm test:e2e` only once the user says there's nothing more. Lint and type checks while working are fine.
+- The user co-owns the business with their parents; their father is the CEO and public face. The user's decisions are final on brand, copy, design and claims, with no separate sign-off. Keep docs short and don't tag facts "owner-approved".
+- Don't run the test suites after every change. Show the result and ask the user whether they want changes; make them and ask again. Run `pnpm test` and `pnpm test:e2e` only once the user says there's nothing more. Lint while working is enough.
 - Work in the main checkout on `master`, one task at a time; no worktrees or branches.
-- Commit as soon as the work passes the checks, small and one concern each, without waiting for approval.
-- Push to `master` only after the user approves.
-- All work tracking lives in Track Suru, project `CT` (https://tracksuru.letmecome.in/p/CT), through the `track-suru` MCP server. Find or create the issue under its epic before starting and set it In Progress. Set it Done when it's committed, and file follow-ups there.
+- Commit as soon as the work passes the checks, small and one concern each, without waiting for approval, then push to `master`. No approval needed for either.
+- All work tracking lives in Track Suru, project `CT` (https://tracksuru.letmecome.in/p/CT), through the `track-suru` MCP server. Every task gets an issue, however small: features, fixes, copy, research, previews and chores. Find or create it under its epic before starting and set it In Progress. When it's stuck waiting on the user's input or on another task, set it WOD (waiting on dependency) and say in a comment what it waits for; set it back to In Progress when work resumes. Set it Done when it's committed. Follow-ups, open questions and leftovers become their own issues, never notes in docs or chat. Leave Assignee empty unless told otherwise. Never put secrets, env values or the GeM seller ID in an issue. Ask before deleting anything or turning notifications off. The server is configured per machine, so subagents here have it and other tools may not.
+
+## Agents
+
+The working style comes from the `gobind` plugin in `.claude/plugins/gobind` (its `working-style` skill and agents). This file wins where they differ.
+
+- The main session talks to the user, thinks and plans. It hands a task to one `phase-lead` (Opus), which runs the whole chain: helpers, `content-updater`, checks, commits, pushes and Track Suru updates.
+- Briefs are self-contained, since agents see only the prompt. Every brief names the Track Suru issue and repeats the dev server rule, and the database approval when the task touches the database.
+- Agents share this one checkout, so agents whose files overlap run one at a time.
+- HTML previews and mockups: one file can go in `~/public-files/<file>.html`. Anything with more than one file is a site in `~/public-hostings/<name>/` (`https://<name>.letmecome.in`); a folder in public-files 404s without `index.html`. Link to the image URLs Payload already serves; never download copies.
 
 ## Every code change
 
