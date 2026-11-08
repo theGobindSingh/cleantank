@@ -64,3 +64,6 @@ CLAUDE.md
 
 # Python bytecode
 __pycache__/
+
+# gobind plugin session state
+.claude/gobind/
