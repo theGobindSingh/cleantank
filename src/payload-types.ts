@@ -674,9 +674,25 @@ export interface StoryBlock {
    */
   highlight?: string | null;
   /**
+   * A small caps label over the text. Needed only with a second column.
+   */
+  label?: string | null;
+  /**
    * Leave a blank line between paragraphs.
    */
   text: string;
+  /**
+   * Optional. With a second column, the two sit side by side with a rule between them, each under its label.
+   */
+  secondLabel?: string | null;
+  /**
+   * Leave a blank line between paragraphs.
+   */
+  secondText?: string | null;
+  /**
+   * A small note under the text. Optional.
+   */
+  note?: string | null;
   image?: (number | null) | Media;
   id?: string | null;
   blockName?: string | null;
@@ -1303,7 +1319,11 @@ export interface CtaBandBlockSelect<T extends boolean = true> {
 export interface StoryBlockSelect<T extends boolean = true> {
   heading?: T;
   highlight?: T;
+  label?: T;
   text?: T;
+  secondLabel?: T;
+  secondText?: T;
+  note?: T;
   image?: T;
   id?: T;
   blockName?: T;
