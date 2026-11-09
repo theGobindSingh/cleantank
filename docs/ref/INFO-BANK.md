@@ -25,7 +25,7 @@ One source per fact. Facts the code uses (name, brand lines, contacts, offices, 
 
 ### Offices, phones and emails
 
-Both offices with their phones, and the site email: `src/site.ts`. The site leaves out the Regd. Office (owner's call).
+Both offices, the main and franchise phones (both on WhatsApp) and the site email: `src/site.ts`. The site leaves out the Regd. Office (owner's call).
 
 Other email, not used by the site: <gobindgalaxy@gmail.com>
 
@@ -51,7 +51,7 @@ Public display: owner wants it public; the certificate has been verified by the 
 
 ## 2. People
 
-**Mr. Gurdev Singh — Founder & CEO** : Sr. Gurdev Singh, phone: the Punjab office number in `src/site.ts`
+**Mr. Gurdev Singh — Founder & CEO** : Sr. Gurdev Singh, phone: +91 86993 39947 (his own; the site shows the main line in `src/site.ts`)
 
 Roles: Founder & CEO of Clean Tank Services; Proprietor of Gobind Galaxy (signs as "Proprietor" on the ISO certificate; signs "G. Singh"). Also written "Mr G D Singh" in franchise material.
 

@@ -8,7 +8,12 @@ import Section from "@components/section";
 import { getDictionary, pageAlternates, toLocale } from "@i18n";
 import { formatPhone, telHref, whatsappHref } from "@utils/phone";
 import type { LucideIcon } from "lucide-react";
-import { MailIcon, MessageCircleIcon, PhoneIcon } from "lucide-react";
+import {
+  HandshakeIcon,
+  MailIcon,
+  MessageCircleIcon,
+  PhoneIcon,
+} from "lucide-react";
 import type { Metadata } from "next";
 
 export const generateMetadata = async ({
@@ -105,13 +110,20 @@ const ContactPage = async ({ params }: PageProps<"/[lang]/contact">) => {
       value: site.email,
       Icon: MailIcon,
     },
+    {
+      label: contact.franchise,
+      hint: contact.franchiseHint,
+      href: telHref(site.franchisePhone),
+      value: formatPhone(site.franchisePhone),
+      Icon: HandshakeIcon,
+    },
   ];
 
   return (
     <main>
       <PageIntro heading={contact.title} text={contact.intro} locale={locale} />
       <CommonFullWidthWrapper className="pt-6 pb-8 md:pb-10 lg:pb-12">
-        <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border lg:grid-cols-3">
+        <ul className="grid gap-px overflow-hidden rounded-xs border border-border bg-border md:grid-cols-2">
           {channels.map(renderChannel)}
         </ul>
       </CommonFullWidthWrapper>

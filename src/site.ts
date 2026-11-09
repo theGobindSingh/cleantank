@@ -4,8 +4,9 @@
  * This file is the one source for these facts; docs point here instead of retyping them.
  */
 const legalName = "Gobind Galaxy";
-// Digits only, with the country code; format for display as +91 94535 17514.
-const phone = "919453517514";
+// Digits only, with the country code; format for display as +91 97795 40862.
+// The main line, also on WhatsApp: everything except franchise enquiries.
+const phone = "919779540862";
 
 export const site = {
   // Off until launch: Sentry and PostHog (and so the consent banner) stay
@@ -28,6 +29,8 @@ export const site = {
   phone,
   // The main number for now; set its own digits if WhatsApp moves.
   whatsapp: phone,
+  // Franchise enquiries only; also on WhatsApp.
+  franchisePhone: "919779517597",
   email: "admin@cleantankservices.com",
   offices: [
     {
@@ -39,7 +42,7 @@ export const site = {
       label: "Correspondence Office & Marketing/Sales Office, Punjab",
       address:
         "B-3/26, Jamuna Apartments, Ch-Kurali Highway, NH-5, Khanpur, Kharar, SAS Nagar-140301, Punjab",
-      phone: "918699339947",
+      phone,
     },
   ],
   gstin: "09ALFPS1473F5ZU",
