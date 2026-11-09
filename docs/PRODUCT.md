@@ -64,6 +64,7 @@ Companies, institutions and government: hospitals, schools, colleges and univers
 Local entrepreneurs with a service mindset and limited capital who want a proven system, training and support. This group is new. Structured tone.
 
 - Sell the system, the track record since 2008 and the client work (the same documents as Organisations). Never say how many partners there are, never imply the network is empty or new, and never use lines like "be among the first partners". Don't claim an existing partner network either.
+- Show only the franchise number (`franchisePhone` in `src/site.ts`), for calls and WhatsApp, in the page's buttons, contact bar and footer. The main number never appears there (user's call, 9 Nov 2026).
 
 ### Shared home page (`/`)
 

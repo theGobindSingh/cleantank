@@ -51,7 +51,7 @@ Public display: owner wants it public; the certificate has been verified by the 
 
 ## 2. People
 
-**Mr. Gurdev Singh — Founder & CEO** : Sr. Gurdev Singh, phone: +91 86993 39947 (his own; the site shows the main line in `src/site.ts`)
+**Mr. Gurdev Singh — Founder & CEO** : Sr. Gurdev Singh, phone: the company's main and franchise numbers in `src/site.ts`. The old +91 86993 39947 is no longer used
 
 Roles: Founder & CEO of Clean Tank Services; Proprietor of Gobind Galaxy (signs as "Proprietor" on the ISO certificate; signs "G. Singh"). Also written "Mr G D Singh" in franchise material.
 
