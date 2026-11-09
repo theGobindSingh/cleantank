@@ -123,6 +123,7 @@ export const hi: Dictionary = {
   prices: {
     size: "टंकी का साइज़",
     price: "क़ीमत",
+    exGst: "GST अलग से",
     upTo: "{max}\u00a0लीटर तक",
     range: "{min} से {max}\u00a0लीटर",
     above: "{min}\u00a0लीटर से ज़्यादा",

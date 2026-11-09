@@ -113,6 +113,9 @@ const PriceList = async ({
                 </th>
                 <th scope="col" className={tw(HEAD, "text-right")}>
                   {labels.price}
+                  <span className="block font-sans font-normal tracking-normal normal-case opacity-80">
+                    {labels.exGst}
+                  </span>
                 </th>
               </tr>
             </thead>

@@ -128,6 +128,7 @@ export const en = {
   prices: {
     size: "Tank size",
     price: "Price",
+    exGst: "Excl. GST",
     upTo: "Up to {max}\u00a0L",
     range: "{min} to {max}\u00a0L",
     above: "Above {min}\u00a0L",

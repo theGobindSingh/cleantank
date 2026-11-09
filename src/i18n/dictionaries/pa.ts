@@ -123,6 +123,7 @@ export const pa: Dictionary = {
   prices: {
     size: "ਟੈਂਕੀ ਦਾ ਸਾਈਜ਼",
     price: "ਕੀਮਤ",
+    exGst: "GST ਵੱਖਰਾ",
     upTo: "{max}\u00a0ਲੀਟਰ ਤੱਕ",
     range: "{min} ਤੋਂ {max}\u00a0ਲੀਟਰ",
     above: "{min}\u00a0ਲੀਟਰ ਤੋਂ ਵੱਧ",
