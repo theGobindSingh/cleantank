@@ -3,6 +3,8 @@
  * control labels, the holding contact and under-development pages. Page content
  * belongs in Payload.
  */
+import { prices } from "./prices";
+
 export const en = {
   notFound: {
     code: "Error 404",
@@ -37,10 +39,9 @@ export const en = {
     franchiseHint: "Call or WhatsApp about a franchise in your area.",
     whatsapp: "WhatsApp",
     whatsappHint:
-      "The chat opens with a short form. Fill it in and send it, and we will give you a price.",
-    // Pre-filled in WhatsApp chats opened from the site: a short form, so the first message can be quoted.
-    whatsappText:
-      "Hello, I would like a price for cleaning my water tank.\nArea:\nTank size (litres):\nOverhead or underground:",
+      "Tell us your area and the size of your tank, and we will give you a price.",
+    // Pre-filled in WhatsApp chats opened from the site; the price list's calculator adds its figures instead.
+    whatsappText: "Hello, I would like a price for cleaning my water tank.",
     email: "Email",
     emailHint: "For quotations, documents and anything in writing.",
     offices: "Office.",
@@ -126,31 +127,7 @@ export const en = {
     before: "Before",
     after: "After",
   },
-  prices: {
-    size: "Tank size",
-    price: "Price",
-    exGst: "Excl. GST",
-    upTo: "Up to {max}\u00a0L",
-    range: "{min} to {max}\u00a0L",
-    above: "Above {min}\u00a0L",
-    perLitre: "{price} per litre",
-    steps: "Multi-tank discount",
-    oneTank: "1 tank",
-    stepRange: "{min} to {max}",
-    stepFrom: "{min} or more",
-    fullPrice: "Full price",
-    percentOff: "{percent}% off",
-    reached: "(your tanks)",
-    calculator: "Work out your price",
-    tank: "Tank {n} size in litres",
-    add: "Add another tank",
-    discuss: "Over {min}\u00a0L: let's discuss the discount on this tank.",
-    remove: "Remove tank {n}",
-    subtotal: "Price",
-    discount: "Discount ({percent}%)",
-    gst: "GST ({percent}%)",
-    total: "Total",
-  },
+  prices,
   language: {
     label: "Language",
   },

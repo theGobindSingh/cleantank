@@ -1,0 +1,30 @@
+import type { Dictionary } from "../en";
+
+export const prices: Dictionary["prices"] = {
+  size: "टंकी का साइज़",
+  price: "क़ीमत",
+  exGst: "GST अलग से",
+  upTo: "{max}\u00a0लीटर तक",
+  range: "{min} से {max}\u00a0लीटर",
+  above: "{min}\u00a0लीटर से ज़्यादा",
+  perLitre: "{price} प्रति लीटर",
+  steps: "ज़्यादा टंकियों पर छूट",
+  oneTank: "1 टंकी",
+  stepRange: "{min} से {max}",
+  stepFrom: "{min} या ज़्यादा",
+  fullPrice: "पूरी क़ीमत",
+  percentOff: "{percent}% छूट",
+  reached: "(आपकी टंकियाँ)",
+  calculator: "अपनी क़ीमत निकालें",
+  tank: "टंकी {n} का साइज़ (लीटर में)",
+  add: "एक और टंकी जोड़ें",
+  discuss: "{min}\u00a0लीटर से ज़्यादा: इस टंकी की छूट पर बात कर लेते हैं।",
+  remove: "टंकी {n} हटाएँ",
+  subtotal: "क़ीमत",
+  discount: "छूट ({percent}%)",
+  gst: "GST ({percent}%)",
+  total: "कुल",
+  whatsapp:
+    "नमस्ते, मैंने आपकी वेबसाइट पर अपनी पानी की टंकियों की सफ़ाई की यह क़ीमत निकाली है:",
+  whatsappTank: "टंकी {n}: {litres}\u00a0लीटर",
+};

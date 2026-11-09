@@ -16,14 +16,16 @@ interface ActionsProps {
   className?: string;
   /** Fills the first button in accent; only the price list uses it (user's call, 4 Nov 2026). */
   isAccent?: boolean;
+  /** Replaces the dictionary's WhatsApp message; the price calculator sends its figures. */
+  whatsappText?: string | undefined;
 }
 
 // `whatsapp` and `call` read the number from src/site.ts, so the CMS never repeats it.
-const toHref = (href: string, locale: Locale): string => {
+const toHref = (href: string, locale: Locale, whatsappText?: string) => {
   if (href === "whatsapp") {
     return whatsappHref(
       site.whatsapp,
-      getDictionary(locale).contact.whatsappText,
+      whatsappText ?? getDictionary(locale).contact.whatsappText,
     );
   }
   if (href === "call") return telHref(site.phone);
@@ -31,11 +33,17 @@ const toHref = (href: string, locale: Locale): string => {
 };
 
 /** A block's buttons: the first filled, the second outlined, full width on phones. */
-const Actions = ({ actions, locale, className, isAccent }: ActionsProps) => {
+const Actions = ({
+  actions,
+  locale,
+  className,
+  isAccent,
+  whatsappText,
+}: ActionsProps) => {
   if (!actions || actions.length === 0) return null;
 
   const renderAction = (action: Action, index: number) => {
-    const href = toHref(action.href, locale);
+    const href = toHref(action.href, locale, whatsappText);
     return (
       <Link
         key={action.id ?? index}

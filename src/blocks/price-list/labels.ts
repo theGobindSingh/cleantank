@@ -1,10 +1,14 @@
 import type { HomePrice } from "@/payload-types";
 import type { Dictionary } from "@i18n";
-import { formatNumber, formatRupees } from "./price";
+import { formatNumber, formatRupees, type Quote } from "./price";
 
 type Tier = HomePrice["tiers"][number];
 type Discount = NonNullable<HomePrice["discounts"]>[number];
 type Labels = Dictionary["prices"];
+
+const isSized = (litres: number) => {
+  return litres > 0;
+};
 
 // Each band starts one litre above the band before it.
 export const sizeLabel = (
@@ -65,4 +69,37 @@ export const discountSteps = (rules: Discount[], labels: Labels): Step[] => {
     },
     ...rules.map(toStep),
   ];
+};
+
+/**
+ * The WhatsApp message for the calculator's figures: the tanks entered and the
+ * bill. Undefined until a tank has a size, so the generic message stays.
+ */
+export const whatsappMessage = (
+  litres: number[],
+  bill: Quote,
+  gstPercent: number,
+  labels: Labels,
+): string | undefined => {
+  const sizes = litres.filter(isSized);
+  if (sizes.length === 0) return undefined;
+  const toLine = (size: number, index: number) => {
+    return labels.whatsappTank
+      .replace("{n}", String(index + 1))
+      .replace("{litres}", formatNumber(size));
+  };
+  const discount =
+    bill.discount > 0
+      ? [
+          `${labels.discount.replace("{percent}", String(bill.percent))}: −${formatRupees(bill.discount)}`,
+        ]
+      : [];
+  return [
+    labels.whatsapp,
+    ...sizes.map(toLine),
+    `${labels.subtotal}: ${formatRupees(bill.subtotal)}`,
+    ...discount,
+    `${labels.gst.replace("{percent}", String(gstPercent))}: ${formatRupees(bill.gst)}`,
+    `${labels.total}: ${formatRupees(bill.total)}`,
+  ].join("\n");
 };

@@ -1,11 +1,12 @@
 "use client";
 
+import Actions, { type Action } from "@/blocks/actions";
 import type { HomePrice } from "@/payload-types";
 import Button from "@components/button";
 import { H3 } from "@components/html";
-import type { Dictionary } from "@i18n";
+import type { Dictionary, Locale } from "@i18n";
 import { useState } from "react";
-import { discountSteps } from "./labels";
+import { discountSteps, whatsappMessage } from "./labels";
 import {
   formatNumber,
   formatRupees,
@@ -24,6 +25,9 @@ interface CalculatorProps {
   discounts: NonNullable<HomePrice["discounts"]>;
   gstPercent: number;
   labels: Dictionary["prices"];
+  /** The buttons under the calculator; a WhatsApp one carries its figures. */
+  actions: Action[] | null | undefined;
+  locale: Locale;
 }
 
 const toLitres = (value: string) => {
@@ -37,12 +41,15 @@ const toTankLitres = (tank: Tank) => {
 /**
  * The discount steps, then tank sizes in and the bill out: each tank's price,
  * the multi-tank discount, GST and the total, updated as the visitor types.
+ * The buttons follow, the WhatsApp message carrying the same figures.
  */
 const Calculator = ({
   tiers,
   discounts,
   gstPercent,
   labels,
+  actions,
+  locale,
 }: CalculatorProps) => {
   const [tanks, setTanks] = useState<Tank[]>([{ key: 0, value: "" }]);
   const sorted = sortTiers(tiers);
@@ -91,49 +98,57 @@ const Calculator = ({
   };
 
   return (
-    <div className="flex flex-col gap-6 rounded-sm bg-surface p-4 outline-1 -outline-offset-1 outline-grey-200 md:p-6">
-      <H3 $size="h4" $margin="0">
-        {labels.calculator}
-      </H3>
-      {discounts.length > 0 && (
-        <Steps
-          steps={discountSteps(discounts, labels)}
-          reached={reachedStep(bill.eligible, discounts)}
-          labels={labels}
-        />
-      )}
-      <ul className="flex flex-col gap-5">{tanks.map(renderTank)}</ul>
-      <Button variant="outlined" onClick={handleAdd} className="self-start">
-        {labels.add}
-      </Button>
-      <dl
-        aria-live="polite"
-        className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-2 border-t border-border pt-4 tabular-nums"
-      >
-        <dt>{labels.subtotal}</dt>
-        <dd className="text-right font-mono whitespace-nowrap">
-          {formatRupees(bill.subtotal)}
-        </dd>
-        {bill.discount > 0 && (
-          <>
-            <dt>
-              {labels.discount.replace("{percent}", String(bill.percent))}
-            </dt>
-            <dd className="text-right font-mono whitespace-nowrap">
-              −{formatRupees(bill.discount)}
-            </dd>
-          </>
+    <>
+      <div className="flex flex-col gap-6 rounded-sm bg-surface p-4 outline-1 -outline-offset-1 outline-grey-200 md:p-6">
+        <H3 $size="h4" $margin="0">
+          {labels.calculator}
+        </H3>
+        {discounts.length > 0 && (
+          <Steps
+            steps={discountSteps(discounts, labels)}
+            reached={reachedStep(bill.eligible, discounts)}
+            labels={labels}
+          />
         )}
-        <dt>{labels.gst.replace("{percent}", String(gstPercent))}</dt>
-        <dd className="text-right font-mono whitespace-nowrap">
-          {formatRupees(bill.gst)}
-        </dd>
-        <dt className="font-semibold text-heading">{labels.total}</dt>
-        <dd className="text-right font-mono font-semibold whitespace-nowrap text-heading">
-          {formatRupees(bill.total)}
-        </dd>
-      </dl>
-    </div>
+        <ul className="flex flex-col gap-5">{tanks.map(renderTank)}</ul>
+        <Button variant="outlined" onClick={handleAdd} className="self-start">
+          {labels.add}
+        </Button>
+        <dl
+          aria-live="polite"
+          className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-2 border-t border-border pt-4 tabular-nums"
+        >
+          <dt>{labels.subtotal}</dt>
+          <dd className="text-right font-mono whitespace-nowrap">
+            {formatRupees(bill.subtotal)}
+          </dd>
+          {bill.discount > 0 && (
+            <>
+              <dt>
+                {labels.discount.replace("{percent}", String(bill.percent))}
+              </dt>
+              <dd className="text-right font-mono whitespace-nowrap">
+                −{formatRupees(bill.discount)}
+              </dd>
+            </>
+          )}
+          <dt>{labels.gst.replace("{percent}", String(gstPercent))}</dt>
+          <dd className="text-right font-mono whitespace-nowrap">
+            {formatRupees(bill.gst)}
+          </dd>
+          <dt className="font-semibold text-heading">{labels.total}</dt>
+          <dd className="text-right font-mono font-semibold whitespace-nowrap text-heading">
+            {formatRupees(bill.total)}
+          </dd>
+        </dl>
+      </div>
+      <Actions
+        actions={actions}
+        locale={locale}
+        isAccent
+        whatsappText={whatsappMessage(litres, bill, gstPercent, labels)}
+      />
+    </>
   );
 };
 

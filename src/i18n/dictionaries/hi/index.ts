@@ -1,4 +1,5 @@
-import type { Dictionary } from "./en";
+import type { Dictionary } from "../en";
+import { prices } from "./prices";
 
 export const hi: Dictionary = {
   notFound: {
@@ -34,10 +35,8 @@ export const hi: Dictionary = {
     franchise: "फ़्रैंचाइज़ी",
     franchiseHint: "अपने इलाक़े में फ़्रैंचाइज़ी के लिए कॉल या WhatsApp करें।",
     whatsapp: "WhatsApp",
-    whatsappHint:
-      "चैट एक छोटे फ़ॉर्म के साथ खुलती है। उसे भरकर भेजें, हम आपको क़ीमत बताएँगे।",
-    whatsappText:
-      "नमस्ते, मुझे अपनी पानी की टंकी की सफ़ाई की क़ीमत जाननी है।\nइलाक़ा:\nटंकी का आकार (लीटर):\nछत वाली या ज़मीन के नीचे:",
+    whatsappHint: "अपना इलाक़ा और टंकी का आकार बताएँ, हम आपको क़ीमत बताएँगे।",
+    whatsappText: "नमस्ते, मुझे अपनी पानी की टंकी की सफ़ाई की क़ीमत जाननी है।",
     email: "ईमेल",
     emailHint: "कोटेशन, दस्तावेज़ और लिखित बातचीत के लिए।",
     offices: "कार्यालय।",
@@ -121,31 +120,7 @@ export const hi: Dictionary = {
     before: "पहले",
     after: "बाद में",
   },
-  prices: {
-    size: "टंकी का साइज़",
-    price: "क़ीमत",
-    exGst: "GST अलग से",
-    upTo: "{max}\u00a0लीटर तक",
-    range: "{min} से {max}\u00a0लीटर",
-    above: "{min}\u00a0लीटर से ज़्यादा",
-    perLitre: "{price} प्रति लीटर",
-    steps: "ज़्यादा टंकियों पर छूट",
-    oneTank: "1 टंकी",
-    stepRange: "{min} से {max}",
-    stepFrom: "{min} या ज़्यादा",
-    fullPrice: "पूरी क़ीमत",
-    percentOff: "{percent}% छूट",
-    reached: "(आपकी टंकियाँ)",
-    calculator: "अपनी क़ीमत निकालें",
-    tank: "टंकी {n} का साइज़ (लीटर में)",
-    add: "एक और टंकी जोड़ें",
-    discuss: "{min}\u00a0लीटर से ज़्यादा: इस टंकी की छूट पर बात कर लेते हैं।",
-    remove: "टंकी {n} हटाएँ",
-    subtotal: "क़ीमत",
-    discount: "छूट ({percent}%)",
-    gst: "GST ({percent}%)",
-    total: "कुल",
-  },
+  prices,
   language: {
     label: "भाषा",
   },

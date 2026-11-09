@@ -1,0 +1,30 @@
+import type { Dictionary } from "../en";
+
+export const prices: Dictionary["prices"] = {
+  size: "ਟੈਂਕੀ ਦਾ ਸਾਈਜ਼",
+  price: "ਕੀਮਤ",
+  exGst: "GST ਵੱਖਰਾ",
+  upTo: "{max}\u00a0ਲੀਟਰ ਤੱਕ",
+  range: "{min} ਤੋਂ {max}\u00a0ਲੀਟਰ",
+  above: "{min}\u00a0ਲੀਟਰ ਤੋਂ ਵੱਧ",
+  perLitre: "{price} ਪ੍ਰਤੀ ਲੀਟਰ",
+  steps: "ਵੱਧ ਟੈਂਕੀਆਂ 'ਤੇ ਛੋਟ",
+  oneTank: "1 ਟੈਂਕੀ",
+  stepRange: "{min} ਤੋਂ {max}",
+  stepFrom: "{min} ਜਾਂ ਵੱਧ",
+  fullPrice: "ਪੂਰੀ ਕੀਮਤ",
+  percentOff: "{percent}% ਛੋਟ",
+  reached: "(ਤੁਹਾਡੀਆਂ ਟੈਂਕੀਆਂ)",
+  calculator: "ਆਪਣੀ ਕੀਮਤ ਕੱਢੋ",
+  tank: "ਟੈਂਕੀ {n} ਦਾ ਸਾਈਜ਼ (ਲੀਟਰ ਵਿੱਚ)",
+  add: "ਇੱਕ ਹੋਰ ਟੈਂਕੀ ਜੋੜੋ",
+  discuss: "{min}\u00a0ਲੀਟਰ ਤੋਂ ਵੱਧ: ਇਸ ਟੈਂਕੀ ਦੀ ਛੋਟ ਬਾਰੇ ਗੱਲ ਕਰ ਲੈਂਦੇ ਹਾਂ।",
+  remove: "ਟੈਂਕੀ {n} ਹਟਾਓ",
+  subtotal: "ਕੀਮਤ",
+  discount: "ਛੋਟ ({percent}%)",
+  gst: "GST ({percent}%)",
+  total: "ਕੁੱਲ",
+  whatsapp:
+    "ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ ਤੁਹਾਡੀ ਵੈੱਬਸਾਈਟ 'ਤੇ ਆਪਣੀਆਂ ਪਾਣੀ ਦੀਆਂ ਟੈਂਕੀਆਂ ਦੀ ਸਫ਼ਾਈ ਦੀ ਇਹ ਕੀਮਤ ਕੱਢੀ ਹੈ:",
+  whatsappTank: "ਟੈਂਕੀ {n}: {litres}\u00a0ਲੀਟਰ",
+};

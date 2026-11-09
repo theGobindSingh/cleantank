@@ -1,4 +1,3 @@
-import Actions from "@/blocks/actions";
 import type { HomePrice, PriceListBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { P } from "@components/html";
@@ -98,8 +97,9 @@ const PriceList = async ({
           discounts={rules}
           gstPercent={gst}
           labels={labels}
+          actions={actions}
+          locale={locale}
         />
-        <Actions actions={actions} locale={locale} isAccent />
       </div>
       <div className="flex flex-col gap-6 lg:col-span-7">
         {/* the wrapper draws the edge and rounds it; a collapsed table can't */}

@@ -1,0 +1,30 @@
+// The price list and its calculator.
+export const prices = {
+  size: "Tank size",
+  price: "Price",
+  exGst: "Excl. GST",
+  upTo: "Up to {max}\u00a0L",
+  range: "{min} to {max}\u00a0L",
+  above: "Above {min}\u00a0L",
+  perLitre: "{price} per litre",
+  steps: "Multi-tank discount",
+  oneTank: "1 tank",
+  stepRange: "{min} to {max}",
+  stepFrom: "{min} or more",
+  fullPrice: "Full price",
+  percentOff: "{percent}% off",
+  reached: "(your tanks)",
+  calculator: "Work out your price",
+  tank: "Tank {n} size in litres",
+  add: "Add another tank",
+  discuss: "Over {min}\u00a0L: let's discuss the discount on this tank.",
+  remove: "Remove tank {n}",
+  subtotal: "Price",
+  discount: "Discount ({percent}%)",
+  gst: "GST ({percent}%)",
+  total: "Total",
+  // The WhatsApp message once the calculator has a size: this line, then the tanks and the bill.
+  whatsapp:
+    "Hello, I worked out this price on your website for cleaning my water tanks:",
+  whatsappTank: "Tank {n}: {litres}\u00a0litres",
+};
