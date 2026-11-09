@@ -32,9 +32,10 @@ const Column = ({ label, text }: ColumnProps) => {
 
 /**
  * Prose under an H2 in seven columns, the photo framed in the other five from
- * `lg` up; below that the photo follows the text. With a second text, the two
- * sit side by side from `md` up with a 1 px rule between them, stacked with a
- * rule above the second below that.
+ * `lg` up, as tall as the text and never shorter than 3:2; below that the photo
+ * follows the text at 3:2. With a second text, the two sit side by side from
+ * `md` up with a 1 px rule between them, stacked with a rule above the second
+ * below that.
  */
 const Story = ({
   heading,
@@ -74,7 +75,9 @@ const Story = ({
         )}
       </div>
       {photo && (
-        <div className="relative aspect-3/2 self-start overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">
+        <div className="relative overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">
+          {/* holds 3:2 as the least height; from lg up the photo grows to the text's height */}
+          <div className="aspect-3/2" />
           <Image
             src={photo.src}
             alt={photo.alt}
