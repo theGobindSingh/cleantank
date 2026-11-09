@@ -80,7 +80,6 @@ export const pa: Dictionary = {
   },
   process: {
     whereApplicable: "ਜਿੱਥੇ ਲਾਗੂ ਹੋਵੇ",
-    index: "ਪ੍ਰਕਿਰਿਆ ਦੇ ਪੜਾਅ",
     step: "ਪੜਾਅ",
     purpose: "ਇਹ ਕਿਉਂ ਜ਼ਰੂਰੀ ਹੈ",
     equipment: "ਉਪਕਰਨ",

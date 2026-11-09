@@ -80,7 +80,6 @@ export const hi: Dictionary = {
   },
   process: {
     whereApplicable: "जहाँ लागू हो",
-    index: "प्रक्रिया के चरण",
     step: "चरण",
     purpose: "यह क्यों ज़रूरी है",
     equipment: "उपकरण",

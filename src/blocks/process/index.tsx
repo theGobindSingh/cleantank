@@ -14,9 +14,9 @@ interface ProcessSectionProps extends ProcessBlock {
 /**
  * The 5-step track on the page ground, with each step's number, name, line
  * and benefit, under the standard statement headline. The steps come from the
- * `process` global. With `detailed` (the process page), the track becomes the
- * steps' index without the benefits and each step follows in full. Optional
- * buttons close the section, bottom left.
+ * `process` global. The track looks the same everywhere; with `detailed` (the
+ * process page) each step follows it in full. Optional buttons close the
+ * section, bottom left.
  */
 const ProcessSection = async ({
   heading,
@@ -28,24 +28,10 @@ const ProcessSection = async ({
   const { process: labels } = getDictionary(locale);
   const payload = await getPayload({ config });
   const { steps } = await payload.findGlobal({ slug: "process", locale });
-  const track = (
-    <Track
-      steps={steps}
-      whereApplicable={labels.whereApplicable}
-      isLinked={Boolean(detailed)}
-    />
-  );
-
   return (
     <Section heading={heading} highlight={highlight}>
-      {detailed ? (
-        <>
-          <nav aria-label={labels.index}>{track}</nav>
-          <Details steps={steps} labels={labels} />
-        </>
-      ) : (
-        track
-      )}
+      <Track steps={steps} whereApplicable={labels.whereApplicable} />
+      {detailed && <Details steps={steps} labels={labels} />}
       <Actions actions={actions} locale={locale} />
     </Section>
   );

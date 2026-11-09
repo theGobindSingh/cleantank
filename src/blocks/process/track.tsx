@@ -1,22 +1,18 @@
 import { H3, P, Span } from "@components/html";
-import Link from "@components/link";
 import StepMarker from "@components/step-marker";
-import { stepId, type Step } from "./step";
+import type { Step } from "./step";
 
 interface TrackProps {
   steps: Step[];
   whereApplicable: string;
-  /** Link each step's name to its full section on the page. */
-  isLinked: boolean;
 }
 
 /**
  * The step track: five columns joined by one line from `lg` up, with each
  * step's name, line and benefit on shared rows so they line up across the
- * columns; below that down the page. A linked track is an index, so it leaves
- * the benefits to the full steps it links to.
+ * columns; below that down the page. The same on every page it appears on.
  */
-const Track = ({ steps, whereApplicable, isLinked }: TrackProps) => {
+const Track = ({ steps, whereApplicable }: TrackProps) => {
   const renderStep = (step: Step, index: number) => {
     const isLast = index === steps.length - 1;
     return (
@@ -32,15 +28,11 @@ const Track = ({ steps, whereApplicable, isLinked }: TrackProps) => {
         />
         <div className="flex flex-col gap-2 pb-10 lg:contents lg:*:pr-6">
           <H3 $size="h4" $margin="0">
-            {isLinked ? (
-              <Link href={`#${stepId(index)}`}>{step.title}</Link>
-            ) : (
-              step.title
-            )}
+            {step.title}
           </H3>
           <P className="text-pretty text-fg-muted">{step.text}</P>
           <div className="flex flex-col gap-2">
-            {!isLinked && step.benefit && (
+            {step.benefit && (
               <P
                 $weight="600"
                 className="border-t border-border pt-3 text-pretty text-heading"

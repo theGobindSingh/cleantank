@@ -85,7 +85,6 @@ export const en = {
   },
   process: {
     whereApplicable: "Where applicable",
-    index: "Process steps",
     step: "Step",
     purpose: "Why it matters",
     equipment: "Equipment",

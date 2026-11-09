@@ -401,7 +401,7 @@ export interface ProcessBlock {
    */
   highlight?: string | null;
   /**
-   * Also show each step in full, with its photo, purpose and equipment, and link the track to them. For the process page.
+   * Also show each step in full, with its photo, purpose and equipment, under the track. For the process page.
    */
   detailed?: boolean | null;
   /**
