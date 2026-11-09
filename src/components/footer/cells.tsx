@@ -40,7 +40,7 @@ export const OfficeCell = ({ office }: { office: Office }) => {
   );
 };
 
-/** Call, WhatsApp and email from src/site.ts. */
+/** Call, WhatsApp, email and the franchise line from src/site.ts. */
 export const ContactCell = ({ labels }: { labels: Dictionary["contact"] }) => {
   const rows: [string, string, string][] = [
     [labels.call, telHref(site.phone), formatPhone(site.phone)],
@@ -50,6 +50,11 @@ export const ContactCell = ({ labels }: { labels: Dictionary["contact"] }) => {
       formatPhone(site.whatsapp),
     ],
     [labels.email, `mailto:${site.email}`, site.email],
+    [
+      labels.franchise,
+      telHref(site.franchisePhone),
+      formatPhone(site.franchisePhone),
+    ],
   ];
 
   const renderRow = ([term, href, value]: [string, string, string]) => {
