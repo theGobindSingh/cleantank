@@ -549,11 +549,26 @@ export interface RuledListBlock {
    */
   highlight?: string | null;
   text?: string | null;
+  /**
+   * A small caps label over the points. Needed only with a second list.
+   */
+  label?: string | null;
   items: {
     title: string;
     text?: string | null;
     id?: string | null;
   }[];
+  /**
+   * Optional. With a second list, the two sit side by side from large screens up, each under its label.
+   */
+  secondLabel?: string | null;
+  secondItems?:
+    | {
+        title: string;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   /**
    * A small note under the list. Optional.
    */
@@ -1204,7 +1219,16 @@ export interface RuledListBlockSelect<T extends boolean = true> {
   heading?: T;
   highlight?: T;
   text?: T;
+  label?: T;
   items?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        id?: T;
+      };
+  secondLabel?: T;
+  secondItems?:
     | T
     | {
         title?: T;

@@ -1,8 +1,13 @@
 import { anchorField } from "@/blocks/anchor";
 import { highlightField } from "@/blocks/highlight";
-import type { Block } from "payload";
+import type { Block, Field } from "payload";
 
-/** A titled list of short points in ruled cells, such as what to prepare. */
+const itemFields: Field[] = [
+  { name: "title", type: "text", required: true, localized: true },
+  { name: "text", type: "textarea", localized: true },
+];
+
+/** A titled list of short points in ruled cells, such as what to prepare, with an optional second list beside it. */
 export const ruledList: Block = {
   slug: "ruledList",
   interfaceName: "RuledListBlock",
@@ -12,14 +17,34 @@ export const ruledList: Block = {
     highlightField,
     { name: "text", type: "textarea", localized: true },
     {
+      name: "label",
+      type: "text",
+      localized: true,
+      admin: {
+        description:
+          "A small caps label over the points. Needed only with a second list.",
+      },
+    },
+    {
       name: "items",
       type: "array",
       required: true,
       minRows: 1,
-      fields: [
-        { name: "title", type: "text", required: true, localized: true },
-        { name: "text", type: "textarea", localized: true },
-      ],
+      fields: itemFields,
+    },
+    {
+      name: "secondLabel",
+      type: "text",
+      localized: true,
+      admin: {
+        description:
+          "Optional. With a second list, the two sit side by side from large screens up, each under its label.",
+      },
+    },
+    {
+      name: "secondItems",
+      type: "array",
+      fields: itemFields,
     },
     {
       name: "note",
