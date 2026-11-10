@@ -1,3 +1,4 @@
+import { anchorField } from "@/blocks/anchor";
 import { highlightField } from "@/blocks/highlight";
 import { imageSlotFields } from "@/blocks/image-slot";
 import {
@@ -105,5 +106,6 @@ export const valueProp: Block = {
         { name: "linkLabel", type: "text", localized: true },
       ],
     },
+    anchorField,
   ],
 };

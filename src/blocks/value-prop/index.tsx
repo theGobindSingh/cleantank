@@ -60,6 +60,7 @@ const ValueProp = ({
   href,
   linkLabel,
   items,
+  anchor,
   locale,
 }: ValuePropProps) => {
   const main = toSlotImage(image, imageUrl, imageAlt);
@@ -67,7 +68,10 @@ const ValueProp = ({
   // Left to right.
   const photos = main && second ? [second, main] : main ? [main] : [];
   return (
-    <CommonFullWidthWrapper className="grid gap-10 py-8 md:py-10 lg:grid-cols-[auto_minmax(2.5rem,1fr)_minmax(0,auto)] lg:gap-x-0 lg:py-12">
+    <CommonFullWidthWrapper
+      wrapperProps={anchor ? { id: anchor } : {}}
+      className="grid gap-10 py-8 md:py-10 lg:grid-cols-[auto_minmax(2.5rem,1fr)_minmax(0,auto)] lg:gap-x-0 lg:py-12"
+    >
       <div className="flex flex-col gap-4 justify-self-stretch lg:justify-self-start">
         <SectionHeadline heading={heading} highlight={highlight} />
         {/* contain-inline-size: the body takes the headline's width instead of setting it */}

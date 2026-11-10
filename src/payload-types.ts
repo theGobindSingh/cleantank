@@ -359,6 +359,10 @@ export interface ValuePropBlock {
    */
   href?: string | null;
   linkLabel?: string | null;
+  /**
+   * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
+   */
+  anchor?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'valueProp';
@@ -1130,6 +1134,7 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
       };
   href?: T;
   linkLabel?: T;
+  anchor?: T;
   id?: T;
   blockName?: T;
 }
