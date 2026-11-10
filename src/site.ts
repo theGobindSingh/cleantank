@@ -50,7 +50,7 @@ export const site = {
   udyam: "UDYAM-UP-43-0011042",
   // Registered on GeM too; owner's call: never publish the seller ID, it goes to clients on request.
   // Shown in English on every language, beside the registrations above.
-  otherRegistrations: "EPFO, ESI, Income Tax, BSNL enlistment",
+  otherRegistrations: "EPFO, ESI",
   // Issue date, scope and surveillance dates: INFO-BANK §1. Never "accredited" or "internationally recognised".
   iso: {
     standard: "ISO 9001:2015",
