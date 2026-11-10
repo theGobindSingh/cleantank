@@ -2,19 +2,14 @@
 
 import { tw } from "@utils/tw";
 import Image from "next/image";
-import {
-  useEffect,
-  useRef,
-  useState,
-  type ChangeEvent,
-  type CSSProperties,
-} from "react";
+import { useRef, useState, type ChangeEvent, type CSSProperties } from "react";
 import Divider from "./divider";
 import { HERO_IMAGE, INLINE_IMAGE } from "./image-props";
-import { countOneMore, INTRO_MS, introAt, NARROW_START } from "./intro";
+import { countOneMore, NARROW_START } from "./intro";
 import Scrim from "./scrim";
 import { useDrag } from "./use-drag";
 import { useFullyVisible } from "./use-fully-visible";
+import { useIntro } from "./use-intro";
 
 export interface CompareImage {
   src: string;
@@ -33,6 +28,12 @@ interface CompareSliderProps {
   wideStart?: number | undefined;
   /** Where the intro glides to from `lg` up before settling on `wideStart`. Defaults to 15 past it. */
   widePeak?: number | undefined;
+  /**
+   * Selector, within the slider's parent, of the text laid over the photos
+   * from `lg` up. The intro then settles just right of where that text ends,
+   * so it fits every language, and never left of `wideStart`.
+   */
+  wideClear?: string | undefined;
   /** Vertical position of the drag handle, so it can clear text laid over the photos. */
   handleClassName?: string | undefined;
   /**
@@ -68,6 +69,7 @@ const CompareSlider = ({
   afterLabel,
   wideStart = 0,
   widePeak,
+  wideClear,
   handleClassName = "bottom-4",
   scrimColor,
   isInline = false,
@@ -82,35 +84,13 @@ const CompareSlider = ({
   const isVisible = useFullyVisible(rootRef);
   const isReady = loadedCount >= 2 && isVisible;
 
-  // Once both photos have loaded and the whole comparison is on screen (after
-  // hydration, so the server HTML and first render agree), the divider eases
-  // from 0 past its start (`wideStart` from lg up, the centre below), to
-  // `widePeak` if given, and settles back on it. Reduced motion jumps straight there; dragging stops
-  // the glide.
-  const playIntro = () => {
-    if (isInline || !isReady) return;
-    const isWide = window.matchMedia("(min-width: 1024px)").matches;
-    const target = isWide ? wideStart : NARROW_START;
-    const peak = isWide ? widePeak : undefined;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setPosition(target);
-      return;
-    }
-    const startTime = performance.now();
-    const step = (now: number) => {
-      const elapsed = now - startTime;
-      setPosition(introAt(elapsed, target, peak));
-      if (elapsed < INTRO_MS) {
-        frameRef.current = requestAnimationFrame(step);
-      }
-    };
-    const stop = () => {
-      cancelAnimationFrame(frameRef.current);
-    };
-    frameRef.current = requestAnimationFrame(step);
-    return stop;
-  };
-  useEffect(playIntro, [isInline, isReady, wideStart, widePeak]);
+  useIntro(rootRef, frameRef, setPosition, {
+    isInline,
+    isReady,
+    wideStart,
+    widePeak,
+    wideClear,
+  });
 
   const countLoad = () => {
     setLoadedCount(countOneMore);

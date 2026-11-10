@@ -51,6 +51,7 @@ const Hero = ({
             afterLabel={compare.after}
             wideStart={37.5}
             widePeak={85}
+            wideClear="[data-hero-text]"
             handleClassName="top-1/2 -translate-y-1/2 lg:top-auto lg:bottom-4 lg:translate-y-0"
             scrimColor="var(--color-accent-950)"
             hasParallax
@@ -61,7 +62,10 @@ const Hero = ({
         )
       }
     >
-      <div className="flex flex-col gap-4 pt-6 lg:w-7/12 lg:gap-6 lg:py-24 lg:pr-10">
+      <div
+        data-hero-text=""
+        className="flex flex-col gap-4 pt-6 lg:w-7/12 lg:gap-6 lg:py-24 lg:pr-10"
+      >
         {/* capped from lg only: on phones the heading fills its column in two lines */}
         <H1 $size="display" $margin="0" className="lg:max-w-[11ch]">
           <Highlight
