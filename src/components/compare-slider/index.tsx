@@ -24,16 +24,16 @@ interface CompareSliderProps {
   /** Names of the two photos, read out by screen readers with the position. */
   beforeLabel: string;
   afterLabel: string;
-  /** Divider position (0 to 100) from `lg` up, where the hero text covers the left. */
-  wideStart?: number | undefined;
-  /** Where the intro glides to from `lg` up before settling on `wideStart`. Defaults to 15 past it. */
+  /** Where the intro glides to (0 to 100) from `lg` up before settling. Defaults to 15 past the settle point. */
   widePeak?: number | undefined;
   /**
    * Selector, within the slider's parent, of the text laid over the photos
-   * from `lg` up. The intro then settles just right of where that text ends,
-   * so it fits every language, and never left of `wideStart`.
+   * from `lg` up. The intro settles `wideGap` px right of where that text
+   * ends, so it fits every language. Without it, the divider settles centred.
    */
   wideClear?: string | undefined;
+  /** Gap in px between the end of the `wideClear` text and the settled divider. */
+  wideGap?: number | undefined;
   /** Vertical position of the drag handle, so it can clear text laid over the photos. */
   handleClassName?: string | undefined;
   /**
@@ -67,9 +67,9 @@ const CompareSlider = ({
   label,
   beforeLabel,
   afterLabel,
-  wideStart = 0,
   widePeak,
   wideClear,
+  wideGap = 40,
   handleClassName = "bottom-4",
   scrimColor,
   isInline = false,
@@ -87,9 +87,9 @@ const CompareSlider = ({
   useIntro(rootRef, frameRef, setPosition, {
     isInline,
     isReady,
-    wideStart,
     widePeak,
     wideClear,
+    wideGap,
   });
 
   const countLoad = () => {

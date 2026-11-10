@@ -4,29 +4,29 @@ import { clearOf, INTRO_MS, introAt, NARROW_START } from "./intro";
 interface IntroOptions {
   isInline: boolean;
   isReady: boolean;
-  wideStart: number;
   widePeak: number | undefined;
   wideClear: string | undefined;
+  wideGap: number;
 }
 
 /**
  * Once both photos have loaded and the whole comparison is on screen (after
  * hydration, so the server HTML and first render agree), the divider eases
- * from 0 past its start (from lg up `wideStart`, or just right of the
- * `wideClear` text; the centre below), to `widePeak` if given, and settles
+ * from 0 past its start (from lg up `wideGap` px right of the `wideClear`
+ * text, otherwise the centre), to `widePeak` if given, and settles
  * back on it. Reduced motion jumps straight there; dragging stops the glide.
  */
 export const useIntro = (
   rootRef: RefObject<HTMLDivElement | null>,
   frameRef: RefObject<number>,
   setPosition: (position: number) => void,
-  { isInline, isReady, wideStart, widePeak, wideClear }: IntroOptions,
+  { isInline, isReady, widePeak, wideClear, wideGap }: IntroOptions,
 ) => {
   const playIntro = () => {
     if (isInline || !isReady) return;
     const isWide = window.matchMedia("(min-width: 1024px)").matches;
     const target = isWide
-      ? clearOf(rootRef.current, wideClear, wideStart)
+      ? (clearOf(rootRef.current, wideClear, wideGap) ?? NARROW_START)
       : NARROW_START;
     const peak = isWide ? widePeak : undefined;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -53,8 +53,8 @@ export const useIntro = (
     setPosition,
     isInline,
     isReady,
-    wideStart,
     widePeak,
     wideClear,
+    wideGap,
   ]);
 };

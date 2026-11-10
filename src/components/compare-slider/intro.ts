@@ -29,22 +29,20 @@ export const introAt = (
   return peak + (target - peak) * easeInOut(back);
 };
 
-// From lg up, the gap the settled divider keeps right of the text laid over the photos.
-const CLEAR_PX = 40;
-
 /**
- * Where the divider settles from `lg` up: CLEAR_PX right of the rendered
+ * Where the divider settles from `lg` up: `gap` px right of the rendered
  * lines of the text `selector` finds in `frame`'s parent, as a percentage of
- * `frame`, never left of `min`. Measures the visible children's lines, not
- * their boxes, so the language's script width and wrapping count.
+ * `frame`; undefined when there is no such text. Measures the visible
+ * children's lines, not their boxes, so the language's script width and
+ * wrapping count.
  */
 export const clearOf = (
   frame: Element | null,
   selector: string | undefined,
-  min: number,
+  gap: number,
 ) => {
   const text = selector && frame?.parentElement?.querySelector(selector);
-  if (!frame || !text) return min;
+  if (!frame || !text) return undefined;
   const box = frame.getBoundingClientRect();
   const range = document.createRange();
   let right = box.left;
@@ -54,5 +52,5 @@ export const clearOf = (
       right = Math.max(right, rect.right);
     }
   }
-  return Math.max(min, ((right + CLEAR_PX - box.left) / box.width) * 100);
+  return ((right + gap - box.left) / box.width) * 100;
 };
