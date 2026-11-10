@@ -31,8 +31,8 @@ const Column = ({ label, text }: ColumnProps) => {
 };
 
 /**
- * Prose under an H2 in seven columns, the photo framed in the other five from
- * `lg` up, as tall as the text and never shorter than 3:2; below that the photo
+ * Prose under an H2 in six columns, the photo framed in the last five from
+ * `lg` up with one empty column between, as tall as the text and never shorter than 3:2; below that the photo
  * follows the text at 3:2. With a second text, the two sit side by side from
  * `md` up with a 1 px rule between them, stacked with a rule above the second
  * below that.
@@ -50,7 +50,7 @@ const Story = ({
   const photo = toImage(image);
   return (
     <CommonFullWidthWrapper className="grid gap-10 py-8 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12">
-      <div className="flex flex-col gap-4 lg:col-span-7">
+      <div className="flex flex-col gap-4 lg:col-span-6">
         <SectionHeadline heading={heading} highlight={highlight} />
         {secondText ? (
           <div className="grid gap-6 md:grid-cols-2 md:gap-0">
@@ -75,7 +75,7 @@ const Story = ({
         )}
       </div>
       {photo && (
-        <div className="relative overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5">
+        <div className="relative overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:col-span-5 lg:col-start-8">
           {/* holds 3:2 as the least height; from lg up the photo grows to the text's height */}
           <div className="aspect-3/2" />
           <Image
