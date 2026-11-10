@@ -70,15 +70,16 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 
 ### About (`/about`)
 
-1. Page intro section: "About Clean Tank Services"
+1. Page intro section: "The people behind the work."
 2. Story section: "Why we started."
 3. Founder section, on stone
-4. Track record strip: "Track record."
-5. Ruled list section: "Why choose Clean Tank?"
+4. Value prop section, list: "Why choose Clean Tank?"
+5. Testimonials section: "What our clients say."
 6. Credentials section, on stone: "Registrations and certificates."
 7. Client list section: "Our clients."
-8. Ruled list section, on stone: "Aims and objectives."
+8. Ruled list section: "Aims and objectives."
 9. Doors section: "Who we work for."
 10. Closing band: "Talk to us about your tanks."
+11. Track record strip: "Track record."
 
 `/organisations` and `/franchise` have no sections yet. When a page changes, update its list here in the same change.
