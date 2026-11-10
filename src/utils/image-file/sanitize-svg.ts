@@ -1,0 +1,167 @@
+import sanitizeHtml from "sanitize-html";
+
+// What an SVG logo or drawing needs, and nothing that runs code or loads
+// another page. Anything not listed is dropped, so a new attack vector fails closed.
+const svgTags = [
+  "svg",
+  "g",
+  "defs",
+  "symbol",
+  "use",
+  "title",
+  "desc",
+  "style",
+  "path",
+  "rect",
+  "circle",
+  "ellipse",
+  "line",
+  "polyline",
+  "polygon",
+  "text",
+  "tspan",
+  "textPath",
+  "linearGradient",
+  "radialGradient",
+  "stop",
+  "clipPath",
+  "mask",
+  "pattern",
+  "filter",
+  "feBlend",
+  "feColorMatrix",
+  "feComposite",
+  "feDropShadow",
+  "feFlood",
+  "feGaussianBlur",
+  "feMerge",
+  "feMergeNode",
+  "feMorphology",
+  "feOffset",
+];
+
+const svgAttributes = [
+  "xmlns",
+  "xmlns:xlink",
+  "version",
+  "baseProfile",
+  "xml:space",
+  "id",
+  "class",
+  "style",
+  "transform",
+  "viewBox",
+  "preserveAspectRatio",
+  "x",
+  "y",
+  "x1",
+  "y1",
+  "x2",
+  "y2",
+  "cx",
+  "cy",
+  "r",
+  "rx",
+  "ry",
+  "fx",
+  "fy",
+  "dx",
+  "dy",
+  "width",
+  "height",
+  "d",
+  "points",
+  "pathLength",
+  "href",
+  "xlink:href",
+  "fill",
+  "fill-opacity",
+  "fill-rule",
+  "opacity",
+  "color",
+  "display",
+  "visibility",
+  "stroke",
+  "stroke-width",
+  "stroke-opacity",
+  "stroke-linecap",
+  "stroke-linejoin",
+  "stroke-miterlimit",
+  "stroke-dasharray",
+  "stroke-dashoffset",
+  "clip-path",
+  "clip-rule",
+  "clipPathUnits",
+  "mask",
+  "maskUnits",
+  "maskContentUnits",
+  "offset",
+  "stop-color",
+  "stop-opacity",
+  "gradientUnits",
+  "gradientTransform",
+  "spreadMethod",
+  "patternUnits",
+  "patternContentUnits",
+  "patternTransform",
+  "font-family",
+  "font-size",
+  "font-weight",
+  "font-style",
+  "text-anchor",
+  "dominant-baseline",
+  "letter-spacing",
+  "startOffset",
+  "filter",
+  "filterUnits",
+  "in",
+  "in2",
+  "result",
+  "stdDeviation",
+  "mode",
+  "operator",
+  "k1",
+  "k2",
+  "k3",
+  "k4",
+  "values",
+  "type",
+  "radius",
+  "flood-color",
+  "flood-opacity",
+  "enable-background",
+];
+
+// href may only point inside the SVG (#id), never to a page or javascript:.
+const keepLocalHrefs = (tagName: string, attribs: sanitizeHtml.Attributes) => {
+  const isLocal = (name: string) => {
+    return !attribs[name] || attribs[name].trim().startsWith("#");
+  };
+  if (!isLocal("href")) delete attribs.href;
+  if (!isLocal("xlink:href")) delete attribs["xlink:href"];
+  return { tagName, attribs };
+};
+
+/**
+ * Keeps only the allowlisted SVG tags and attributes, since media is served
+ * from our own origin: script, event handlers, foreignObject and outside links
+ * all go. Uses sanitize-html, not DOMPurify, because DOMPurify needs jsdom,
+ * which Vercel's runtime can't load. Throws if no SVG is left.
+ */
+export const sanitizeSvg = (svg: string): string => {
+  const clean = sanitizeHtml(svg, {
+    allowedTags: svgTags,
+    allowedAttributes: { "*": svgAttributes },
+    allowVulnerableTags: true,
+    nonTextTags: ["script", "style", "foreignObject", "metadata"],
+    transformTags: { "*": keepLocalHrefs },
+    parser: {
+      lowerCaseTags: false,
+      lowerCaseAttributeNames: false,
+      recognizeSelfClosing: true,
+      recognizeCDATA: true,
+    },
+  }).trim();
+  if (!clean.startsWith("<svg")) throw new Error("The SVG has no drawing left");
+  return clean;
+};

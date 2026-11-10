@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { detectImage, hashBytes, sanitizeSvg } from "./image-file";
+import { detectImage, hashBytes, sanitizeSvg } from ".";
 
 const bytes = (...values: number[]) => {
   return new Uint8Array([...values, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -31,8 +31,8 @@ describe("detectImage", () => {
 });
 
 describe("sanitizeSvg", () => {
-  it("strips script, event handlers, foreignObject and javascript: links", async () => {
-    const clean = await sanitizeSvg(
+  it("strips script, event handlers, foreignObject and javascript: links", () => {
+    const clean = sanitizeSvg(
       '<svg xmlns="http://www.w3.org/2000/svg" onload="alert(1)"><script>alert(1)</script><foreignObject><div>x</div></foreignObject><a href="javascript:alert(1)"><rect width="5" height="5"/></a></svg>',
     );
     expect(clean).toContain('<svg xmlns="http://www.w3.org/2000/svg">');
@@ -40,8 +40,26 @@ describe("sanitizeSvg", () => {
     expect(clean).not.toMatch(/script|onload|foreignObject|javascript/i);
   });
 
-  it("throws when no SVG is left", async () => {
-    await expect(sanitizeSvg("<script>alert(1)</script>")).rejects.toThrow();
+  it("keeps only links inside the SVG", () => {
+    const clean = sanitizeSvg(
+      '<svg><use href="https://evil.example/x.svg#a"/><use xlink:href="javascript:alert(1)"/><use href="#ok"/></svg>',
+    );
+    expect(clean).toBe(
+      '<svg><use></use><use></use><use href="#ok"></use></svg>',
+    );
+  });
+
+  it("keeps self-closing shapes as siblings", () => {
+    const clean = sanitizeSvg('<svg><rect width="1"/><circle r="2"/></svg>');
+    expect(clean).toBe(
+      '<svg><rect width="1"></rect><circle r="2"></circle></svg>',
+    );
+  });
+
+  it("throws when no SVG is left", () => {
+    expect(() => {
+      return sanitizeSvg("<script>alert(1)</script>");
+    }).toThrow();
   });
 });
 
