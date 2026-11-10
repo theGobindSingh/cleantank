@@ -1,7 +1,7 @@
 import { toImage } from "@/blocks/to-image";
 import type { StoryBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import { P } from "@components/html";
+import { H3, P } from "@components/html";
 import Paragraphs from "@components/paragraphs";
 import SectionHeadline from "@components/section-headline";
 import Image from "next/image";
@@ -11,19 +11,14 @@ interface ColumnProps {
   text: string | null | undefined;
 }
 
-/** One of two side-by-side columns: a mono caps label, then its paragraphs. */
+/** One of two side-by-side columns: a mini heading, then its paragraphs. */
 const Column = ({ label, text }: ColumnProps) => {
   return (
     <div className="flex flex-col gap-4">
       {label && (
-        <P
-          $size="ref"
-          $weight="500"
-          $margin="0"
-          className="font-mono tracking-widest text-heading uppercase"
-        >
+        <H3 $size="h4" $margin="0">
           {label}
-        </P>
+        </H3>
       )}
       <Paragraphs text={text} className="text-pretty" />
     </div>
