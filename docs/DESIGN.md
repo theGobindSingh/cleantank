@@ -209,7 +209,7 @@ The `credentials` block (`src/blocks/credentials`): a stone section with an H2, 
 
 ### Client list section
 
-The `clientList` block (`src/blocks/client-list`): a white section with an H2 and every cleared client by name, one ruled cell per sector in the admin's order, one column on phones, two from `md`, three from `lg`. A short last row stretches its last cell. Under a client's name, one small text button per work completion certificate ("Certificate, 2023") opens it in the same dialog as the credentials block, with the certified work as the caption in the top bar.
+The `clientList` block (`src/blocks/client-list`): a white section with an H2 and every cleared client by name, one ruled cell per sector in the admin's order, one column on phones, two from `md`, three from `lg`. Inside a cell the names run in two columns on phones, which halves the list's length there, and in one from `md`. A short last row stretches its last cell. Under a client's name, one small text button per work completion certificate ("Certificate, 2023") opens it in the same dialog as the credentials block, with the certified work as the caption in the top bar.
 
 ### Anchors
 

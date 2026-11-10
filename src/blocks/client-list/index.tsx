@@ -107,7 +107,7 @@ const ClientList = async ({
         <H3 $size="h4" $margin="0">
           {category.name}
         </H3>
-        <ul className="flex flex-col gap-2 text-pretty">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-pretty md:grid-cols-1">
           {names.map(renderName)}
         </ul>
       </li>
