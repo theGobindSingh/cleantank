@@ -74,12 +74,13 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 2. Story section: "Why we started."
 3. Founder section, on stone
 4. Value prop section, list: "Why choose Clean Tank?"
-5. Testimonials section: "What our clients say."
-6. Credentials section, on stone: "Registrations and certificates."
-7. Client list section: "Our clients."
-8. Ruled list section: "Aims and objectives."
-9. Doors section: "Who we work for."
-10. Closing band: "Talk to us about your tanks."
-11. Track record strip: "Track record."
+5. Clients strip: "Some of our clients."
+6. Testimonials section: "What our clients say."
+7. Credentials section, on stone: "Registrations and certificates."
+8. Client list section: "Our clients."
+9. Ruled list section, on stone: "Aims and objectives."
+10. Doors section: "Who we work for."
+11. Closing band: "Talk to us about your tanks."
+12. Track record strip: "Track record."
 
 `/organisations` and `/franchise` have no sections yet. When a page changes, update its list here in the same change.
