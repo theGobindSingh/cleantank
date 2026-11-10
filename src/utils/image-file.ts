@@ -1,4 +1,3 @@
-import { sanitize } from "isomorphic-dompurify";
 import { createHash } from "node:crypto";
 
 export type ImageType =
@@ -37,9 +36,11 @@ export const detectImage = (bytes: Uint8Array): ImageType | null => {
 /**
  * Strips script, event handlers, foreignObject and javascript: links from an
  * SVG with DOMPurify, since media is served from our own origin. Throws if no
- * SVG is left.
+ * SVG is left. DOMPurify loads here, not at the top: it pulls in jsdom, whose
+ * ESM-only dependency crashes Vercel's runtime when Payload loads its config.
  */
-export const sanitizeSvg = (svg: string): string => {
+export const sanitizeSvg = async (svg: string): Promise<string> => {
+  const { sanitize } = await import("isomorphic-dompurify");
   const clean = sanitize(svg, {
     USE_PROFILES: { svg: true, svgFilters: true },
   });

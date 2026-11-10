@@ -7,10 +7,13 @@ const allowPublicRead = () => {
 
 // Media is served from our own origin, so an SVG's script would run as ours.
 // Sniffing the bytes also catches an SVG uploaded under another name or type.
-const sanitizeSvgUpload: CollectionBeforeOperationHook = ({ args, req }) => {
+const sanitizeSvgUpload: CollectionBeforeOperationHook = async ({
+  args,
+  req,
+}) => {
   const { file } = req;
   if (file && detectImage(file.data) === "image/svg+xml") {
-    file.data = Buffer.from(sanitizeSvg(file.data.toString("utf8")));
+    file.data = Buffer.from(await sanitizeSvg(file.data.toString("utf8")));
     file.size = file.data.byteLength;
     file.mimetype = "image/svg+xml";
   }

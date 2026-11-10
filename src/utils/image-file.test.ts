@@ -31,8 +31,8 @@ describe("detectImage", () => {
 });
 
 describe("sanitizeSvg", () => {
-  it("strips script, event handlers, foreignObject and javascript: links", () => {
-    const clean = sanitizeSvg(
+  it("strips script, event handlers, foreignObject and javascript: links", async () => {
+    const clean = await sanitizeSvg(
       '<svg xmlns="http://www.w3.org/2000/svg" onload="alert(1)"><script>alert(1)</script><foreignObject><div>x</div></foreignObject><a href="javascript:alert(1)"><rect width="5" height="5"/></a></svg>',
     );
     expect(clean).toContain('<svg xmlns="http://www.w3.org/2000/svg">');
@@ -40,10 +40,8 @@ describe("sanitizeSvg", () => {
     expect(clean).not.toMatch(/script|onload|foreignObject|javascript/i);
   });
 
-  it("throws when no SVG is left", () => {
-    expect(() => {
-      return sanitizeSvg("<script>alert(1)</script>");
-    }).toThrow();
+  it("throws when no SVG is left", async () => {
+    await expect(sanitizeSvg("<script>alert(1)</script>")).rejects.toThrow();
   });
 });
 
