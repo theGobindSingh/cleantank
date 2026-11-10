@@ -51,7 +51,7 @@ const Hero = ({
             afterLabel={compare.after}
             widePeak={85}
             wideClear="[data-hero-text]"
-            wideGap={60}
+            wideGap={100}
             handleClassName="top-1/2 -translate-y-1/2 lg:top-auto lg:bottom-4 lg:translate-y-0"
             scrimColor="var(--color-accent-950)"
             hasParallax
