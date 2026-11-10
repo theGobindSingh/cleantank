@@ -75,7 +75,7 @@ export const pa: Dictionary = {
     gemSeller: "ਰਜਿਸਟਰਡ ਵਿਕਰੇਤਾ",
     links: {
       whyChooseUs: "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
-      clients: "ਸਾਡੇ ਕਲਾਇੰਟ",
+      clients: "ਸਾਡੇ ਗਾਹਕ",
       privacy: "ਪਰਦੇਦਾਰੀ ਨੀਤੀ",
       terms: "ਨਿਯਮ ਅਤੇ ਸ਼ਰਤਾਂ",
     },
@@ -88,8 +88,8 @@ export const pa: Dictionary = {
     equipment: "ਉਪਕਰਨ",
   },
   clients: {
-    pause: "ਕਲਾਇੰਟ ਲੋਗੋ ਰੋਕੋ",
-    play: "ਕਲਾਇੰਟ ਲੋਗੋ ਚਲਾਓ",
+    pause: "ਗਾਹਕਾਂ ਦੇ ਲੋਗੋ ਰੋਕੋ",
+    play: "ਗਾਹਕਾਂ ਦੇ ਲੋਗੋ ਚਲਾਓ",
     certificate: "ਸਰਟੀਫ਼ਿਕੇਟ, {year}",
   },
   credentials: {
@@ -109,7 +109,7 @@ export const pa: Dictionary = {
     other: "ਹੋਰ ਰਜਿਸਟ੍ਰੇਸ਼ਨ",
   },
   testimonials: {
-    placeholderQuote: "ਪਲੇਸਹੋਲਡਰ: ਕਲਾਇੰਟ ਦੀ ਇਜਾਜ਼ਤ ਨਾਲ ਲਿਆ ਹਵਾਲਾ ਇੱਥੇ ਆਵੇਗਾ।",
+    placeholderQuote: "ਪਲੇਸਹੋਲਡਰ: ਗਾਹਕ ਦੀ ਇਜਾਜ਼ਤ ਨਾਲ ਲਿਆ ਹਵਾਲਾ ਇੱਥੇ ਆਵੇਗਾ।",
     placeholderName: "ਨਾਮ",
     placeholderCaption: "ਅਹੁਦਾ, ਸੰਸਥਾ",
   },

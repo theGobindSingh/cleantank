@@ -73,7 +73,7 @@ export const hi: Dictionary = {
     gemSeller: "पंजीकृत विक्रेता",
     links: {
       whyChooseUs: "हमें क्यों चुनें",
-      clients: "हमारे क्लाइंट",
+      clients: "हमारे ग्राहक",
       privacy: "गोपनीयता नीति",
       terms: "नियम और शर्तें",
     },
@@ -86,8 +86,8 @@ export const hi: Dictionary = {
     equipment: "उपकरण",
   },
   clients: {
-    pause: "क्लाइंट लोगो रोकें",
-    play: "क्लाइंट लोगो चलाएँ",
+    pause: "ग्राहकों के लोगो रोकें",
+    play: "ग्राहकों के लोगो चलाएँ",
     certificate: "प्रमाणपत्र, {year}",
   },
   credentials: {
@@ -107,7 +107,7 @@ export const hi: Dictionary = {
   },
   testimonials: {
     placeholderQuote:
-      "प्लेसहोल्डर: क्लाइंट की अनुमति से लिया गया उद्धरण यहाँ आएगा।",
+      "प्लेसहोल्डर: ग्राहक की अनुमति से लिया गया उद्धरण यहाँ आएगा।",
     placeholderName: "नाम",
     placeholderCaption: "पद, संस्था",
   },
