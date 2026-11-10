@@ -24,8 +24,8 @@ interface CompareSliderProps {
   /** Names of the two photos, read out by screen readers with the position. */
   beforeLabel: string;
   afterLabel: string;
-  /** Where the intro glides to (0 to 100) from `lg` up before settling. Defaults to 15 past the settle point. */
-  widePeak?: number | undefined;
+  /** Where the intro glides to (0 to 100) before settling, at every width. Defaults to 15 past the settle point. */
+  peak?: number | undefined;
   /**
    * Selector, within the slider's parent, of the text laid over the photos
    * from `lg` up. The intro settles `wideGap` px right of where that text
@@ -67,7 +67,7 @@ const CompareSlider = ({
   label,
   beforeLabel,
   afterLabel,
-  widePeak,
+  peak,
   wideClear,
   wideGap = 40,
   handleClassName = "bottom-4",
@@ -87,7 +87,7 @@ const CompareSlider = ({
   useIntro(rootRef, frameRef, setPosition, {
     isInline,
     isReady,
-    widePeak,
+    peak,
     wideClear,
     wideGap,
   });
