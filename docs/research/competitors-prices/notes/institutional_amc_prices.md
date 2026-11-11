@@ -1,6 +1,6 @@
 # Institutional, bulk and AMC prices for water tank cleaning: Chandigarh Tricity and Punjab
 
-Research date: 31 Oct 2026. Every figure is tagged **[Estimate]** (buyer's tender estimate or schedule rate), **[Quoted]** (vendor list or listing), **[Awarded]** (contract or L1 result) or **[Calc]** (my arithmetic on stated capacity or area). Clean Tank's home list, for comparison: ₹0.20/L for 10,001 to 30,000 L and ₹0.13/L above that, before 18% GST ([INFO-BANK §Home prices](/home/ubuntu/Programming/ct/docs/ref/INFO-BANK.md)).
+Research date: 31 Oct 2026. Every figure is tagged **[Estimate]** (buyer's tender estimate or schedule rate), **[Quoted]** (vendor list or listing), **[Awarded]** (contract or L1 result) or **[Calc]** (my arithmetic on stated capacity or area). Clean Tank's home list, for comparison: ₹0.20/L for 10,001 to 30,000 L and ₹0.13/L above that, before 18% GST ([INFO-BANK §Home prices](/home/ubuntu/Programming/cleantank/docs/ref/INFO-BANK.md)).
 
 Access limits that shape these notes: IndiaMART (WebFetch and Playwright) and infralens (Cloudflare) returned 403; `pwdpunjab.gov.in`, `publicservicesmap.in` and `nih.nic.in` did not resolve; the CBIC site reset the connection; GeM bid details and CPPP award pages were not reachable without an account or captcha path, and I did not create one. So all IndiaMART prices below come from search snippets, not the pages.
 
@@ -71,7 +71,7 @@ The Central government rate book does price this work. CPWD DSR gives ₹0.40/L 
 | [MES GE(S) Mamun, Pathankot](https://www.tenderdetail.com/Indian-Tenders/TenderNotice/56885198/fef4251a6d3766f0b3533d68fc970e5b) | Painting plus tank cleaning | ₹15 lakh composite | Sep 2026 | [Estimate] |
 | [MES Faridkot](https://www.tenderdetail.com/Indian-Tenders/TenderNotice/58217599/6860bdbb34b6c8e8d18c1bb172e40fca) | Water supply repair plus OHT and sump cleaning | ₹45 lakh composite | Due 16 Nov 2026 | [Estimate] |
 
-**Awarded values from Clean Tank's own completion certificates** (owner-approved but internal: INFO-BANK says contract values are for reference, so do not publish) — [INFO-BANK §Work completion certificates](/home/ubuntu/Programming/ct/docs/ref/INFO-BANK.md)
+**Awarded values from Clean Tank's own completion certificates** (owner-approved but internal: INFO-BANK says contract values are for reference, so do not publish) — [INFO-BANK §Work completion certificates](/home/ubuntu/Programming/cleantank/docs/ref/INFO-BANK.md)
 - IIT Ropar, PVC and RCC tanks and water coolers, 20 Jul to 18 Aug 2026: ₹5,37,711 [Awarded]
 - NIT Jalandhar, 3 work orders 2023 to 2025: ₹6,81,887; earlier orders ₹2,28,443 incl. GST (2021) and ₹2,09,940 (2023) [Awarded]
 - BSNL Civil Division Chandigarh, staff quarters and exchanges 2022-23: ₹1,62,925 [Awarded]
@@ -82,7 +82,7 @@ The Central government rate book does price this work. CPWD DSR gives ₹0.40/L 
 **GeM**
 - The GeM service "Cleaning, Sanitation and Disinfection Service" has no tank-cleaning clause in its SLA, is priced per sq ft, pays no advance, pays only after verification with attendance and logbook, and weights buyer evaluation 20% and user feedback 80% — [GeM SLA](https://bidplus.gem.gov.in/bidding/bid/bidsla/10948700089924)
 - Award example: India Government Mint Mumbai, GEM/2023/B/3814060, "Water tank cleaning through GeM": **₹41,300** to Shri Ganesh Enterprises, 20 Sep 2023, 7 bids, 3 disqualified, single-bid, L1 [Awarded] — [SPMCIL award notice](https://igmmumbai.spmcil.com/en/awarded-tender/water-tank-cleaning-through-gem/)
-- Clean Tank has one GeM contract on record: GEMC-511687729743729, IREL — [INFO-BANK](/home/ubuntu/Programming/ct/docs/ref/INFO-BANK.md)
+- Clean Tank has one GeM contract on record: GEMC-511687729743729, IREL — [INFO-BANK](/home/ubuntu/Programming/cleantank/docs/ref/INFO-BANK.md)
 
 ### Inferences
 - Size drives the unit price more than sector does. Per-litre rates fall from ₹0.35 to ₹0.60 at 500 to 2,000 L, to ₹0.17 to ₹0.35 at 2,000 to 10,000 L, to ₹0.02 to ₹0.09 for sumps of 2 lakh L and more. Sources differ in year and city, so read this as a shape, not a table.
@@ -115,7 +115,7 @@ Small general contractors win Tricity work on L1, and specialists are rarely vis
 - MAKAUT: registered firm, state office, 3 years with government bodies, no subcontracting — [MAKAUT](https://www.makautwb.ac.in/datas/users/0-tender_undergroundtank25.pdf)
 - SPAV: PAN and GST on letterhead, sealed post — [SPAV](https://spav.ac.in/2026/tender/NIQ-Water-tank-cleaning-services.pdf)
 - A text search of the CUP, IIT Delhi, IIML and LNMIIT documents found no ISO requirement — documents above, checked 31 Oct 2026
-- Clean Tank holds GST, EPFO, ESI, MSME/Udyam, BSNL enlistment and ISO 9001:2015 — [INFO-BANK](/home/ubuntu/Programming/ct/docs/ref/INFO-BANK.md)
+- Clean Tank holds GST, EPFO, ESI, MSME/Udyam, BSNL enlistment and ISO 9001:2015 — [INFO-BANK](/home/ubuntu/Programming/cleantank/docs/ref/INFO-BANK.md)
 
 ### Inferences
 - Clean Tank clears the common gates. Its certificates list several ₹5 to 7 lakh orders, enough for the similar-work test on Tricity jobs under about ₹8 lakh.

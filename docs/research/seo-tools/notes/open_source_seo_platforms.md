@@ -184,7 +184,7 @@ No true open-source backlink index was found. Searching GitHub for backlink chec
 | [Rybbit](https://github.com/rybbit-io/rybbit) | 13,193 / 2026-10-26 / v2.9.2 | AGPL-3.0 | ClickHouse, Postgres, Redis | Yes, GHCR multi-arch; ClickHouse image has arm64 | 2 GB minimum, per sources in [Railway listing](https://railway.com/deploy/rybbit-analytics) |
 | [Matomo](https://github.com/matomo-org/matomo) | 21,989 / 2026-10-30 | GPL-3.0 | PHP app, store not checked | Not checked | Not checked; 2,561 open issues |
 
-The repo already ships PostHog (paused until launch) per `/home/ubuntu/Programming/ct/CLAUDE.md`, so any of these would be a second analytics tool.
+The repo already ships PostHog (paused until launch) per `/home/ubuntu/Programming/cleantank/CLAUDE.md`, so any of these would be a second analytics tool.
 
 **Lists and discovery sources**
 - [i365dev/awesome-seo](https://github.com/i365dev/awesome-seo) (2,837 stars), [serpapi/awesome-seo-tools](https://github.com/serpapi/awesome-seo-tools) (1,137, by a vendor), [Suganthan-Mohanadasan/awesome-seo-tools](https://github.com/Suganthan-Mohanadasan/awesome-seo-tools) (54), [opensourceseotools.com](https://opensourceseotools.com) (same creator as Bisibility), [CorgiCorner/open-source-rank-trackers](https://github.com/CorgiCorner/open-source-rank-trackers).
