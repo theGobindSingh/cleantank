@@ -62,8 +62,10 @@ const nextConfig = {
         pathname: "/photos/**",
       },
     ],
-    // 75 is the default; 100 is for the hero's before and after photos.
-    qualities: [75, 100],
+    // 75 is the default; 85 is for the hero's before and after photos.
+    qualities: [75, 85],
+    // A day, matching the media route's CDN cache (src/collections/media.ts).
+    minimumCacheTTL: 86400,
     // Payload serves uploads from its API; the rest come from public/.
     localPatterns: [
       { pathname: "/api/media/file/**" },

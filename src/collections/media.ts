@@ -17,13 +17,24 @@ const sanitizeSvgUpload: CollectionBeforeOperationHook = ({ args, req }) => {
   return args;
 };
 
+// Each file request runs Payload and fetches from storage, so let the CDN keep
+// it a day and serve the old copy while it refreshes. For an urgent change,
+// upload under a new filename or purge it: docs/CONVENTIONS.md, Payload.
+const cacheFiles = ({ headers }: { headers: Headers }) => {
+  headers.set(
+    "Cache-Control",
+    "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+  );
+  return headers;
+};
+
 /** Uploaded images and files, publicly readable. SVGs are sanitized on upload. */
 export const media: CollectionConfig = {
   slug: "media",
   access: { read: allowPublicRead },
   hooks: { beforeOperation: [sanitizeSvgUpload] },
   fields: [{ name: "alt", type: "text", required: true, localized: true }],
-  upload: true,
+  upload: { modifyResponseHeaders: cacheFiles },
   // Payload Folders (beta): the admin gets a By Folder view, folder create, rename, delete and move.
   folders: true,
 };

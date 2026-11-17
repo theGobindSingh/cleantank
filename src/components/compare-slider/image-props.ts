@@ -3,7 +3,7 @@ export const HERO_IMAGE = {
   sizes: "100vw",
   loading: "eager",
   fetchPriority: "high",
-  quality: 100,
+  quality: 85,
 } as const;
 
 export const INLINE_IMAGE = {

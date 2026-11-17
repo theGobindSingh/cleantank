@@ -28,7 +28,6 @@ const renderClient = (client: Client) => {
         height={logo.height ?? 56}
         // next/image would turn an SVG into a raster
         unoptimized={logo.mimeType === "image/svg+xml"}
-        loading="eager"
         className="h-10 w-auto max-w-36 object-contain md:h-14 md:max-w-48"
       />
     </li>
