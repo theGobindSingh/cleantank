@@ -5,7 +5,7 @@
  */
 const legalName = "Gobind Galaxy";
 // Digits only, with the country code; format for display as +91 97795 40862.
-// The main line, also on WhatsApp: everything except franchise enquiries.
+// The only public number, also on WhatsApp.
 const phone = "919779540862";
 
 export const site = {
@@ -29,8 +29,6 @@ export const site = {
   phone,
   // The main number for now; set its own digits if WhatsApp moves.
   whatsapp: phone,
-  // Franchise enquiries only; also on WhatsApp.
-  franchisePhone: "919779517597",
   email: "admin@cleantankservices.com",
   offices: [
     {

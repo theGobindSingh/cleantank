@@ -35,8 +35,6 @@ export const en = {
       "Call, send a WhatsApp message or write to us. For a price, tell us your area and the size of your tank.",
     call: "Call",
     callHint: "Talk to us about a cleaning or an AMC.",
-    franchise: "Franchise",
-    franchiseHint: "Call or WhatsApp about a franchise in your area.",
     whatsapp: "WhatsApp",
     whatsappHint:
       "Tell us your area and the size of your tank, and we will give you a price.",
