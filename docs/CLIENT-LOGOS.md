@@ -8,6 +8,6 @@ A logo can be any SVG, PNG, JPEG or WebP image. Under Clients in the admin, eith
 - Healthcare: Regency Hospital, Krishna Hospital, Sohana Hospital
 - Industrial: Z-Square
 - Institutional: IIT Delhi (its PNG logo, in `public/assets/images/clients/institutional/`, can now be uploaded), Agriculture University, NIT Hamirpur (H.P.), CSIR institutions across India, HBTU, Rama University, Apollo Institute of Technology, KIT, Guru Har Rai Academy, Virendra Swarup Education Centre (Kanpur), Viren Swaroop Education Centre, Kanpur
-- Hospitality & Residential: Hotel Landmark, Hotel Mandakini, Hotel Bliss, Kanha Galaxy, Kanha International, Kanak Galaxy, Kanak International, Hotel Celebration, TDI, MR
+- Hospitality & Residential: Hotel Landmark, Hotel Mandakini, Hotel Bliss, Kanha Galaxy, Kanha International, Kanak Galaxy, Kanak International, Hotel Celebration, TDI, EMMAR
 
 Not for the band: groups with no single logo (Municipal Corporations, IITs across India, NITs across India, Law College) and bodies whose logo is the State Emblem of India (MES (Military Engineering Services), CPWD, National Investigation Agency (NIA), Cantonment Board). They appear by name in the about page's client list.

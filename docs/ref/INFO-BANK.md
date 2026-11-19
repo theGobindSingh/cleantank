@@ -216,7 +216,7 @@ Professional execution: trained technicians follow systematic procedures and use
 - **Government:** CRPF, LIC of India, MES (Military Engineering Services), UPSIDC, BSNL, ALIMCO (also spelled "ALIMO"), Cantonment Board / Cantonment Boards, CPWD, Municipal Corporations, National Investigation Agency (NIA), Sports Authority of India (SAI)
 - **Healthcare:** Regency Hospital, Krishna Hospital, AIIMS, Max Hospital, Fortis Hospital, Paras Hospital, Sohana Hospital, Apollo Hospital
 - **Industrial** (corporate & commercial): Z-Square, BHEL, IREL (India) Limited
-- **Hospitality & Residential:** Hotel Landmark, Hotel Mandakini, Hotel Bliss, Kanha Galaxy, Kanha International, Kanak Galaxy, Kanak International, Hotel Celebration; residential communities — "many apartments" / multiple apartment and residential communities across India, including TDI, MR and others
+- **Hospitality & Residential:** Hotel Landmark, Hotel Mandakini, Hotel Bliss, Kanha Galaxy, Kanha International, Kanak Galaxy, Kanak International, Hotel Celebration; residential communities — "many apartments" / multiple apartment and residential communities across India, including TDI, EMMAR and others
 - **Institutional** (education & research): Agriculture University, IIT Kanpur, IITs across India, NITs across India, NIT Hamirpur (H.P.), CSIR institutions across India, IIM Lucknow, HBTU, Rama University, Apollo Institute of Technology, KIT, Law College, Guru Har Rai Academy, Virendra Swarup Education Centre (Kanpur), Viren Swaroop Education Centre, Kanpur (alternate spelling), IIT Bhubaneswar, IIT Ropar, NIT Jalandhar, NIT Trichy, IIIM Jammu (CSIR), Shri Mata Vaishno Devi University (SMVDU)
 
 ### Work completion certificates
