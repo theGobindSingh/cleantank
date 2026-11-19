@@ -75,6 +75,8 @@ const nextConfig = {
   experimental: {
     // One 404 for the site and the admin, which have separate root layouts.
     globalNotFound: true,
+    // Lets Next's upgrade agent apply security patch releases.
+    agentUpgrade: "security",
   },
   // PostHog through our own origin (/ingest), so ad blockers and the CSP
   // allow it. Its API uses trailing slashes, which Next must not redirect.
