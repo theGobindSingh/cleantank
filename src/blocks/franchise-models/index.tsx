@@ -76,7 +76,7 @@ const FranchiseModels = ({
         </div>
         <P className="text-pretty">{model.summary}</P>
         {model.points && model.points.length > 0 && (
-          <ul className="divide-y divide-border border-y border-border text-fg-muted">
+          <ul className="divide-y divide-border self-start border-y border-border text-fg-muted">
             {model.points.map(renderPoint)}
           </ul>
         )}
