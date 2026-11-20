@@ -1,0 +1,10 @@
+# Production (master) only ever receives what staging already has. `pnpm release` does that push.
+while read -r _ local_sha remote_ref _; do
+  [ "$remote_ref" = "refs/heads/master" ] || continue
+  git fetch -q origin staging
+  staging=$(git rev-parse origin/staging)
+  if [ "$local_sha" != "$staging" ]; then
+    echo "pre-push: master can only be set to origin/staging ($staging). Push to staging, then run pnpm release." >&2
+    exit 1
+  fi
+done
