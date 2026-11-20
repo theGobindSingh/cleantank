@@ -40,6 +40,7 @@ The site is in English, Hindi and Punjabi (`src/i18n/config.ts`). English has no
 - Build links with `localePath(locale, path)`, and give each page `alternates: pageAlternates(locale, path)`: the canonical URL plus `localeAlternates(path)` (every language plus `x-default`, the unprefixed URL). Add new routes to `sitemap.ts` without a prefix; it lists every language.
 - Links that change the language take `native` (`<Link native>`), so they load the page in full. `[lang]` is part of the root layout, and a client navigation would rebuild `<html>` and the theme script in the browser. `@components/language-switcher` does this.
 - Set `lang` on any fragment in another script (see docs/DESIGN.md, Typography).
+- One word per thing in each language. "Business" is व्यवसाय in Hindi and ਕਾਰੋਬਾਰ in Punjabi on every page; don't mix in कारोबार or ਵਪਾਰ.
 
 ## Theme
 
