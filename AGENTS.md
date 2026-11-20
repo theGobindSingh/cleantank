@@ -14,6 +14,8 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 - `pnpm lint` / `pnpm lint:fix` — Prettier + ESLint on `src/` and `e2e/`
 - `pnpm payload` — Payload CLI (type and import-map generation), on the direct database URL
 - `pnpm migrate:create <name>` / `pnpm migrate` — create and run database migrations (Neon Postgres; schema push is off)
+- `pnpm release` — release staging to production: copies the Neon `staging` branch onto production, then pushes `origin/staging` to `master`. Only when the user asks (docs/CONVENTIONS.md, Hosting)
+- `ct-stable-deploy` — update https://ct.letmecome.in (staging) to `origin/staging`
 - `pnpm vercel-build` — what Vercel runs on deploy: `pnpm migrate`, then `pnpm logos:refresh` (refetches client logo links; never fails the deploy), then `pnpm build`
 
 ## Where things live
@@ -45,15 +47,15 @@ Discover the rest from the code; path aliases are in `tsconfig.json`.
 - One source per fact: `src/site.ts` for facts the code uses, INFO-BANK for the rest. Docs point there instead of retyping values.
 - When a change makes any doc wrong, update that doc in the same change.
 - Never credit Claude, Anthropic or any AI in commits or PRs: no `Co-Authored-By` trailers, no "Generated with" lines. `.husky/commit-msg` strips Claude and Anthropic ones anyway.
-- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Until the site is live (`isLive` in `src/site.ts` is false), the owner has approved migrations and content writes without asking; after launch, ask first. State that approval in every brief that touches the database, so the auto-mode check sees it. Read before writing and leave other content unchanged. The `content-updater` subagent never needs approval to seed or update Payload content, before or after launch.
+- Don't edit `src/app/(payload)` or `src/payload-types.ts`; Payload generates them. After changing collections or config, run `pnpm generate:types`, `pnpm migrate:create <name>` for any schema change, and `pnpm generate:importmap` if you added admin components. Local development and staging use the Neon `staging` branch, never production. The owner has approved migrations and content writes on `staging` without asking; production changes only through `pnpm release`. State that approval in every brief that touches the database, so the auto-mode check sees it. Read before writing and leave other content unchanged. The `content-updater` subagent never needs approval to seed or update Payload content, before or after launch.
 
 ## Deciding and committing
 
 - Decide on your own from these docs and INFO-BANK. Ask the user only when the docs are silent, contradict each other or no longer match the code. Write the answer into the right doc so nobody has to ask again.
 - The user co-owns the business with their parents; their father is the CEO and public face. The user's decisions are final on brand, copy, design and claims, with no separate sign-off. Keep docs short and don't tag facts "owner-approved".
 - Don't run the test suites after every change. Show the result and ask the user whether they want changes; make them and ask again. Run `pnpm test` and `pnpm test:e2e` only once the user says there's nothing more. Lint while working is enough.
-- Work in the main checkout on `master`, one task at a time; no worktrees or branches.
-- Commit as soon as the work passes the checks, small and one concern each, without waiting for approval. Push to `master` once, when the task is finished, not after every commit: Vercel builds on every push and the builds use up the quota (user's call, 20 Nov 2026). While developing, check the work on the dev server (port 3000, https://nextjsdev.letmecome.in). No approval needed to commit or push. Repeat this in every brief, as agents push by habit.
+- Work in the main checkout on `staging`, one task at a time; no worktrees or other branches. `master` is production: never commit to it or push it. It moves only through `pnpm release`, run only when the user asks for a release.
+- Commit as soon as the work passes the checks, small and one concern each, without waiting for approval. Push to `staging` once, when the task is finished, then run `ct-stable-deploy` so https://ct.letmecome.in shows it (user's call, 20 Nov 2026). While developing, check the work on the dev server (port 3000, https://nextjsdev.letmecome.in). No approval needed to commit, push `staging` or deploy staging; a production release needs the user's ask. Repeat this in every brief, as agents push by habit.
 - All work tracking lives in Track Suru, project `CT` (https://tracksuru.letmecome.in/p/CT), through the `track-suru` MCP server. Every task gets an issue, however small: features, fixes, copy, research, previews and chores. Find or create it under its epic before starting. Then:
   1. Move it to In Progress if it isn't there already, and post a one-line comment saying you're on it.
   2. Comment when you finish or need input. Start every comment with "🤖 claude: ". Start a comment that needs an answer with `@thegobindsingh` (after the prefix) so it reaches the user.
