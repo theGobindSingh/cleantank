@@ -31,6 +31,7 @@ import * as migration_20261105_100244_process_actions from './20261105_100244_pr
 import * as migration_20261109_170600_ruled_list_second_list from './20261109_170600_ruled_list_second_list';
 import * as migration_20261109_171507_story_second_column from './20261109_171507_story_second_column';
 import * as migration_20261110_183504_value_prop_anchor from './20261110_183504_value_prop_anchor';
+import * as migration_20261120_144340_franchise_models from './20261120_144340_franchise_models';
 
 export const migrations = [
   {
@@ -196,6 +197,11 @@ export const migrations = [
   {
     up: migration_20261110_183504_value_prop_anchor.up,
     down: migration_20261110_183504_value_prop_anchor.down,
-    name: '20261110_183504_value_prop_anchor'
+    name: '20261110_183504_value_prop_anchor',
+  },
+  {
+    up: migration_20261120_144340_franchise_models.up,
+    down: migration_20261120_144340_franchise_models.down,
+    name: '20261120_144340_franchise_models'
   },
 ];

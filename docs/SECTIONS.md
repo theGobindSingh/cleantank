@@ -28,6 +28,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 | Founder section | The founder's name, role, bio and portrait | `founder` |
 | Credentials section | The spec sheet of registrations and certificates | `credentials` |
 | Client list section | Every cleared client by name, grouped by sector | `clientList` |
+| Franchise models section | The franchise models side by side, each with its investment, and the financial disclaimer under them | `franchiseModels` |
 
 ## Page by page
 

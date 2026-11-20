@@ -6,6 +6,7 @@ import { credentials } from "@/blocks/credentials/config";
 import { ctaBand } from "@/blocks/cta-band/config";
 import { faq } from "@/blocks/faq/config";
 import { founder } from "@/blocks/founder/config";
+import { franchiseModels } from "@/blocks/franchise-models/config";
 import { hero } from "@/blocks/hero/config";
 import { pageIntro } from "@/blocks/page-intro/config";
 import { priceList } from "@/blocks/price-list/config";
@@ -94,6 +95,7 @@ export const pages: CollectionConfig = {
         clientList,
         serviceArea,
         priceList,
+        franchiseModels,
       ],
     },
   ],

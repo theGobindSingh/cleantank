@@ -9,6 +9,7 @@ import Credentials from "./credentials";
 import CtaBand from "./cta-band";
 import Faq from "./faq";
 import Founder from "./founder";
+import FranchiseModels from "./franchise-models";
 import Hero from "./hero";
 import PageIntro from "./page-intro";
 import PriceList from "./price-list";
@@ -56,6 +57,7 @@ const COMPONENTS: { [T in BlockType]: BlockComponent<T> } = {
   serviceArea: ServiceArea,
   priceList: PriceList,
   valueProp: ValueProp,
+  franchiseModels: FranchiseModels,
 };
 
 /** Renders a page's layout, one component per block type. */

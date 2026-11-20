@@ -248,6 +248,7 @@ export interface Page {
     | ClientListBlock
     | ServiceAreaBlock
     | PriceListBlock
+    | FranchiseModelsBlock
   )[];
   updatedAt: string;
   createdAt: string;
@@ -857,6 +858,71 @@ export interface PriceListBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FranchiseModelsBlock".
+ */
+export interface FranchiseModelsBlock {
+  heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
+  text?: string | null;
+  /**
+   * A small caps label over each model's figure, such as “Total investment”. Optional.
+   */
+  investmentLabel?: string | null;
+  /**
+   * Shown as equals, in this order.
+   */
+  models: {
+    name: string;
+    /**
+     * Such as ₹5.5 lakh.
+     */
+    investment: string;
+    /**
+     * Such as “including machinery”. Optional.
+     */
+    investmentNote?: string | null;
+    summary: string;
+    /**
+     * What the package includes. Optional.
+     */
+    points?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    id?: string | null;
+  }[];
+  /**
+   * The financial disclaimer (INFO-BANK §8). It shows right under the figures.
+   */
+  note: string;
+  /**
+   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   */
+  actions?:
+    | {
+        label: string;
+        /**
+         * A path such as /contact (the language prefix is added for you), or `whatsapp` or `call` for the site's number.
+         */
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Tick to alternate with the section above.
+   */
+  isSubtle?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'franchiseModels';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "clients".
  */
 export interface Client {
@@ -1086,6 +1152,7 @@ export interface PagesSelect<T extends boolean = true> {
         clientList?: T | ClientListBlockSelect<T>;
         serviceArea?: T | ServiceAreaBlockSelect<T>;
         priceList?: T | PriceListBlockSelect<T>;
+        franchiseModels?: T | FranchiseModelsBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -1414,6 +1481,42 @@ export interface PriceListBlockSelect<T extends boolean = true> {
       };
   isSubtle?: T;
   anchor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FranchiseModelsBlock_select".
+ */
+export interface FranchiseModelsBlockSelect<T extends boolean = true> {
+  heading?: T;
+  highlight?: T;
+  text?: T;
+  investmentLabel?: T;
+  models?:
+    | T
+    | {
+        name?: T;
+        investment?: T;
+        investmentNote?: T;
+        summary?: T;
+        points?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  note?: T;
+  actions?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+        id?: T;
+      };
+  isSubtle?: T;
   id?: T;
   blockName?: T;
 }

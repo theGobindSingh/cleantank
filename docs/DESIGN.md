@@ -211,6 +211,10 @@ The `credentials` block (`src/blocks/credentials`): a stone section with an H2, 
 
 The `clientList` block (`src/blocks/client-list`): a white section with an H2 and every cleared client by name, one ruled cell per sector in the admin's order, one column on phones, two from `md`, three from `lg`. Inside a cell the names run in two columns on phones, which halves the list's length there, and in one from `md`. A short last row stretches its last cell. Under a client's name, one small text button per work completion certificate ("Certificate, 2023") opens it in the same dialog as the credentials block, with the certified work as the caption in the top bar.
 
+### Franchise models section
+
+The `franchiseModels` block (`src/blocks/franchise-models`): the franchise models on `/franchise`, compared as equals. An H2 and an optional line, then one cell per model in a ruled grid, side by side from `lg` up and stacked below. Each cell has the model name as an H3, an optional mono caps label (`investmentLabel`, the same in every cell), the investment in the heading face at `h2` size (`h1` from `md`) in `heading` and tabular figures, a small `fg-muted` note under it ("including machinery"), the summary and an optional ruled list of what the package includes. From `lg` up the cells share rows (`subgrid`), so names, figures and summaries line up. No badge, highlighted model or accent on any figure: the models are equals. The financial disclaimer (`note`, required) sits right under the grid at body size, never as fine print elsewhere (docs/PRODUCT.md, Claims). The page's two buttons close the section. `isSubtle` puts it on stone.
+
 ### Anchors
 
 `ruledList`, `clientList` and `valueProp` take an optional `anchor`, the section's id, so links such as `/about#clients` land on it.

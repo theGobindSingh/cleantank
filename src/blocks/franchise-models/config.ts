@@ -1,0 +1,74 @@
+import { actionsField } from "@/blocks/actions/config";
+import { highlightField } from "@/blocks/highlight";
+import type { Block } from "payload";
+
+/** The franchise models side by side, each with its investment, with the financial disclaimer under them. */
+export const franchiseModels: Block = {
+  slug: "franchiseModels",
+  interfaceName: "FranchiseModelsBlock",
+  labels: { singular: "Franchise models", plural: "Franchise models" },
+  fields: [
+    { name: "heading", type: "text", required: true, localized: true },
+    highlightField,
+    { name: "text", type: "textarea", localized: true },
+    {
+      name: "investmentLabel",
+      type: "text",
+      localized: true,
+      admin: {
+        description:
+          "A small caps label over each model's figure, such as “Total investment”. Optional.",
+      },
+    },
+    {
+      name: "models",
+      type: "array",
+      required: true,
+      minRows: 1,
+      maxRows: 4,
+      admin: { description: "Shown as equals, in this order." },
+      fields: [
+        { name: "name", type: "text", required: true, localized: true },
+        {
+          name: "investment",
+          type: "text",
+          required: true,
+          localized: true,
+          admin: { description: "Such as ₹5.5 lakh." },
+        },
+        {
+          name: "investmentNote",
+          type: "text",
+          localized: true,
+          admin: { description: "Such as “including machinery”. Optional." },
+        },
+        { name: "summary", type: "textarea", required: true, localized: true },
+        {
+          name: "points",
+          type: "array",
+          admin: { description: "What the package includes. Optional." },
+          fields: [
+            { name: "text", type: "text", required: true, localized: true },
+          ],
+        },
+      ],
+    },
+    {
+      name: "note",
+      type: "textarea",
+      required: true,
+      localized: true,
+      admin: {
+        description:
+          "The financial disclaimer (INFO-BANK §8). It shows right under the figures.",
+      },
+    },
+    actionsField,
+    {
+      name: "isSubtle",
+      type: "checkbox",
+      label: "Stone background",
+      admin: { description: "Tick to alternate with the section above." },
+    },
+  ],
+};
