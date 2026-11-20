@@ -211,13 +211,13 @@ Professional execution: trained technicians follow systematic procedures and use
 
 ## 7. Clients ("Existing Clients")
 
-**Spellings are kept exactly as listed and treated as separate entities** (owner ruling). Entries containing "Galaxy" (Kanha/Kanak Galaxy) are third-party clients, not Gobind Galaxy. Client names/logos on the site should be used only with permission/documentation. Owner confirmed on 23 Oct 2026 that permission is in place for every client listed below.
+**Spellings are kept exactly as listed and treated as separate entities** (owner ruling). No entry names a city or state: single campuses go under a group such as "IITs across India" or "IIMs across India", even when there is only one. Certificate descriptions and testimonial credits on the site name no place either (owner ruling, 20 Nov 2026). The certificates table below keeps the campus, since it is reference only. Entries containing "Galaxy" (Kanha/Kanak Galaxy) are third-party clients, not Gobind Galaxy. Client names/logos on the site should be used only with permission/documentation. Owner confirmed on 23 Oct 2026 that permission is in place for every client listed below.
 
 - **Government:** CRPF, LIC of India, MES (Military Engineering Services), UPSIDC, BSNL, ALIMCO (also spelled "ALIMO"), Cantonment Board / Cantonment Boards, CPWD, Municipal Corporations, National Investigation Agency (NIA), Sports Authority of India (SAI)
 - **Healthcare:** Regency Hospital, Krishna Hospital, AIIMS, Max Hospital, Fortis Hospital, Paras Hospital, Sohana Hospital, Apollo Hospital
 - **Industrial** (corporate & commercial): Z-Square, BHEL, IREL (India) Limited
 - **Hospitality & Residential:** Hotel Landmark, Hotel Mandakini, Hotel Bliss, Kanha Galaxy, Kanha International, Kanak Galaxy, Kanak International, Hotel Celebration; residential communities — "many apartments" / multiple apartment and residential communities across India, including TDI, EMMAR and others
-- **Institutional** (education & research): Agriculture University, IIT Kanpur, IITs across India, NITs across India, NIT Hamirpur (H.P.), CSIR institutions across India, IIM Lucknow, HBTU, Rama University, Apollo Institute of Technology, KIT, Law College, Guru Har Rai Academy, Virendra Swarup Education Centre (Kanpur), Viren Swaroop Education Centre, Kanpur (alternate spelling), IIT Bhubaneswar, IIT Ropar, NIT Jalandhar, NIT Trichy, IIIM Jammu (CSIR), Shri Mata Vaishno Devi University (SMVDU)
+- **Institutional** (education & research): Agriculture University, IITs across India, NITs across India, IIMs across India, CSIR institutions across India, HBTU, Rama University, Apollo Institute of Technology, KIT, Law College, Guru Har Rai Academy, Virendra Swarup Education Centre, Shri Mata Vaishno Devi University (SMVDU)
 
 ### Work completion certificates
 

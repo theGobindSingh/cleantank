@@ -10,7 +10,6 @@ import { getDictionary, type Locale } from "@i18n";
 
 interface HeroProps extends HeroBlock {
   locale: Locale;
-  whatsappText?: string | undefined;
 }
 
 /**
@@ -28,7 +27,6 @@ const Hero = ({
   after,
   actions,
   locale,
-  whatsappText,
 }: HeroProps) => {
   const { compare, hero } = getDictionary(locale);
   const beforeImage = toImage(before);
@@ -86,7 +84,6 @@ const Hero = ({
         <Actions
           actions={actions}
           locale={locale}
-          whatsappText={whatsappText}
           className="pointer-events-auto pt-2 max-lg:[&>*:not(:first-child)]:hidden"
         />
         <P
