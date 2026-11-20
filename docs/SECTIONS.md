@@ -47,7 +47,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 2. Value prop section, list: "Clean tank, healthy life."
 3. Price section: "Specialist services, affordable prices."
 4. Clients strip: "Our clients."
-5. Value prop section, photos: "Why families trust us."
+5. Value prop section, photos: "cleaning families can trust."
 6. Comparison section: "Two ways to clean a tank."
 7. Process section: "How we clean your tank."
 8. Map section, on stone: "Where we clean home tanks."
