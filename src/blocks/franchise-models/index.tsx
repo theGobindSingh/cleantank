@@ -4,10 +4,10 @@ import { H3, P } from "@components/html";
 import Section from "@components/section";
 import type { Locale } from "@i18n";
 import { tw } from "@utils/tw";
+import { useId } from "react";
 
 interface FranchiseModelsProps extends FranchiseModelsBlock {
   locale: Locale;
-  whatsappText?: string | undefined;
 }
 
 type Model = FranchiseModelsBlock["models"][number];
@@ -44,8 +44,8 @@ const FranchiseModels = ({
   actions,
   isSubtle,
   locale,
-  whatsappText,
 }: FranchiseModelsProps) => {
+  const noteId = useId();
   const renderModel = (model: Model, index: number) => {
     return (
       <li
@@ -93,6 +93,7 @@ const FranchiseModels = ({
     >
       <div className="flex flex-col gap-4">
         <ul
+          aria-describedby={noteId}
           className={tw(
             "grid gap-px overflow-hidden rounded-xs border border-border bg-border",
             COLUMNS[models.length],
@@ -100,9 +101,11 @@ const FranchiseModels = ({
         >
           {models.map(renderModel)}
         </ul>
-        <P className="max-w-[68ch] text-pretty text-fg-muted">{note}</P>
+        <P id={noteId} className="max-w-[68ch] text-pretty text-fg-muted">
+          {note}
+        </P>
       </div>
-      <Actions actions={actions} locale={locale} whatsappText={whatsappText} />
+      <Actions actions={actions} locale={locale} />
     </Section>
   );
 };
