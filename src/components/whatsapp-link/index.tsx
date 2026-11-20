@@ -9,17 +9,25 @@ import { usePathname } from "next/navigation";
 
 interface WhatsappLinkProps extends Omit<LinkProps, "href"> {
   labels: Pick<Dictionary["contact"], "whatsappText" | "pageWhatsappTexts">;
+  /** Replaces the page's message; the price calculator sends its figures. */
+  text?: string | undefined;
 }
 
 /**
- * A WhatsApp chat with the site's number for the layout's contact bar and
- * footer, which don't know the page: it reads the slug from the URL and uses
- * that page's own message (`contact.pageWhatsappTexts`), else the general one.
+ * A WhatsApp chat with the site's number. The message is `text`, else the
+ * page's own (`contact.pageWhatsappTexts`, keyed by the URL's last segment,
+ * which the English rewrite and a trailing slash leave unchanged), else the
+ * general one.
  */
-const WhatsappLink = ({ labels, ...rest }: WhatsappLinkProps) => {
-  const slug = usePathname().split("/").at(-1) ?? "";
+const WhatsappLink = ({ labels, text, ...rest }: WhatsappLinkProps) => {
+  const slug = usePathname().split("/").findLast(Boolean) ?? "";
   const texts: Partial<Record<string, string>> = labels.pageWhatsappTexts;
-  const href = whatsappHref(site.whatsapp, texts[slug] ?? labels.whatsappText);
+  // hasOwn, so a path like /constructor doesn't read the prototype.
+  const pageText = Object.hasOwn(texts, slug) ? texts[slug] : undefined;
+  const href = whatsappHref(
+    site.whatsapp,
+    text ?? pageText ?? labels.whatsappText,
+  );
   return <Link href={href} {...rest} />;
 };
 

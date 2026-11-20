@@ -24,17 +24,12 @@ import ValueProp from "./value-prop";
 interface BlocksProps {
   blocks: Page["layout"];
   locale: Locale;
-  /** The page's own WhatsApp message for its block buttons, if it has one. */
-  whatsappText?: string | undefined;
 }
 
 type Block = Page["layout"][number];
 type BlockType = Block["blockType"];
 type BlockComponent<T extends BlockType> = ComponentType<
-  Extract<Block, { blockType: T }> & {
-    locale: Locale;
-    whatsappText?: string | undefined;
-  }
+  Extract<Block, { blockType: T }> & { locale: Locale }
 >;
 
 // One component per block type; a new block type fails the build until it is added here.
@@ -61,17 +56,10 @@ const COMPONENTS: { [T in BlockType]: BlockComponent<T> } = {
 };
 
 /** Renders a page's layout, one component per block type. */
-const Blocks = ({ blocks, locale, whatsappText }: BlocksProps) => {
+const Blocks = ({ blocks, locale }: BlocksProps) => {
   const renderBlock = (block: Block, index: number) => {
     const Component = COMPONENTS[block.blockType] as BlockComponent<BlockType>;
-    return (
-      <Component
-        key={block.id ?? index}
-        {...block}
-        locale={locale}
-        whatsappText={whatsappText}
-      />
-    );
+    return <Component key={block.id ?? index} {...block} locale={locale} />;
   };
 
   return blocks.map(renderBlock);
