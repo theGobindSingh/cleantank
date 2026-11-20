@@ -54,6 +54,7 @@ The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this l
 ## Going live
 
 - [ ] The home page testimonials block has real quotes with permission picked, or you accept that the section disappears: its placeholder cards stop showing once `isLive` is on.
+- [ ] Release `/franchise` on production once the owner approves it: remove it from `HELD_ON_PRODUCTION` in `src/app/(frontend)/[lang]/[slug]/page.tsx` (CT-424), and add it to the sitemap.
 - [ ] All header pages exist; no nav link leads to a 404. Then remove the `_rsc=` exception in the language test in `e2e/site.spec.ts`.
 - [ ] The owner has checked the facts in `src/site.ts`: contacts, offices, GSTIN, Udyam, ISO details and brand lines.
 - [ ] `iso.certificate` in `src/site.ts` points to the ISO certificate image in `public/`.
