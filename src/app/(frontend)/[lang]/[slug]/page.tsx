@@ -12,7 +12,7 @@ import { cache } from "react";
 export const dynamicParams = true;
 
 /** Linked from the header but not built yet; each shows a holding page until its CMS page exists. */
-const UNDER_DEVELOPMENT = ["organisations", "franchise"];
+const UNDER_DEVELOPMENT = ["organisations"];
 
 const findPage = cache(async (slug: string, lang: string) => {
   const payload = await getPayload({ config });
