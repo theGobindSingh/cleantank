@@ -14,7 +14,7 @@ The website of Clean Tank Services, an initiative of Gobind Galaxy: scientific, 
 - `pnpm lint` / `pnpm lint:fix` — Prettier + ESLint on `src/` and `e2e/`
 - `pnpm payload` — Payload CLI (type and import-map generation), on the direct database URL
 - `pnpm migrate:create <name>` / `pnpm migrate` — create and run database migrations (Neon Postgres; schema push is off)
-- `pnpm release` — release staging to production: copies the Neon `staging` branch onto production, then pushes `origin/staging` to `master`. Only when the user asks (docs/CONVENTIONS.md, Hosting)
+- `pnpm release` — release staging to production: copies the Neon `staging` branch onto production, then pushes `origin/staging` to `master`. Only when the user asks, here or in a CT comment "@claude Release staging to production" (Gobind's ChatGPT project sends it). It asks for a yes; agents run `echo y | pnpm release` (docs/CONVENTIONS.md, Hosting)
 - `ct-stable-deploy` — update https://ct.letmecome.in (staging) to `origin/staging`
 - `pnpm vercel-build` — what Vercel runs on deploy: `pnpm migrate`, then `pnpm logos:refresh` (refetches client logo links; never fails the deploy), then `pnpm build`
 
