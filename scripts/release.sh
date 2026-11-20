@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Release staging to production: copy the staging database onto production, then point master at origin/staging.
-# Run only when the user asks. Needs the Neon CLI signed in (~/.config/neonctl/credentials.json).
+# Run only when the user asks. Needs the Neon CLI signed in (`neon auth`).
 # Production's old data is kept as the Neon branch prod-backup-<UTC time>; staging is left as it is.
 set -euo pipefail
 
