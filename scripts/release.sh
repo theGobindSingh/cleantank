@@ -4,8 +4,8 @@
 # Production's old data is kept as the Neon branch prod-backup-<UTC time>; staging is left as it is.
 set -euo pipefail
 
-NEON_PROJECT=__NEON_PROJECT__
-PROD_BRANCH=__PROD_BRANCH__
+NEON_PROJECT=square-shadow-62993952   # Neon project "cleantank"
+PROD_BRANCH=production
 STAGING_BRANCH=staging
 
 cd "$(git rev-parse --show-toplevel)"
