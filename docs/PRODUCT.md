@@ -65,6 +65,7 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 
 - Sell the system, the track record since 2008 and the client work (the same documents as Organisations). Never say how many partners there are, never imply the network is empty or new, and never use lines like "be among the first partners". Don't claim an existing partner network either.
 - Use the main number (`phone` in `src/site.ts`) for calls and WhatsApp. The site has no separate franchise number (owner's call, 19 Nov 2026).
+- Enquiry is by call or WhatsApp only, through the page's two buttons (Become a Franchise Partner on WhatsApp first, then Call Us). There is no franchise form (owner's call, 20 Nov 2026). The page's sections are listed in docs/SECTIONS.md.
 
 ### Shared home page (`/`)
 
@@ -76,7 +77,7 @@ Top to bottom (owner's call): the hero; the value prop, which ties a clean tank 
 
 The real competitor is the local plumber or labourer, and doing nothing. Never name, mock or run down either. Pages may compare methods with facts, lightly: a usual wash with a brush, a bucket and no disinfectant against our machines and the Clean Tank agent, and what each leaves behind (user's call, 9 Nov 2026). Stay within the ASCI code on comparative ads: no names, no "better than" we can't prove, nothing that runs down a trade. The question every page should answer is "What difference will your service actually make?"
 
-Each group gets its own enquiry form, asking only what planning needs. Where submissions go is not decided yet (Google Forms was tried and dropped); until then `/contact` lists the phone, WhatsApp, email and the correspondence office (the Kanpur registered office is left out, owner's call). Channels are phone, WhatsApp, the website and the forms. Separate WhatsApp numbers, emails and lead handling per group are planned but not set up; until then everything uses the contacts in `src/site.ts`.
+Homes and organisations each get their own enquiry form, asking only what planning needs; franchise enquiries stay on call and WhatsApp. Where submissions go is not decided yet (Google Forms was tried and dropped); until then `/contact` lists the phone, WhatsApp, email and the correspondence office (the Kanpur registered office is left out, owner's call). Channels are phone, WhatsApp, the website and the forms. Separate WhatsApp numbers, emails and lead handling per group are planned but not set up; until then everything uses the contacts in `src/site.ts`.
 
 Testimonials: the organisations' staff have praised the work; collect quotes with the person's name, role and permission before using them. Lines quoted word for word from the work completion certificates count as permitted (owner's call, 28 Oct 2026); they are credited to the signer's role and organisation, never the name. Add each under Clients, then Testimonials in the admin, tick "Permission to publish" with the date, and pick it in the home page's testimonials block, just above the track record strip. No Google Business profile yet; it follows the launch (docs/AEO-GEO.md).
 

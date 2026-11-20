@@ -86,8 +86,19 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 
 ### Franchise (`/franchise`)
 
-1. Page intro: "Start your own tank cleaning business. Step beyond jobs.", with Call Us and Become a Franchise Partner (WhatsApp).
-2. Ruled list section: "Three franchise models." Standard FOFO, Classic FOCS and Premium FOCO, each with its total investment and summary, and the financial disclaimer as the note.
-3. Closing band: "Call us for the full details."
+Every section with buttons has the same two: Become a Franchise Partner (WhatsApp) first, then Call Us.
+
+1. Page intro section: "Start your own tank cleaning business. Step beyond jobs."
+2. Clients strip: "Our clients."
+3. Value prop section, list: "Tank cleaning is repeat work."
+4. Franchise models section: "Three models, one system." Standard FOFO, Classic FOCS and Premium FOCO, each with its total investment, summary and package, and the financial disclaimer under them.
+5. Ruled list section, on stone: "What you get from us." (`#support`)
+6. Process section: "One process, every tank."
+7. Founder section, on stone
+8. Ruled list section, two lists: "Is this business right for you?" Who it suits and who it does not.
+9. Credentials section, on stone: "Registrations you can check."
+10. Questions section: "Questions before you invest."
+11. Closing band: "Call us for the full details."
+12. Track record strip: "Track record."
 
 `/organisations` has no sections yet. When a page changes, update its list here in the same change.
