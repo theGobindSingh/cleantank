@@ -7,6 +7,7 @@ import type { Locale } from "@i18n";
 
 interface CtaBandProps extends CtaBandBlock {
   locale: Locale;
+  whatsappText?: string | undefined;
 }
 
 /** One of the page's emphasis bands: the standard two-line heading, a line and its actions on navy. */
@@ -16,6 +17,7 @@ const CtaBand = ({
   text,
   actions,
   locale,
+  whatsappText,
 }: CtaBandProps) => {
   return (
     <CommonFullWidthWrapper
@@ -28,7 +30,12 @@ const CtaBand = ({
           {text}
         </P>
       )}
-      <Actions actions={actions} locale={locale} className="pt-2" />
+      <Actions
+        actions={actions}
+        locale={locale}
+        whatsappText={whatsappText}
+        className="pt-2"
+      />
     </CommonFullWidthWrapper>
   );
 };

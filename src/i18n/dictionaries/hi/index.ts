@@ -35,6 +35,10 @@ export const hi: Dictionary = {
     whatsapp: "WhatsApp",
     whatsappHint: "अपना इलाक़ा और टंकी का आकार बताएँ, हम आपको क़ीमत बताएँगे।",
     whatsappText: "नमस्ते, मुझे अपनी पानी की टंकी की सफ़ाई की क़ीमत जाननी है।",
+    pageWhatsappTexts: {
+      franchise:
+        "नमस्ते, मुझे Clean Tank Services की फ़्रैंचाइज़ी के बारे में जानकारी चाहिए।",
+    },
     email: "ईमेल",
     emailHint: "कोटेशन, दस्तावेज़ और लिखित बातचीत के लिए।",
     offices: "कार्यालय।",

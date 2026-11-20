@@ -93,10 +93,16 @@ const CmsPage = async ({ params }: PageProps<"/[lang]/[slug]">) => {
     );
   }
   if (!page) notFound();
+  const whatsappTexts: Partial<Record<string, string>> =
+    getDictionary(locale).contact.pageWhatsappTexts;
 
   return (
     <main>
-      <Blocks blocks={page.layout} locale={locale} />
+      <Blocks
+        blocks={page.layout}
+        locale={locale}
+        whatsappText={whatsappTexts[slug]}
+      />
     </main>
   );
 };

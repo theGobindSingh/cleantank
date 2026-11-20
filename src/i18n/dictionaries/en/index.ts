@@ -40,6 +40,11 @@ export const en = {
       "Tell us your area and the size of your tank, and we will give you a price.",
     // Pre-filled in WhatsApp chats opened from the site; the price list's calculator adds its figures instead.
     whatsappText: "Hello, I would like a price for cleaning my water tank.",
+    // Replaces whatsappText on the block buttons of the page with this slug.
+    pageWhatsappTexts: {
+      franchise:
+        "Hello, I would like to know about the Clean Tank Services franchise.",
+    },
     email: "Email",
     emailHint: "For quotations, documents and anything in writing.",
     offices: "Office.",

@@ -11,6 +11,7 @@ import AreaMap from "./map";
 
 interface ServiceAreaProps extends ServiceAreaBlock {
   locale: Locale;
+  whatsappText?: string | undefined;
 }
 
 /**
@@ -25,6 +26,7 @@ const ServiceArea = ({
   actions,
   isSubtle,
   locale,
+  whatsappText,
 }: ServiceAreaProps) => {
   return (
     <CommonFullWidthWrapper
@@ -34,7 +36,12 @@ const ServiceArea = ({
       <div className="flex flex-col gap-4 lg:col-span-7">
         <SectionHeadline heading={heading} highlight={highlight} />
         <Paragraphs text={text} className="max-w-[60ch] text-pretty" />
-        <Actions actions={actions} locale={locale} className="pt-2" />
+        <Actions
+          actions={actions}
+          locale={locale}
+          whatsappText={whatsappText}
+          className="pt-2"
+        />
       </div>
       <figure className="flex flex-col gap-3 self-start lg:col-span-5">
         <div className="rounded-sm bg-surface p-4 outline-1 -outline-offset-1 outline-grey-200 md:p-6">

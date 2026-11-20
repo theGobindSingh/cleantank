@@ -10,6 +10,7 @@ interface PageIntroProps extends Pick<
   "heading" | "highlight" | "text" | "actions"
 > {
   locale: Locale;
+  whatsappText?: string | undefined;
 }
 
 /**
@@ -24,6 +25,7 @@ const PageIntro = ({
   text,
   actions,
   locale,
+  whatsappText,
 }: PageIntroProps) => {
   return (
     <CommonFullWidthWrapper className="flex flex-col gap-6 pt-8 md:pt-10 lg:pt-12">
@@ -38,7 +40,12 @@ const PageIntro = ({
           {text}
         </P>
       )}
-      <Actions actions={actions} locale={locale} className="pt-2" />
+      <Actions
+        actions={actions}
+        locale={locale}
+        whatsappText={whatsappText}
+        className="pt-2"
+      />
     </CommonFullWidthWrapper>
   );
 };

@@ -9,6 +9,7 @@ import Track from "./track";
 
 interface ProcessSectionProps extends ProcessBlock {
   locale: Locale;
+  whatsappText?: string | undefined;
 }
 
 /**
@@ -24,6 +25,7 @@ const ProcessSection = async ({
   detailed,
   actions,
   locale,
+  whatsappText,
 }: ProcessSectionProps) => {
   const { process: labels } = getDictionary(locale);
   const payload = await getPayload({ config });
@@ -32,7 +34,7 @@ const ProcessSection = async ({
     <Section heading={heading} highlight={highlight}>
       <Track steps={steps} whereApplicable={labels.whereApplicable} />
       {detailed && <Details steps={steps} labels={labels} />}
-      <Actions actions={actions} locale={locale} />
+      <Actions actions={actions} locale={locale} whatsappText={whatsappText} />
     </Section>
   );
 };
