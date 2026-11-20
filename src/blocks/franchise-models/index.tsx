@@ -65,9 +65,9 @@ const FranchiseModels = ({
               {investmentLabel}
             </P>
           )}
-          <P className="font-heading text-(length:--fs-h2) leading-none font-bold text-heading tabular-nums md:text-(length:--fs-h1)">
+          <p className="font-heading text-(length:--fs-h2) leading-none font-bold text-heading tabular-nums md:text-(length:--fs-h1)">
             {model.investment}
-          </P>
+          </p>
           {model.investmentNote && (
             <P $size="small" className="text-fg-muted">
               {model.investmentNote}
