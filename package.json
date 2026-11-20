@@ -13,6 +13,7 @@
     "prebuild": "pnpm run lint:fix",
     "dev": "next dev",
     "build": "next build",
+    "release": "bash scripts/release.sh",
     "vercel-build": "pnpm migrate && (pnpm logos:refresh || true) && pnpm build",
     "start": "next start",
     "payload": "PAYLOAD_DB_DIRECT=1 payload",
