@@ -83,4 +83,10 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 11. Closing band: "Talk to us about your tanks."
 12. Track record strip: "Track record."
 
-`/organisations` and `/franchise` have no sections yet. When a page changes, update its list here in the same change.
+### Franchise (`/franchise`)
+
+1. Page intro: "Start your own tank cleaning business. Step beyond jobs.", with Call Us and Become a Franchise Partner (WhatsApp).
+2. Ruled list section: "Three franchise models." Standard FOFO, Classic FOCS and Premium FOCO, each with its total investment and summary, and the financial disclaimer as the note.
+3. Closing band: "Call us for the full details."
+
+`/organisations` has no sections yet. When a page changes, update its list here in the same change.

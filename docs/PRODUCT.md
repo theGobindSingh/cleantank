@@ -135,7 +135,7 @@ Needs a document before use: biodegradable, eco-friendly, how long the treatment
 
 Every "safe" or "bacteria-free" line carries the qualifier that water quality also depends on source water, plumbing, tank condition and upkeep after the service.
 
-Franchise pages may use only these figures, with the financial disclaimer from INFO-BANK §8 directly beside them: the franchise business model table in INFO-BANK §8, with its qualifiers. Don't state what ROI or royalty is calculated on, what each model includes, or territory exclusivity. The retired franchise copy listed in INFO-BANK (guaranteed income, event offers, "06-stage", "Remember business is for PROFIT!") never appears.
+Franchise pages may show only the three models in INFO-BANK §8: name, total investment and the short website summary, with the financial disclaimer from INFO-BANK §8 directly beside them (owner's call, 20 Nov 2026). Don't publish royalty, fee splits, territory, agreement terms, or any income, ROI, payback or guarantee claim. For anything more, the page asks the prospect to call. The retired franchise copy listed in INFO-BANK (guaranteed income, event offers, "06-stage", "Remember business is for PROFIT!") never appears.
 
 Clients have given permission to show their names and logos. The list is in INFO-BANK; keep its spellings. IIT Delhi is a client (INFO-BANK lists it under "IITs across India"), and its logo is in `public/assets/images/clients/institutional/`.
 

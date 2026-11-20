@@ -276,19 +276,17 @@ Recurring maintenance requirement for: residential societies, apartment complexe
 | Recurring Business Potential       | Periodic cleaning and AMC services can help develop repeat customers and recurring revenue.                                     |
 | Scalable Market                    | Can be developed in metros as well as smaller cities and towns, depending on local market conditions.                           |
 
-### Franchise business model (indicative)
+### Franchise models (owner interview, 20 Nov 2026)
 
-| Particular                | Indicative details                                                                  |
-| ------------------------- | ----------------------------------------------------------------------------------- |
-| Franchise investment      | ₹3 lakh – ₹8 lakh depending on model                                                |
-| Suggested startup level   | From approximately ₹3 lakh                                                          |
-| Royalty                   | **3.5% per month, as applicable to the selected model**                             |
-| Indicative ROI            | 40% or above, subject to actual business performance                                |
-| Indicative payback period | 4–6 months, subject to actual business performance                                  |
-| Office requirement        | Approximately 150 sq. ft. or suitable home-based setup (small office / home / shop) |
-| Agreement period          | 3 years                                                                             |
-| Market                    | Residential, commercial, institutional & industrial                                 |
-| Business support          | Training, marketing, lead generation, sales & operational support                   |
+The website shows only each model's name, its total investment (machinery included) and the short summary below, then asks the prospect to call. Royalty, fee split, chemical purchases, billing, territory, operating duties and other agreement terms stay off the site; they are recorded in Track Suru issue CT-409 and go in each model's separate agreement. No income, ROI, payback or guarantee claim appears without the owner's written approval and the data behind it.
+
+| Model | Total investment | Website summary |
+| --- | --- | --- |
+| Standard FOFO | ₹5.5 lakh, incl. machinery | The partner runs their own business. Package: machinery, chemicals, uniform, 2 to 5 days of training on the complete tank cleaning process, use of the Clean Tank Services brand, marketing material. The partner handles their own marketing and operations. |
+| Classic FOCS | ₹8.5 lakh, incl. machinery | The FOFO package, plus company support for local marketing and business development: practical guidance and help developing the local market. |
+| Premium FOCO | ₹20 lakh, incl. machinery | Approved wording, use as is: "Invest in your own team and machinery. Clean Tank Services will manage business development, customer acquisition and work allocation across India." |
+
+Agreement term for all three: 3 years, extendable by mutual agreement. The earlier figures (₹3 to 8 lakh, 3.5% royalty, "ROI 40% or above", "payback 4 to 6 months") are retired.
 
 ### Franchise support system (flow, top to bottom)
 
@@ -314,7 +312,7 @@ Use the hedged wording above on the website; these are the punchier print lines:
 
 ### Not stated anywhere — do not present as fact
 
-What ROI is measured on and over what period; what the royalty is calculated on; what the ₹3 lakh vs ₹8 lakh models include; territory exclusivity; renewal terms; what "All in package" covers. Earlier claims now dropped (guaranteed ₹1 lakh/month, 4–5 lakh investment, event discounts/zero-royalty offers, "06-stage") are listed in §12.
+Vehicle, GST on the package price, working capital, extra running costs, refunds and payment schedule, minimum royalty, service-area maps, the number or history of partners, partner earnings and lead numbers. These wait for the owner or the agreement stage. Earlier claims now dropped (guaranteed ₹1 lakh/month, 4–5 lakh investment, event discounts/zero-royalty offers, "06-stage") are listed in §12.
 
 ## 9. Image descriptions for AI generation
 
