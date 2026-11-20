@@ -1,8 +1,9 @@
 import { site } from "@/site";
 import { H2, P } from "@components/html";
 import Link from "@components/link";
+import WhatsappLink from "@components/whatsapp-link";
 import type { Dictionary } from "@i18n";
-import { formatPhone, telHref, whatsappHref } from "@utils/phone";
+import { formatPhone, telHref } from "@utils/phone";
 import { tw } from "@utils/tw";
 import type { ReactNode } from "react";
 
@@ -40,36 +41,36 @@ export const OfficeCell = ({ office }: { office: Office }) => {
   );
 };
 
+const Row = ({ term, children }: { term: string; children: ReactNode }) => {
+  return (
+    <div>
+      <dt className="text-fg-muted">{term}</dt>
+      <dd>{children}</dd>
+    </div>
+  );
+};
+
 /** Call, WhatsApp and email from src/site.ts. */
 export const ContactCell = ({ labels }: { labels: Dictionary["contact"] }) => {
-  const rows: [string, string, string][] = [
-    [labels.call, telHref(site.phone), formatPhone(site.phone)],
-    [
-      labels.whatsapp,
-      whatsappHref(site.whatsapp, labels.whatsappText),
-      formatPhone(site.whatsapp),
-    ],
-    [labels.email, `mailto:${site.email}`, site.email],
-  ];
-
-  const renderRow = ([term, href, value]: [string, string, string]) => {
-    return (
-      <div key={term}>
-        <dt className="text-fg-muted">{term}</dt>
-        <dd>
-          <Link href={href} className={LIST_LINK}>
-            {value}
-          </Link>
-        </dd>
-      </div>
-    );
-  };
-
   return (
     <address className={tw(CELL, "not-italic lg:col-span-3")}>
       <CellHeading>{labels.title}</CellHeading>
       <dl className="flex flex-col gap-3 text-(length:--fs-small)">
-        {rows.map(renderRow)}
+        <Row term={labels.call}>
+          <Link href={telHref(site.phone)} className={LIST_LINK}>
+            {formatPhone(site.phone)}
+          </Link>
+        </Row>
+        <Row term={labels.whatsapp}>
+          <WhatsappLink labels={labels} className={LIST_LINK}>
+            {formatPhone(site.whatsapp)}
+          </WhatsappLink>
+        </Row>
+        <Row term={labels.email}>
+          <Link href={`mailto:${site.email}`} className={LIST_LINK}>
+            {site.email}
+          </Link>
+        </Row>
       </dl>
     </address>
   );

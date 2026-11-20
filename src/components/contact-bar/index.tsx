@@ -1,8 +1,9 @@
 import { site } from "@/site";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import Link from "@components/link";
+import WhatsappLink from "@components/whatsapp-link";
 import type { Dictionary } from "@i18n";
-import { telHref, whatsappHref } from "@utils/phone";
+import { telHref } from "@utils/phone";
 
 interface ContactBarProps {
   labels: Dictionary["contact"];
@@ -24,13 +25,13 @@ const ContactBar = ({ labels }: ContactBarProps) => {
       >
         {labels.call}
       </Link>
-      <Link
-        href={whatsappHref(site.whatsapp, labels.whatsappText)}
+      <WhatsappLink
+        labels={labels}
         variant="outlined"
         className="justify-center"
       >
         {labels.whatsapp}
-      </Link>
+      </WhatsappLink>
     </CommonFullWidthWrapper>
   );
 };
