@@ -6,6 +6,7 @@ import Link from "@components/link";
 import RichParagraphs from "@components/rich-paragraphs";
 import SectionHeadline from "@components/section-headline";
 import { localePath, type Locale } from "@i18n";
+import { tw } from "@utils/tw";
 import Image from "next/image";
 import List from "./list";
 
@@ -30,6 +31,23 @@ const renderPhoto = (photo: CompareImage) => {
   );
 };
 
+const renderLandscapePhoto = (photo: CompareImage) => {
+  return (
+    <div
+      key={photo.src}
+      className="relative aspect-video overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200"
+    >
+      <Image
+        src={photo.src}
+        alt={photo.alt}
+        fill
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="object-cover"
+      />
+    </div>
+  );
+};
+
 /**
  * The promise under a large statement headline with an optional button.
  * The headline is set in two lines split at the space that best halves its
@@ -41,6 +59,9 @@ const renderPhoto = (photo: CompareImage) => {
  * row at most 28rem wide.
  * An optional second photo sits left of the first at the same size, 12 px
  * apart.
+ * With `photoShape` set to `landscape`, the photos are 16:9 instead: from `lg`
+ * up they fill the space right of the text, centred on it; below that they
+ * follow the text, one per row, at most 28rem wide.
  * With `media` set to `list`, a numbered list takes the photos' place
  * instead, at most 28rem wide.
  * The words listed in `highlight` show in accent 500 in every mode, and bold
@@ -57,6 +78,7 @@ const ValueProp = ({
   secondImage,
   secondImageUrl,
   secondImageAlt,
+  photoShape,
   href,
   linkLabel,
   items,
@@ -67,10 +89,16 @@ const ValueProp = ({
   const second = toSlotImage(secondImage, secondImageUrl, secondImageAlt);
   // Left to right.
   const photos = main && second ? [second, main] : main ? [main] : [];
+  const isLandscape = media !== "list" && photoShape === "landscape";
   return (
     <CommonFullWidthWrapper
       wrapperProps={anchor ? { id: anchor } : {}}
-      className="grid gap-10 py-8 md:py-10 lg:grid-cols-[auto_minmax(2.5rem,1fr)_minmax(0,auto)] lg:gap-x-0 lg:py-12"
+      className={tw(
+        "grid gap-10 py-8 md:py-10 lg:gap-x-0 lg:py-12",
+        isLandscape
+          ? "lg:grid-cols-[auto_2.5rem_1fr]"
+          : "lg:grid-cols-[auto_minmax(2.5rem,1fr)_minmax(0,auto)]",
+      )}
     >
       <div className="flex flex-col gap-4 justify-self-stretch lg:justify-self-start">
         <SectionHeadline heading={heading} highlight={highlight} />
@@ -92,11 +120,16 @@ const ValueProp = ({
       </div>
       {media === "list"
         ? items && items.length > 0 && <List items={items} />
-        : photos.length > 0 && (
+        : photos.length > 0 &&
+          (isLandscape ? (
+            <div className="grid max-w-md gap-3 lg:col-start-3 lg:max-w-none lg:self-center">
+              {photos.map(renderLandscapePhoto)}
+            </div>
+          ) : (
             <div className="grid max-w-md grid-cols-2 gap-3 lg:col-start-3 lg:flex lg:max-w-none">
               {photos.map(renderPhoto)}
             </div>
-          )}
+          ))}
     </CommonFullWidthWrapper>
   );
 };

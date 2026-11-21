@@ -73,6 +73,20 @@ export const valueProp: Block = {
           description:
             "Optional. Shown left of the main image, at the same size.",
         }),
+        {
+          name: "photoShape",
+          type: "radio",
+          defaultValue: "portrait",
+          options: [
+            { label: "Portrait 1:2", value: "portrait" },
+            { label: "Landscape 16:9", value: "landscape" },
+          ],
+          admin: {
+            layout: "horizontal",
+            description:
+              "Landscape is for one wide photo whose people a 1:2 crop would cut off.",
+          },
+        },
       ],
     },
     {

@@ -32,6 +32,7 @@ import * as migration_20261109_170600_ruled_list_second_list from './20261109_17
 import * as migration_20261109_171507_story_second_column from './20261109_171507_story_second_column';
 import * as migration_20261110_183504_value_prop_anchor from './20261110_183504_value_prop_anchor';
 import * as migration_20261120_144340_franchise_models from './20261120_144340_franchise_models';
+import * as migration_20261121_203657_value_prop_photo_shape from './20261121_203657_value_prop_photo_shape';
 
 export const migrations = [
   {
@@ -202,6 +203,11 @@ export const migrations = [
   {
     up: migration_20261120_144340_franchise_models.up,
     down: migration_20261120_144340_franchise_models.down,
-    name: '20261120_144340_franchise_models'
+    name: '20261120_144340_franchise_models',
+  },
+  {
+    up: migration_20261121_203657_value_prop_photo_shape.up,
+    down: migration_20261121_203657_value_prop_photo_shape.down,
+    name: '20261121_203657_value_prop_photo_shape'
   },
 ];

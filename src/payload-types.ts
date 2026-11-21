@@ -345,6 +345,10 @@ export interface ValuePropBlock {
    * What the photo at this URL shows, for screen readers. Left empty, the photo counts as decorative.
    */
   secondImageAlt?: string | null;
+  /**
+   * Landscape is for one wide photo whose people a 1:2 crop would cut off.
+   */
+  photoShape?: ('portrait' | 'landscape') | null;
   items?:
     | {
         title: string;
@@ -1192,6 +1196,7 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
   secondImage?: T;
   secondImageUrl?: T;
   secondImageAlt?: T;
+  photoShape?: T;
   items?:
     | T
     | {
