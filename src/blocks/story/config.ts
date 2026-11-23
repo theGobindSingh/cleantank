@@ -10,6 +10,15 @@ export const story: Block = {
     { name: "heading", type: "text", required: true, localized: true },
     highlightField,
     {
+      name: "intro",
+      type: "textarea",
+      localized: true,
+      admin: {
+        description:
+          "Optional. A lead-in over both columns. Without a photo, the section's text then spans the full width.",
+      },
+    },
+    {
       name: "label",
       type: "text",
       localized: true,

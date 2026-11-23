@@ -30,11 +30,13 @@ const Column = ({ label, text }: ColumnProps) => {
  * `lg` up with one empty column between, as tall as the text and never shorter than 3:2; below that the photo
  * follows the text at 3:2. With a second text, the two sit side by side from
  * `md` up with a 1 px rule between them, stacked with a rule above the second
- * below that.
+ * below that. An intro sits between the heading and the text; without a photo
+ * it widens the text to all twelve columns, so the intro spans both columns.
  */
 const Story = ({
   heading,
   highlight,
+  intro,
   label,
   text,
   secondLabel,
@@ -43,10 +45,14 @@ const Story = ({
   image,
 }: StoryBlock) => {
   const photo = toImage(image);
+  const isWide = Boolean(intro) && !photo;
   return (
     <CommonFullWidthWrapper className="grid gap-10 py-8 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12">
-      <div className="flex flex-col gap-4 lg:col-span-6">
+      <div
+        className={`flex flex-col gap-4 ${isWide ? "lg:col-span-12" : "lg:col-span-6"}`}
+      >
         <SectionHeadline heading={heading} highlight={highlight} />
+        {intro && <Paragraphs text={intro} className="text-pretty" />}
         {secondText ? (
           <div className="grid gap-6 md:grid-cols-2 md:gap-0">
             <div className="md:pr-6">

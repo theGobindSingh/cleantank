@@ -34,6 +34,7 @@ import * as migration_20261110_183504_value_prop_anchor from './20261110_183504_
 import * as migration_20261120_144340_franchise_models from './20261120_144340_franchise_models';
 import * as migration_20261121_203657_value_prop_photo_shape from './20261121_203657_value_prop_photo_shape';
 import * as migration_20261123_143846_value_prop_stagger_photos from './20261123_143846_value_prop_stagger_photos';
+import * as migration_20261123_165737_story_intro from './20261123_165737_story_intro';
 
 export const migrations = [
   {
@@ -214,6 +215,11 @@ export const migrations = [
   {
     up: migration_20261123_143846_value_prop_stagger_photos.up,
     down: migration_20261123_143846_value_prop_stagger_photos.down,
-    name: '20261123_143846_value_prop_stagger_photos'
+    name: '20261123_143846_value_prop_stagger_photos',
+  },
+  {
+    up: migration_20261123_165737_story_intro.up,
+    down: migration_20261123_165737_story_intro.down,
+    name: '20261123_165737_story_intro'
   },
 ];

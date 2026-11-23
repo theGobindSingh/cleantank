@@ -687,6 +687,10 @@ export interface StoryBlock {
    */
   highlight?: string | null;
   /**
+   * Optional. A lead-in over both columns. Without a photo, the section's text then spans the full width.
+   */
+  intro?: string | null;
+  /**
    * A small caps label over the text. Needed only with a second column.
    */
   label?: string | null;
@@ -1401,6 +1405,7 @@ export interface CtaBandBlockSelect<T extends boolean = true> {
 export interface StoryBlockSelect<T extends boolean = true> {
   heading?: T;
   highlight?: T;
+  intro?: T;
   label?: T;
   text?: T;
   secondLabel?: T;
