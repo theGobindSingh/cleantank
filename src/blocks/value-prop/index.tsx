@@ -59,11 +59,11 @@ const renderLandscapePhoto = (photo: CompareImage) => {
  * row at most 28rem wide.
  * An optional second photo sits left of the first at the same size, 12 px
  * apart.
- * With `photoShape` set to `landscape`, the photos are 16:9 instead: from `lg`
- * up they are exactly as tall as the text, top to the heading's top and bottom
- * to the button's bottom, as wide as that height gives at 16:9 but no wider
- * than the space right of the text (the cover crop trims the sides), at the
- * right edge;
+ * With `photoShape` set to `landscape`, the photos are 16:9 instead, 96 px
+ * from the text in both layouts: from `lg` up they are exactly as tall as the
+ * text, top to the heading's top and bottom to the button's bottom, as wide as
+ * that height gives at 16:9 but no wider than the space right of the 96 px gap
+ * (the cover crop trims the sides), at the right edge;
  * below that they follow the text, one per row, at most 28rem wide.
  * With `media` set to `list`, a numbered list takes the photos' place
  * instead, at most 28rem wide.
@@ -97,10 +97,10 @@ const ValueProp = ({
     <CommonFullWidthWrapper
       wrapperProps={anchor ? { id: anchor } : {}}
       className={tw(
-        "grid gap-10 py-8 md:py-10 lg:gap-x-0 lg:py-12",
+        "grid py-8 md:py-10 lg:gap-x-0 lg:py-12",
         isLandscape
-          ? "lg:grid-cols-[auto_2.5rem_1fr]"
-          : "lg:grid-cols-[auto_minmax(2.5rem,1fr)_minmax(0,auto)]",
+          ? "gap-24 lg:grid-cols-[auto_6rem_1fr]"
+          : "gap-10 lg:grid-cols-[auto_minmax(2.5rem,1fr)_minmax(0,auto)]",
       )}
     >
       <div className="flex flex-col gap-4 justify-self-stretch lg:justify-self-start">
