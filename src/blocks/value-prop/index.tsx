@@ -59,8 +59,8 @@ const renderLandscapePhoto = (photo: CompareImage) => {
  * row at most 28rem wide.
  * An optional second photo sits left of the first at the same size, 12 px
  * apart.
- * With `staggerPhotos` on and two portrait photos, the left one sits 24 px
- * higher and the right one 24 px lower, in both layouts.
+ * With `staggerPhotos` on and two portrait photos, the left one sits 12 px
+ * higher and the right one 12 px lower, in both layouts.
  * With `photoShape` set to `landscape`, the photos are 16:9 instead, 96 px
  * from the text in both layouts: from `lg` up they are exactly as tall as the
  * text, top to the heading's top and bottom to the button's bottom, as wide as
@@ -138,8 +138,8 @@ const ValueProp = ({
             <div
               className={tw(
                 "grid max-w-md grid-cols-2 gap-3 lg:col-start-3 lg:flex lg:max-w-none",
-                // The section's padding (32 px and up) leaves room for the 24 px shift.
-                isStaggered && "*:first:-translate-y-6 *:last:translate-y-6",
+                // The section's padding (32 px and up) leaves room for the 12 px shift.
+                isStaggered && "*:first:-translate-y-3 *:last:translate-y-3",
               )}
             >
               {photos.map(renderPhoto)}

@@ -93,7 +93,7 @@ export const valueProp: Block = {
           defaultValue: false,
           admin: {
             description:
-              "With two portrait photos: the left one sits 24 px higher, the right one 24 px lower.",
+              "With two portrait photos: the left one sits 12 px higher, the right one 12 px lower.",
           },
         },
       ],
