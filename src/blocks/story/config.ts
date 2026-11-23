@@ -1,7 +1,7 @@
 import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
-/** A heading over a few paragraphs of prose, with an optional second column and photo beside them. */
+/** A heading over a few paragraphs of prose, with an optional second column and photos beside them. */
 export const story: Block = {
   slug: "story",
   interfaceName: "StoryBlock",
@@ -15,7 +15,7 @@ export const story: Block = {
       localized: true,
       admin: {
         description:
-          "Optional. A lead-in over both columns. Without a photo, the section's text then spans the full width.",
+          "Optional. A lead-in over both text columns. Without photos, the section's text then spans the full width.",
       },
     },
     {
@@ -54,6 +54,17 @@ export const story: Block = {
       type: "textarea",
       localized: true,
       admin: { description: "A small note under the text. Optional." },
+    },
+    {
+      name: "photos",
+      type: "upload",
+      relationTo: "media",
+      hasMany: true,
+      maxRows: 2,
+      admin: {
+        description:
+          "Optional. One or two portrait photos (1:2) side by side at the right, above the photo below.",
+      },
     },
     { name: "image", type: "upload", relationTo: "media" },
   ],

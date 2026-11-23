@@ -687,7 +687,7 @@ export interface StoryBlock {
    */
   highlight?: string | null;
   /**
-   * Optional. A lead-in over both columns. Without a photo, the section's text then spans the full width.
+   * Optional. A lead-in over both text columns. Without photos, the section's text then spans the full width.
    */
   intro?: string | null;
   /**
@@ -710,6 +710,10 @@ export interface StoryBlock {
    * A small note under the text. Optional.
    */
   note?: string | null;
+  /**
+   * Optional. One or two portrait photos (1:2) side by side at the right, above the photo below.
+   */
+  photos?: (number | Media)[] | null;
   image?: (number | null) | Media;
   id?: string | null;
   blockName?: string | null;
@@ -1411,6 +1415,7 @@ export interface StoryBlockSelect<T extends boolean = true> {
   secondLabel?: T;
   secondText?: T;
   note?: T;
+  photos?: T;
   image?: T;
   id?: T;
   blockName?: T;
