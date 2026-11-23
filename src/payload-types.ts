@@ -349,6 +349,10 @@ export interface ValuePropBlock {
    * Landscape is for one wide photo whose people a 1:2 crop would cut off.
    */
   photoShape?: ('portrait' | 'landscape') | null;
+  /**
+   * With two portrait photos: the left one sits 24 px higher, the right one 24 px lower.
+   */
+  staggerPhotos?: boolean | null;
   items?:
     | {
         title: string;
@@ -1197,6 +1201,7 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
   secondImageUrl?: T;
   secondImageAlt?: T;
   photoShape?: T;
+  staggerPhotos?: T;
   items?:
     | T
     | {

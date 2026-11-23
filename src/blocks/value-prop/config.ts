@@ -87,6 +87,15 @@ export const valueProp: Block = {
               "Landscape is for one wide photo whose people a 1:2 crop would cut off.",
           },
         },
+        {
+          name: "staggerPhotos",
+          type: "checkbox",
+          defaultValue: false,
+          admin: {
+            description:
+              "With two portrait photos: the left one sits 24 px higher, the right one 24 px lower.",
+          },
+        },
       ],
     },
     {
