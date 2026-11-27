@@ -28,13 +28,24 @@ const cacheFiles = ({ headers }: { headers: Headers }) => {
   return headers;
 };
 
+const webp = { format: "webp", options: { quality: 80 } } as const;
+
 /** Uploaded images and files, publicly readable. SVGs are sanitized on upload. */
 export const media: CollectionConfig = {
   slug: "media",
   access: { read: allowPublicRead },
   hooks: { beforeOperation: [sanitizeSvgUpload] },
   fields: [{ name: "alt", type: "text", required: true, localized: true }],
-  upload: { modifyResponseHeaders: cacheFiles },
+  upload: {
+    modifyResponseHeaders: cacheFiles,
+    // Raster uploads are stored as WebP, at most 2400px wide, so the originals
+    // stay small. SVGs skip Sharp and keep their sanitized markup.
+    formatOptions: webp,
+    resizeOptions: { width: 2400, withoutEnlargement: true },
+    // The admin lists thumbnails instead of loading every original.
+    imageSizes: [{ name: "thumbnail", width: 400, formatOptions: webp }],
+    adminThumbnail: "thumbnail",
+  },
   // Payload Folders (beta): the admin gets a By Folder view, folder create, rename, delete and move.
   folders: true,
 };
