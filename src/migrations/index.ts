@@ -41,6 +41,7 @@ import * as migration_20261127_175933_story_photo_shape from './20261127_175933_
 import * as migration_20261127_194332_process_is_stacked from './20261127_194332_process_is_stacked';
 import * as migration_20261127_222839_franchise_enquiries from './20261127_222839_franchise_enquiries';
 import * as migration_20261127_232520_hero_slider_labels_story_anchor from './20261127_232520_hero_slider_labels_story_anchor';
+import * as migration_20261127_235258_value_prop_link_pending from './20261127_235258_value_prop_link_pending';
 
 export const migrations = [
   {
@@ -256,6 +257,11 @@ export const migrations = [
   {
     up: migration_20261127_232520_hero_slider_labels_story_anchor.up,
     down: migration_20261127_232520_hero_slider_labels_story_anchor.down,
-    name: '20261127_232520_hero_slider_labels_story_anchor'
+    name: '20261127_232520_hero_slider_labels_story_anchor',
+  },
+  {
+    up: migration_20261127_235258_value_prop_link_pending.up,
+    down: migration_20261127_235258_value_prop_link_pending.down,
+    name: '20261127_235258_value_prop_link_pending'
   },
 ];
