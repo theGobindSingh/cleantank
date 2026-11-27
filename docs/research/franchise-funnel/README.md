@@ -138,7 +138,7 @@ Analytics carries only bare events (`franchise_engaged`, `franchise_worksheet_co
 
 ## 8. Owner decisions
 
-Built from every question on CT-443 to CT-447 and in 03 §8, 04 §6 and 05 §11, merged where they overlap. Ordered by how much each one blocks.
+Answered by the owner on 28 Nov 2026; see §13 for the answers. Built from every question on CT-443 to CT-447 and in 03 §8, 04 §6 and 05 §11, merged where they overlap. Ordered by how much each one blocks.
 
 | # | Decision | Blocks | From |
 | --- | --- | --- | --- |
@@ -183,9 +183,9 @@ State read from Track Suru on 28 Nov 2026.
 
 Order: decisions 1 to 5 unblock CT-418, CT-419 and CT-130; CT-415 to CT-417 unblock the criteria and the guide; then CT-126 takes the new sections; then CT-424 releases the page; the pilot starts after that.
 
-## 10. Proposed doc rule changes (flagged, not made)
+## 10. Proposed doc rule changes
 
-None of these is made. Each needs your call, then the doc change in the same commit.
+Settled on 28 Nov 2026 (§13): item 1 is kept as is, item 2 is made, item 3 is rejected, item 8 is made (bar outline-only on `/franchise`), items 4, 5 and 7 are in progress under CT-449. The list below is the original proposal.
 
 1. **PRODUCT.md, Franchise:** "There is no franchise form (owner's call, 20 Nov 2026)" and "Enquiry is by call or WhatsApp only, through the page's two buttons". Change only if decision 1 allows a form. Without a form, the worksheet still works through a pre-filled WhatsApp message, and that needs no change.
 2. **PRODUCT.md, approved CTA labels:** add the labels from decision 10, in all three languages.
@@ -219,3 +219,23 @@ Port 3000 (https://nextjsdev.letmecome.in) was running another project, The Auto
 | [05-pilot-test-plan.md](05-pilot-test-plan.md) | CT-447 | Email-first vs channel choice vs direct application; the switchback pilot, KPIs, events, dedup, decision rules |
 | [06-draft-copy.md](06-draft-copy.md) | CT-448 | Draft copy in en, hi and pa for the hero, actions, preview, worksheet, screening steps and outcome messages |
 | README.md | CT-448 | This report |
+
+## 13. Owner answers (28 Nov 2026)
+
+The owner accepted the direction in §1 and answered the questions in §8 on CT-442. The rules are now in PRODUCT.md (Franchise, CTA labels), INFO-BANK §8 (How a partner joins), SECTIONS.md, DESIGN.md (contact bar) and LAUNCH.md. Implementation is CT-449 and its subtasks.
+
+What changed against this report:
+
+- **No form, and the prospect always starts.** WhatsApp and calls only. We never start a follow-up and send no automated messages, so the updates list, the second consent tick, the email option, the call-slot picker, the instant acknowledgement naming who calls back by when, and the reply-time promise are all dropped.
+- **No worksheet before screening.** Staff give it after screening, so the worksheet's send step and its budget band question are off the site. The guide, the preview and the totals stay open to everyone.
+- **Screening is flexible:** a first call, then a video call or a visit to Kharar with the CEO. No observation day with a crew, no family welcome as a fixed step and no monthly open day. Territory is judged case by case by the CEO and answered on the first call.
+- **Money:** none before the signed agreement; payment after signing to the firm's account against a GST invoice; at least 14 days to read; the agreement is ready in en, hi and pa. Cooling-off is for the lawyer.
+- **Rubric:** the proposed rubric and the two named reviewers are dropped for now; the owner sets a rubric in a later phase and qualified staff review. A declined applicant hears the reason if they ask, not always.
+- **Partner:** always runs a crew, never cleans alone; sets their own commitment; no experience, education or vehicle needed. Training by the CEO or service head over 2 to 5 days, then phone support; more than 10 partners in year one.
+- **Public hard things:** a fixed process and brand rules; good leadership and management skills; busy work with at least one visit or trip per contract. Premium FOCO criteria may be public.
+- **Costs:** the page and guide list the questions to ask, with no statement. Internally: the package covers machines, supplies and setup; crews and anything not listed are the partner's.
+- **Leads:** Payload, staff only (CT-454). Grievance contact: general staff. Retention as proposed in 04 §7.6.
+- **Pilot:** only arm B runs, as a measured rollout (no form, so no arm C). At most 26 weeks, paid ads at a steady rate, no cost KPI, no reference code in the greeting.
+- **Kept off for now:** existing-partner answers (PRODUCT.md rule unchanged), the founder video (kept for later), the WhatsApp Business API. A verified caller ID is planned.
+- **Labels:** all new labels approved in en, hi and pa (PRODUCT.md lists them).
+- **Past enquiries:** none; the franchise programme is new, so there is no baseline.

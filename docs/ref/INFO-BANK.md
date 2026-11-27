@@ -288,6 +288,19 @@ The website shows only each model's name, its total investment (machinery includ
 
 Agreement term for all three: 3 years, extendable by mutual agreement. The earlier figures (₹3 to 8 lakh, 3.5% royalty, "ROI 40% or above", "payback 4 to 6 months") are retired.
 
+### How a partner joins (owner's calls, 28 Nov 2026, CT-442)
+
+- The prospect starts on WhatsApp or by phone, on the main number. We don't chase or send automated messages.
+- Screening is flexible: a first call, then a video call or an in-person visit in Kharar, run by the CEO. Whether a town is open is judged case by case by the CEO and answered on the first call.
+- No money is taken before the agreement is signed. Payment comes only after signing, to the firm's account, against a GST invoice. The prospect gets at least 14 days to read the full agreement, which is ready in English, Hindi and Punjabi. Cooling-off or refund after signing: to be set with the lawyer.
+- The local-plan worksheet is given only after screening. Declined applicants hear the reason if they ask. The scoring rubric comes in a later phase; qualified staff review applications.
+- Training: the CEO or the service head, with their team, over 2 to 5 days, then continued phone support. Head office can train and support more than 10 new partners in year one.
+- The partner always runs a crew and never cleans tanks alone. They set their own commitment, full or part time. No experience, education or vehicle is required; training covers it.
+- The package covers machines, supplies and setup. Crews and other costs are the partner's, and anything not listed in the package is theirs to plan for. The website doesn't state this; it lists the questions to ask.
+- Hard things we may say in public: you follow a fixed process and brand rules; good leadership and management skills are needed; the work is busy, with at least one visit or trip per contract.
+- Premium FOCO criteria (you build your own team and travel for allocated work) may be public.
+- Not now: a founder video (kept for later), a monthly open day, an updates list, the WhatsApp Business API. A verified business caller ID is planned.
+
 ### Franchise support system (flow, top to bottom)
 
 Training → On-Site Service Training → Marketing Support → Lead Generation → Sales Assistance → Operational Guidance → Business Growth Support
@@ -299,7 +312,7 @@ Use the hedged wording above on the website; these are the punchier print lines:
 ### CTAs and enquiry
 
 - Button: **[Become a Franchise Partner]**
-- Enquiry block — "Franchise Enquiry: Get details about available franchise models, investment, territory, training and support." Button: **[Send an Enquiry]** (other enquiry types: Service Enquiry, AMC Enquiry).
+- Enquiry block (not used for franchise on the website, which takes WhatsApp and calls only) — "Franchise Enquiry: Get details about available franchise models, investment, territory, training and support." Button: **[Send an Enquiry]** (other enquiry types: Service Enquiry, AMC Enquiry).
 - Footer navigation includes "Franchise".
 
 ### Financial disclaimer (mandatory next to any figures)

@@ -18,8 +18,9 @@ The legal requirements come from docs/PRODUCT.md (Legal: DPDP Act). Where this l
   - the right to complain to the Data Protection Board
 - [ ] Terms page in all three languages, from INFO-BANK §11.
 - [ ] The footer links to both pages on every page, and the consent banner links to the privacy policy.
-- [ ] A grievance contact (name or role, email and phone) is published, and someone is responsible for answering within the period the Rules set.
+- [ ] A grievance contact (name or role, email and phone) is published (role: general staff, at the site's email and phone in `src/site.ts`; owner's call, 28 Nov 2026), and someone is responsible for answering within the period the Rules set.
 - [ ] A written process for rights requests: how identity is checked, who handles them, and how data is found and deleted in Payload, PostHog and Sentry.
+- [ ] The privacy policy covers franchise enquiries: what staff log in Payload after a WhatsApp or call, why, who sees it (staff only) and how long it is kept (CT-454).
 - [ ] Retention is set and written down: enquiry data in Payload, PostHog's data retention, Sentry's event retention. Old enquiries get deleted on that schedule.
 - [ ] A data-breach response plan: who decides, and how the Board and affected people are told within the Rules' deadlines.
 - [ ] Children: no page or form targets them or asks for their data.

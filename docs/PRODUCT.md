@@ -66,6 +66,10 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 - Sell the system, the track record since 2008 and the client work (the same documents as Organisations). Never say how many partners there are, never imply the network is empty or new, and never use lines like "be among the first partners". Don't claim an existing partner network either.
 - Use the main number (`phone` in `src/site.ts`) for calls and WhatsApp. The site has no separate franchise number (owner's call, 19 Nov 2026).
 - Enquiry is by call or WhatsApp only, through the page's two buttons (Become a Franchise Partner on WhatsApp first, then Call Us). There is no franchise form (owner's call, 20 Nov 2026). The page's sections are listed in docs/SECTIONS.md.
+- The prospect starts every conversation, on WhatsApp or by phone. We don't start follow-ups and send no automated messages, so there is no updates list, no email option and no call-slot picker (owner's calls, 28 Nov 2026, CT-442). Enquiries are logged by staff in Payload, staff only.
+- Everything on the page is open to every visitor: the models and totals, what running the business looks like, how we choose partners and the starter guide. Nothing asks for a number first. The local-plan worksheet is not on the site; staff give it to a prospect after screening.
+- How a partner joins, the criteria and the hard things we may say in public are in INFO-BANK §8 (How a partner joins). For costs beyond the package the page only lists the questions to ask on the call; it makes no statement about them.
+- A declined applicant hears the reason if they ask.
 
 ### Shared home page (`/`)
 
@@ -91,7 +95,7 @@ The about page (`/about`) tells who stands behind the work, ordered so each sect
 
 Navigation (header): Home, Solutions, Process, About, Contact, Franchise; Solutions opens Homes (`/homes`) and Organisations (`/organisations`), each with a short line under it (user's call, 4 Nov 2026). Footer site map lists Home, Homes, Organisations, Franchise, Process, About and Contact directly, and adds Why Choose Us (`/about#why-choose-us`), Clients (`/about#clients`), Privacy Policy (`/privacy`) and Terms & Conditions (`/terms`); the full legal text is in INFO-BANK §11.
 
-Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner", and for WhatsApp and phone buttons "Get a Price on WhatsApp" and "Call Us" (28 Oct 2026, for `/homes`), "Get a Quote on WhatsApp" for the `/homes` price list's button (20 Nov 2026), and "Book an Appointment" and "Get a Quote" for the `/homes` hero buttons (23 Nov 2026). Never "Submit" or "Book now".
+Approved CTA labels: "Get a Service Quote", "Explore Our Services", "Send an Enquiry", "Become a Franchise Partner", and for WhatsApp and phone buttons "Get a Price on WhatsApp" and "Call Us" (28 Oct 2026, for `/homes`), "Get a Quote on WhatsApp" for the `/homes` price list's button (20 Nov 2026), and "Book an Appointment" and "Get a Quote" for the `/homes` hero buttons (23 Nov 2026). For the franchise funnel (28 Nov 2026, en, hi and pa as drafted in docs/research/franchise-funnel/06-draft-copy.md §2): "Read the starter guide", "Plan your local business", "Pick a time for a call", "Get the details by email", "Send my plan for review" and "Send to my family". `/franchise` uses only the ones that fit WhatsApp and calls; today that is "Read the starter guide". Never "Submit" or "Book now".
 
 Languages: English at `/`, Hindi at `/hi`, Punjabi at `/pa`. Routing, fonts, Payload locales and the interface strings for all three are in place. Whoever adds or changes English content writes the Hindi and Punjabi versions in the same change; no review is needed before they go live. If a translation is still missing, the page shows English with a short note, never a half-translation. Hindi and Punjabi sentences end with the danda (।); a question ends with a question mark.
 

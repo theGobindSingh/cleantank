@@ -85,19 +85,21 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 
 ### Franchise (`/franchise`)
 
-Every section with buttons has the same two: Become a Franchise Partner (WhatsApp) first, then Call Us.
+Every section with buttons has the same two: Become a Franchise Partner (WhatsApp) first, then Call Us. The new sections carry no buttons of their own; the starter guide is a text link.
 
 1. Page intro section: "Start your own tank cleaning business. Step beyond jobs."
 2. Clients strip: "Our clients."
 3. Value prop section, list: "Tank cleaning is repeat work."
 4. Franchise models section: "Three models, one system." Standard FOFO, Classic FOCS and Premium FOCO, each with its total investment, summary and package, and the financial disclaimer under them.
-5. Ruled list section, on stone: "What you get from us." (`#support`)
-6. Process section: "One process, every tank."
-7. Founder section, on stone
-8. Ruled list section, two lists: "Is this business right for you?" Who it suits and who it does not.
-9. Credentials section, on stone: "Registrations you can check."
-10. Questions section: "Questions before you invest."
-11. Closing band: "Call us for the full details."
-12. Track record strip: "Track record."
+5. What running it looks like (planned, CT-452): a normal week in the work, the kit, and the hard parts (INFO-BANK §8, How a partner joins). No earnings figures.
+6. Ruled list section, on stone: "What you get from us." (`#support`)
+7. Process section: "One process, every tank."
+8. Founder section, on stone
+9. Ruled list section, two lists: "Is this business right for you?" Who it suits and who it does not.
+10. How we choose partners (planned, CT-453): the steps from the first WhatsApp to training, the public criteria and "we never ask for money to apply".
+11. Credentials section, on stone: "Registrations you can check."
+12. Questions section: "Questions before you invest." Includes the cost questions to ask (CT-453).
+13. Closing band: "Call us for the full details."
+14. Track record strip: "Track record."
 
 `/organisations` has no sections yet. When a page changes, update its list here in the same change.
