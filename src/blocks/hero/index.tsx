@@ -69,8 +69,15 @@ const Hero = ({
         data-hero-text=""
         className="flex flex-col gap-4 pt-6 lg:w-7/12 lg:gap-6 lg:py-24 lg:pr-10"
       >
-        {/* capped from lg only: on phones the heading fills its column in two lines */}
-        <H1 $size="display" $margin="0" className="lg:max-w-[11ch]">
+        {/* capped from lg only: on phones the heading fills its column in two lines.
+            From lg an English heading takes at least three lines' height, set at
+            the bottom, as the home page's does, so a shorter one leaves the hero
+            and its photos the same size. Hindi and Punjabi keep their own height. */}
+        <H1
+          $size="display"
+          $margin="0"
+          className="lg:max-w-[11ch] lg:[&:lang(en)]:min-h-[3lh] lg:[&:lang(en)]:content-end"
+        >
           <Highlight
             text={heading}
             highlight={highlight}
