@@ -64,8 +64,9 @@ const nextConfig = {
     ],
     // 75 is the default; 85 is for the hero's before and after photos.
     qualities: [75, 85],
-    // A day, matching the media route's CDN cache (src/collections/media.ts).
-    minimumCacheTTL: 86400,
+    // 30 days, matching the media route's CDN cache (src/collections/media.ts),
+    // so a cache miss rarely pulls an original through Neon's egress quota.
+    minimumCacheTTL: 2592000,
     // Payload serves uploads from its API; the rest come from public/.
     localPatterns: [
       { pathname: "/api/media/file/**" },

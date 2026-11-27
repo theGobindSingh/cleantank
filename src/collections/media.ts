@@ -17,13 +17,14 @@ const sanitizeSvgUpload: CollectionBeforeOperationHook = ({ args, req }) => {
   return args;
 };
 
-// Each file request runs Payload and fetches from storage, so let the CDN keep
-// it a day and serve the old copy while it refreshes. For an urgent change,
-// upload under a new filename or purge it: docs/CONVENTIONS.md, Payload.
+// Each file request runs Payload and fetches from storage, which counts against
+// Neon's egress, so let the CDN keep it 30 days and serve the old copy while it
+// refreshes. For an urgent change, upload under a new filename or purge it:
+// docs/CONVENTIONS.md, Payload.
 const cacheFiles = ({ headers }: { headers: Headers }) => {
   headers.set(
     "Cache-Control",
-    "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+    "public, max-age=3600, s-maxage=2592000, stale-while-revalidate=604800",
   );
   return headers;
 };
