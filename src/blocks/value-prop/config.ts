@@ -79,7 +79,7 @@ export const valueProp: Block = {
           defaultValue: "portrait",
           options: [
             { label: "Portrait 1:2", value: "portrait" },
-            { label: "Landscape 16:9", value: "landscape" },
+            { label: "Landscape 2:1", value: "landscape" },
           ],
           admin: {
             layout: "horizontal",

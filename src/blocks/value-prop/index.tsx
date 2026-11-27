@@ -36,7 +36,7 @@ const renderLandscapePhoto = (photo: CompareImage) => {
   return (
     <div
       key={photo.src}
-      className="relative aspect-video overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:h-full"
+      className="relative aspect-2/1 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200"
     >
       <Image
         src={photo.src}
@@ -63,12 +63,11 @@ const renderLandscapePhoto = (photo: CompareImage) => {
  * apart.
  * With `staggerPhotos` on and two portrait photos, the left one sits 12 px
  * higher and the right one 12 px lower, in both layouts.
- * With `photoShape` set to `landscape`, the photos are 16:9 instead, 96 px
- * from the text in both layouts: from `lg` up they are exactly as tall as the
- * text, top to the heading's top and bottom to the button's bottom, as wide as
- * that height gives at 16:9 but no wider than the space right of the 96 px gap
- * (the cover crop trims the sides), at the right edge;
- * below that they follow the text, one per row, at most 28rem wide.
+ * With `photoShape` set to `landscape`, the photos are 2:1 instead, 96 px
+ * from the text in both layouts, so a 2:1 photo shows whole: from `lg` up they
+ * fill the space right of the 96 px gap, at the right edge, vertically centred
+ * on the text (not matched to its height); below that they follow the text,
+ * one per row, at most 28rem wide.
  * With `media` set to `list`, a numbered list takes the photos' place
  * instead, at most 28rem wide.
  * The words listed in `highlight` show in accent 500 in every mode, and bold
@@ -131,10 +130,8 @@ const ValueProp = ({
         ? items && items.length > 0 && <List items={items} />
         : photos.length > 0 &&
           (isLandscape ? (
-            <div className="lg:relative lg:col-start-3">
-              <div className="grid max-w-md gap-3 lg:absolute lg:inset-y-0 lg:right-0 lg:flex lg:max-w-full">
-                {photos.map(renderLandscapePhoto)}
-              </div>
+            <div className="grid max-w-md gap-3 lg:col-start-3 lg:max-w-none lg:self-center">
+              {photos.map(renderLandscapePhoto)}
             </div>
           ) : (
             <div
