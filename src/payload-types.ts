@@ -285,7 +285,7 @@ export interface HeroBlock {
    */
   after: number | Media;
   /**
-   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
     | {
@@ -434,7 +434,7 @@ export interface ProcessBlock {
    */
   isStacked?: boolean | null;
   /**
-   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
     | {
@@ -551,7 +551,7 @@ export interface PageIntroBlock {
   highlight?: string | null;
   text?: string | null;
   /**
-   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
     | {
@@ -676,7 +676,7 @@ export interface CtaBandBlock {
   highlight?: string | null;
   text?: string | null;
   /**
-   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
     | {
@@ -826,7 +826,7 @@ export interface ServiceAreaBlock {
     caption: string;
   };
   /**
-   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
     | {
@@ -868,7 +868,7 @@ export interface PriceListBlock {
    */
   note?: string | null;
   /**
-   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
     | {
@@ -937,7 +937,7 @@ export interface FranchiseModelsBlock {
    */
   note: string;
   /**
-   * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
+   * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
     | {
