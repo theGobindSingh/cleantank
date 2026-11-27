@@ -27,7 +27,7 @@ const toHref = (href: string, locale: Locale) => {
   return href.startsWith("/") ? localePath(locale, href) : href;
 };
 
-/** A block's buttons: the first filled, the second outlined, full width on phones. */
+/** A block's actions: the first filled, the second outlined, the third a text link; buttons go full width on phones. */
 const Actions = ({
   actions,
   locale,
@@ -37,9 +37,11 @@ const Actions = ({
 }: ActionsProps) => {
   if (!actions || actions.length === 0) return null;
 
+  const variants = ["filled", "outlined", "text"] as const;
+
   const renderAction = (action: Action, index: number) => {
     const shared = {
-      variant: index === 0 ? "filled" : "outlined",
+      variant: variants[index] ?? "text",
       color: index === 0 && isAccent ? "accent" : "primary",
       size: "md",
       className: "w-full justify-center md:w-auto",

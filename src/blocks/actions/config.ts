@@ -1,13 +1,13 @@
 import type { Field } from "payload";
 
-/** Up to two links shown as buttons; the first is the filled one. */
+/** Up to three links: the first a filled button, the second outlined, the third a text link. */
 export const actionsField: Field = {
   name: "actions",
   type: "array",
-  maxRows: 2,
+  maxRows: 3,
   admin: {
     description:
-      "The first is the filled button. Use an approved label, such as “Get a Service Quote”.",
+      "The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.",
   },
   fields: [
     { name: "label", type: "text", required: true, localized: true },
