@@ -1,3 +1,4 @@
+import { anchorField } from "@/blocks/anchor";
 import { highlightField } from "@/blocks/highlight";
 import type { Block } from "payload";
 
@@ -81,5 +82,6 @@ export const story: Block = {
           "Landscape: one wide photo, as tall as the text and 96 px from it, like the value prop's. Ignored with portrait photos. The photo's focal point sets what the crop keeps.",
       },
     },
+    anchorField,
   ],
 };

@@ -78,6 +78,7 @@ const Story = ({
   photos,
   image,
   photoShape,
+  anchor,
 }: StoryBlock) => {
   const photo = toImage(image);
   const portraits = (photos ?? []).map(toImage).filter(isImage);
@@ -87,6 +88,7 @@ const Story = ({
     photoShape === "landscape" && Boolean(photo) && portraits.length === 0;
   return (
     <CommonFullWidthWrapper
+      wrapperProps={anchor ? { id: anchor } : {}}
       className={tw(
         "grid py-8 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12",
         isLandscape ? "gap-24" : "gap-10",
