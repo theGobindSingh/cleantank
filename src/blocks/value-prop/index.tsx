@@ -26,6 +26,7 @@ const renderPhoto = (photo: CompareImage) => {
         fill
         sizes="(min-width: 1024px) 30vw, 65vw"
         className="object-cover"
+        style={{ objectPosition: photo.position }}
       />
     </div>
   );
@@ -43,6 +44,7 @@ const renderLandscapePhoto = (photo: CompareImage) => {
         fill
         sizes="(min-width: 1024px) 50vw, 100vw"
         className="object-cover"
+        style={{ objectPosition: photo.position }}
       />
     </div>
   );

@@ -14,6 +14,8 @@ import { useIntro } from "./use-intro";
 export interface CompareImage {
   src: string;
   alt: string;
+  /** CSS `object-position` from the upload's focal point, so a cover crop keeps it in view. */
+  position?: string;
 }
 
 interface CompareSliderProps {

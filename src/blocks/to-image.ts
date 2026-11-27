@@ -6,7 +6,10 @@ export const toImage = (
   media: number | Media | null | undefined,
 ): CompareImage | null => {
   if (!media || typeof media === "number" || !media.url) return null;
-  return { src: media.url, alt: media.alt };
+  const { focalX, focalY } = media;
+  if (focalX == null || focalY == null)
+    return { src: media.url, alt: media.alt };
+  return { src: media.url, alt: media.alt, position: `${focalX}% ${focalY}%` };
 };
 
 /** A photo slot from `imageSlotFields`: the URL wins over the upload. */

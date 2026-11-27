@@ -24,6 +24,15 @@ describe("toSlotImage", () => {
     expect(toSlotImage(media, url, null)).toEqual({ src: url, alt: "" });
   });
 
+  it("passes the upload's focal point on as an object position", () => {
+    const focused = { ...media, focalX: 62.5, focalY: 40 } as Media;
+    expect(toSlotImage(focused, null, null)).toEqual({
+      src: media.url,
+      alt: "Tank",
+      position: "62.5% 40%",
+    });
+  });
+
   it("returns null for an empty slot", () => {
     expect(toSlotImage(null, "", null)).toBeNull();
   });
