@@ -104,11 +104,11 @@ Every section with buttons has the same two: Become a Franchise Partner (WhatsAp
 
 ### Franchise starter guide (`/franchise-guide`)
 
-The free guide, open to everyone: no form, nothing asks for a number. Held off production like `/franchise`. Only the page intro and the closing band have buttons, the same two as `/franchise`.
+The free guide, open to everyone: no form, nothing asks for a number. Held off production like `/franchise`. Only the hero and the closing band have buttons. The hero has Become a Franchise Partner (WhatsApp) and Learn More, which jumps to "The business in one page." (`#business`); the closing band has the same two as `/franchise`.
 
-1. Page intro section: "The franchise starter guide."
+1. Hero section: "Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
 2. Clients strip: "Our clients."
-3. Story section: "The business in one page."
+3. Story section: "The business in one page." (`#business`)
 4. Process section: "One process, every tank."
 5. Ruled list section, on stone: "What running it looks like."
 6. Franchise models section: "Three models, one system." The same models and disclaimer as `/franchise`.
