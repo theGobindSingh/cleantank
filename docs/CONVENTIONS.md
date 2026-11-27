@@ -94,6 +94,8 @@ Three places run the site:
 
 Work happens on `staging`. After pushing it, run `ct-stable-deploy` to update ct.letmecome.in: it resets `~/Programming/cleantank-copy` to `origin/staging`, runs `pnpm migrate` on the staging database, builds and restarts. Check the change there.
 
+On ct.letmecome.in and nextjsdev.letmecome.in, nginx also caches `/api/media/file/` for as long as the media route's `Cache-Control` allows, so repeat requests skip Payload and Neon storage. The `X-Cache-Status` response header shows `HIT` or `MISS`. A file replaced under the same name can stay stale there; `sudo rm -rf /var/cache/nginx/media/*` clears it (`~/vps/docs/web.md`).
+
 Production changes only through `pnpm release` (`scripts/release.sh`), and only when the user asks for a release. It lists the commits, asks for a yes, restores the Neon production branch from `staging` (production's old data stays as a Neon branch named `prod-backup-<UTC time>`, and `staging` is kept), then pushes `origin/staging` to `master`. `.husky/pre-push` refuses any push to `master` that isn't exactly `origin/staging`, and `vercel.json` turns off Vercel builds for every branch but `master`, so staging pushes cost no Vercel builds. To undo a bad release, restore production from its backup branch in Neon and revert on `staging`, then release again.
 
 Vercel's build runs the `vercel-build` script: `pnpm migrate`, then `pnpm logos:refresh`, then `pnpm build`. After a release the migrations have already run on staging's copy, so `pnpm migrate` finds nothing to do; a failed migration still stops the deploy. A failed logo refresh only logs a warning. Uploads pass through the server, so Vercel caps each file at about 4.5 MB, which is enough.
