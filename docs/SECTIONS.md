@@ -102,4 +102,24 @@ Every section with buttons has the same two: Become a Franchise Partner (WhatsAp
 13. Closing band: "Call us for the full details."
 14. Track record strip: "Track record."
 
+### Franchise starter guide (`/franchise-guide`)
+
+The free guide, open to everyone: no form, nothing asks for a number. Held off production like `/franchise`. Only the page intro and the closing band have buttons, the same two as `/franchise`.
+
+1. Page intro section: "The franchise starter guide."
+2. Clients strip: "Our clients."
+3. Story section: "The business in one page."
+4. Process section: "One process, every tank."
+5. Ruled list section, on stone: "What running it looks like."
+6. Franchise models section: "Three models, one system." The same models and disclaimer as `/franchise`.
+7. Ruled list section, on stone: "Training and support."
+8. Ruled list section, two lists: "Is this business right for you?"
+9. Ruled list section, on stone: "What is hard about this work."
+10. Value prop section, list: "How a partner joins." From the first call to training; no money before signing.
+11. Ruled list section, two lists, on stone: "Questions to ask us on the call." Costs beyond the package and the agreement, as questions only.
+12. Story section: "Do your homework in your own town."
+13. Ruled list section, on stone: "How to check any franchise offer."
+14. Closing band: "Call us when you are ready."
+15. Track record strip: "Track record."
+
 `/organisations` has no sections yet. When a page changes, update its list here in the same change.

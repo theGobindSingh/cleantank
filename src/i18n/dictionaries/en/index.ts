@@ -44,6 +44,8 @@ export const en = {
     pageWhatsappTexts: {
       franchise:
         "Hello, I would like to know about the Clean Tank Services franchise.",
+      "franchise-guide":
+        "Hello, I would like to know about the Clean Tank Services franchise.",
     },
     email: "Email",
     emailHint: "For quotations, documents and anything in writing.",

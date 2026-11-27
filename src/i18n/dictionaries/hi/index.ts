@@ -38,6 +38,8 @@ export const hi: Dictionary = {
     pageWhatsappTexts: {
       franchise:
         "नमस्ते, मुझे Clean Tank Services की फ़्रैंचाइज़ी के बारे में जानकारी चाहिए।",
+      "franchise-guide":
+        "नमस्ते, मुझे Clean Tank Services की फ़्रैंचाइज़ी के बारे में जानकारी चाहिए।",
     },
     email: "ईमेल",
     emailHint: "कोटेशन, दस्तावेज़ और लिखित बातचीत के लिए।",
