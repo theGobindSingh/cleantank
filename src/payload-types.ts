@@ -277,13 +277,16 @@ export interface HeroBlock {
   highlight?: string | null;
   text: string;
   /**
-   * The tank before cleaning.
+   * Left of the divider, such as the tank before cleaning.
    */
   before: number | Media;
   /**
-   * The same tank after cleaning, framed the same way.
+   * Right of the divider, framed the same way, such as the same tank after cleaning.
    */
   after: number | Media;
+  sliderLabel?: string | null;
+  beforeLabel?: string | null;
+  afterLabel?: string | null;
   /**
    * The first is the filled button, the second outlined, the third a text link. Use an approved label, such as “Get a Service Quote”.
    */
@@ -735,6 +738,10 @@ export interface StoryBlock {
    * Landscape: one wide photo, as tall as the text and 96 px from it, like the value prop's. Ignored with portrait photos. The photo's focal point sets what the crop keeps.
    */
   photoShape?: ('standard' | 'landscape') | null;
+  /**
+   * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
+   */
+  anchor?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'story';
@@ -1254,6 +1261,9 @@ export interface HeroBlockSelect<T extends boolean = true> {
   text?: T;
   before?: T;
   after?: T;
+  sliderLabel?: T;
+  beforeLabel?: T;
+  afterLabel?: T;
   actions?:
     | T
     | {
@@ -1490,6 +1500,7 @@ export interface StoryBlockSelect<T extends boolean = true> {
   photos?: T;
   image?: T;
   photoShape?: T;
+  anchor?: T;
   id?: T;
   blockName?: T;
 }
