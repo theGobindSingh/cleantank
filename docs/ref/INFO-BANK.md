@@ -292,7 +292,7 @@ Agreement term for all three: 3 years, extendable by mutual agreement. The earli
 
 - The prospect starts on WhatsApp or by phone, on the main number. We don't chase or send automated messages.
 - Screening is flexible: a first call, then a video call or an in-person visit in Kharar, run by the CEO. Whether a town is open is judged case by case by the CEO and answered on the first call.
-- No money is taken before the agreement is signed. Payment comes only after signing, to the firm's account, against a GST invoice. The prospect gets at least 14 days to read the full agreement, which is ready in English, Hindi and Punjabi. Cooling-off or refund after signing: to be set with the lawyer.
+- No money is taken before the agreement is signed. Payment comes only after signing, to Gobind Galaxy's account (the site names it; owner's call, 28 Nov 2026), against a GST invoice. The prospect gets at least 14 days to read the full agreement, which is ready in English, Hindi and Punjabi. Cooling-off or refund after signing: to be set with the lawyer.
 - The local-plan worksheet is given only after screening. Declined applicants hear the reason if they ask. The scoring rubric comes in a later phase; qualified staff review applications.
 - Training: the CEO or the service head, with their team, over 2 to 5 days, then continued phone support. Head office can train and support more than 10 new partners in year one.
 - The partner always runs a crew and never cleans tanks alone. They set their own commitment, full or part time. No experience, education or vehicle is required; training covers it.
