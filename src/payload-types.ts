@@ -428,6 +428,10 @@ export interface ProcessBlock {
    */
   detailed?: boolean | null;
   /**
+   * Stack the steps down the left half from `lg` up and leave the right half empty, kept for questions later. For the homes page.
+   */
+  isStacked?: boolean | null;
+  /**
    * The first is the filled button. Use an approved label, such as “Get a Service Quote”.
    */
   actions?:
@@ -1278,6 +1282,7 @@ export interface ProcessBlockSelect<T extends boolean = true> {
   heading?: T;
   highlight?: T;
   detailed?: T;
+  isStacked?: T;
   actions?:
     | T
     | {

@@ -22,6 +22,14 @@ export const processBlock: Block = {
           "Also show each step in full, with its photo, purpose and equipment, under the track. For the process page.",
       },
     },
+    {
+      name: "isStacked",
+      type: "checkbox",
+      admin: {
+        description:
+          "Stack the steps down the left half from `lg` up and leave the right half empty, kept for questions later. For the homes page.",
+      },
+    },
     actionsField,
   ],
 };
