@@ -47,14 +47,14 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 1. Hero section: "Water tank cleaning for homes."
 2. Value prop section, one wide photo: "Clean tank, healthy life." Its old numbered list is kept, hidden, in the block (docs/DESIGN.md, Value prop section).
 3. Price section: "Specialist services, affordable prices."
-4. Clients strip: "Our clients."
-5. Comparison section, with an intro and three photos: "cleaning families can trust."
-6. Process section: "How we clean your tank."
-7. Map section, on stone: "Where we clean home tanks."
-8. Expect section: "What to expect."
-9. Questions section: "Questions families ask."
-10. Closing band: "If your tank is due, we can help."
-11. Track record strip: "Track record."
+4. Comparison section, with an intro and three photos: "cleaning families can trust."
+5. Process section: "How we clean your tank."
+6. Map section, on stone: "Where we clean home tanks."
+7. Expect section: "What to expect."
+8. Questions section: "Questions families ask."
+9. Closing band: "If your tank is due, we can help."
+10. Track record strip: "Track record."
+11. Clients strip: "Our clients.", last, just above the footer (James's call, 27 Nov 2026, CT-438).
 
 ### Process (`/process`)
 
