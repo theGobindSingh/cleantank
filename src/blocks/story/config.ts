@@ -67,5 +67,19 @@ export const story: Block = {
       },
     },
     { name: "image", type: "upload", relationTo: "media" },
+    {
+      name: "photoShape",
+      type: "radio",
+      defaultValue: "standard",
+      options: [
+        { label: "Standard 3:2", value: "standard" },
+        { label: "Landscape 16:9", value: "landscape" },
+      ],
+      admin: {
+        layout: "horizontal",
+        description:
+          "Landscape: one wide photo, as tall as the text and 96 px from it, like the value prop's. Ignored with portrait photos. The photo's focal point sets what the crop keeps.",
+      },
+    },
   ],
 };

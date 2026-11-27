@@ -37,6 +37,7 @@ import * as migration_20261123_143846_value_prop_stagger_photos from './20261123
 import * as migration_20261123_165737_story_intro from './20261123_165737_story_intro';
 import * as migration_20261123_172912_story_photos from './20261123_172912_story_photos';
 import * as migration_20261127_000756_media_thumbnail from './20261127_000756_media_thumbnail';
+import * as migration_20261127_175933_story_photo_shape from './20261127_175933_story_photo_shape';
 
 export const migrations = [
   {
@@ -232,6 +233,11 @@ export const migrations = [
   {
     up: migration_20261127_000756_media_thumbnail.up,
     down: migration_20261127_000756_media_thumbnail.down,
-    name: '20261127_000756_media_thumbnail'
+    name: '20261127_000756_media_thumbnail',
+  },
+  {
+    up: migration_20261127_175933_story_photo_shape.up,
+    down: migration_20261127_175933_story_photo_shape.down,
+    name: '20261127_175933_story_photo_shape'
   },
 ];

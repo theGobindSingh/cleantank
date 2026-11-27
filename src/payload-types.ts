@@ -725,6 +725,10 @@ export interface StoryBlock {
    */
   photos?: (number | Media)[] | null;
   image?: (number | null) | Media;
+  /**
+   * Landscape: one wide photo, as tall as the text and 96 px from it, like the value prop's. Ignored with portrait photos. The photo's focal point sets what the crop keeps.
+   */
+  photoShape?: ('standard' | 'landscape') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'story';
@@ -1441,6 +1445,7 @@ export interface StoryBlockSelect<T extends boolean = true> {
   note?: T;
   photos?: T;
   image?: T;
+  photoShape?: T;
   id?: T;
   blockName?: T;
 }

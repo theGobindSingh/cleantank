@@ -5,7 +5,9 @@ import type { CompareImage } from "@components/compare-slider";
 import { H3, P } from "@components/html";
 import Paragraphs from "@components/paragraphs";
 import SectionHeadline from "@components/section-headline";
+import { tw } from "@utils/tw";
 import Image from "next/image";
+import LandscapePhoto from "./landscape-photo";
 
 interface ColumnProps {
   label: string | null | undefined;
@@ -57,6 +59,12 @@ const isImage = (photo: CompareImage | null): photo is CompareImage => {
  * columns. Up to two portrait photos (1:2) sit side by side at the top of the
  * photo column, 12 px apart, with the 3:2 photo under them; the column then
  * keeps its own height instead of the text's.
+ * With `photoShape` set to `landscape` and no portraits, the one photo takes
+ * the value prop's landscape frame: from `lg` up as tall as the text, its
+ * right edge on the content edge, 96 px from the text (the 24 px grid gap plus
+ * 72 px) and 16:9 at most, narrower when the space is (the cover crop keeps
+ * the upload's focal point); below that it follows the text, 96 px under it,
+ * 16:9 and at most 28rem wide.
  */
 const Story = ({
   heading,
@@ -69,13 +77,21 @@ const Story = ({
   note,
   photos,
   image,
+  photoShape,
 }: StoryBlock) => {
   const photo = toImage(image);
   const portraits = (photos ?? []).map(toImage).filter(isImage);
   const hasMedia = Boolean(photo) || portraits.length > 0;
   const isWide = Boolean(intro) && !hasMedia;
+  const isLandscape =
+    photoShape === "landscape" && Boolean(photo) && portraits.length === 0;
   return (
-    <CommonFullWidthWrapper className="grid gap-10 py-8 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12">
+    <CommonFullWidthWrapper
+      className={tw(
+        "grid py-8 md:py-10 lg:grid-cols-12 lg:gap-6 lg:py-12",
+        isLandscape ? "gap-24" : "gap-10",
+      )}
+    >
       <div
         className={`flex flex-col gap-4 ${isWide ? "lg:col-span-12" : "lg:col-span-6"}`}
       >
@@ -106,7 +122,9 @@ const Story = ({
           </P>
         )}
       </div>
-      {portraits.length > 0 ? (
+      {isLandscape && photo ? (
+        <LandscapePhoto photo={photo} media={image} />
+      ) : portraits.length > 0 ? (
         <div className="flex flex-col gap-3 lg:col-span-5 lg:col-start-8">
           <div className="grid max-w-md grid-cols-2 gap-3 lg:max-w-none">
             {portraits.map(renderPortrait)}
