@@ -18,7 +18,10 @@ export const hero: Block = {
           type: "upload",
           relationTo: "media",
           required: true,
-          admin: { description: "The tank before cleaning." },
+          admin: {
+            description:
+              "Left of the divider, such as the tank before cleaning.",
+          },
         },
         {
           name: "after",
@@ -26,8 +29,28 @@ export const hero: Block = {
           relationTo: "media",
           required: true,
           admin: {
-            description: "The same tank after cleaning, framed the same way.",
+            description:
+              "Right of the divider, framed the same way, such as the same tank after cleaning.",
           },
+        },
+      ],
+    },
+    {
+      type: "collapsible",
+      label: "Slider labels",
+      admin: {
+        initCollapsed: true,
+        description:
+          "Optional. What screen readers call the slider and its two sides. Leave empty for “Before and after cleaning”, “Before” and “After”.",
+      },
+      fields: [
+        {
+          type: "row",
+          fields: [
+            { name: "sliderLabel", type: "text", localized: true },
+            { name: "beforeLabel", type: "text", localized: true },
+            { name: "afterLabel", type: "text", localized: true },
+          ],
         },
       ],
     },

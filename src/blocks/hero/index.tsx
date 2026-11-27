@@ -25,6 +25,9 @@ const Hero = ({
   text,
   before,
   after,
+  sliderLabel,
+  beforeLabel,
+  afterLabel,
   actions,
   locale,
 }: HeroProps) => {
@@ -46,9 +49,9 @@ const Hero = ({
           <CompareSlider
             before={beforeImage}
             after={afterImage}
-            label={compare.label}
-            beforeLabel={compare.before}
-            afterLabel={compare.after}
+            label={sliderLabel ?? compare.label}
+            beforeLabel={beforeLabel ?? compare.before}
+            afterLabel={afterLabel ?? compare.after}
             peak={85}
             wideClear="[data-hero-text]"
             wideGap={100}
