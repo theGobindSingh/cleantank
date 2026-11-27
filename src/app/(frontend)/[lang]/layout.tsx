@@ -2,6 +2,7 @@ import { site } from "@/site";
 import ConsentBanner from "@components/consent-banner";
 import ContactBar from "@components/contact-bar";
 import Footer from "@components/footer";
+import FranchiseContactTracker from "@components/franchise-contact-tracker";
 import Header from "@components/header";
 import SmoothScroll from "@components/smooth-scroll";
 import { getDictionary, locales, toLocale } from "@i18n";
@@ -49,6 +50,7 @@ const RootLayout = async ({ children, params }: LayoutProps<"/[lang]">) => {
         <Footer locale={locale} />
         <ContactBar labels={getDictionary(locale).contact} />
         <ConsentBanner {...getDictionary(locale).consent} />
+        <FranchiseContactTracker />
       </body>
     </html>
   );

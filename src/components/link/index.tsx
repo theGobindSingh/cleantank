@@ -1,4 +1,5 @@
 import { colorStyleVars, interactionStyles } from "@components/button/styles";
+import { tw } from "@utils/tw";
 import NextLink from "next/link";
 import type { LinkProps } from "./types";
 
@@ -42,11 +43,21 @@ const Link = ({
       transitionTypes,
       ...anchorProps
     } = rest;
+    // PostHog's autocapture would record the wa.me message or the number
+    const classes = /^(tel:|https:\/\/wa\.me\/)/.test(href)
+      ? // eslint-disable-next-line better-tailwindcss/no-unknown-classes -- PostHog's class
+        tw(sharedProps.className, "ph-no-capture")
+      : sharedProps.className;
     const externalProps = isExternal(href)
       ? { target: "_blank", rel: "noopener noreferrer" }
       : {};
     return (
-      <a {...sharedProps} {...externalProps} {...anchorProps}>
+      <a
+        {...sharedProps}
+        className={classes}
+        {...externalProps}
+        {...anchorProps}
+      >
         {children}
       </a>
     );
