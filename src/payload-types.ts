@@ -379,10 +379,18 @@ export interface ValuePropBlock {
       }[]
     | null;
   /**
-   * Optional. A site path, such as /process. Shown only with a link label.
+   * Optional. A site path, such as /process. Shown only with a link label, unless the button is marked not ready.
    */
   href?: string | null;
   linkLabel?: string | null;
+  /**
+   * Not ready yet: the button shows greyed out, does nothing, and the note below explains why. No link needed.
+   */
+  linkPending?: boolean | null;
+  /**
+   * One short line under the greyed-out button.
+   */
+  linkNote?: string | null;
   /**
    * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
    */
@@ -1300,6 +1308,8 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
       };
   href?: T;
   linkLabel?: T;
+  linkPending?: T;
+  linkNote?: T;
   anchor?: T;
   id?: T;
   blockName?: T;

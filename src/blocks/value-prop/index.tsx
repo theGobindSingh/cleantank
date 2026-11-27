@@ -9,6 +9,7 @@ import { localePath, type Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import Image from "next/image";
 import List from "./list";
+import PendingButton from "./pending-button";
 
 interface ValuePropProps extends ValuePropBlock {
   locale: Locale;
@@ -74,6 +75,8 @@ const renderLandscapePhoto = (photo: CompareImage) => {
  * instead, at most 28rem wide.
  * The words listed in `highlight` show in accent 500 in every mode, and bold
  * phrases in the text in semibold.
+ * With `linkPending` on, the button is a `PendingButton` instead: greyed
+ * out, doing nothing, with `linkNote` under it.
  */
 const ValueProp = ({
   heading,
@@ -90,6 +93,8 @@ const ValueProp = ({
   staggerPhotos,
   href,
   linkLabel,
+  linkPending,
+  linkNote,
   items,
   anchor,
   locale,
@@ -117,15 +122,20 @@ const ValueProp = ({
           data={text}
           className="text-pretty contain-inline-size"
         />
-        {href && linkLabel && (
-          <Link
-            href={localePath(locale, href)}
-            variant="filled"
-            color="accent"
-            className="mt-2 self-start"
-          >
-            {linkLabel}
-          </Link>
+        {linkPending && linkLabel ? (
+          <PendingButton label={linkLabel} note={linkNote} />
+        ) : (
+          href &&
+          linkLabel && (
+            <Link
+              href={localePath(locale, href)}
+              variant="filled"
+              color="accent"
+              className="mt-2 self-start"
+            >
+              {linkLabel}
+            </Link>
+          )
         )}
       </div>
       {media === "list"
