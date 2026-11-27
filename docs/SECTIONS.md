@@ -10,7 +10,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 |---|---|---|
 | Hero section | The top of the home and audience pages: the before/after slider with the big heading and the first buttons | `hero` |
 | Page intro section | The top of an inner page: the heading, the coral Level Line, one line and buttons | `pageIntro` |
-| Value prop section | Why it matters: text on the left, one or two photos (photos variant, tall 1:2 or one wide 2:1) or a numbered list (list variant) on the right | `valueProp` |
+| Value prop section | Why it matters: text on the left, one or two photos (photos variant, tall 1:2 or one wide landscape) or a numbered list (list variant) on the right | `valueProp` |
 | Price section | The calculator on the left and the price table on the right | `priceList` |
 | Clients strip | A thin stone strip of scrolling client logos | `clientsBand` |
 | Story section | Text on the left, an optional photo on the right | `story` |
