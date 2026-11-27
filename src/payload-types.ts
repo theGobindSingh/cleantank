@@ -73,6 +73,7 @@ export interface Config {
     clients: Client;
     'client-categories': ClientCategory;
     testimonials: Testimonial;
+    'franchise-enquiries': FranchiseEnquiry;
     'payload-kv': PayloadKv;
     'payload-folders': FolderInterface;
     'payload-locked-documents': PayloadLockedDocument;
@@ -91,6 +92,7 @@ export interface Config {
     clients: ClientsSelect<false> | ClientsSelect<true>;
     'client-categories': ClientCategoriesSelect<false> | ClientCategoriesSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    'franchise-enquiries': FranchiseEnquiriesSelect<false> | FranchiseEnquiriesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-folders': PayloadFoldersSelect<false> | PayloadFoldersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -1020,6 +1022,39 @@ export interface ClientCategory {
   createdAt: string;
 }
 /**
+ * Logged by hand from WhatsApp and calls. Delete an enquiry on its erase-after date. Never store PAN, Aadhaar or bank details here.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "franchise-enquiries".
+ */
+export interface FranchiseEnquiry {
+  id: number;
+  name: string;
+  mobile: string;
+  onWhatsApp?: boolean | null;
+  town: string;
+  channel: 'whatsapp' | 'call';
+  language?: ('en' | 'hi' | 'pa') | null;
+  model?: ('standardFofo' | 'classicFocs' | 'premiumFoco' | 'undecided') | null;
+  /**
+   * What screening needs: their current work, why this, the plan for their town. The reason for a decline, if they asked.
+   */
+  notes?: string | null;
+  /**
+   * No reply means two attempts went unanswered. Withdrawn means stop using the record at once.
+   */
+  status: 'new' | 'firstCall' | 'met' | 'accepted' | 'onHold' | 'declined' | 'withdrawn' | 'noReply';
+  firstContact: string;
+  lastContact: string;
+  decisionDate?: string | null;
+  /**
+   * Set on save. No reply or open: 6 months after the last contact. Declined or withdrawn: 12 months after the decision. On hold: 15 months after the hold began. Accepted: kept under the agreement and tax law.
+   */
+  eraseAfter?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -1066,6 +1101,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'testimonials';
         value: number | Testimonial;
+      } | null)
+    | ({
+        relationTo: 'franchise-enquiries';
+        value: number | FranchiseEnquiry;
       } | null)
     | ({
         relationTo: 'payload-folders';
@@ -1621,6 +1660,27 @@ export interface TestimonialsSelect<T extends boolean = true> {
   organisation?: T;
   permission?: T;
   permissionDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "franchise-enquiries_select".
+ */
+export interface FranchiseEnquiriesSelect<T extends boolean = true> {
+  name?: T;
+  mobile?: T;
+  onWhatsApp?: T;
+  town?: T;
+  channel?: T;
+  language?: T;
+  model?: T;
+  notes?: T;
+  status?: T;
+  firstContact?: T;
+  lastContact?: T;
+  decisionDate?: T;
+  eraseAfter?: T;
   updatedAt?: T;
   createdAt?: T;
 }

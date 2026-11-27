@@ -1,6 +1,7 @@
 import { clients } from "@/collections/clients";
 import { clientCategories } from "@/collections/clients/categories";
 import { testimonials } from "@/collections/clients/testimonials";
+import { franchiseEnquiries } from "@/collections/franchise-enquiries";
 import { media } from "@/collections/media";
 import { pages } from "@/collections/pages";
 import { users } from "@/collections/users";
@@ -31,7 +32,15 @@ export default buildConfig({
     user: users.slug,
     importMap: { baseDir: dirname },
   },
-  collections: [users, media, pages, clients, clientCategories, testimonials],
+  collections: [
+    users,
+    media,
+    pages,
+    clients,
+    clientCategories,
+    testimonials,
+    franchiseEnquiries,
+  ],
   globals: [processGlobal, homePrices],
   editor: lexicalEditor(),
   // Same codes as src/i18n/config.ts. Mark a field `localized: true` to translate it;
