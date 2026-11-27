@@ -53,8 +53,8 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 7. Expect section: "What to expect."
 8. Questions section: "Questions families ask."
 9. Closing band: "If your tank is due, we can help."
-10. Track record strip: "Track record."
-11. Clients strip: "Our clients.", last, just above the footer (James's call, 27 Nov 2026, CT-438).
+10. Clients strip: "Our clients.", right above the track record (James's call, 27 Nov 2026, CT-438).
+11. Track record strip: "Track record."
 
 ### Process (`/process`)
 
