@@ -7,7 +7,6 @@ import config from "@payload-config";
 import Image from "next/image";
 import { getPayload } from "payload";
 import type { CSSProperties } from "react";
-import FitLine from "./fit-line";
 import Marquee from "./marquee";
 
 interface ClientsBandProps {
@@ -84,8 +83,10 @@ const ClientsBand = async ({ locale }: ClientsBandProps) => {
     >
       {/* the highlight stays accent 500 on the stone strip at 2.62:1, and the
           type is the buttons' (Anek 700 at normal width, 0.06em tracking) at
-          1.25x the H4 size. In English the second line grows to the first
-          line's width (James's call, CT-465); hi and pa keep one size */}
+          1.25x the H4 size. In English the second line is set 1.215x larger,
+          so CLEAN. is as wide as WHO WE in Anek Latin 700 (measured, within
+          0.2 px from 320 to 1440 px). Plain CSS, so it is right from the
+          first paint (James's call, CT-465); hi and pa keep one size */}
       <H2
         $margin="0"
         style={{ fontSize: "calc(var(--fs-h4) * 1.25)" }}
@@ -93,14 +94,13 @@ const ClientsBand = async ({ locale }: ClientsBandProps) => {
         data-contrast-exception=""
       >
         <span className="block w-fit">{renderLine(first)}</span>
-        {rest.length > 0 &&
-          (locale === "en" ? (
-            <FitLine>{renderLine(rest.join("\n"))}</FitLine>
-          ) : (
-            <span className="block whitespace-pre-line">
-              {renderLine(rest.join("\n"))}
-            </span>
-          ))}
+        {rest.length > 0 && (
+          <span
+            className={`block w-fit whitespace-pre-line ${locale === "en" ? "text-[1.215em]" : ""}`}
+          >
+            {renderLine(rest.join("\n"))}
+          </span>
+        )}
       </H2>
       <Marquee pauseLabel={labels.pause} playLabel={labels.play}>
         <div className="min-w-0 grow overflow-hidden mask-x-from-90% mask-x-to-100% motion-reduce:overflow-x-auto">
