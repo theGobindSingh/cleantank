@@ -102,9 +102,10 @@ const Motion = () => {
         card lists, count-up numbers, carousels, shimmer or autoplay. Two
         exceptions to parallax (owner's calls): the hero photos scroll at 50% of
         the page's speed, and the home page's value prop photos drift up to 8 px
-        sideways inside their still frames, centred mid-screen. Both stay put
-        under reduced motion. With reduced motion turned on, defaults.css cuts
-        every transition to nothing, and these squares jump instead of slide.
+        sideways inside their still frames, in opposite directions, centred
+        mid-screen. Both stay put under reduced motion. With reduced motion
+        turned on, defaults.css cuts every transition to nothing, and these
+        squares jump instead of slide.
       </P>
     </Section>
   );

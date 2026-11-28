@@ -3,14 +3,18 @@
  * Motion). Each frame stays put and names its own view timeline; the photo
  * inside slides from --drift left to --drift right over the timeline's cover
  * range, so it sits at 0 exactly when the frame's middle crosses the screen's
- * middle. The photo is 2 × --drift wider than its frame, so no edge ever
- * shows. View timelines ignore transforms, which is why the stagger beside it
+ * middle. The second photo runs the other way, right to left (--drift-dir).
+ * The photo is 2 × --drift wider than its frame, so no edge ever shows. View timelines ignore transforms, which is why the stagger beside it
  * uses relative offsets. Still under reduced motion and without scroll-driven
  * animations.
  */
 @utility drift-frame {
   --drift: 6px;
+  --drift-dir: 1;
   view-timeline: --drift-photo block;
+  &:nth-child(2) {
+    --drift-dir: -1;
+  }
   @media (width >= 64rem) {
     --drift: 8px;
   }
@@ -31,9 +35,9 @@
 
 @keyframes drift {
   from {
-    transform: translateX(calc(-1 * var(--drift)));
+    transform: translateX(calc(-1 * var(--drift-dir) * var(--drift)));
   }
   to {
-    transform: translateX(var(--drift));
+    transform: translateX(calc(var(--drift-dir) * var(--drift)));
   }
 }
