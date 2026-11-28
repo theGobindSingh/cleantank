@@ -22,7 +22,7 @@ const COLUMNS: Record<number, string> = {
   4: "lg:grid-cols-4",
 };
 
-// CT-470 trial: separate cards raised from a stone ground of their own color
+// CT-470 trial: separate cards molded out of a pale, cool section ground
 // (franchise-models.css). false restores CT-467's flat cards and the section's
 // own background.
 const IS_RAISED = true;
@@ -65,7 +65,7 @@ const FranchiseModels = ({
           "grid content-start gap-4 p-6 md:p-10 lg:row-span-4 lg:grid-rows-subgrid",
           isSeparate && "rounded-sm border 2xl:p-6",
           isSeparate && IS_RAISED
-            ? "franchise-card-raised bg-bg-subtle"
+            ? "franchise-card-raised"
             : tw(isSeparate && "border-border", "bg-surface"),
         )}
       >
@@ -124,9 +124,9 @@ const FranchiseModels = ({
   if (isSeparate) {
     return (
       <CommonFullWidthWrapper
-        wrapperClassName={tw(
-          (isSubtle === true || IS_RAISED) && "bg-bg-subtle",
-        )}
+        wrapperClassName={
+          IS_RAISED ? "franchise-ground-raised" : tw(isSubtle && "bg-bg-subtle")
+        }
         className="flex flex-col gap-10 py-8 md:gap-12 md:py-10 lg:py-12"
       >
         <div className="grid gap-10 md:gap-12 2xl:grid-cols-[auto_minmax(0,1fr)] 2xl:items-start 2xl:gap-x-10">

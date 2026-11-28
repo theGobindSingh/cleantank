@@ -1,26 +1,42 @@
 /*
- * CT-470 trial, dev and staging only: the separate franchise model cards
- * ("Your Business, Your Way" on /franchise-guide) as strongly raised
- * neumorphic surfaces: stone cards on the same stone ground, a white highlight
- * up and left, a dark soft shadow down and right. A temporary, scoped exception
- * to DESIGN.md's no-shadow rule (James's call, 28 Nov 2026). Switched by
- * IS_RAISED in index.tsx, which also puts the section on stone. No visible
+ * CT-470 trial, dev and staging only: "Your Business, Your Way" on
+ * /franchise-guide as molded relief. The section and its separate franchise
+ * model cards share one pale, cool ground; each card gets a white highlight up
+ * and left and a cool blue-grey shadow down and right. A temporary, scoped
+ * exception to DESIGN.md's no-shadow rule (James's call, 28 Nov 2026). The
+ * colors are local palette mixes, not tokens: about #EAEDF1 for the ground and
+ * #C3CBD2 for the shadow. Switched by IS_RAISED in index.tsx. No visible
  * stroke: the 1 px border stays transparent to keep the box size, and
  * forced-colors mode, which drops shadows, draws it as an outline.
  */
-@utility franchise-card-raised {
+@utility franchise-ground-raised {
+  --raised-ground: color-mix(
+    in srgb,
+    var(--color-primary-100),
+    var(--color-grey-50)
+  );
   --raised-light: var(--color-white);
-  --raised-dark: hsl(var(--color-grey-900-base) / 0.28);
-  border-color: transparent;
-  box-shadow:
-    -9px -9px 22px var(--raised-light),
-    9px 9px 22px var(--raised-dark);
+  --raised-dark: color-mix(
+    in srgb,
+    var(--color-primary-200),
+    var(--color-grey-300)
+  );
+  background-color: var(--raised-ground);
 
   :root:has(meta[name="color-scheme"][content="dark"]) &,
   [data-scheme="dark"] & {
-    --raised-light: hsl(var(--color-primary-600-base) / 0.4);
-    --raised-dark: hsl(var(--color-primary-950-base) / 0.9);
+    --raised-ground: var(--color-primary-900);
+    --raised-light: hsl(var(--color-primary-700-base) / 0.6);
+    --raised-dark: var(--color-primary-950);
   }
+}
+
+@utility franchise-card-raised {
+  border-color: transparent;
+  background-color: var(--raised-ground);
+  box-shadow:
+    -8px -8px 16px var(--raised-light),
+    8px 8px 16px var(--raised-dark);
 
   @media (forced-colors: active) {
     border-color: CanvasText;
