@@ -1,4 +1,5 @@
 import { site } from "@/site";
+import { ACCENT_FILL } from "@components/button/styles";
 import Link from "@components/link";
 import WhatsappLink from "@components/whatsapp-link";
 import { getDictionary, localePath, type Locale } from "@i18n";
@@ -18,7 +19,7 @@ interface ActionsProps {
   className?: string;
   /** Fills the first button in accent; only the price list uses it (user's call, 4 Nov 2026). */
   isAccent?: boolean;
-  /** With `isAccent`: hover and press go darker (700, 800) instead of to accent 500, which fails with a white label. Only the franchise apply button uses it (James's call, 28 Nov 2026, CT-467). */
+  /** With `isAccent`: hover and press go darker (700, 800) instead of to accent 500, which fails with a white label. Only the franchise apply button uses it (James's call, 28 Nov 2026, CT-467). Applies only while `ACCENT_FILL` is `dark-coral`; the coral fill has its own lighter states (CT-478). */
   isDarkHover?: boolean;
   /** Replaces the dictionary's WhatsApp message; the price calculator sends its figures. */
   whatsappText?: string | undefined;
@@ -56,7 +57,10 @@ const Actions = ({
       color: index === 0 && isAccent ? "accent" : "primary",
       size: "md",
       className: "w-full justify-center md:w-auto",
-      style: index === 0 && isAccent && isDarkHover ? DARK_HOVER : undefined,
+      style:
+        index === 0 && isAccent && isDarkHover && ACCENT_FILL === "dark-coral"
+          ? DARK_HOVER
+          : undefined,
       children: action.label,
     } as const;
     if (action.href === "whatsapp") {

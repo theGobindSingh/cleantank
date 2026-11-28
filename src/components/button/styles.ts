@@ -32,27 +32,48 @@ export const interactionStyles = ({
 };
 
 /**
+ * Which fill the accent buttons use (docs/DESIGN.md, Buttons). `coral`: accent
+ * 500 #ee7555 at rest, 400 hover, 300 pressed, primary 900 label (6.21:1),
+ * in every mode (James's call, 28 Nov 2026, CT-478). `dark-coral`: the
+ * previous fill, accent 600 #c54826 / 500 / 700 with a white label (4.85:1).
+ * To restore dark coral, set this to "dark-coral"; nothing else changes.
+ */
+export const ACCENT_FILL: "coral" | "dark-coral" = "coral";
+
+const ACCENT_VARS = {
+  coral: {
+    "--c-light": "var(--color-accent-500)",
+    "--c-light-hover": "var(--color-accent-400)",
+    "--c-light-active": "var(--color-accent-300)",
+    "--c-light-on": "var(--color-primary-900)",
+    "--c-dark": "var(--color-accent-500)",
+    "--c-dark-hover": "var(--color-accent-400)",
+    "--c-dark-active": "var(--color-accent-300)",
+    "--c-dark-on": "var(--color-primary-900)",
+  },
+  // owner's call: accent 600 fill, white label, same in every mode (the accent 500 hover fails contrast)
+  "dark-coral": {
+    "--c-light": "var(--color-accent-600)",
+    "--c-light-hover": "var(--color-accent-500)",
+    "--c-light-active": "var(--color-accent-700)",
+    "--c-light-on": "var(--color-white)",
+    "--c-dark": "var(--color-accent-600)",
+    "--c-dark-hover": "var(--color-accent-500)",
+    "--c-dark-active": "var(--color-accent-700)",
+    "--c-dark-on": "var(--color-white)",
+  },
+};
+
+/**
  * Primary keeps the defaults in button.css, which follow dark mode and navy
  * bands. Other families pass both sets of stops; button.css picks one by mode:
  * 700 / 600 / 800 with a white label on light grounds, 300 / 200 / 100 with a
- * navy label in dark mode and bands. Accent is the one exception: 600 / 500 / 700
- * with a white label everywhere.
+ * navy label in dark mode and bands. Accent is the one exception: the same
+ * `ACCENT_FILL` stops in every mode.
  */
 export const colorStyleVars = (color: ColorFamily): CSSProperties => {
   if (color === "primary") return {};
-  if (color === "accent") {
-    // owner's call: accent 600 fill, white label, same in every mode (the accent 500 hover fails contrast)
-    return {
-      "--c-light": "var(--color-accent-600)",
-      "--c-light-hover": "var(--color-accent-500)",
-      "--c-light-active": "var(--color-accent-700)",
-      "--c-light-on": "var(--color-white)",
-      "--c-dark": "var(--color-accent-600)",
-      "--c-dark-hover": "var(--color-accent-500)",
-      "--c-dark-active": "var(--color-accent-700)",
-      "--c-dark-on": "var(--color-white)",
-    } as CSSProperties;
-  }
+  if (color === "accent") return ACCENT_VARS[ACCENT_FILL] as CSSProperties;
   return {
     "--c-light": `var(--color-${color}-700)`,
     "--c-light-hover": `var(--color-${color}-600)`,
