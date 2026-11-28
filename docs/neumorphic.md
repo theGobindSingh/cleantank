@@ -4,7 +4,7 @@ Scoped experiments, not a site default. DESIGN.md's no-shadow rule still holds e
 
 ## Scope
 
-- Only the separate franchise model cards (`isSeparate`) in "Your Business, Your Plan" on `/franchise`, `/hi/franchise` and `/pa/franchise` (the page was `/franchise-guide` until CT-474).
+- Only the separate franchise model cards (`isSeparate`) in "Your Business, Your Plan." on `/franchise`, `/hi/franchise` and `/pa/franchise` (the page was `/franchise-guide` until CT-474).
 - Dev and staging only (James's call, 28 Nov 2026). Not for production without James's OK and the franchise release gates.
 - No other block uses this. There is no shared shadow token or utility, and no CMS toggle.
 
