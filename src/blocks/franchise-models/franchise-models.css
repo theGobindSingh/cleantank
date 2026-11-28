@@ -1,0 +1,23 @@
+/*
+ * CT-470 trial, dev and staging only: the separate franchise model cards
+ * ("Your Business, Your Way" on /franchise-guide) as soft, raised surfaces in
+ * the section's own ground. A temporary, scoped exception to DESIGN.md's
+ * no-shadow rule (James's call, 28 Nov 2026). Switched by IS_RAISED in
+ * index.tsx. The faint 1 px edge stays, so forced-colors mode, which drops
+ * shadows, still draws each card.
+ */
+@utility franchise-card-raised {
+  --raised-light: var(--color-white);
+  --raised-dark: hsl(var(--color-grey-900-base) / 0.12);
+  border-color: var(--color-grey-200);
+  box-shadow:
+    -4px -4px 12px var(--raised-light),
+    4px 4px 12px var(--raised-dark);
+
+  :root:has(meta[name="color-scheme"][content="dark"]) &,
+  [data-scheme="dark"] & {
+    --raised-light: hsl(var(--color-primary-600-base) / 0.35);
+    --raised-dark: hsl(var(--color-primary-950-base) / 0.7);
+    border-color: var(--color-primary-800);
+  }
+}

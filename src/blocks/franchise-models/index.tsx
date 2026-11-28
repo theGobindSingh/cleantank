@@ -22,6 +22,10 @@ const COLUMNS: Record<number, string> = {
   4: "lg:grid-cols-4",
 };
 
+// CT-470 trial: separate cards raised softly from the section's ground
+// (franchise-models.css). false restores CT-467's flat cards.
+const IS_RAISED = true;
+
 const renderPoint = (point: Point, index: number) => {
   return (
     <li key={point.id ?? index} className="py-2 text-pretty">
@@ -57,8 +61,11 @@ const FranchiseModels = ({
       <li
         key={model.id ?? index}
         className={tw(
-          "grid content-start gap-4 bg-surface p-6 md:p-10 lg:row-span-4 lg:grid-rows-subgrid",
-          isSeparate && "rounded-sm border border-border 2xl:p-6",
+          "grid content-start gap-4 p-6 md:p-10 lg:row-span-4 lg:grid-rows-subgrid",
+          isSeparate && "rounded-sm border 2xl:p-6",
+          isSeparate && IS_RAISED
+            ? tw("franchise-card-raised", isSubtle ? "bg-bg-subtle" : "bg-bg")
+            : tw(isSeparate && "border-border", "bg-surface"),
         )}
       >
         <H3 $size="h3" $margin="0">
