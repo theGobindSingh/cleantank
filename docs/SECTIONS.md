@@ -108,9 +108,9 @@ The free guide, open to everyone: no form, nothing asks for a number. Held off p
 
 1. Hero section: "Make Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
 2. Value prop section, landscape: "Franchise Starter Guide.", with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production.
-3. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
-4. Ruled list section, on stone: "What running it looks like." (`#running`)
-5. Franchise models section: "Three models, one system." The same models and disclaimer as `/franchise`.
+3. Franchise models section: "Three models, one system." The same models and disclaimer as `/franchise`.
+4. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
+5. Ruled list section, on stone: "What running it looks like." (`#running`)
 6. Ruled list section, on stone: "Training and support."
 7. Ruled list section, two lists: "Is this business right for you?"
 8. Ruled list section, on stone: "What is hard about this work."
