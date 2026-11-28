@@ -4,7 +4,7 @@ A scoped experiment, not a site default. DESIGN.md's no-shadow rule still holds 
 
 ## Scope
 
-- Only the separate franchise model cards (`isSeparate`) in "Your Business, Your Way" on `/franchise-guide`, `/hi/franchise-guide` and `/pa/franchise-guide`.
+- Only the separate franchise model cards (`isSeparate`) in "Your Business, Your Plan" on `/franchise-guide`, `/hi/franchise-guide` and `/pa/franchise-guide`.
 - Dev and staging only (James's call, 28 Nov 2026). Not for production without James's OK and the franchise release gates.
 - `/franchise` keeps its ruled grid, and no other block uses this. There is no shared shadow token or utility, and no CMS toggle.
 
