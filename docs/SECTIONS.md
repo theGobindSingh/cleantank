@@ -6,29 +6,29 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 
 ## The sections
 
-| Name | What it is | Block |
-|---|---|---|
-| Hero section | The top of the home and audience pages: the before/after slider with the big heading and the first buttons | `hero` |
-| Page intro section | The top of an inner page: the heading, the coral Level Line, one line and buttons | `pageIntro` |
-| Value prop section | Why it matters: text on the left, one or two photos (photos variant, tall 1:2 or one wide landscape) or a numbered list (list variant) on the right | `valueProp` |
-| Price section | The calculator on the left and the price table on the right | `priceList` |
-| Clients strip | A thin stone strip of scrolling client logos; its heading is the `clientsBand` global | `clientsBand` |
-| Story section | Text on the left, an optional photo on the right | `story` |
-| Comparison section | The story section with two texts side by side under small headings, such as our method against a usual wash | `story` |
-| Process section | The five numbered steps in a row; the detailed variant adds each step in full | `process` |
-| Map section | Where we work: text on the left, the drawn map on the right | `serviceArea` |
-| Ruled list section | Short points in ruled boxes | `ruledList` |
-| Expect section | Two ruled lists side by side: before we arrive and after the cleaning | `ruledList` |
-| Questions section | Questions that open and close | `faq` |
-| Doors section | Three navy cards leading to Homes, Organisations and Franchise | `audiences` |
-| Testimonials section | Up to three quote cards | `testimonials` |
-| Closing band | A navy band with a heading, one line and the page's two buttons | `ctaBand` |
-| Track record strip | A light strip of key figures, such as 15+ years | `trustBand` |
-| Gallery section | Several before/after sliders | `compareGallery` |
-| Founder section | The founder's name, role, bio and portrait | `founder` |
-| Credentials section | The spec sheet of registrations and certificates | `credentials` |
-| Client list section | Every cleared client by name, grouped by sector | `clientList` |
-| Franchise models section | The franchise models side by side, each with its investment, and the financial disclaimer under them | `franchiseModels` |
+| Name                     | What it is                                                                                                                                          | Block             |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Hero section             | The top of the home and audience pages: the before/after slider with the big heading and the first buttons                                          | `hero`            |
+| Page intro section       | The top of an inner page: the heading, the coral Level Line, one line and buttons                                                                   | `pageIntro`       |
+| Value prop section       | Why it matters: text on the left, one or two photos (photos variant, tall 1:2 or one wide landscape) or a numbered list (list variant) on the right | `valueProp`       |
+| Price section            | The calculator on the left and the price table on the right                                                                                         | `priceList`       |
+| Clients strip            | A thin stone strip of scrolling client logos; its heading is the `clientsBand` global                                                               | `clientsBand`     |
+| Story section            | Text on the left, an optional photo on the right                                                                                                    | `story`           |
+| Comparison section       | The story section with two texts side by side under small headings, such as our method against a usual wash                                         | `story`           |
+| Process section          | The five numbered steps in a row; the detailed variant adds each step in full                                                                       | `process`         |
+| Map section              | Where we work: text on the left, the drawn map on the right                                                                                         | `serviceArea`     |
+| Ruled list section       | Short points in ruled boxes                                                                                                                         | `ruledList`       |
+| Expect section           | Two ruled lists side by side: before we arrive and after the cleaning                                                                               | `ruledList`       |
+| Questions section        | Questions that open and close                                                                                                                       | `faq`             |
+| Doors section            | Three navy cards leading to Homes, Organisations and Franchise                                                                                      | `audiences`       |
+| Testimonials section     | Up to three quote cards                                                                                                                             | `testimonials`    |
+| Closing band             | A navy band with a heading, one line and the page's two buttons                                                                                     | `ctaBand`         |
+| Track record strip       | A light strip of key figures, such as 15+ years                                                                                                     | `trustBand`       |
+| Gallery section          | Several before/after sliders                                                                                                                        | `compareGallery`  |
+| Founder section          | The founder's name, role, bio and portrait                                                                                                          | `founder`         |
+| Credentials section      | The spec sheet of registrations and certificates                                                                                                    | `credentials`     |
+| Client list section      | Every cleared client by name, grouped by sector                                                                                                     | `clientList`      |
+| Franchise models section | The franchise models side by side, each with its investment, and the financial disclaimer under them                                                | `franchiseModels` |
 
 ## Page by page
 
@@ -107,7 +107,7 @@ Every section with buttons has the same two: Become a Franchise Partner (WhatsAp
 The free guide, open to everyone: no form, nothing asks for a number. Held off production like `/franchise`. Only the hero and the closing band have working buttons; the starter guide's download button is greyed out until the file arrives. The hero has Become a Franchise Partner (WhatsApp) and Learn More, which jumps to "What running it looks like." (`#running`); the closing band has the same two as `/franchise`.
 
 1. Hero section: "Make Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
-2. Value prop section, landscape: "Franchise Starter Guide.", with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production.
+2. Value prop section, landscape: "Franchise Starter Guide.", with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production. On dev and staging its content is one raised white panel, on the section's usual white (CT-473 trial, docs/neumorphic.md).
 3. Franchise models section: "Your Business, Your Plan" ("Business" in accent). The same models and disclaimer as `/franchise`, as separate cards with the copy beside them from 1440 px.
 4. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 5. Ruled list section, on stone: "What running it looks like." (`#running`)

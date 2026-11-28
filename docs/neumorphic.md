@@ -1,6 +1,6 @@
-# Neumorphic cards (CT-470 trial)
+# Neumorphic trials (CT-470, CT-473)
 
-A scoped experiment, not a site default. DESIGN.md's no-shadow rule still holds everywhere else. This page records the treatment as built at commit eeefe64, so it can be reused or removed exactly.
+Scoped experiments, not a site default. DESIGN.md's no-shadow rule still holds everywhere else. This page records the treatment as built for the CT-470 cards at commit eeefe64, so it can be reused or removed exactly. The Franchise Starter Guide panel (CT-473, [below](#franchise-starter-guide-panel-ct-473)) reuses the same shadows on a white ground, with its own switch and styles, so each trial rolls back alone.
 
 ## Scope
 
@@ -82,3 +82,46 @@ Screenshots: [after, 1440](https://www.letmecome.in/ct470-after-1440.png), [afte
 
 1. In `src/blocks/franchise-models/index.tsx`, set `IS_RAISED` to `false`. The cards return to CT-467's white `bg-surface` fill with a 1 px `border-border` edge, and the section returns to its own background (`isSubtle`). Layout and content don't change.
 2. To remove the trial entirely, revert its commits b819fe9, 2ab0061, 0ef855f and eeefe64, then delete this page and its link in DESIGN.md.
+
+## Franchise Starter Guide panel (CT-473)
+
+A second trial with the CT-470 shadows on a white ground (James's call, 28 Nov 2026). Dev and staging only; not for production without James's OK and the franchise release gates (final copy, the actual guide file).
+
+### Scope
+
+- Only the "Franchise Starter Guide." value prop on `/franchise-guide`, `/hi/franchise-guide` and `/pa/franchise-guide`, the section right under the hero (CT-463, landscape photo).
+- The section's content (headline, text, pending button with its note, booklet mockup) sits in one raised panel. Nothing inside is raised on its own: the photo frame and the button keep their own styling.
+- Every other value prop, `/franchise` and the CT-470 cards are unchanged. The `valueProp` default stays flat.
+
+### Where it lives
+
+- Switch: the `raisedPanel` checkbox on the value prop block in Payload (page `franchise-guide`, first `valueProp` block), off by default. It adds `value-prop-ground-raised` and the section padding to the section, and `value-prop-panel-raised`, a 1 px border, `rounded-sm` and the panel padding to the content.
+- Styles: `src/blocks/value-prop/raised.css`, imported from `src/styles/components.css`. Its own copies of the properties and the shadow, so removing CT-470 doesn't touch it, and the reverse.
+- Migration `20261128_030807_value_prop_raised_panel` adds the column.
+
+### White-ground variant
+
+The one difference from CT-470: the ground stays white. The alternating white and stone bands are a readability rule, so this section keeps its white band and the panel matches it.
+
+| Property                       | Light mode                 | Dark mode                                  |
+| ------------------------------ | -------------------------- | ------------------------------------------ |
+| `--raised-ground` (panel fill) | `var(--color-bg)`, #FFFFFF | `var(--color-bg)`, primary 900, #0F1824    |
+| `--raised-light` (highlight)   | `var(--color-white)`       | `hsl(var(--color-primary-700-base) / 0.6)` |
+| `--raised-dark` (shadow)       | `var(--color-grey-300)`    | `var(--color-primary-950)`                 |
+
+- The section sets no background of its own, so it stays the page's white, as in CT-463, and the hero above keeps its bottom margin.
+- Shadows, border, radius and forced colors: the same as the CT-470 cards, above.
+- The white highlight on white is invisible, so the relief is the grey 300 shadow down and right. That is accepted; don't tint the ground or darken the fill to strengthen it.
+- Panel padding: 24 px, 40 px from `lg`, as the cards. The section keeps the value prop's 32 / 40 / 48 px padding outside the panel, which clears the 24 px reach of the shadow.
+- Layout, headline wrapping, highlight, button, note, photo frame and order are CT-463's, inside the panel padding.
+- Dark mode is untested, as for CT-470.
+
+### Limits
+
+- At 320 px the outer few pixels of the shadow pass the screen edge. No horizontal scroll.
+- The highlight (accent 500 on white, 2.87:1) is the existing pre-launch contrast exception (docs/LAUNCH.md), not changed here.
+
+### Rollback
+
+1. In the Payload admin, untick "raisedPanel" on that block and save. The section returns to CT-463 exactly.
+2. To remove the trial entirely, also revert its commits, run the down migration, and delete this section and its pointers in DESIGN.md and SECTIONS.md.
