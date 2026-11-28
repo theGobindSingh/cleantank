@@ -89,7 +89,7 @@ The franchise starter guide, open to everyone: no form, nothing asks for a numbe
 
 1. Hero section: "Make Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
 2. Value prop section, landscape: "Franchise Starter Guide." (`#guide`), with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production. On dev and staging its content is one raised white panel, on the section's usual white (CT-473 trial, docs/neumorphic.md).
-3. Franchise models section: "Your Business, Your Plan." ("Business" in accent). The three models (Standard FOFO, Classic FOCS, Premium FOCO) with the financial disclaimer, as separate cards with the copy beside them from 1440 px. The copy ends with "Are you partner material?" and an Apply now button to WhatsApp.
+3. Franchise models section: "Your Business, Your Plan." ("Business" in accent). The three models (Standard FOFO, Classic FOCS, Premium FOCO) with the financial disclaimer, as separate cards with the copy beside them from 1440 px. The copy ends with "Are you partner material?" ("partner" in accent) and an Apply now button to WhatsApp, its bottom level with the cards' bottom from 1440 px.
 4. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 5. Value prop section, list: "How a partner joins." From the first call to training; no money before signing.
 6. Closing band: "Call us when you are ready."
