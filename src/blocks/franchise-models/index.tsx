@@ -7,6 +7,7 @@ import SectionHeadline from "@components/section-headline";
 import type { Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import { useId } from "react";
+import { CARD_RELIEF_CLASS, IS_RAISED } from "./relief";
 
 interface FranchiseModelsProps extends FranchiseModelsBlock {
   locale: Locale;
@@ -21,11 +22,6 @@ const COLUMNS: Record<number, string> = {
   3: "lg:grid-cols-3",
   4: "lg:grid-cols-4",
 };
-
-// CT-470 trial: separate cards molded out of a pale, cool section ground
-// (franchise-models.css). false restores CT-467's flat cards and the section's
-// own background.
-const IS_RAISED = true;
 
 const renderPoint = (point: Point, index: number) => {
   return (
@@ -65,7 +61,7 @@ const FranchiseModels = ({
           "grid content-start gap-4 p-6 md:p-10 lg:row-span-4 lg:grid-rows-subgrid",
           isSeparate && "rounded-sm border 2xl:p-6",
           isSeparate && IS_RAISED
-            ? "franchise-card-raised"
+            ? CARD_RELIEF_CLASS
             : tw(isSeparate && "border-border", "bg-surface"),
         )}
       >

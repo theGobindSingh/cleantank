@@ -4,7 +4,9 @@
  * model cards share the brand's warm stone ground (bg-subtle, grey 50); each
  * card gets a white highlight up and left and a warm grey 300 shadow down and
  * right. A temporary, scoped exception to DESIGN.md's no-shadow rule (James's
- * call, 28 Nov 2026). Switched by IS_RAISED in index.tsx. No visible
+ * call, 28 Nov 2026). Switched by CARD_RELIEF in index.tsx: "raised" as
+ * above, "recessed" turns both shadows inward (dark inside top-left, white
+ * inside bottom-right), "flat" turns the trial off. No visible
  * stroke: the 1 px border stays transparent to keep the box size, and
  * forced-colors mode, which drops shadows, draws it as an outline.
  */
@@ -28,6 +30,18 @@
   box-shadow:
     -8px -8px 16px var(--raised-light),
     8px 8px 16px var(--raised-dark);
+
+  @media (forced-colors: active) {
+    border-color: CanvasText;
+  }
+}
+
+@utility franchise-card-recessed {
+  border-color: transparent;
+  background-color: var(--raised-ground);
+  box-shadow:
+    inset 8px 8px 16px 0 var(--raised-dark),
+    inset -8px -8px 16px 0 var(--raised-light);
 
   @media (forced-colors: active) {
     border-color: CanvasText;

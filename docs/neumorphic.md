@@ -10,7 +10,7 @@ Scoped experiments, not a site default. DESIGN.md's no-shadow rule still holds e
 
 ## Where it lives
 
-- Switch: `const IS_RAISED = true;` in `src/blocks/franchise-models/index.tsx`. It adds `franchise-ground-raised` to the section wrapper and `franchise-card-raised` to each separate card.
+- Switch: `CARD_RELIEF` in `src/blocks/franchise-models/relief.ts`, one of `"flat"`, `"raised"` or `"recessed"`. Anything but `"flat"` adds `franchise-ground-raised` to the section wrapper. `"raised"` adds `franchise-card-raised` to each separate card, and `"recessed"` adds `franchise-card-recessed` ([below](#recessed-variant-experimental)). Staging runs `"recessed"` since the CT-470 recessed test.
 - Styles: `src/blocks/franchise-models/franchise-models.css`, imported from `src/styles/components.css`.
 
 ## Parameters
@@ -80,8 +80,35 @@ Screenshots: [after, 1440](https://www.letmecome.in/ct470-after-1440.png), [afte
 
 ## Rollback
 
-1. In `src/blocks/franchise-models/index.tsx`, set `IS_RAISED` to `false`. The cards return to CT-467's white `bg-surface` fill with a 1 px `border-border` edge, and the section returns to its own background (`isSubtle`). Layout and content don't change.
+1. In `src/blocks/franchise-models/relief.ts`, set `CARD_RELIEF` to `"flat"`. The cards return to CT-467's white `bg-surface` fill with a 1 px `border-border` edge, and the section returns to its own background (`isSubtle`). Layout and content don't change.
 2. To remove the trial entirely, revert its commits b819fe9, 2ab0061, 0ef855f and eeefe64, then delete this page and its link in DESIGN.md.
+
+## Recessed variant (experimental)
+
+James asked to test the inner-shadow look on the same three cards (28 Nov 2026). The raised parameters above stay as they are; this is a second setting of the same switch, dev and staging only.
+
+- Class: `franchise-card-recessed`, in `src/blocks/franchise-models/franchise-models.css`.
+- Ground, fill, border, radius, forced colors, layout and content: the same as the raised cards. It reads the same three properties, so there are no new colors.
+- Shadow: both layers turn inward and swap sides, so the card reads as pressed into the stone.
+
+| Layer                      | Inset | x    | y    | Blur | Spread | Color                     |
+| -------------------------- | ----- | ---- | ---- | ---- | ------ | ------------------------- |
+| Dark, inside top-left      | yes   | 8px  | 8px  | 16px | 0      | `--raised-dark`, #C7C6C1  |
+| Light, inside bottom-right | yes   | -8px | -8px | 16px | 0      | `--raised-light`, #FFFFFF |
+
+```css
+box-shadow:
+  inset 8px 8px 16px 0 var(--raised-dark),
+  inset -8px -8px 16px 0 var(--raised-light);
+```
+
+Nothing is drawn outside the card, so the 320 px edge limit above doesn't apply. The white inner edge is subtle on grey 50 for the same reason as the raised highlight.
+
+Switching, in `src/blocks/franchise-models/relief.ts`:
+
+- `CARD_RELIEF = "recessed" as Relief` gives this variant.
+- `"raised"` gives the raised cards exactly as at eeefe64.
+- `"flat"` gives CT-467's flat cards and the section's own background.
 
 ## Franchise Starter Guide panel (CT-473)
 
