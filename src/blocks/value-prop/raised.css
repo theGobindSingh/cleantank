@@ -4,30 +4,29 @@
  * docs/neumorphic.md (CT-470's values, kept separate so either trial rolls
  * back alone). Unlike CT-470 the ground stays the page's own white: the
  * section keeps its white band and the panel fill matches it (James's call,
- * 28 Nov 2026), so the white highlight doesn't show and the relief comes from
- * the grey 300 shadow alone. A scoped exception to DESIGN.md's no-shadow rule.
+ * 28 Nov 2026). A white highlight can't show on white, so light mode drops the
+ * directional pair for one centered grey 300 shadow on all four sides; dark
+ * mode keeps the pair. A scoped exception to DESIGN.md's no-shadow rule.
  * Switched per block by the `raisedPanel` checkbox in Payload. The 1 px border
  * stays transparent; forced-colors mode, which drops shadows, draws it as an
  * outline.
  */
 @utility value-prop-ground-raised {
   --raised-ground: var(--color-bg);
-  --raised-light: var(--color-white);
-  --raised-dark: var(--color-grey-300);
+  --raised-shadow: 0 0 16px var(--color-grey-300);
 
   :root:has(meta[name="color-scheme"][content="dark"]) &,
   [data-scheme="dark"] & {
-    --raised-light: hsl(var(--color-primary-700-base) / 0.6);
-    --raised-dark: var(--color-primary-950);
+    --raised-shadow:
+      -8px -8px 16px hsl(var(--color-primary-700-base) / 0.6),
+      8px 8px 16px var(--color-primary-950);
   }
 }
 
 @utility value-prop-panel-raised {
   border-color: transparent;
   background-color: var(--raised-ground);
-  box-shadow:
-    -8px -8px 16px var(--raised-light),
-    8px 8px 16px var(--raised-dark);
+  box-shadow: var(--raised-shadow);
 
   @media (forced-colors: active) {
     border-color: CanvasText;

@@ -1,6 +1,6 @@
 # Neumorphic trials (CT-470, CT-473)
 
-Scoped experiments, not a site default. DESIGN.md's no-shadow rule still holds everywhere else. This page records the treatment as built for the CT-470 cards at commit eeefe64, so it can be reused or removed exactly. The Franchise Starter Guide panel (CT-473, [below](#franchise-starter-guide-panel-ct-473)) reuses the same shadows on a white ground, with its own switch and styles, so each trial rolls back alone.
+Scoped experiments, not a site default. DESIGN.md's no-shadow rule still holds everywhere else. This page records the treatment as built for the CT-470 cards at commit eeefe64, so it can be reused or removed exactly. The Franchise Starter Guide panel (CT-473, [below](#franchise-starter-guide-panel-ct-473)) sits on a white ground with one centered shadow instead, and has its own switch and styles, so each trial rolls back alone.
 
 ## Scope
 
@@ -85,7 +85,7 @@ Screenshots: [after, 1440](https://www.letmecome.in/ct470-after-1440.png), [afte
 
 ## Franchise Starter Guide panel (CT-473)
 
-A second trial with the CT-470 shadows on a white ground (James's call, 28 Nov 2026). Dev and staging only; not for production without James's OK and the franchise release gates (final copy, the actual guide file).
+A second trial on a white ground, with one centered shadow in light mode (James's call, 28 Nov 2026). Dev and staging only; not for production without James's OK and the franchise release gates (final copy, the actual guide file).
 
 ### Scope
 
@@ -101,18 +101,18 @@ A second trial with the CT-470 shadows on a white ground (James's call, 28 Nov 2
 
 ### White-ground variant
 
-The one difference from CT-470: the ground stays white. The alternating white and stone bands are a readability rule, so this section keeps its white band and the panel matches it.
+Two differences from CT-470. The ground stays white: the alternating white and stone bands are a readability rule, so this section keeps its white band and the panel matches it. And since a white highlight can't show on white, light mode replaces the directional pair with one centered soft shadow, even on all four sides.
 
-| Property                       | Light mode                 | Dark mode                                  |
-| ------------------------------ | -------------------------- | ------------------------------------------ |
-| `--raised-ground` (panel fill) | `var(--color-bg)`, #FFFFFF | `var(--color-bg)`, primary 900, #0F1824    |
-| `--raised-light` (highlight)   | `var(--color-white)`       | `hsl(var(--color-primary-700-base) / 0.6)` |
-| `--raised-dark` (shadow)       | `var(--color-grey-300)`    | `var(--color-primary-950)`                 |
+| Property                       | Light mode                       | Dark mode                                                                                                         |
+| ------------------------------ | -------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `--raised-ground` (panel fill) | `var(--color-bg)`, #FFFFFF       | `var(--color-bg)`, primary 900, #0F1824                                                                           |
+| `--raised-shadow`              | `0 0 16px var(--color-grey-300)` | CT-470's pair: `-8px -8px 16px hsl(var(--color-primary-700-base) / 0.6)`, `8px 8px 16px var(--color-primary-950)` |
 
+- Light shadow: x 0, y 0, blur 16 px, spread 0, grey 300 (#C7C6C1). No white highlight.
 - The section sets no background of its own, so it stays the page's white, as in CT-463, and the hero above keeps its bottom margin.
-- Shadows, border, radius and forced colors: the same as the CT-470 cards, above.
-- The white highlight on white is invisible, so the relief is the grey 300 shadow down and right. That is accepted; don't tint the ground or darken the fill to strengthen it.
-- Panel padding: 24 px, 40 px from `lg`, as the cards. The section keeps the value prop's 32 / 40 / 48 px padding outside the panel, which clears the 24 px reach of the shadow.
+- Border, radius and forced colors: the same as the CT-470 cards, above.
+- Don't tint the ground or darken the fill to strengthen the relief.
+- Panel padding: 24 px, 40 px from `lg`, as the cards. The section keeps the value prop's 32 / 40 / 48 px padding outside the panel, which clears the 16 px reach of the shadow.
 - Layout, headline wrapping, highlight, button, note, photo frame and order are CT-463's, inside the panel padding.
 - Dark mode is untested, as for CT-470.
 
