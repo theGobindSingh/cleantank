@@ -124,7 +124,7 @@ const FranchiseModels = ({
       >
         <div className="grid gap-10 md:gap-12 2xl:grid-cols-[auto_minmax(0,1fr)] 2xl:items-start 2xl:gap-x-10">
           {/* contain-inline-size: from 2xl the heading alone sets the column's width */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 2xl:self-stretch">
             <SectionHeadline heading={heading} highlight={highlight} />
             {text && (
               <P className="max-w-[60ch] text-pretty text-fg-muted 2xl:contain-inline-size">

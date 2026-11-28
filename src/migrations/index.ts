@@ -47,6 +47,7 @@ import * as migration_20261128_003857_franchise_models_separate from './20261128
 import * as migration_20261128_024733_value_prop_drift_photos from './20261128_024733_value_prop_drift_photos';
 import * as migration_20261128_030807_value_prop_raised_panel from './20261128_030807_value_prop_raised_panel';
 import * as migration_20261128_152914_franchise_models_apply from './20261128_152914_franchise_models_apply';
+import * as migration_20261128_154605_franchise_models_apply_highlight from './20261128_154605_franchise_models_apply_highlight';
 
 export const migrations = [
   {
@@ -292,6 +293,11 @@ export const migrations = [
   {
     up: migration_20261128_152914_franchise_models_apply.up,
     down: migration_20261128_152914_franchise_models_apply.down,
-    name: '20261128_152914_franchise_models_apply'
+    name: '20261128_152914_franchise_models_apply',
+  },
+  {
+    up: migration_20261128_154605_franchise_models_apply_highlight.up,
+    down: migration_20261128_154605_franchise_models_apply_highlight.down,
+    name: '20261128_154605_franchise_models_apply_highlight'
   },
 ];

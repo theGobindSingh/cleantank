@@ -971,6 +971,10 @@ export interface FranchiseModelsBlock {
    */
   apply?: {
     heading?: string | null;
+    /**
+     * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+     */
+    highlight?: string | null;
     label?: string | null;
     /**
      * A path such as /contact, or `whatsapp` or `call` for the site's number.
@@ -1651,6 +1655,7 @@ export interface FranchiseModelsBlockSelect<T extends boolean = true> {
     | T
     | {
         heading?: T;
+        highlight?: T;
         label?: T;
         href?: T;
       };

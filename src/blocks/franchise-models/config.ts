@@ -73,6 +73,7 @@ export const franchiseModels: Block = {
       },
       fields: [
         { name: "heading", type: "text", localized: true },
+        highlightField,
         { name: "label", type: "text", localized: true },
         {
           name: "href",
