@@ -100,6 +100,15 @@ export const valueProp: Block = {
               "With two portrait photos: the left one sits 12 px higher, the right one 12 px lower.",
           },
         },
+        {
+          name: "driftPhotos",
+          type: "checkbox",
+          defaultValue: false,
+          admin: {
+            description:
+              "Portrait photos only: each photo drifts a few pixels sideways inside its frame as the page scrolls, centred when the frame is mid-screen.",
+          },
+        },
       ],
     },
     {

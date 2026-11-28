@@ -15,20 +15,40 @@ interface ValuePropProps extends ValuePropBlock {
   locale: Locale;
 }
 
+const renderPortraitImage = (photo: CompareImage) => {
+  return (
+    <Image
+      src={photo.src}
+      alt={photo.alt}
+      fill
+      sizes="(min-width: 1024px) 30vw, 65vw"
+      className="object-cover"
+      style={{ objectPosition: photo.position }}
+    />
+  );
+};
+
 const renderPhoto = (photo: CompareImage) => {
   return (
     <div
       key={photo.src}
       className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:h-full lg:min-w-0"
     >
-      <Image
-        src={photo.src}
-        alt={photo.alt}
-        fill
-        sizes="(min-width: 1024px) 30vw, 65vw"
-        className="object-cover"
-        style={{ objectPosition: photo.position }}
-      />
+      {renderPortraitImage(photo)}
+    </div>
+  );
+};
+
+// The frame stays put; only the photo inside drifts sideways (drift.css).
+const renderDriftPhoto = (photo: CompareImage) => {
+  return (
+    <div
+      key={photo.src}
+      className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 drift-frame lg:h-full lg:min-w-0"
+    >
+      <div className="absolute drift-photo inset-y-0">
+        {renderPortraitImage(photo)}
+      </div>
     </div>
   );
 };
@@ -64,6 +84,9 @@ const renderLandscapePhoto = (photo: CompareImage) => {
  * apart.
  * With `staggerPhotos` on and two portrait photos, the left one sits 12 px
  * higher and the right one 12 px lower, in both layouts.
+ * With `driftPhotos` on, each portrait photo drifts up to 8 px sideways
+ * inside its still frame as the page scrolls, centred when the frame is
+ * mid-screen (drift.css).
  * With `photoShape` set to `landscape`, the photos are landscape instead, 96 px
  * from the text in both layouts. From `lg` up the frame is as tall as the text
  * and 16:9, narrower if the space right of the 96 px gap is; where that would
@@ -91,6 +114,7 @@ const ValueProp = ({
   secondImageAlt,
   photoShape,
   staggerPhotos,
+  driftPhotos,
   href,
   linkLabel,
   linkPending,
@@ -153,10 +177,11 @@ const ValueProp = ({
               className={tw(
                 "grid max-w-md grid-cols-2 gap-3 lg:col-start-3 lg:flex lg:max-w-none",
                 // The section's padding (32 px and up) leaves room for the 12 px shift.
-                isStaggered && "*:first:-translate-y-3 *:last:translate-y-3",
+                // Relative offsets, not transforms, so the drift's view timeline sees them.
+                isStaggered && "*:first:-top-3 *:last:top-3",
               )}
             >
-              {photos.map(renderPhoto)}
+              {photos.map(driftPhotos ? renderDriftPhoto : renderPhoto)}
             </div>
           ))}
     </CommonFullWidthWrapper>

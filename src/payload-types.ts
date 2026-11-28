@@ -370,6 +370,10 @@ export interface ValuePropBlock {
    * With two portrait photos: the left one sits 12 px higher, the right one 12 px lower.
    */
   staggerPhotos?: boolean | null;
+  /**
+   * Portrait photos only: each photo drifts a few pixels sideways inside its frame as the page scrolls, centred when the frame is mid-screen.
+   */
+  driftPhotos?: boolean | null;
   items?:
     | {
         title: string;
@@ -1297,6 +1301,7 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
   secondImageAlt?: T;
   photoShape?: T;
   staggerPhotos?: T;
+  driftPhotos?: T;
   items?:
     | T
     | {
