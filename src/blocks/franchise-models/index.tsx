@@ -7,6 +7,8 @@ import SectionHeadline from "@components/section-headline";
 import type { Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import { useId } from "react";
+import Apply from "./apply";
+import { COLUMNS } from "./columns";
 import { CARD_RELIEF_CLASS, IS_RAISED } from "./relief";
 
 interface FranchiseModelsProps extends FranchiseModelsBlock {
@@ -15,13 +17,6 @@ interface FranchiseModelsProps extends FranchiseModelsBlock {
 
 type Model = FranchiseModelsBlock["models"][number];
 type Point = NonNullable<Model["points"]>[number];
-
-// Static class names, so Tailwind sees each one.
-const COLUMNS: Record<number, string> = {
-  2: "lg:grid-cols-2",
-  3: "lg:grid-cols-3",
-  4: "lg:grid-cols-4",
-};
 
 const renderPoint = (point: Point, index: number) => {
   return (
@@ -38,7 +33,8 @@ const renderPoint = (point: Point, index: number) => {
  * stacked below. The financial disclaimer sits right under the figures at body
  * size, then the buttons. Separate cards put the heading, line and disclaimer
  * in a copy column instead: above the cards below `2xl`, beside them from `2xl`
- * up, as wide as the heading's longer line.
+ * up, as wide as the heading's longer line, ending with the optional `apply`
+ * subheading and accent button.
  */
 const FranchiseModels = ({
   heading,
@@ -48,6 +44,7 @@ const FranchiseModels = ({
   models,
   note,
   actions,
+  apply,
   isSeparate,
   isSubtle,
   locale,
@@ -140,6 +137,7 @@ const FranchiseModels = ({
             >
               {note}
             </P>
+            <Apply apply={apply} locale={locale} />
           </div>
           {cards}
         </div>

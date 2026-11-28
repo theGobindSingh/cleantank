@@ -967,6 +967,17 @@ export interface FranchiseModelsBlock {
       }[]
     | null;
   /**
+   * Separate cards only: a subheading and one accent button under the copy column, such as “Are you partner material?” and “Apply now”. Optional; shown when both are set.
+   */
+  apply?: {
+    heading?: string | null;
+    label?: string | null;
+    /**
+     * A path such as /contact, or `whatsapp` or `call` for the site's number.
+     */
+    href?: string | null;
+  };
+  /**
    * Tick to show each model as its own card with space between, instead of one ruled grid, with the heading and text in a column beside the cards on wide screens.
    */
   isSeparate?: boolean | null;
@@ -1635,6 +1646,13 @@ export interface FranchiseModelsBlockSelect<T extends boolean = true> {
         label?: T;
         href?: T;
         id?: T;
+      };
+  apply?:
+    | T
+    | {
+        heading?: T;
+        label?: T;
+        href?: T;
       };
   isSeparate?: T;
   isSubtle?: T;

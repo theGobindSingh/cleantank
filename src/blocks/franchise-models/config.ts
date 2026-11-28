@@ -65,6 +65,26 @@ export const franchiseModels: Block = {
     },
     actionsField,
     {
+      name: "apply",
+      type: "group",
+      admin: {
+        description:
+          "Separate cards only: a subheading and one accent button under the copy column, such as “Are you partner material?” and “Apply now”. Optional; shown when both are set.",
+      },
+      fields: [
+        { name: "heading", type: "text", localized: true },
+        { name: "label", type: "text", localized: true },
+        {
+          name: "href",
+          type: "text",
+          admin: {
+            description:
+              "A path such as /contact, or `whatsapp` or `call` for the site's number.",
+          },
+        },
+      ],
+    },
+    {
       name: "isSeparate",
       type: "checkbox",
       label: "Separate cards",

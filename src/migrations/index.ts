@@ -46,6 +46,7 @@ import * as migration_20261128_003247_clients_band_global from './20261128_00324
 import * as migration_20261128_003857_franchise_models_separate from './20261128_003857_franchise_models_separate';
 import * as migration_20261128_024733_value_prop_drift_photos from './20261128_024733_value_prop_drift_photos';
 import * as migration_20261128_030807_value_prop_raised_panel from './20261128_030807_value_prop_raised_panel';
+import * as migration_20261128_152914_franchise_models_apply from './20261128_152914_franchise_models_apply';
 
 export const migrations = [
   {
@@ -286,6 +287,11 @@ export const migrations = [
   {
     up: migration_20261128_030807_value_prop_raised_panel.up,
     down: migration_20261128_030807_value_prop_raised_panel.down,
-    name: '20261128_030807_value_prop_raised_panel'
+    name: '20261128_030807_value_prop_raised_panel',
+  },
+  {
+    up: migration_20261128_152914_franchise_models_apply.up,
+    down: migration_20261128_152914_franchise_models_apply.down,
+    name: '20261128_152914_franchise_models_apply'
   },
 ];
