@@ -30,9 +30,15 @@ const Marquee = ({ pauseLabel, playLabel, children }: MarqueeProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef(0);
 
+  const getAnimation = () => {
+    return wrapperRef.current?.getAnimations({ subtree: true })[0];
+  };
+
   const rampTo = (target: number) => {
-    const animation = wrapperRef.current?.getAnimations({ subtree: true })[0];
-    if (!animation) return;
+    const animation = getAnimation();
+    // a paused track with playbackRate 0 is drawn at its start in Chromium,
+    // so no ramps while paused
+    if (!animation || isPaused) return;
     cancelAnimationFrame(frameRef.current);
     const from = animation.playbackRate;
     const duration = RAMP_MS * Math.abs(target - from);
@@ -55,7 +61,12 @@ const Marquee = ({ pauseLabel, playLabel, children }: MarqueeProps) => {
     if (event.pointerType !== "touch") rampTo(1);
   };
 
+  // the button acts at once: any ramp stops and the track keeps full speed,
+  // so pausing never holds a rate of 0 and play moves straight away
   const handleToggle = () => {
+    cancelAnimationFrame(frameRef.current);
+    const animation = getAnimation();
+    if (animation) animation.playbackRate = 1;
     setIsPaused(!isPaused);
   };
 
