@@ -959,7 +959,7 @@ export interface FranchiseModelsBlock {
       }[]
     | null;
   /**
-   * Tick to show each model as its own card with space between, instead of one ruled grid.
+   * Tick to show each model as its own card with space between, instead of one ruled grid, with the heading and text in a column beside the cards on wide screens.
    */
   isSeparate?: boolean | null;
   /**
