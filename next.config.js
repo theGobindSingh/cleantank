@@ -82,6 +82,26 @@ const nextConfig = {
   // PostHog through our own origin (/ingest), so ad blockers and the CSP
   // allow it. Its API uses trailing slashes, which Next must not redirect.
   skipTrailingSlashRedirect: true,
+  // /franchise-guide became /franchise (CT-474). Next keeps the query string.
+  async redirects() {
+    return [
+      {
+        source: "/franchise-guide",
+        destination: "/franchise",
+        permanent: true,
+      },
+      {
+        source: "/en/franchise-guide",
+        destination: "/franchise",
+        permanent: true,
+      },
+      {
+        source: "/:lang(hi|pa)/franchise-guide",
+        destination: "/:lang/franchise",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
@@ -114,7 +134,10 @@ export default withSentryConfig(
     tunnelRoute: "/monitoring",
     silent: !process.env.CI,
     // Errors only, so leave tracing and its route manifest out of the bundle.
-    bundleSizeOptimizations: { excludeTracing: true, excludeDebugStatements: true },
+    bundleSizeOptimizations: {
+      excludeTracing: true,
+      excludeDebugStatements: true,
+    },
     routeManifestInjection: false,
   },
 );

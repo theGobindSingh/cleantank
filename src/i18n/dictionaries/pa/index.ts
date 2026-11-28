@@ -40,8 +40,6 @@ export const pa: Dictionary = {
     pageWhatsappTexts: {
       franchise:
         "ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਨੂੰ Clean Tank Services ਦੀ ਫ਼ਰੈਂਚਾਇਜ਼ੀ ਬਾਰੇ ਜਾਣਕਾਰੀ ਚਾਹੀਦੀ ਹੈ।",
-      "franchise-guide":
-        "ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਨੂੰ Clean Tank Services ਦੀ ਫ਼ਰੈਂਚਾਇਜ਼ੀ ਬਾਰੇ ਜਾਣਕਾਰੀ ਚਾਹੀਦੀ ਹੈ।",
     },
     email: "ਈਮੇਲ",
     emailHint: "ਕੋਟੇਸ਼ਨ, ਦਸਤਾਵੇਜ਼ਾਂ ਅਤੇ ਲਿਖਤੀ ਗੱਲਬਾਤ ਲਈ।",

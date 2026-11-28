@@ -16,9 +16,7 @@ export const dynamicParams = true;
  * and the dev site shows the real page. Both read the same database, so the code decides.
  */
 const HELD_ON_PRODUCTION =
-  process.env.VERCEL_ENV === "production"
-    ? ["franchise", "franchise-guide"]
-    : [];
+  process.env.VERCEL_ENV === "production" ? ["franchise"] : [];
 
 /** Linked from the header but not ready; each shows a holding page until its CMS page exists and is released. */
 const UNDER_DEVELOPMENT = ["organisations", ...HELD_ON_PRODUCTION];
