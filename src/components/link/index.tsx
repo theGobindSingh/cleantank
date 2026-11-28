@@ -1,4 +1,8 @@
-import { colorStyleVars, interactionStyles } from "@components/button/styles";
+import {
+  colorStyleVars,
+  contrastExceptionProps,
+  interactionStyles,
+} from "@components/button/styles";
 import { tw } from "@utils/tw";
 import NextLink from "next/link";
 import type { LinkProps } from "./types";
@@ -29,6 +33,7 @@ const Link = ({
 }: LinkProps) => {
   const sharedProps = {
     href,
+    ...contrastExceptionProps(color),
     style: { ...colorStyleVars(color), ...style },
     className: interactionStyles({ variant, size, className }),
   };

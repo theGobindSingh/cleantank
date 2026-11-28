@@ -83,7 +83,7 @@ const SPECS = [
   "Hover 110 ms. Filled steps one stop lighter on hover and darker when pressed; outlined adds an 8% and 14% tint.",
   "Primary follows the mode and band by itself: navy with a white label on light grounds, white with a navy label in dark mode and in bands.",
   "One filled button per viewport. Labels from the approved list: Get a Service Quote, Explore Our Services, Send an Enquiry, Become a Franchise Partner. Never Submit, Book now, arrows or exclamation marks.",
-  "Accent fills only the value proposition button, the price list's filled button and the franchise apply button: accent 500 #EE7555 at rest, 400 hover, 300 pressed, with a primary 900 label (6.21:1 at rest) in every mode (CT-478). The previous accent 600 #C54826 fill with a white label stays one switch away: ACCENT_FILL in src/components/button/styles.ts. No secondary buttons: the color prop doesn't accept them.",
+  "Accent fills only the value proposition button, the price list's filled button and the franchise apply button: accent 500 #EE7555 at rest, 600 hover, 700 pressed, with a white label in every mode (CT-478). The white label on 500 is 2.87:1 and fails WCAG AA: a temporary contrast exception James approved; hover is 4.85:1 and pressed 6.54:1. The previous accent 600 #C54826 fill with a white label stays one switch away: ACCENT_FILL in src/components/button/styles.ts. No secondary buttons: the color prop doesn't accept them.",
 ];
 
 const renderSpec = (spec: string) => {

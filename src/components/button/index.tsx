@@ -1,4 +1,8 @@
-import { colorStyleVars, interactionStyles } from "./styles";
+import {
+  colorStyleVars,
+  contrastExceptionProps,
+  interactionStyles,
+} from "./styles";
 import type { ButtonProps } from "./types";
 
 const Button = ({
@@ -16,6 +20,7 @@ const Button = ({
       type={type}
       style={{ ...colorStyleVars(color), ...style }}
       className={interactionStyles({ variant, size, className })}
+      {...contrastExceptionProps(color)}
       {...rest}
     >
       {children}

@@ -15,7 +15,8 @@ const themes = ["light", "dark"] as const;
 
 // Owner's call: text this size or bigger may fail colour contrast. Everything else must pass.
 const contrastExemptFontSize = 48;
-// The clients strip's heading highlight stays accent 500 on stone (James's call, CT-465).
+// The clients strip's heading highlight stays accent 500 on stone (James's call, CT-465),
+// and the accent buttons keep a white label on accent 500 (James's call, CT-478).
 const contrastExceptionSelector = "[data-contrast-exception]";
 
 type Violations = Awaited<ReturnType<AxeBuilder["analyze"]>>["violations"];

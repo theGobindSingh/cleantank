@@ -33,8 +33,9 @@ export const interactionStyles = ({
 
 /**
  * Which fill the accent buttons use (docs/DESIGN.md, Buttons). `coral`: accent
- * 500 #ee7555 at rest, 400 hover, 300 pressed, primary 900 label (6.21:1),
- * in every mode (James's call, 28 Nov 2026, CT-478). `dark-coral`: the
+ * 500 #ee7555 at rest, 600 hover, 700 pressed, white label, in every mode
+ * (James's call, 28 Nov 2026, CT-478). The white label on 500 is 2.87:1 and
+ * fails WCAG AA: an owner-approved temporary exception (docs/DESIGN.md). `dark-coral`: the
  * previous fill, accent 600 #c54826 / 500 / 700 with a white label (4.85:1).
  * To restore dark coral, set this to "dark-coral"; nothing else changes.
  */
@@ -43,13 +44,13 @@ export const ACCENT_FILL: "coral" | "dark-coral" = "coral";
 const ACCENT_VARS = {
   coral: {
     "--c-light": "var(--color-accent-500)",
-    "--c-light-hover": "var(--color-accent-400)",
-    "--c-light-active": "var(--color-accent-300)",
-    "--c-light-on": "var(--color-primary-900)",
+    "--c-light-hover": "var(--color-accent-600)",
+    "--c-light-active": "var(--color-accent-700)",
+    "--c-light-on": "var(--color-white)",
     "--c-dark": "var(--color-accent-500)",
-    "--c-dark-hover": "var(--color-accent-400)",
-    "--c-dark-active": "var(--color-accent-300)",
-    "--c-dark-on": "var(--color-primary-900)",
+    "--c-dark-hover": "var(--color-accent-600)",
+    "--c-dark-active": "var(--color-accent-700)",
+    "--c-dark-on": "var(--color-white)",
   },
   // owner's call: accent 600 fill, white label, same in every mode (the accent 500 hover fails contrast)
   "dark-coral": {
@@ -62,6 +63,13 @@ const ACCENT_VARS = {
     "--c-dark-active": "var(--color-accent-700)",
     "--c-dark-on": "var(--color-white)",
   },
+};
+
+/** Marks the coral accent buttons for the axe checks: their white label is the owner's contrast exception (CT-478). */
+export const contrastExceptionProps = (color: ColorFamily) => {
+  return color === "accent" && ACCENT_FILL === "coral"
+    ? { "data-contrast-exception": "" }
+    : {};
 };
 
 /**

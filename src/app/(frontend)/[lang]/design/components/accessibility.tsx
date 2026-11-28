@@ -48,6 +48,11 @@ const Accessibility = () => {
           one component, coral text over photos, and red versus green as the
           only difference.
         </P>
+        <P $size="small" className="max-w-[68ch] text-fg-muted">
+          One exception: the accent buttons fill coral 500 with a white label,
+          2.87:1, which fails WCAG AA. James approved it as a temporary
+          exception (CT-478). It covers those buttons only.
+        </P>
       </div>
       <div className="grid gap-8 md:grid-cols-2">
         <div className="flex flex-col gap-3">

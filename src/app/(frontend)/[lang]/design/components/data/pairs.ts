@@ -69,11 +69,6 @@ export const APPROVED_PAIRS: Pair[] = [
     label: "Coral on navy (large and UI only)",
     large: true,
   },
-  {
-    fg: "var(--color-primary-900)",
-    bg: "var(--color-accent-500)",
-    label: "Accent button label",
-  },
 ];
 
 export const FORBIDDEN_PAIRS: Pair[] = [

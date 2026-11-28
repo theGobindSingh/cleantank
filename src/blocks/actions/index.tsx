@@ -19,7 +19,7 @@ interface ActionsProps {
   className?: string;
   /** Fills the first button in accent; only the price list uses it (user's call, 4 Nov 2026). */
   isAccent?: boolean;
-  /** With `isAccent`: hover and press go darker (700, 800) instead of to accent 500, which fails with a white label. Only the franchise apply button uses it (James's call, 28 Nov 2026, CT-467). Applies only while `ACCENT_FILL` is `dark-coral`; the coral fill has its own lighter states (CT-478). */
+  /** With `isAccent`: hover and press go darker (700, 800) instead of to accent 500, which fails with a white label. Only the franchise apply button uses it (James's call, 28 Nov 2026, CT-467). Applies only while `ACCENT_FILL` is `dark-coral`; the coral fill has its own darker states (CT-478). */
   isDarkHover?: boolean;
   /** Replaces the dictionary's WhatsApp message; the price calculator sends its figures. */
   whatsappText?: string | undefined;
