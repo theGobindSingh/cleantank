@@ -959,6 +959,10 @@ export interface FranchiseModelsBlock {
       }[]
     | null;
   /**
+   * Tick to show each model as its own card with space between, instead of one ruled grid.
+   */
+  isSeparate?: boolean | null;
+  /**
    * Tick to alternate with the section above.
    */
   isSubtle?: boolean | null;
@@ -1622,6 +1626,7 @@ export interface FranchiseModelsBlockSelect<T extends boolean = true> {
         href?: T;
         id?: T;
       };
+  isSeparate?: T;
   isSubtle?: T;
   id?: T;
   blockName?: T;

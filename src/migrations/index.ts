@@ -43,6 +43,7 @@ import * as migration_20261127_222839_franchise_enquiries from './20261127_22283
 import * as migration_20261127_232520_hero_slider_labels_story_anchor from './20261127_232520_hero_slider_labels_story_anchor';
 import * as migration_20261127_235258_value_prop_link_pending from './20261127_235258_value_prop_link_pending';
 import * as migration_20261128_003247_clients_band_global from './20261128_003247_clients_band_global';
+import * as migration_20261128_003857_franchise_models_separate from './20261128_003857_franchise_models_separate';
 
 export const migrations = [
   {
@@ -268,6 +269,11 @@ export const migrations = [
   {
     up: migration_20261128_003247_clients_band_global.up,
     down: migration_20261128_003247_clients_band_global.down,
-    name: '20261128_003247_clients_band_global'
+    name: '20261128_003247_clients_band_global',
+  },
+  {
+    up: migration_20261128_003857_franchise_models_separate.up,
+    down: migration_20261128_003857_franchise_models_separate.down,
+    name: '20261128_003857_franchise_models_separate'
   },
 ];

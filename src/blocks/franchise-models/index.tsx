@@ -29,10 +29,11 @@ const renderPoint = (point: Point, index: number) => {
 };
 
 /**
- * The franchise models as equal cells of one ruled grid: side by side from
- * `lg` up, with each cell's name, figure, summary and points on shared rows
- * (`subgrid`) so they compare line for line; stacked below. The financial
- * disclaimer sits right under the figures at body size, then the buttons.
+ * The franchise models as equal cells of one ruled grid, or as separate cards
+ * with `isSeparate`: side by side from `lg` up, with each cell's name, figure,
+ * summary and points on shared rows (`subgrid`) so they compare line for line;
+ * stacked below. The financial disclaimer sits right under the figures at body
+ * size, then the buttons.
  */
 const FranchiseModels = ({
   heading,
@@ -42,6 +43,7 @@ const FranchiseModels = ({
   models,
   note,
   actions,
+  isSeparate,
   isSubtle,
   locale,
 }: FranchiseModelsProps) => {
@@ -50,7 +52,10 @@ const FranchiseModels = ({
     return (
       <li
         key={model.id ?? index}
-        className="grid content-start gap-4 bg-surface p-6 md:p-10 lg:row-span-4 lg:grid-rows-subgrid"
+        className={tw(
+          "grid content-start gap-4 bg-surface p-6 md:p-10 lg:row-span-4 lg:grid-rows-subgrid",
+          isSeparate && "rounded-sm border border-border",
+        )}
       >
         <H3 $size="h3" $margin="0">
           {model.name}
@@ -95,7 +100,10 @@ const FranchiseModels = ({
         <ul
           aria-describedby={noteId}
           className={tw(
-            "grid gap-px overflow-hidden rounded-xs border border-border bg-border",
+            "grid",
+            isSeparate
+              ? "gap-6 lg:gap-8"
+              : "gap-px overflow-hidden rounded-xs border border-border bg-border",
             COLUMNS[models.length],
           )}
         >

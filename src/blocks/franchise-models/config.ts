@@ -65,6 +65,15 @@ export const franchiseModels: Block = {
     },
     actionsField,
     {
+      name: "isSeparate",
+      type: "checkbox",
+      label: "Separate cards",
+      admin: {
+        description:
+          "Tick to show each model as its own card with space between, instead of one ruled grid.",
+      },
+    },
+    {
       name: "isSubtle",
       type: "checkbox",
       label: "Stone background",
