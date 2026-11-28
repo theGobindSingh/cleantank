@@ -62,8 +62,10 @@ const ClientsBand = async ({ locale }: ClientsBandProps) => {
   const list = docs.map(renderClient);
 
   return (
+    // no rule below the strip (James's call, CT-465); to restore it, change
+    // `border-t` back to the original `border-y`
     <CommonFullWidthWrapper
-      wrapperClassName="border-y border-border bg-bg-subtle"
+      wrapperClassName="border-t border-border bg-bg-subtle"
       className="flex flex-col gap-4 py-8 lg:flex-row lg:items-center lg:gap-10"
     >
       {/* the heading's own line breaks set its lines; the highlight stays
