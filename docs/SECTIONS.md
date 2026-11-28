@@ -40,7 +40,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 4. Doors section: "Let's get started."
 5. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 6. Testimonials section: "What our clients say."
-7. Track record strip: "Track record."
+7. Track record strip: "Track record." Hidden for now (CT-476; docs/DESIGN.md, Track record strip).
 
 ### Homes (`/homes`), reference
 
@@ -54,7 +54,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 8. Questions section: "Questions families ask."
 9. Closing band: "If your tank is due, we can help."
 10. Clients strip: "WHO WE CLEAN:", on two lines (CT-465), right above the track record (James's call, 27 Nov 2026, CT-438).
-11. Track record strip: "Track record."
+11. Track record strip: "Track record." Hidden for now (CT-476; docs/DESIGN.md, Track record strip).
 
 ### Process (`/process`)
 
@@ -66,7 +66,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 6. Questions section: "Questions."
 7. Doors section: "Who we work for."
 8. Closing band: "Plan your tank cleaning."
-9. Track record strip: "Track record."
+9. Track record strip: "Track record." Hidden for now (CT-476; docs/DESIGN.md, Track record strip).
 
 ### About (`/about`)
 
@@ -81,7 +81,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 9. Ruled list section, on stone: "Aims and objectives."
 10. Doors section: "Who we work for."
 11. Closing band: "Talk to us about your tanks."
-12. Track record strip: "Track record."
+12. Track record strip: "Track record." Hidden for now (CT-476; docs/DESIGN.md, Track record strip).
 
 ### Franchise (`/franchise`)
 
@@ -93,6 +93,6 @@ The franchise starter guide, open to everyone: no form, nothing asks for a numbe
 4. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 5. Value prop section, list: "How a partner joins." From the first call to training; no money before signing.
 6. Closing band: "Call us when you are ready."
-7. Track record strip: "Track record."
+7. Track record strip: "Track record." Hidden for now (CT-476; docs/DESIGN.md, Track record strip).
 
 `/organisations` has no sections yet. When a page changes, update its list here in the same change.

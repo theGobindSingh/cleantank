@@ -75,7 +75,7 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 
 What markets well to all three: the brand line, the before/after tank images, the 5-step process, ISO, 15+ years, client logos and testimonials. Detail lives on the dedicated pages, not here.
 
-Top to bottom (owner's call): the hero; the value prop, which ties a clean tank to the family's health and links on to the process; the process; Let's get started, the three doors to homes, organisations and franchise; our clients; testimonials; the track record strip, with its 15+ years figure; the footer.
+Top to bottom (owner's call): the hero; the value prop, which ties a clean tank to the family's health and links on to the process; the process; Let's get started, the three doors to homes, organisations and franchise; our clients; testimonials; the track record strip, with its 15+ years figure; the footer. The track record strip is hidden on every page for now (CT-476; docs/DESIGN.md, Track record strip).
 
 ### All groups
 

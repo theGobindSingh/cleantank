@@ -199,6 +199,8 @@ The `ctaBand` block (`src/blocks/cta-band`): one of the page's two emphasis band
 
 ### Track record strip
 
+Hidden on every page for now (James's call, 28 Nov 2026, CT-476). Each page keeps the block in its Payload layout, in the same place, with its heading and figures in all three languages; `site.showTrackRecord` in `src/site.ts` is `false`, so the component renders nothing and the section above it sits right on the footer. To bring it back, set `showTrackRecord` to `true` and deploy. Don't delete the blocks in the admin while they are hidden.
+
 The `trustBand` block (`src/blocks/trust-band`): a light strip in `secondary-bg` (secondary 100; owner's call, lighter than an emphasis band) as the last section of the home page, after testimonials and right above the footer, and on inner pages such as `/homes` and `/about`. A mono caps label (its H2), then two to four key figures from the CMS, such as 15+ years. A figure whose source is the ISO standard shows `site.iso.standard` from `src/site.ts` instead of a typed value; its label stays in the CMS (owner's call, 3 Nov 2026). The figures sit in one column on phones, two from `md`, four from `lg`. The figure is H2 size on phones and H1 from `md`. Each figure is the value in Anek at H1 size over its label in `fg-muted`, with a 1 px `secondary-border` rule on its left; markup is a `dl`. Only figures approved in INFO-BANK.
 
 Not yet reference: the sections below are on `/process` and `/about` only. They follow the patterns above but haven't been signed off as patterns.

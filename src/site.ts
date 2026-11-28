@@ -15,6 +15,10 @@ export const site = {
   // Off for now (owner's call, 28 Oct 2026): the about page's client list
   // hides the work completion certificates. They stay in Payload.
   showClientCertificates: false,
+  // Off for now (James's call, 28 Nov 2026, CT-476): every track record strip
+  // renders nothing. The blocks keep their place and content in Payload, so
+  // setting this back to true restores them as they were.
+  showTrackRecord: false,
   name: "Clean Tank Services",
   // Brand lines, always written exactly like this.
   descriptor: "Scientific & Mechanized Water Tank Cleaning",

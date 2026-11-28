@@ -29,8 +29,11 @@ const renderFigure = (figure: Figure, index: number) => {
  * to four key figures (one column on phones, two from `md`, four from `lg`),
  * each with a 1 px rule on its left. The label comes
  * first in the markup (dt, then dd) and shows under the figure.
+ * Renders nothing while `site.showTrackRecord` is off.
  */
 const TrustBand = ({ heading, highlight, figures }: TrustBandBlock) => {
+  if (!site.showTrackRecord) return null;
+
   return (
     <CommonFullWidthWrapper
       wrapperClassName="bg-secondary-bg"
