@@ -6,16 +6,13 @@ import Link from "@components/link";
 import WhatsappLink from "@components/whatsapp-link";
 import type { Dictionary } from "@i18n";
 import { telHref } from "@utils/phone";
-import { usePathname } from "next/navigation";
 
 interface ContactBarProps {
   labels: Dictionary["contact"];
 }
 
-/** Phones only: Call and WhatsApp fixed to the bottom of the screen. Its height is --contact-bar-height (defaults.css). On /franchise both are outlined, as the hero has the one filled button. */
+/** Phones only: Call and WhatsApp fixed to the bottom of the screen. Its height is --contact-bar-height (defaults.css). */
 const ContactBar = ({ labels }: ContactBarProps) => {
-  const slug = usePathname().split("/").findLast(Boolean) ?? "";
-  const callVariant = slug === "franchise" ? "outlined" : "filled";
   return (
     <CommonFullWidthWrapper
       element="nav"
@@ -25,7 +22,7 @@ const ContactBar = ({ labels }: ContactBarProps) => {
     >
       <Link
         href={telHref(site.phone)}
-        variant={callVariant}
+        variant="filled"
         className="justify-center"
       >
         {labels.call}
