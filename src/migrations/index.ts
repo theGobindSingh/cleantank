@@ -45,6 +45,7 @@ import * as migration_20261127_235258_value_prop_link_pending from './20261127_2
 import * as migration_20261128_003247_clients_band_global from './20261128_003247_clients_band_global';
 import * as migration_20261128_003857_franchise_models_separate from './20261128_003857_franchise_models_separate';
 import * as migration_20261128_024733_value_prop_drift_photos from './20261128_024733_value_prop_drift_photos';
+import * as migration_20261128_030807_value_prop_raised_panel from './20261128_030807_value_prop_raised_panel';
 
 export const migrations = [
   {
@@ -280,6 +281,11 @@ export const migrations = [
   {
     up: migration_20261128_024733_value_prop_drift_photos.up,
     down: migration_20261128_024733_value_prop_drift_photos.down,
-    name: '20261128_024733_value_prop_drift_photos'
+    name: '20261128_024733_value_prop_drift_photos',
+  },
+  {
+    up: migration_20261128_030807_value_prop_raised_panel.up,
+    down: migration_20261128_030807_value_prop_raised_panel.down,
+    name: '20261128_030807_value_prop_raised_panel'
   },
 ];

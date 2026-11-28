@@ -398,6 +398,10 @@ export interface ValuePropBlock {
    */
   linkNote?: string | null;
   /**
+   * Trial, dev and staging only (CT-473): the section sits on stone and its content becomes one raised panel. Untick to bring back the flat white section.
+   */
+  raisedPanel?: boolean | null;
+  /**
    * Optional. Lets a link such as /about#clients jump here. Lowercase letters, digits and hyphens.
    */
   anchor?: string | null;
@@ -1313,6 +1317,7 @@ export interface ValuePropBlockSelect<T extends boolean = true> {
   linkLabel?: T;
   linkPending?: T;
   linkNote?: T;
+  raisedPanel?: T;
   anchor?: T;
   id?: T;
   blockName?: T;

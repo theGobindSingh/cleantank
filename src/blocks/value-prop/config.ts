@@ -8,6 +8,7 @@ import {
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
 import type { Block, Condition } from "payload";
+import { linkFields } from "./link-fields";
 
 const showsPhotos: Condition = (_data, siblingData) => {
   return siblingData.media !== "list";
@@ -15,10 +16,6 @@ const showsPhotos: Condition = (_data, siblingData) => {
 
 const showsList: Condition = (_data, siblingData) => {
   return siblingData.media === "list";
-};
-
-const showsPendingNote: Condition = (_data, siblingData) => {
-  return Boolean(siblingData.linkPending);
 };
 
 /** The core promise under the hero: a heading, a short paragraph, one or two photos or a numbered list, and an optional link onward. */
@@ -128,38 +125,7 @@ export const valueProp: Block = {
         },
       ],
     },
-    {
-      type: "row",
-      fields: [
-        {
-          name: "href",
-          type: "text",
-          admin: {
-            description:
-              "Optional. A site path, such as /process. Shown only with a link label, unless the button is marked not ready.",
-          },
-        },
-        { name: "linkLabel", type: "text", localized: true },
-      ],
-    },
-    {
-      name: "linkPending",
-      type: "checkbox",
-      defaultValue: false,
-      admin: {
-        description:
-          "Not ready yet: the button shows greyed out, does nothing, and the note below explains why. No link needed.",
-      },
-    },
-    {
-      name: "linkNote",
-      type: "text",
-      localized: true,
-      admin: {
-        condition: showsPendingNote,
-        description: "One short line under the greyed-out button.",
-      },
-    },
+    ...linkFields,
     anchorField,
   ],
 };

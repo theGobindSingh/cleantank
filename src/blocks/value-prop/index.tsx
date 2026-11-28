@@ -1,75 +1,18 @@
 import { toSlotImage } from "@/blocks/to-image";
 import type { ValuePropBlock } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
-import type { CompareImage } from "@components/compare-slider";
 import Link from "@components/link";
 import RichParagraphs from "@components/rich-paragraphs";
 import SectionHeadline from "@components/section-headline";
 import { localePath, type Locale } from "@i18n";
 import { tw } from "@utils/tw";
-import Image from "next/image";
 import List from "./list";
 import PendingButton from "./pending-button";
+import { renderDriftPhoto, renderLandscapePhoto, renderPhoto } from "./photos";
 
 interface ValuePropProps extends ValuePropBlock {
   locale: Locale;
 }
-
-const renderPortraitImage = (photo: CompareImage) => {
-  return (
-    <Image
-      src={photo.src}
-      alt={photo.alt}
-      fill
-      sizes="(min-width: 1024px) 30vw, 65vw"
-      className="object-cover"
-      style={{ objectPosition: photo.position }}
-    />
-  );
-};
-
-const renderPhoto = (photo: CompareImage) => {
-  return (
-    <div
-      key={photo.src}
-      className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:h-full lg:min-w-0"
-    >
-      {renderPortraitImage(photo)}
-    </div>
-  );
-};
-
-// The frame stays put; only the photo inside drifts sideways (drift.css).
-const renderDriftPhoto = (photo: CompareImage) => {
-  return (
-    <div
-      key={photo.src}
-      className="relative aspect-1/2 overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 drift-frame lg:h-full lg:min-w-0"
-    >
-      <div className="absolute drift-photo inset-y-0">
-        {renderPortraitImage(photo)}
-      </div>
-    </div>
-  );
-};
-
-const renderLandscapePhoto = (photo: CompareImage) => {
-  return (
-    <div
-      key={photo.src}
-      className="relative aspect-video overflow-hidden rounded-sm outline-1 -outline-offset-1 outline-grey-200 lg:aspect-auto lg:h-full"
-    >
-      <Image
-        src={photo.src}
-        alt={photo.alt}
-        fill
-        sizes="(min-width: 1024px) 50vw, 100vw"
-        className="object-cover"
-        style={{ objectPosition: photo.position }}
-      />
-    </div>
-  );
-};
 
 /**
  * The promise under a large statement headline with an optional button.
@@ -100,6 +43,8 @@ const renderLandscapePhoto = (photo: CompareImage) => {
  * phrases in the text in semibold.
  * With `linkPending` on, the button is a `PendingButton` instead: greyed
  * out, doing nothing, with `linkNote` under it.
+ * With `raisedPanel` on (CT-473 trial), the content becomes one raised white
+ * panel on the section's own white (raised.css, docs/neumorphic.md).
  */
 const ValueProp = ({
   heading,
@@ -121,6 +66,7 @@ const ValueProp = ({
   linkNote,
   items,
   anchor,
+  raisedPanel,
   locale,
 }: ValuePropProps) => {
   const main = toSlotImage(image, imageUrl, imageAlt);
@@ -132,8 +78,14 @@ const ValueProp = ({
   return (
     <CommonFullWidthWrapper
       wrapperProps={anchor ? { id: anchor } : {}}
+      wrapperClassName={tw(
+        raisedPanel && "py-8 value-prop-ground-raised md:py-10 lg:py-12",
+      )}
       className={tw(
-        "grid py-8 md:py-10 lg:gap-x-0 lg:py-12",
+        "grid lg:gap-x-0",
+        raisedPanel
+          ? "rounded-sm border value-prop-panel-raised p-6 lg:p-10"
+          : "py-8 md:py-10 lg:py-12",
         isLandscape
           ? "gap-24 lg:grid-cols-[auto_6rem_1fr]"
           : "gap-10 lg:grid-cols-[auto_minmax(2.5rem,1fr)_minmax(0,auto)]",
