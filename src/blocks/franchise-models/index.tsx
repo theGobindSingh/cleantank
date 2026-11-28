@@ -1,7 +1,9 @@
 import Actions from "@/blocks/actions";
 import type { FranchiseModelsBlock } from "@/payload-types";
+import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import { H3, P } from "@components/html";
 import Section from "@components/section";
+import SectionHeadline from "@components/section-headline";
 import type { Locale } from "@i18n";
 import { tw } from "@utils/tw";
 import { useId } from "react";
@@ -33,7 +35,9 @@ const renderPoint = (point: Point, index: number) => {
  * with `isSeparate`: side by side from `lg` up, with each cell's name, figure,
  * summary and points on shared rows (`subgrid`) so they compare line for line;
  * stacked below. The financial disclaimer sits right under the figures at body
- * size, then the buttons.
+ * size, then the buttons. Separate cards put the heading, line and disclaimer
+ * in a copy column instead: above the cards below `2xl`, beside them from `2xl`
+ * up, as wide as the heading's longer line.
  */
 const FranchiseModels = ({
   heading,
@@ -54,7 +58,7 @@ const FranchiseModels = ({
         key={model.id ?? index}
         className={tw(
           "grid content-start gap-4 bg-surface p-6 md:p-10 lg:row-span-4 lg:grid-rows-subgrid",
-          isSeparate && "rounded-sm border border-border",
+          isSeparate && "rounded-sm border border-border 2xl:p-6",
         )}
       >
         <H3 $size="h3" $margin="0">
@@ -70,7 +74,12 @@ const FranchiseModels = ({
               {investmentLabel}
             </P>
           )}
-          <p className="font-heading text-(length:--fs-h2) leading-none font-bold text-heading tabular-nums md:text-(length:--fs-h1)">
+          <p
+            className={tw(
+              "font-heading text-(length:--fs-h2) leading-none font-bold text-heading tabular-nums md:text-(length:--fs-h1)",
+              isSeparate && "2xl:text-(length:--fs-h2)",
+            )}
+          >
             {model.investment}
           </p>
           {model.investmentNote && (
@@ -89,6 +98,50 @@ const FranchiseModels = ({
     );
   };
 
+  const cards = (
+    <ul
+      aria-describedby={noteId}
+      className={tw(
+        "grid",
+        isSeparate
+          ? "gap-6 lg:gap-8"
+          : "gap-px overflow-hidden rounded-xs border border-border bg-border",
+        COLUMNS[models.length],
+      )}
+    >
+      {models.map(renderModel)}
+    </ul>
+  );
+
+  if (isSeparate) {
+    return (
+      <CommonFullWidthWrapper
+        wrapperClassName={tw(isSubtle && "bg-bg-subtle")}
+        className="flex flex-col gap-10 py-8 md:gap-12 md:py-10 lg:py-12"
+      >
+        <div className="grid gap-10 md:gap-12 2xl:grid-cols-[auto_minmax(0,1fr)] 2xl:items-start 2xl:gap-x-10">
+          {/* contain-inline-size: from 2xl the heading alone sets the column's width */}
+          <div className="flex flex-col gap-4">
+            <SectionHeadline heading={heading} highlight={highlight} />
+            {text && (
+              <P className="max-w-[60ch] text-pretty text-fg-muted 2xl:contain-inline-size">
+                {text}
+              </P>
+            )}
+            <P
+              id={noteId}
+              className="max-w-[68ch] text-pretty text-fg-muted 2xl:contain-inline-size"
+            >
+              {note}
+            </P>
+          </div>
+          {cards}
+        </div>
+        <Actions actions={actions} locale={locale} />
+      </CommonFullWidthWrapper>
+    );
+  }
+
   return (
     <Section
       heading={heading}
@@ -97,18 +150,7 @@ const FranchiseModels = ({
       isSubtle={isSubtle}
     >
       <div className="flex flex-col gap-4">
-        <ul
-          aria-describedby={noteId}
-          className={tw(
-            "grid",
-            isSeparate
-              ? "gap-6 lg:gap-8"
-              : "gap-px overflow-hidden rounded-xs border border-border bg-border",
-            COLUMNS[models.length],
-          )}
-        >
-          {models.map(renderModel)}
-        </ul>
+        {cards}
         <P id={noteId} className="max-w-[68ch] text-pretty text-fg-muted">
           {note}
         </P>
