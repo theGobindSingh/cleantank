@@ -9,10 +9,13 @@ export const clientsBand: Block = {
   fields: [
     {
       name: "heading",
-      type: "text",
+      type: "textarea",
       required: true,
       localized: true,
-      admin: { description: "A short label beside the logos." },
+      admin: {
+        description:
+          "A short label beside the logos. Each line of the field is a line on the site.",
+      },
     },
     highlightField,
   ],

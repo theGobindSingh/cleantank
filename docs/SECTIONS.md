@@ -38,7 +38,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 2. Value prop section, photos: "Your health comes first."
 3. Process section: "Our cleaning process."
 4. Doors section: "Let's get started."
-5. Clients strip: "Our clients."
+5. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 6. Testimonials section: "What our clients say."
 7. Track record strip: "Track record."
 
@@ -53,7 +53,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 7. Expect section: "What to expect."
 8. Questions section: "Questions families ask."
 9. Closing band: "If your tank is due, we can help."
-10. Clients strip: "Our clients.", right above the track record (James's call, 27 Nov 2026, CT-438).
+10. Clients strip: "WHO WE CLEAN:", on two lines (CT-465), right above the track record (James's call, 27 Nov 2026, CT-438).
 11. Track record strip: "Track record."
 
 ### Process (`/process`)
@@ -74,7 +74,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 2. Story section: "Why we started."
 3. Founder section, on stone
 4. Value prop section, list: "Why choose Clean Tank?"
-5. Clients strip: "Some of our clients."
+5. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 6. Testimonials section: "What our clients say."
 7. Credentials section, on stone: "Registrations and certificates."
 8. Client list section: "Our clients."
@@ -88,7 +88,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 Every section with buttons has the same two: Become a Franchise Partner (WhatsApp) first, then Call Us. The new sections carry no buttons of their own; the starter guide is a text link.
 
 1. Page intro section: "Start your own tank cleaning business. Step beyond jobs."
-2. Clients strip: "Our clients."
+2. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 3. Value prop section, list: "Tank cleaning is repeat work."
 4. Franchise models section: "Three models, one system." Standard FOFO, Classic FOCS and Premium FOCO, each with its total investment, summary and package, and the financial disclaimer under them.
 5. Ruled list section, two lists: "What running it looks like." A normal week (with the kit) and the hard parts (INFO-BANK §8, How a partner joins). No earnings figures.
@@ -106,9 +106,9 @@ Every section with buttons has the same two: Become a Franchise Partner (WhatsAp
 
 The free guide, open to everyone: no form, nothing asks for a number. Held off production like `/franchise`. Only the hero and the closing band have working buttons; the starter guide's download button is greyed out until the file arrives. The hero has Become a Franchise Partner (WhatsApp) and Learn More, which jumps to "The business in one page." (`#business`); the closing band has the same two as `/franchise`.
 
-1. Hero section: "Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
+1. Hero section: "Make Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
 2. Value prop section, landscape: "Franchise Starter Guide.", with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production.
-3. Clients strip: "Our clients."
+3. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 4. Story section: "The business in one page." (`#business`)
 5. Ruled list section, on stone: "What running it looks like."
 6. Franchise models section: "Three models, one system." The same models and disclaimer as `/franchise`.

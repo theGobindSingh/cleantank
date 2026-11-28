@@ -496,7 +496,7 @@ export interface TrustBandBlock {
  */
 export interface ClientsBandBlock {
   /**
-   * A short label beside the logos.
+   * A short label beside the logos. Each line of the field is a line on the site.
    */
   heading: string;
   /**

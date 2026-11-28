@@ -35,7 +35,7 @@ const renderClient = (client: Client) => {
 };
 
 /**
- * A grey band with a short label and the logos of cleared clients scrolling
+ * A grey band with a short two-line label and the logos of cleared clients scrolling
  * past (owner's call). Logos are copied into media from a link or uploaded;
  * rasters go through image optimization. Clients without a logo stay out;
  * with none, the band is not rendered.
@@ -65,15 +65,13 @@ const ClientsBand = async ({
       wrapperClassName="border-y border-border bg-bg-subtle"
       className="flex flex-col gap-4 py-8 lg:flex-row lg:items-center lg:gap-10"
     >
-      <H2
-        $size="ref"
-        $margin="0"
-        className="shrink-0 font-mono tracking-widest text-fg-muted uppercase"
-      >
+      {/* the heading's own line breaks set its lines; accent 700 on the
+          stone strip, as accent 500 is under 4.5:1 there */}
+      <H2 $size="h4" $margin="0" className="shrink-0 whitespace-pre-line">
         <Highlight
           text={heading}
           highlight={highlight}
-          className="text-accent-500"
+          className="text-marker-text"
         />
       </H2>
       <Marquee pauseLabel={labels.pause} playLabel={labels.play}>
