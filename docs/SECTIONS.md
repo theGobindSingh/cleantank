@@ -85,30 +85,11 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 
 ### Franchise (`/franchise`)
 
-Every section with buttons has the same two: Become a Franchise Partner (WhatsApp) first, then Call Us. The new sections carry no buttons of their own; the starter guide is a text link.
-
-1. Page intro section: "Start your own tank cleaning business. Step beyond jobs."
-2. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
-3. Value prop section, list: "Tank cleaning is repeat work."
-4. Franchise models section: "Three models, one system." Standard FOFO, Classic FOCS and Premium FOCO, each with its total investment, summary and package, and the financial disclaimer under them.
-5. Ruled list section, two lists: "What running it looks like." A normal week (with the kit) and the hard parts (INFO-BANK §8, How a partner joins). No earnings figures.
-6. Ruled list section, on stone: "What you get from us." (`#support`)
-7. Process section: "One process, every tank."
-8. Founder section, on stone
-9. Ruled list section, two lists: "Is this business right for you?" Who it suits and who it does not.
-10. Ruled list section, two lists: "How we choose partners." The steps from the first WhatsApp to training, and what we look for; the line says we never ask for money to apply.
-11. Credentials section, on stone: "Registrations you can check."
-12. Questions section: "Questions before you invest." Includes the cost questions to ask (CT-453).
-13. Closing band: "Call us for the full details."
-14. Track record strip: "Track record."
-
-### Franchise starter guide (`/franchise-guide`)
-
-The free guide, open to everyone: no form, nothing asks for a number. Held off production like `/franchise`. Only the hero and the closing band have working buttons; the starter guide's download button is greyed out until the file arrives. The hero has Become a Franchise Partner (WhatsApp) and Learn More, which jumps to "What running it looks like." (`#running`); the closing band has the same two as `/franchise`.
+The franchise starter guide, open to everyone: no form, nothing asks for a number. It was `/franchise-guide` until CT-474 (28 Nov 2026), which now redirects here; the earlier `/franchise` page is archived on CT-474. Held off production (CT-424). Only the hero and the closing band have working buttons; the starter guide's download button is greyed out until the file arrives. The hero has Become a Franchise Partner (WhatsApp) and Learn More, which jumps to "What running it looks like." (`#running`); the closing band has Become a Franchise Partner (WhatsApp) and Call Us.
 
 1. Hero section: "Make Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
 2. Value prop section, landscape: "Franchise Starter Guide.", with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production. On dev and staging its content is one raised white panel, on the section's usual white (CT-473 trial, docs/neumorphic.md).
-3. Franchise models section: "Your Business, Your Plan" ("Business" in accent). The same models and disclaimer as `/franchise`, as separate cards with the copy beside them from 1440 px.
+3. Franchise models section: "Your Business, Your Plan" ("Business" in accent). The three models (Standard FOFO, Classic FOCS, Premium FOCO) with the financial disclaimer, as separate cards with the copy beside them from 1440 px.
 4. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
 5. Ruled list section, on stone: "What running it looks like." (`#running`)
 6. Ruled list section, on stone: "Training and support."

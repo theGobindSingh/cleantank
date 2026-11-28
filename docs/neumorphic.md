@@ -4,9 +4,9 @@ Scoped experiments, not a site default. DESIGN.md's no-shadow rule still holds e
 
 ## Scope
 
-- Only the separate franchise model cards (`isSeparate`) in "Your Business, Your Plan" on `/franchise-guide`, `/hi/franchise-guide` and `/pa/franchise-guide`.
+- Only the separate franchise model cards (`isSeparate`) in "Your Business, Your Plan" on `/franchise`, `/hi/franchise` and `/pa/franchise` (the page was `/franchise-guide` until CT-474).
 - Dev and staging only (James's call, 28 Nov 2026). Not for production without James's OK and the franchise release gates.
-- `/franchise` keeps its ruled grid, and no other block uses this. There is no shared shadow token or utility, and no CMS toggle.
+- No other block uses this. There is no shared shadow token or utility, and no CMS toggle.
 
 ## Where it lives
 
@@ -74,7 +74,7 @@ Layout, column count, gaps (24 px, 32 px from `lg`), padding (24 / 40 px, 24 px 
 
 ## Verified on
 
-Staging, 28 Nov 2026, at 320, 768, 1024, 1440 and 1920 px, in en, hi and pa: https://ct.letmecome.in/franchise-guide. The dev server (https://nextjsdev.letmecome.in) was down.
+Staging, 28 Nov 2026, at 320, 768, 1024, 1440 and 1920 px, in en, hi and pa: https://ct.letmecome.in/franchise-guide (now https://ct.letmecome.in/franchise, CT-474). The dev server (https://nextjsdev.letmecome.in) was down.
 
 Screenshots: [after, 1440](https://www.letmecome.in/ct470-after-1440.png), [after, 375](https://www.letmecome.in/ct470-after-375.png), [before, CT-467 flat cards, 1440](https://www.letmecome.in/ct470-before-1440.png).
 
@@ -116,13 +116,13 @@ A second trial on a white ground, with one centered shadow in light mode (James'
 
 ### Scope
 
-- Only the "Franchise Starter Guide." value prop on `/franchise-guide`, `/hi/franchise-guide` and `/pa/franchise-guide`, the section right under the hero (CT-463, landscape photo).
+- Only the "Franchise Starter Guide." value prop on `/franchise`, `/hi/franchise` and `/pa/franchise`, the section right under the hero (CT-463, landscape photo).
 - The section's content (headline, text, pending button with its note, booklet mockup) sits in one raised panel. Nothing inside is raised on its own: the photo frame and the button keep their own styling.
-- Every other value prop, `/franchise` and the CT-470 cards are unchanged. The `valueProp` default stays flat.
+- Every other value prop and the CT-470 cards are unchanged. The `valueProp` default stays flat.
 
 ### Where it lives
 
-- Switch: the `raisedPanel` checkbox on the value prop block in Payload (page `franchise-guide`, first `valueProp` block), off by default. It adds `value-prop-ground-raised` and the section padding to the section, and `value-prop-panel-raised`, a 1 px border, `rounded-sm` and the panel padding to the content.
+- Switch: the `raisedPanel` checkbox on the value prop block in Payload (page `franchise`, first `valueProp` block), off by default. It adds `value-prop-ground-raised` and the section padding to the section, and `value-prop-panel-raised`, a 1 px border, `rounded-sm` and the panel padding to the content.
 - Styles: `src/blocks/value-prop/raised.css`, imported from `src/styles/components.css`. Its own copies of the properties and the shadow, so removing CT-470 doesn't touch it, and the reverse.
 - Migration `20261128_030807_value_prop_raised_panel` adds the column.
 
