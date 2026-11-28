@@ -1,14 +1,14 @@
 /*
  * The clients band's marquee (owner's call; docs/DESIGN.md, Motion): the
  * track holds the list twice and slides left by one copy, so it loops without
- * a seam. It stops on hover, on focus and with the pause button, and under
- * reduced motion it stays still and scrolls by hand.
+ * a seam. It stops at once on focus and with the pause button; hover brakes it
+ * gradually (marquee.tsx). Under reduced motion it stays still and scrolls by
+ * hand.
  */
 @utility marquee-track {
   animation: marquee var(--marquee-duration) linear infinite;
 
   [data-paused] &,
-  &:hover,
   &:focus-within {
     animation-play-state: paused;
   }
