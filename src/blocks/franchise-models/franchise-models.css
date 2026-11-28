@@ -1,26 +1,17 @@
 /*
  * CT-470 trial, dev and staging only: "Your Business, Your Way" on
  * /franchise-guide as molded relief. The section and its separate franchise
- * model cards share one pale, cool ground; each card gets a white highlight up
- * and left and a cool blue-grey shadow down and right. A temporary, scoped
- * exception to DESIGN.md's no-shadow rule (James's call, 28 Nov 2026). The
- * colors are local palette mixes, not tokens: about #EAEDF1 for the ground and
- * #C3CBD2 for the shadow. Switched by IS_RAISED in index.tsx. No visible
+ * model cards share the brand's warm stone ground (bg-subtle, grey 50); each
+ * card gets a white highlight up and left and a warm grey 300 shadow down and
+ * right. A temporary, scoped exception to DESIGN.md's no-shadow rule (James's
+ * call, 28 Nov 2026). Switched by IS_RAISED in index.tsx. No visible
  * stroke: the 1 px border stays transparent to keep the box size, and
  * forced-colors mode, which drops shadows, draws it as an outline.
  */
 @utility franchise-ground-raised {
-  --raised-ground: color-mix(
-    in srgb,
-    var(--color-primary-100),
-    var(--color-grey-50)
-  );
+  --raised-ground: var(--color-bg-subtle);
   --raised-light: var(--color-white);
-  --raised-dark: color-mix(
-    in srgb,
-    var(--color-primary-200),
-    var(--color-grey-300)
-  );
+  --raised-dark: var(--color-grey-300);
   background-color: var(--raised-ground);
 
   :root:has(meta[name="color-scheme"][content="dark"]) &,
