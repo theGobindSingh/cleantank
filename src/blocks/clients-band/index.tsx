@@ -7,6 +7,7 @@ import config from "@payload-config";
 import Image from "next/image";
 import { getPayload } from "payload";
 import type { CSSProperties } from "react";
+import FitLine from "./fit-line";
 import Marquee from "./marquee";
 
 interface ClientsBandProps {
@@ -60,6 +61,17 @@ const ClientsBand = async ({ locale }: ClientsBandProps) => {
   if (docs.length === 0) return null;
 
   const list = docs.map(renderClient);
+  // each line of the field is a line on the site
+  const [first = "", ...rest] = heading.split("\n");
+  const renderLine = (line: string) => {
+    return (
+      <Highlight
+        text={line}
+        highlight={highlight}
+        className="text-accent-500"
+      />
+    );
+  };
 
   return (
     // no rules above or below the strip (James's call, CT-465). The original
@@ -70,21 +82,25 @@ const ClientsBand = async ({ locale }: ClientsBandProps) => {
       wrapperClassName="bg-bg-subtle"
       className="flex flex-col gap-4 py-8 lg:flex-row lg:items-center lg:gap-10"
     >
-      {/* the heading's own line breaks set its lines; the highlight stays
-          accent 500 on the stone strip at 2.62:1, and the type is the
-          buttons' (Anek 700 at normal width, 0.06em tracking) at 1.25x the
-          H4 size (James's call, CT-465) */}
+      {/* the highlight stays accent 500 on the stone strip at 2.62:1, and the
+          type is the buttons' (Anek 700 at normal width, 0.06em tracking) at
+          1.25x the H4 size. In English the second line grows to the first
+          line's width (James's call, CT-465); hi and pa keep one size */}
       <H2
         $margin="0"
         style={{ fontSize: "calc(var(--fs-h4) * 1.25)" }}
-        className="shrink-0 font-sans tracking-[0.06em] whitespace-pre-line font-stretch-normal"
+        className="shrink-0 font-sans tracking-[0.06em] font-stretch-normal"
         data-contrast-exception=""
       >
-        <Highlight
-          text={heading}
-          highlight={highlight}
-          className="text-accent-500"
-        />
+        <span className="block w-fit">{renderLine(first)}</span>
+        {rest.length > 0 &&
+          (locale === "en" ? (
+            <FitLine>{renderLine(rest.join("\n"))}</FitLine>
+          ) : (
+            <span className="block whitespace-pre-line">
+              {renderLine(rest.join("\n"))}
+            </span>
+          ))}
       </H2>
       <Marquee pauseLabel={labels.pause} playLabel={labels.play}>
         <div className="min-w-0 grow overflow-hidden mask-x-from-90% mask-x-to-100% motion-reduce:overflow-x-auto">
