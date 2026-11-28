@@ -85,21 +85,14 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 
 ### Franchise (`/franchise`)
 
-The franchise starter guide, open to everyone: no form, nothing asks for a number. It was `/franchise-guide` until CT-474 (28 Nov 2026), which now redirects here; the earlier `/franchise` page is archived on CT-474. Held off production (CT-424). Only the hero and the closing band have working buttons; the starter guide's download button is greyed out until the file arrives. The hero has Become a Franchise Partner (WhatsApp) and Learn More, which jumps to "What running it looks like." (`#running`); the closing band has Become a Franchise Partner (WhatsApp) and Call Us.
+The franchise starter guide, open to everyone: no form, nothing asks for a number. It was `/franchise-guide` until CT-474 (28 Nov 2026), which now redirects here; the earlier `/franchise` page is archived on CT-474. CT-475 (28 Nov 2026) removed seven sections: running it, training, fit, what is hard, questions for the call, homework in your town and checking any offer. Held off production (CT-424). Only the hero and the closing band have working buttons; the starter guide's download button is greyed out until the file arrives. The hero has Become a Franchise Partner (WhatsApp) and Learn More, which jumps to the starter guide section (`#guide`); the closing band has Become a Franchise Partner (WhatsApp) and Call Us.
 
 1. Hero section: "Make Work Your Way.", with "Your" highlighted, over a night (left) and day (right) aerial view of a planned city like the Tricity (CT-459). The two images are AI-made, and their alt text says so.
-2. Value prop section, landscape: "Franchise Starter Guide.", with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production. On dev and staging its content is one raised white panel, on the section's usual white (CT-473 trial, docs/neumorphic.md).
+2. Value prop section, landscape: "Franchise Starter Guide." (`#guide`), with "Starter" highlighted, beside a mockup of the guide booklet. Placeholder body copy and a greyed-out Download Franchise Guide button until the guide file and final copy arrive (CT-463); never release them to production. On dev and staging its content is one raised white panel, on the section's usual white (CT-473 trial, docs/neumorphic.md).
 3. Franchise models section: "Your Business, Your Plan" ("Business" in accent). The three models (Standard FOFO, Classic FOCS, Premium FOCO) with the financial disclaimer, as separate cards with the copy beside them from 1440 px.
 4. Clients strip: "WHO WE CLEAN:", on two lines (CT-465)
-5. Ruled list section, on stone: "What running it looks like." (`#running`)
-6. Ruled list section, on stone: "Training and support."
-7. Ruled list section, two lists: "Is this business right for you?"
-8. Ruled list section, on stone: "What is hard about this work."
-9. Value prop section, list: "How a partner joins." From the first call to training; no money before signing.
-10. Ruled list section, two lists, on stone: "Questions to ask us on the call." Costs beyond the package and the agreement, as questions only.
-11. Story section: "Do your homework in your own town."
-12. Ruled list section, on stone: "How to check any franchise offer."
-13. Closing band: "Call us when you are ready."
-14. Track record strip: "Track record."
+5. Value prop section, list: "How a partner joins." From the first call to training; no money before signing.
+6. Closing band: "Call us when you are ready."
+7. Track record strip: "Track record."
 
 `/organisations` has no sections yet. When a page changes, update its list here in the same change.

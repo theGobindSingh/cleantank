@@ -67,8 +67,8 @@ Local entrepreneurs with a service mindset and limited capital who want a proven
 - Use the main number (`phone` in `src/site.ts`) for calls and WhatsApp. The site has no separate franchise number (owner's call, 19 Nov 2026).
 - Enquiry is by call or WhatsApp only, through the page's two buttons (Become a Franchise Partner on WhatsApp first, then Call Us). There is no franchise form (owner's call, 20 Nov 2026). The page's sections are listed in docs/SECTIONS.md.
 - The prospect starts every conversation, on WhatsApp or by phone. We don't start follow-ups and send no automated messages, so there is no updates list, no email option and no call-slot picker (owner's calls, 28 Nov 2026, CT-442). Enquiries are logged by staff in Payload, staff only.
-- Everything on the page is open to every visitor: the models and totals, what running the business looks like, how we choose partners and the starter guide. Nothing asks for a number first. The local-plan worksheet is not on the site; staff give it to a prospect after screening.
-- How a partner joins, the criteria and the hard things we may say in public are in INFO-BANK §8 (How a partner joins). For costs beyond the package the page only lists the questions to ask on the call; it makes no statement about them.
+- Everything on the page is open to every visitor: the models and totals, how a partner joins and the starter guide. Nothing asks for a number first. The local-plan worksheet is not on the site; staff give it to a prospect after screening.
+- How a partner joins, the criteria and the hard things we may say in public are in INFO-BANK §8 (How a partner joins). The page makes no statement about costs beyond the package.
 - A declined applicant hears the reason if they ask.
 
 ### Shared home page (`/`)
