@@ -3,7 +3,7 @@
 // them into it, "flat" restores CT-467's cards and the section's own background.
 type Relief = "flat" | "raised" | "recessed";
 
-export const CARD_RELIEF = "recessed" as Relief;
+export const CARD_RELIEF = "raised" as Relief;
 
 export const IS_RAISED = CARD_RELIEF !== "flat";
 

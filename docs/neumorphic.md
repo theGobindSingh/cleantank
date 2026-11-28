@@ -10,7 +10,7 @@ Scoped experiments, not a site default. DESIGN.md's no-shadow rule still holds e
 
 ## Where it lives
 
-- Switch: `CARD_RELIEF` in `src/blocks/franchise-models/relief.ts`, one of `"flat"`, `"raised"` or `"recessed"`. Anything but `"flat"` adds `franchise-ground-raised` to the section wrapper. `"raised"` adds `franchise-card-raised` to each separate card, and `"recessed"` adds `franchise-card-recessed` ([below](#recessed-variant-experimental)). Staging runs `"recessed"` since the CT-470 recessed test.
+- Switch: `CARD_RELIEF` in `src/blocks/franchise-models/relief.ts`, one of `"flat"`, `"raised"` or `"recessed"`. Anything but `"flat"` adds `franchise-ground-raised` to the section wrapper. `"raised"` adds `franchise-card-raised` to each separate card, and `"recessed"` adds `franchise-card-recessed` ([below](#recessed-variant-experimental)). Staging runs `"raised"`: James rejected the recessed test (28 Nov 2026), which stays in the code, inactive.
 - Styles: `src/blocks/franchise-models/franchise-models.css`, imported from `src/styles/components.css`.
 
 ## Parameters
@@ -85,7 +85,7 @@ Screenshots: [after, 1440](https://www.letmecome.in/ct470-after-1440.png), [afte
 
 ## Recessed variant (experimental)
 
-James asked to test the inner-shadow look on the same three cards (28 Nov 2026). The raised parameters above stay as they are; this is a second setting of the same switch, dev and staging only.
+James asked to test the inner-shadow look on the same three cards (28 Nov 2026), then rejected it the same day, so the switch is back on `"raised"`. The variant stays as an inactive second setting of the same switch, dev and staging only.
 
 - Class: `franchise-card-recessed`, in `src/blocks/franchise-models/franchise-models.css`.
 - Ground, fill, border, radius, forced colors, layout and content: the same as the raised cards. It reads the same three properties, so there are no new colors.
