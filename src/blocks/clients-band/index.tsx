@@ -1,4 +1,4 @@
-import type { Client, ClientsBandBlock, Media } from "@/payload-types";
+import type { Client, Media } from "@/payload-types";
 import CommonFullWidthWrapper from "@components/common-full-width-wrapper";
 import Highlight from "@components/highlight";
 import { H2 } from "@components/html";
@@ -9,7 +9,7 @@ import { getPayload } from "payload";
 import type { CSSProperties } from "react";
 import Marquee from "./marquee";
 
-interface ClientsBandProps extends ClientsBandBlock {
+interface ClientsBandProps {
   locale: Locale;
 }
 
@@ -40,13 +40,14 @@ const renderClient = (client: Client) => {
  * rasters go through image optimization. Clients without a logo stay out;
  * with none, the band is not rendered.
  */
-const ClientsBand = async ({
-  heading,
-  highlight,
-  locale,
-}: ClientsBandProps) => {
+const ClientsBand = async ({ locale }: ClientsBandProps) => {
   const { clients: labels } = getDictionary(locale);
   const payload = await getPayload({ config });
+  // one heading for every page with the strip
+  const { heading, highlight } = await payload.findGlobal({
+    slug: "clientsBand",
+    locale,
+  });
   const { docs } = await payload.find({
     collection: "clients",
     where: {
@@ -65,13 +66,18 @@ const ClientsBand = async ({
       wrapperClassName="border-y border-border bg-bg-subtle"
       className="flex flex-col gap-4 py-8 lg:flex-row lg:items-center lg:gap-10"
     >
-      {/* the heading's own line breaks set its lines; accent 700 on the
-          stone strip, as accent 500 is under 4.5:1 there */}
-      <H2 $size="h4" $margin="0" className="shrink-0 whitespace-pre-line">
+      {/* the heading's own line breaks set its lines; the highlight stays
+          accent 500 on the stone strip at 2.62:1 (James's call, CT-465) */}
+      <H2
+        $size="h4"
+        $margin="0"
+        className="shrink-0 whitespace-pre-line"
+        data-contrast-exception=""
+      >
         <Highlight
           text={heading}
           highlight={highlight}
-          className="text-marker-text"
+          className="text-accent-500"
         />
       </H2>
       <Marquee pauseLabel={labels.pause} playLabel={labels.play}>

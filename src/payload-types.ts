@@ -106,10 +106,12 @@ export interface Config {
   globals: {
     process: Process;
     homePrices: HomePrice;
+    clientsBand: ClientsBand;
   };
   globalsSelect: {
     process: ProcessSelect<false> | ProcessSelect<true>;
     homePrices: HomePricesSelect<false> | HomePricesSelect<true>;
+    clientsBand: ClientsBandSelect<false> | ClientsBandSelect<true>;
   };
   locale: 'en' | 'hi' | 'pa';
   widgets: {
@@ -495,14 +497,6 @@ export interface TrustBandBlock {
  * via the `definition` "ClientsBandBlock".
  */
 export interface ClientsBandBlock {
-  /**
-   * A short label beside the logos. Each line of the field is a line on the site.
-   */
-  heading: string;
-  /**
-   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
-   */
-  highlight?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'clientsBand';
@@ -1375,8 +1369,6 @@ export interface TrustBandBlockSelect<T extends boolean = true> {
  * via the `definition` "ClientsBandBlock_select".
  */
 export interface ClientsBandBlockSelect<T extends boolean = true> {
-  heading?: T;
-  highlight?: T;
   id?: T;
   blockName?: T;
 }
@@ -1829,6 +1821,23 @@ export interface HomePrice {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clientsBand".
+ */
+export interface ClientsBand {
+  id: number;
+  /**
+   * A short label beside the logos, on every page with the strip. Each line of the field is a line on the site.
+   */
+  heading: string;
+  /**
+   * Words or phrases from the heading to show in coral, separated by commas. For example: Clean, easy
+   */
+  highlight?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "process_select".
  */
 export interface ProcessSelect<T extends boolean = true> {
@@ -1870,6 +1879,17 @@ export interface HomePricesSelect<T extends boolean = true> {
         id?: T;
       };
   gst?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clientsBand_select".
+ */
+export interface ClientsBandSelect<T extends boolean = true> {
+  heading?: T;
+  highlight?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -5,6 +5,7 @@ import { franchiseEnquiries } from "@/collections/franchise-enquiries";
 import { media } from "@/collections/media";
 import { pages } from "@/collections/pages";
 import { users } from "@/collections/users";
+import { clientsBandGlobal } from "@/globals/clients-band";
 import { homePrices } from "@/globals/home-prices";
 import { processGlobal } from "@/globals/process";
 import { postgresAdapter } from "@payloadcms/db-postgres";
@@ -41,7 +42,7 @@ export default buildConfig({
     testimonials,
     franchiseEnquiries,
   ],
-  globals: [processGlobal, homePrices],
+  globals: [processGlobal, homePrices, clientsBandGlobal],
   editor: lexicalEditor(),
   // Same codes as src/i18n/config.ts. Mark a field `localized: true` to translate it;
   // a missing translation falls back to English.

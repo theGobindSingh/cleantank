@@ -42,6 +42,7 @@ import * as migration_20261127_194332_process_is_stacked from './20261127_194332
 import * as migration_20261127_222839_franchise_enquiries from './20261127_222839_franchise_enquiries';
 import * as migration_20261127_232520_hero_slider_labels_story_anchor from './20261127_232520_hero_slider_labels_story_anchor';
 import * as migration_20261127_235258_value_prop_link_pending from './20261127_235258_value_prop_link_pending';
+import * as migration_20261128_003247_clients_band_global from './20261128_003247_clients_band_global';
 
 export const migrations = [
   {
@@ -262,6 +263,11 @@ export const migrations = [
   {
     up: migration_20261127_235258_value_prop_link_pending.up,
     down: migration_20261127_235258_value_prop_link_pending.down,
-    name: '20261127_235258_value_prop_link_pending'
+    name: '20261127_235258_value_prop_link_pending',
+  },
+  {
+    up: migration_20261128_003247_clients_band_global.up,
+    down: migration_20261128_003247_clients_band_global.down,
+    name: '20261128_003247_clients_band_global'
   },
 ];

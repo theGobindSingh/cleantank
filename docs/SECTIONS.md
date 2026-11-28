@@ -12,7 +12,7 @@ The home page and `/homes` are the reference pages (docs/DESIGN.md, Page pattern
 | Page intro section | The top of an inner page: the heading, the coral Level Line, one line and buttons | `pageIntro` |
 | Value prop section | Why it matters: text on the left, one or two photos (photos variant, tall 1:2 or one wide landscape) or a numbered list (list variant) on the right | `valueProp` |
 | Price section | The calculator on the left and the price table on the right | `priceList` |
-| Clients strip | A thin stone strip of scrolling client logos | `clientsBand` |
+| Clients strip | A thin stone strip of scrolling client logos; its heading is the `clientsBand` global | `clientsBand` |
 | Story section | Text on the left, an optional photo on the right | `story` |
 | Comparison section | The story section with two texts side by side under small headings, such as our method against a usual wash | `story` |
 | Process section | The five numbered steps in a row; the detailed variant adds each step in full | `process` |

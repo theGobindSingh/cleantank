@@ -15,6 +15,8 @@ const themes = ["light", "dark"] as const;
 
 // Owner's call: text this size or bigger may fail colour contrast. Everything else must pass.
 const contrastExemptFontSize = 48;
+// The clients strip's heading highlight stays accent 500 on stone (James's call, CT-465).
+const contrastExceptionSelector = "[data-contrast-exception]";
 
 type Violations = Awaited<ReturnType<AxeBuilder["analyze"]>>["violations"];
 type Violation = Violations[number];
@@ -24,16 +26,24 @@ const isContrastViolation = (violation: Violation) => {
   return violation.id === "color-contrast";
 };
 
-const readFontSize = (element: Element) => {
-  return parseFloat(getComputedStyle(element).fontSize);
+const readIsExempt = (
+  element: Element,
+  [minFontSize, exceptionSelector]: [number, string],
+) => {
+  if (element.closest(exceptionSelector)) return true;
+  return parseFloat(getComputedStyle(element).fontSize) >= minFontSize;
 };
 
 const isExemptNode = async (page: Page, node: ViolationNode) => {
   const [selector, ...nested] = node.target;
   // axe nests the target for frames and shadow DOM; those get no exemption
   if (typeof selector !== "string" || nested.length > 0) return false;
-  const fontSize = await page.locator(selector).evaluate(readFontSize);
-  return fontSize >= contrastExemptFontSize;
+  return page
+    .locator(selector)
+    .evaluate(readIsExempt, [
+      contrastExemptFontSize,
+      contrastExceptionSelector,
+    ] as [number, string]);
 };
 
 const dropExemptNodes = async (page: Page, violation: Violation) => {
