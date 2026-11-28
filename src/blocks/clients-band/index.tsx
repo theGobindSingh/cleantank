@@ -67,11 +67,13 @@ const ClientsBand = async ({ locale }: ClientsBandProps) => {
       className="flex flex-col gap-4 py-8 lg:flex-row lg:items-center lg:gap-10"
     >
       {/* the heading's own line breaks set its lines; the highlight stays
-          accent 500 on the stone strip at 2.62:1 (James's call, CT-465) */}
+          accent 500 on the stone strip at 2.62:1, and the type is the
+          buttons' (Anek 700 at normal width, 0.06em tracking) at 1.25x the
+          H4 size (James's call, CT-465) */}
       <H2
-        $size="h4"
         $margin="0"
-        className="shrink-0 whitespace-pre-line"
+        style={{ fontSize: "calc(var(--fs-h4) * 1.25)" }}
+        className="shrink-0 font-sans tracking-[0.06em] whitespace-pre-line font-stretch-normal"
         data-contrast-exception=""
       >
         <Highlight
